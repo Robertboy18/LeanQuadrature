@@ -1,0 +1,49 @@
+Axioms:
+quadrature.quadrature_error :
+  forall (R : reals.Real.type) (a b : reals.Real.sort R),
+  Datatypes.is_true (preorder.Order.lt a b) ->
+  forall w : reals.Real.sort R -> reals.Real.sort R,
+  (forall
+     x : preorder.Order.Preorder.sort
+           (reals.Real.Exports.reals_Real__to__Order_Preorder R),
+   Datatypes.is_true (preorder.Order.le a x && preorder.Order.le x b) ->
+   Datatypes.is_true (preorder.Order.lt nmodule.Algebra.zero (w x))) ->
+  ssrbool.prop_in1
+    (ssrbool.mem
+       (classical_sets.mkset
+          (fun
+             x : order.Order.POrder.sort
+                   (reals.Real.Exports.reals_Real__to__Order_POrder R) =>
+           Datatypes.is_true
+             (ssrbool.in_mem x
+                (ssrbool.mem
+                   (interval.Interval (interval.BSide true a)
+                      (interval.BSide false b)))))))
+    (ssrbool.inPhantom
+       (forall
+          x : filter.Nbhs.sort
+                (num_topology.numFieldTopology.Real_sort__canonical__filter_Nbhs
+                   R),
+        filter.continuous_at x w)) ->
+  forall (n : nat) (roots : quadrature.roots_of_ortho_p a b w n)
+    (f : reals.Real.sort R -> reals.Real.sort R),
+  exists ξ : reals.Real.sort R,
+    Datatypes.is_true (preorder.Order.le a ξ && preorder.Order.le ξ b) /\
+    nmodule.Algebra.add (quadrature.intgal a b w f)
+      (nmodule.Algebra.opp (quadrature.G a b w n roots f)) =
+    ssralg.GRing.mul
+      (ssralg.GRing.mul
+         (derive.derive1n (ssrnat.addn (ssrnat.muln 2 n) 2) f ξ)
+         (ssralg.GRing.inv
+            (nmodule.Algebra.natmul
+               (ssralg.GRing.one
+                  (ssralg.GRing.UnitRing.Exports.GRing_UnitRing__to__GRing_PzSemiRing
+                     (reals.Real.Exports.reals_Real__to__GRing_UnitRing R)))
+               (ssrnat.factorial (ssrnat.addn (ssrnat.muln 2 n) 2)))))
+      (quadrature.intgal a b w
+         (fun x : reals.Real.sort R =>
+          ssrint.exprz (poly.horner (quadrature.ortho_p a b w (S n)) x)
+            (nmodule.Algebra.natmul
+               (ssralg.GRing.one
+                  ssrint.ssrint_int__canonical__GRing_PzSemiRing)
+               2)))

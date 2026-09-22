@@ -1,0 +1,4 @@
+Axioms:
+testfun_quadrature_error_bound :
+  quadrature.Legendre.quadrature_error_bound
+    spec_quadrules_highlevel.testfun_r n testfun_b

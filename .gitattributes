@@ -1,0 +1,5 @@
+# Unified-diff context retains its leading space and upstream whitespace.
+compcert/certification/configuration.patch -whitespace
+
+# Retain exact tool output and copied check inputs so their recorded hashes remain valid.
+evidence/*-logs/** -text -whitespace

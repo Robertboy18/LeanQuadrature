@@ -1,0 +1,15 @@
+.lake/
+.build/
+*.olean
+*.ilean
+__pycache__/
+*.py[cod]
+/dist/
+
+# Local editor and agent settings.
+AGENTS.md
+AGENT.md
+CLAUDE.md
+.codex/
+.claude/
+.cursor/

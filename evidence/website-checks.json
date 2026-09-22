@@ -1,0 +1,172 @@
+{
+  "checked_at": "2026-09-23T18:12:20.933Z",
+  "kind": "Local browser, equation, and navigation checks",
+  "explorer_cases": [
+    {
+      "function": "paper",
+      "nodes": 1,
+      "displayed_error": "0.158529015192"
+    },
+    {
+      "function": "paper",
+      "nodes": 2,
+      "displayed_error": "0.003559157113"
+    },
+    {
+      "function": "paper",
+      "nodes": 3,
+      "displayed_error": "0.000030789056"
+    },
+    {
+      "function": "paper",
+      "nodes": 4,
+      "displayed_error": "1.4045991e-7"
+    },
+    {
+      "function": "quartic",
+      "nodes": 1,
+      "displayed_error": "0.4"
+    },
+    {
+      "function": "quartic",
+      "nodes": 2,
+      "displayed_error": "0.177777777778"
+    },
+    {
+      "function": "quartic",
+      "nodes": 3,
+      "displayed_error": "0 \u2014 exact"
+    },
+    {
+      "function": "quartic",
+      "nodes": 4,
+      "displayed_error": "0 \u2014 exact"
+    },
+    {
+      "function": "cubic",
+      "nodes": 1,
+      "displayed_error": "0.666666666667"
+    },
+    {
+      "function": "cubic",
+      "nodes": 2,
+      "displayed_error": "0 \u2014 exact"
+    },
+    {
+      "function": "cubic",
+      "nodes": 3,
+      "displayed_error": "0 \u2014 exact"
+    },
+    {
+      "function": "cubic",
+      "nodes": 4,
+      "displayed_error": "0 \u2014 exact"
+    }
+  ],
+  "controls_checked": {
+    "convention": [
+      "count",
+      "index"
+    ],
+    "proof": [
+      "0",
+      "1",
+      "2",
+      "3"
+    ],
+    "route": [
+      "lean",
+      "bridge",
+      "rocq"
+    ],
+    "loop": [
+      "0",
+      "1",
+      "2"
+    ]
+  },
+  "layouts_checked": [
+    {
+      "width": 1440,
+      "body": 1440,
+      "document": 1440
+    },
+    {
+      "width": 768,
+      "body": 768,
+      "document": 768
+    },
+    {
+      "width": 390,
+      "body": 390,
+      "document": 390
+    }
+  ],
+  "page_errors": [],
+  "console_errors": [],
+  "external_requests": [],
+  "browser_version": "153.0.8010.36",
+  "initial_rendered_equations": 316,
+  "strict_katex": {
+    "equations": 298,
+    "errors": [],
+    "throwOnError": true,
+    "strict": "error",
+    "trust": false
+  },
+  "static_equations_extracted": 298,
+  "counterexample_and_theme_checked": true,
+  "duplicate_ids": [],
+  "local_links_checked": 113,
+  "normalization_section_checked": true,
+  "normalization_equation_fits_phone_width": true,
+  "source_sha256": {
+    "docs/interactive/index.html": "b7863ffb0ae346631904ba12e291c90553e7190896bf286aff9904e2681d4752",
+    "docs/interactive/app.js": "a4226ee249a67d80465ff6d1ab6d8bef468b2fddf119d6daae8b5f89a59ed242",
+    "docs/interactive/styles.css": "b2c90d9abc1e1cebdfdff20bc3044dde6a5d268a1028762126385b65d5811691",
+    "docs/interactive/favicon.svg": "2c94f0f40407c24934c858176639b95da6f1fbd2d69913a2b9b473945d5156c2",
+    "docs/interactive/vendor/katex/katex.min.js": "10a91b479cd927446ceb60409fb0d72b5d0d05eaf446c9e52fafd64058c84540",
+    "docs/interactive/vendor/katex/katex.min.css": "15c7fee15321f33725febf8fe624d12a76fbf8efe27c02307273e82a6478d0db",
+    "docs/interactive/vendor/katex/auto-render.min.js": "e5372d199bcdae8b4de71d0f7ceba72a4ba12774a27c60a6f1f77d03b3228ee4",
+    "docs/interactive/vendor/katex/fonts/KaTeX_AMS-Regular.woff2": "0cdd387c9590a1a9f9794560022dbb59654a7d86f187aa0c81495ad42d3a7308",
+    "docs/interactive/vendor/katex/fonts/KaTeX_Caligraphic-Bold.woff2": "de7701e42cf1f4cf0b766c03fb27977207eee2f4fd5d76fa82188406da43ea4c",
+    "docs/interactive/vendor/katex/fonts/KaTeX_Caligraphic-Regular.woff2": "5d53e70ad607c2352162dec9e0923fb54ecdafaccbf604cd8dcf7d00facb989b",
+    "docs/interactive/vendor/katex/fonts/KaTeX_Fraktur-Bold.woff2": "74444efd593c005e3f4573b44524704c0af0a937fe911cca9e94068d0d140d3f",
+    "docs/interactive/vendor/katex/fonts/KaTeX_Fraktur-Regular.woff2": "51814d270d06ff0255dba0799994fa4d8c84d11f09951d47595f4abb1f3602dc",
+    "docs/interactive/vendor/katex/fonts/KaTeX_Main-Bold.woff2": "0f60d1b897938ec918c8ce073092411baf9438f6739465693ff18b0f9d20b021",
+    "docs/interactive/vendor/katex/fonts/KaTeX_Main-BoldItalic.woff2": "99cd42a3c072d918f2f44984a807cf7aa16e13545fd0875fc07c6c65f99e715b",
+    "docs/interactive/vendor/katex/fonts/KaTeX_Main-Italic.woff2": "97479ca6cce906abc961ecac96faa5f9ca2e61b8e7670d475826bcdee9a7c267",
+    "docs/interactive/vendor/katex/fonts/KaTeX_Main-Regular.woff2": "c2342cd8b869e01752a9321dc17213fc40d4d04c79688c1d43f2cf316abd7866",
+    "docs/interactive/vendor/katex/fonts/KaTeX_Math-BoldItalic.woff2": "dc47344dbb6cb5b655c8460d561f4df5f501b90c804ad3c6cec65fe322351ab1",
+    "docs/interactive/vendor/katex/fonts/KaTeX_Math-Italic.woff2": "7af58c5ec8f132a2ddde9027c6d7814decce4d3b822a11192a42a20e2e973264",
+    "docs/interactive/vendor/katex/fonts/KaTeX_SansSerif-Bold.woff2": "e99ae51144bf1232efcc1bfe5add36262c6866b0faab24fa75740e1b98577a62",
+    "docs/interactive/vendor/katex/fonts/KaTeX_SansSerif-Italic.woff2": "00b26ac825e2095056396e0553b8ac26d3f8ad158c3826e28b4c45b385c4714a",
+    "docs/interactive/vendor/katex/fonts/KaTeX_SansSerif-Regular.woff2": "68e8c73ef42afd3ccec58bf0fba302cce448938e7fc020a5e31f8a952eee1342",
+    "docs/interactive/vendor/katex/fonts/KaTeX_Script-Regular.woff2": "036d4e95149b69ff9bcc0cd55771efeb25ffa3947293e69acd78d5ac328c684b",
+    "docs/interactive/vendor/katex/fonts/KaTeX_Size1-Regular.woff2": "6b47c40166b6dbe21a5dfca7718413f2147fd2399be1ba605d8ad39cedf25dfe",
+    "docs/interactive/vendor/katex/fonts/KaTeX_Size2-Regular.woff2": "d04c54219f9eaec6d4d4fd42dfb28785975a4794d6b2fc71e566b9cd6db842dd",
+    "docs/interactive/vendor/katex/fonts/KaTeX_Size3-Regular.woff2": "73d591271b1604960cb10bb90fee021670af7297017e0e98480b332d11f51995",
+    "docs/interactive/vendor/katex/fonts/KaTeX_Size4-Regular.woff2": "a4af7d414440a1c1790825cfb700cf9cf43b0f2c4b04f0ebc523011ad9853ec0",
+    "docs/interactive/vendor/katex/fonts/KaTeX_Typewriter-Regular.woff2": "71d517d67827787cfabdf186914cc3358eda539e37931941f2b2fd4a21f68c0b"
+  },
+  "method": [
+    "Playwright 1.63.0 drove local Google Chrome through a file URL.",
+    "Real clicks and keyboard input exercised all twelve explorer cases, every convention/proof/route/loop choice, the theme switch, and the counterexample button.",
+    "Links collected across the controls were checked for local targets; this page's anchors were checked for uniqueness.",
+    "The bundled KaTeX rendered all static equations with throwOnError: true, strict: error, and trust: false.",
+    "Desktop, tablet, and phone layouts were checked for page overflow with every reading panel expanded.",
+    "Inspected desktop and phone screenshots of the introduction, library attribution, and C-to-Clight preservation equation for readable text and correct equation display."
+  ],
+  "scope": "Checks of the local website and bundled assets. External destinations were not fetched. These rendering and interaction checks do not verify the mathematical proofs.",
+  "completed_at": "2026-09-23T18:21:27.340916+00:00",
+  "visual_sections_checked": {
+    "desktop": [
+      "introduction",
+      "library attribution"
+    ],
+    "phone": [
+      "library attribution",
+      "C-to-Clight preservation"
+    ]
+  }
+}

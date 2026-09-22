@@ -1,0 +1,6 @@
+Warning: /review/simple_cfem/LAProof (used in -R or -Q) is not a subdirectory of the current directory
+
+Warning: No common logical root.
+Warning: In this case the -docroot option should be given.
+Warning: Otherwise the install-doc target is going to install files
+Warning: in orphan_LAProof_CFEM

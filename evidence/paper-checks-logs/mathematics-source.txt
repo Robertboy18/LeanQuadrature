@@ -1,0 +1,81 @@
+import Quadrature.Analysis.Remainder
+import Quadrature.Analysis.Recurrence
+import Quadrature.Legendre.Identification
+import PDE.Symbolic.Continuum.Quadrature.GaussLegendrePeano
+import Mathlib.Analysis.Calculus.Taylor
+
+#check PDE.Symbolic.Continuum.QuadratureRule
+#check PDE.Symbolic.Continuum.QuadratureRule.normalizedValue
+#check PDE.Symbolic.Continuum.QuadratureRule.valueOn
+#check PDE.Symbolic.Continuum.QuadratureRule.ExactUpTo
+#check PDE.Symbolic.Continuum.QuadratureRule.normalizedValue_add
+#check PDE.Symbolic.Continuum.QuadratureRule.normalizedValue_const_mul
+#check PDE.Symbolic.Continuum.QuadratureRule.exactFor_polynomial
+#check PDE.Symbolic.Continuum.QuadratureRule.valueOn_eq_integral_of_exactFor
+#check PDE.Symbolic.Continuum.QuadratureRule.weightVariation
+#check PDE.Symbolic.Continuum.QuadratureRule.abs_valueOn_sub_le
+#check PDE.Symbolic.Continuum.gaussLegendreTwoRule
+#check PDE.Symbolic.Continuum.gaussLegendreTwoRule.exactUpTo_three
+#check PDE.Symbolic.Continuum.gaussLegendreTwoRule.exactFor_polynomial
+#check PDE.Symbolic.Continuum.gaussLegendreTwoRule.valueOn_eq_integral_polynomial
+#check PDE.Symbolic.Continuum.gaussLegendreTwoRule.weightVariation_eq_one
+#check PDE.Symbolic.Continuum.norm_integral_sub_gaussLegendreTwoRule_valueOn_le
+#check PDE.Symbolic.Continuum.gaussLegendreTwoRule.sharpCert
+#check Quadrature.polynomialIntegral
+#check Quadrature.momentInnerCore
+#check Quadrature.exists_monic_orthogonal
+#check Quadrature.orthogonalPolynomial
+#check Quadrature.orthogonalPolynomial_monic
+#check Quadrature.orthogonalPolynomial_degree
+#check Quadrature.orthogonalPolynomial_orthogonal
+#check Quadrature.orthogonalPolynomial_unique
+#check Quadrature.degree_sub_coeff_mul_lt
+#check Quadrature.orthogonalPolynomial_zero
+#check Quadrature.orthogonalPolynomial_one
+#check Quadrature.recurrenceAlpha
+#check Quadrature.recurrenceBeta
+#check Quadrature.recurrenceBeta_eq_norm_ratio
+#check Quadrature.recurrenceBeta_pos
+#check Quadrature.orthogonalPolynomial_recurrence
+#check Quadrature.orthogonal_factor_has_root
+#check Quadrature.orthogonal_squarefree
+#check Quadrature.orthogonal_splits
+#check Quadrature.orthogonal_root_mem_Ioo
+#check Quadrature.interpolatoryWeight
+#check Quadrature.interpolatory_exact
+#check Quadrature.gaussian_exact
+#check Quadrature.gaussian_weight_pos
+#check Quadrature.exists_gaussian_quadrature
+#check Quadrature.GaussianRule
+#check Quadrature.GaussianRule.sum_weights
+#check Quadrature.GaussianRule.weight_le_mass
+#check Quadrature.GaussianRule.remainder
+#check Quadrature.GaussianRule.remainder_of_derivative_chain
+#check Quadrature.GaussianRule.abs_error_le
+#check Quadrature.gaussian_rules_converge
+#check Quadrature.positive_rules_converge
+#check Quadrature.hermiteInterpolant
+#check Quadrature.hermiteInterpolant_eval
+#check Quadrature.hermiteInterpolant_derivative_eval
+#check Quadrature.hermiteInterpolant_natDegree_lt
+#check Quadrature.exists_derivative_chain_zero_of_double_zeros
+#check Quadrature.hermite_remainder
+#check Quadrature.derivative_chain_within
+#check Quadrature.integral_eq_value_mul_of_pointwise_image
+#check Quadrature.Legendre.two
+#check Quadrature.Legendre.two_exact
+#check Quadrature.Legendre.monicPolynomial
+#check Quadrature.Legendre.one_nodal_eq
+#check Quadrature.Legendre.two_nodal_eq
+#check Quadrature.Legendre.three_nodal_eq
+#check Quadrature.Legendre.four_nodal_eq
+#check taylor_mean_remainder_lagrange
+#check taylor_mean_remainder_lagrange_iteratedDeriv
+
+#print axioms Quadrature.exists_gaussian_quadrature
+#print axioms Quadrature.orthogonalPolynomial_recurrence
+#print axioms Quadrature.GaussianRule.remainder
+#print axioms Quadrature.hermite_remainder
+#print axioms Quadrature.gaussian_rules_converge
+#print axioms PDE.Symbolic.Continuum.norm_integral_sub_gaussLegendreTwoRule_valueOn_le
+#print axioms taylor_mean_remainder_lagrange

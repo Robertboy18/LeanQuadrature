@@ -1,0 +1,67 @@
+Axioms:
+quadrature.Rintegral_gt_0 :
+  forall (R : reals.Real.type) (a b : reals.Real.sort R)
+    (h : reals.Real.sort R -> reals.Real.sort R),
+  ssrbool.prop_in1
+    (ssrbool.mem
+       (classical_sets.mkset
+          (fun
+             x : order.Order.POrder.sort
+                   (reals.Real.Exports.reals_Real__to__Order_POrder R) =>
+           Datatypes.is_true
+             (ssrbool.in_mem x
+                (ssrbool.mem
+                   (interval.Interval (interval.BSide true a)
+                      (interval.BSide false b)))))))
+    (ssrbool.inPhantom
+       (forall
+          x : filter.Nbhs.sort
+                (num_topology.numFieldTopology.Real_sort__canonical__filter_Nbhs
+                   R),
+        filter.continuous_at x h)) ->
+  ssrbool.prop_in1
+    (ssrbool.mem
+       (classical_sets.mkset
+          (fun
+             x : order.Order.POrder.sort
+                   (reals.Real.Exports.reals_Real__to__Order_POrder R) =>
+           Datatypes.is_true
+             (ssrbool.in_mem x
+                (ssrbool.mem
+                   (interval.Interval (interval.BSide true a)
+                      (interval.BSide false b)))))))
+    (ssrbool.inPhantom
+       (forall x : reals.Real.sort R,
+        Datatypes.is_true (preorder.Order.le nmodule.Algebra.zero (h x)))) ->
+  ~
+  ssrbool.prop_in1
+    (ssrbool.mem
+       (classical_sets.mkset
+          (fun
+             x : order.Order.POrder.sort
+                   (reals.Real.Exports.reals_Real__to__Order_POrder R) =>
+           Datatypes.is_true
+             (ssrbool.in_mem x
+                (ssrbool.mem
+                   (interval.Interval (interval.BSide true a)
+                      (interval.BSide false b)))))))
+    (ssrbool.inPhantom
+       (forall x : reals.Real.sort R,
+        Datatypes.is_true (eqtype.eq_op (h x) nmodule.Algebra.zero))) ->
+  Datatypes.is_true
+    (preorder.Order.lt nmodule.Algebra.zero
+       (lebesgue_Rintegral.Rintegral lebesgue_measure.lebesgue_measure
+          (classical_sets.mkset
+             (fun
+                x : order.Order.POrder.sort
+                      (reals.Real.Exports.reals_Real__to__Order_POrder R) =>
+              Datatypes.is_true
+                (ssrbool.in_mem x
+                   (ssrbool.mem
+                      (interval.Interval (interval.BSide true a)
+                         (interval.BSide false b))))))
+          (fun
+             x : measurable_structure.Measurable.sort
+                   (measurable_structure.measurable_structure_g_sigma_algebraType__canonical__measurable_structure_Measurable
+                      measurable_structure.measurable) =>
+           h x)))

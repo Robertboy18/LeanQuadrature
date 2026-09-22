@@ -1,0 +1,2 @@
+Axioms:
+quadrature2.trigo_cos_e : trigo.cos.body = Rtrigo_def.cos

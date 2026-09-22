@@ -1,0 +1,25 @@
+{
+  "checked_at": "2026-09-18T11:10:58.550024+00:00",
+  "kind": "independent kernel certificates for six exceptional-value disagreements",
+  "lean_version": "Lean (version 4.34.0, x86_64-unknown-linux-gnu, commit 293d5d0c0c3f3dded4688b3ccd6a33939ac5102b, Release)",
+  "floatlib_revision": "393bea610296bf9a9ee5a479508c351edb65cc6d",
+  "compcert_revision": "7b1f02b09954b9b916eb2a91d283c9b5355bf172",
+  "compcert_target": "x86_64",
+  "rocq_version": "The Coq Proof Assistant, version 8.20.1\ncompiled with OCaml 4.13.1",
+  "container_image": "coqorg/coq@sha256:18ebf3da56e60e3ddfd7d4e51f4c53d10241a129f34e93dacbc71562dd43c57a",
+  "checker_sha256": "5e1ccdf375f175b404068b8c6842c7b8ee24b9e38bbb1c659397f3b8d7e8ffea",
+  "lean_proof_sha256": "1aa0a0ffb9272f8abe8fc1430019159f61acb750342f14d5045230f50a593a23",
+  "rocq_proof_sha256": "9cba6732ed5f82f4556682531a08a85e49ac08fbcf8ae4c60c7dd2d96741e10c",
+  "lean_audit_sha256": "73f23b58702cb048e22cedfecdf9d83541cdc21bbee3ecc232bf553d28b505b0",
+  "lean_log_sha256": "3e8295a4f1ac2f0c944b2b6293974615e98bc912ff656461063aabc862882c53",
+  "rocq_log_sha256": "c6032ee7acbc0e191fed0f320afd4ee9ce841684aa69e5fb8f1d9a040f6894cd",
+  "rocq_assumptions": [
+    "ClassicalDedekindReals.sig_forall_dec",
+    "ClassicalDedekindReals.sig_not_dec",
+    "Classical_Prop.classic",
+    "FunctionalExtensionality.functional_extensionality_dep"
+  ],
+  "certificates_per_kernel": 6,
+  "cross_kernel_proof_translation": false,
+  "finite_operation_correspondence_proved": false
+}

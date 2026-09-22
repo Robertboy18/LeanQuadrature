@@ -1,0 +1,269 @@
+{
+  "checked_at": "2026-09-21T20:05:52.819979+00:00",
+  "kind": "Concrete return-address table checked against the pinned Asmgen relation",
+  "compcert_base_revision": "7b1f02b09954b9b916eb2a91d283c9b5355bf172",
+  "container_image": "coqorg/coq@sha256:18ebf3da56e60e3ddfd7d4e51f4c53d10241a129f34e93dacbc71562dd43c57a",
+  "proof_build": "/mnt/build/robert/leanquadrature-ten-orders-final-check",
+  "work_dir": "/mnt/build/robert/leanquadrature-mach-addresses-reproduction",
+  "assembly_evidence_sha256": "c45d64766ca5170405fdd9ca69a78155f4a49f86b0f1aca949ada2316f2618ce",
+  "dependency_evidence_sha256": {
+    "rtl-preallocation-import": "a71e0bf1041e44a5b6e2df4f27e50c79a4950f2dd5f6485d809ff28580c945b1",
+    "ltl-import": "b4b1053fb6c73c30b6e9ffe8ef80a3bbfe5bf1e44097f964edab500ac6f3e4db",
+    "linear-import": "42822c714678a41d7439fdf7d8f1c82df95cf6571e9d3cbaa27cf0e2dfcb13fb",
+    "mach-import": "9436651879a68782fe1335447bb38218e78223ff5d5b60884698ab753407ff9c"
+  },
+  "dependency_artifacts_sha256": {
+    "rtl-preallocation-import": {
+      "ExportCminor.v": "049efe7199741fd11543f8deed3e53ca78f11f87b7c9c8055c140cb79d0fd047",
+      "ExportCminor.v.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "ExportCminor.vo": "10e7c780a7d8f7b5de7e366b7bae06c0d30eeafd369afc104c14331279c8465a",
+      "ExportCminorSel.v": "b137663c56bd7d4009bcd9b9c770c657560e1aac19ee9c3722f9b10f458dcedf",
+      "ExportCminorSel.v.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "ExportCminorSel.vo": "894e96db5dcef7435cb259abc1b28c11ee0524aa538e382cf84b86e495ca5929",
+      "EqualityCminorSel.v": "fa98114c9f2e41826fe765d88e29d6b3bce872a643bef13f1d14d942a3616d04",
+      "EqualityCminorSel.v.log": "188ff29b8a0705f491438ebf47623e533fe60658944f3f1f58e1f9b5badb1bcf",
+      "EqualityCminorSel.vo": "4f8316cea5d1b10135fd13b2e63c4a8e2a4b26e7fdd63d08bb2f2589ed0f32fe",
+      "ExportRTL.v": "fb025c06a892a4abfc491a9479302be0118f831e740262782778028cc9ce8070",
+      "ExportRTL.v.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "ExportRTL.vo": "45ef2ca0d0822b861b86ef821a8c1c431cb0442992ea681e9f03669d5cbacf4b",
+      "EqualityRTL.v": "7aaa6afc530b59cbcc3f0df071e69a60e55ad8c15deb03bd55ec90c1078e3b97",
+      "EqualityRTL.v.log": "188ff29b8a0705f491438ebf47623e533fe60658944f3f1f58e1f9b5badb1bcf",
+      "EqualityRTL.vo": "ee86a6f67287cabd068d91aeeb3f5dfceaee6f5e633cc9258ff7c53655124006",
+      "RTLPreallocation.v": "c6e3d90494269a823d35a2e729b661955a1e4ff8a64599fc566f6994d14bbe16",
+      "RTLPreallocation.v.log": "1f3ede415503d4740ca78b655ed6b99db455dae9621cd99b1f91ad7897a3ba59",
+      "RTLPreallocation.vo": "bb5df4dd5cb0413ae604bfae479fd3addaa80858bcece03e99dc181ee4d5e15f",
+      "RunExport.v": "7c6a4bbc0503dfe6c33177eeaa4dcb9b37de320b077e3a70a425f16300e67674",
+      "RunExport.v.log": "5e6ea4721ea50eed5c416a2e905191ffa1b622c8355686b9a5979cbb557c5c4d",
+      "RunExport.vo": "67872309f7dab7a1123ee5cb798059aa123c9c4961afa83e5f318f0e8fdf03df",
+      "ImportedPreallocation.v": "2692f3b7c35f466d4553a1df35433207d79fe2bf4087e0464269ece56c9cabf0",
+      "ImportedPreallocation.v.log": "60becf56e29ab08526f5db78b543676b0a7f666884e8591a280c63e064aeffbd",
+      "ImportedPreallocation.vo": "e13b4ca3a0590ed8843324bf7fe8ed0b824039dcca0616ba7c67cbaab852ec9e",
+      "Imported.lean": "d8e9188695ab85e552596cb566cf46766223216883ccef37cd02c6ebfbba300a"
+    },
+    "ltl-import": {
+      "ExportLTL.v": "48cb188b4e5e6d0fdfda22b683a87180be46c6f62c9475e054428ba85673d8b3",
+      "ExportLTL.v.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "ExportLTL.vo": "bf0f6d4fbf899af938bd29c7aca798e600eab7191323bd18edf52451c4f3d4f3",
+      "EqualityLTL.v": "4a7a3ef1c8931d36449f2dbe8d70336cba3e568b44798b7068001b1e5da3a685",
+      "EqualityLTL.v.log": "188ff29b8a0705f491438ebf47623e533fe60658944f3f1f58e1f9b5badb1bcf",
+      "EqualityLTL.vo": "fae1f5971d83707d15c50535bd69614ad8f147301e3ead119c2c9682e9190f0b",
+      "LTLAfterAllocation.v": "b0f063273c6a82cb32b87899ca28c1f71a53cccf1f895356613f2875ccffeaad",
+      "LTLAfterAllocation.v.log": "cfb3cff66b725b48b7592928c8aa6ef678863ec82f53984eabd8e0b68d8e74e8",
+      "LTLAfterAllocation.vo": "e9abda64e6d0bc2d80297c13378837449d9ec2930d031312476125e2bdea3180",
+      "RunLTLExport.v": "893a9c92f9d0df77fa6905a9f03772697e97d7d6e438ba426bb7b75e3d1d936e",
+      "RunLTLExport.v.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "RunLTLExport.vo": "79bf24db045d740ffb5eba0f842ec2b93dac80264ac3d183d852ea3c055ce71f",
+      "ImportedLTL.v": "e6bb0b49eaf5473c5e87b55ef51fa87dc7c739e1ab052e5b8d4d9c91cfccd589",
+      "ImportedLTL.v.log": "584f36a0c162334f6655d8122d46a8f1d9090f1767b8702a13ae3b9dadf5a60b",
+      "ImportedLTL.vo": "559ac7dfa0fd396495f763d44184473224c8dd01e6ecdb3815fc6070362b555a",
+      "Imported.lean": "a9c89d1c18cc4f5a7a0de16bed5f73f4f0c6a9ef9ddafe9d0d09b42069e1a5ed"
+    },
+    "linear-import": {
+      "ExportLinear.v": "8ffe47a4706d6ef9a58508325adb307e0f78c2bb9838c6c6f031db5082d55174",
+      "ExportLinear.v.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "ExportLinear.vo": "1b9139cb60e68f5cff9d76aea86680d783518f1d15a6d5893366257950abb955",
+      "EqualityLinear.v": "bfc423ac15dbdbf2f16c080975c89cc74c0b5553ea5d7aadbfd4e88147efa1a4",
+      "EqualityLinear.v.log": "188ff29b8a0705f491438ebf47623e533fe60658944f3f1f58e1f9b5badb1bcf",
+      "EqualityLinear.vo": "846ef91b4c5bdcb07944aa9857df6054d211ba25fb771bed75ec97e3fb1c2932",
+      "LinearBeforeStacking.v": "ef0ffbf4a055d3abaee8d01471e5489226d735d38dfaaaaa2bc77be37564bbfd",
+      "LinearBeforeStacking.v.log": "d8973d0a5c29142a777a313e89df4d83eae27492e3597fba30801718cdfee529",
+      "LinearBeforeStacking.vo": "917533f0aa7e0e2ad2619d9a3732619af2d9bee2f66a68466481e90fe8a85876",
+      "RunLinearExport.v": "5ae9a7afd16d270aaade9e5da26e0ef9e1c46cc388f9c4720638d2e8effb9f95",
+      "RunLinearExport.v.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "RunLinearExport.vo": "641c20c7ce206660a78bf3d657bcca232dc3dc8090fc8eec0fb0ad27213066a6",
+      "ImportedLinear.v": "112d921e5cdc5036bfcce07a57d6d39d46de63e8d316f5e4a6f0dbb57e6b506b",
+      "ImportedLinear.v.log": "1f3ede415503d4740ca78b655ed6b99db455dae9621cd99b1f91ad7897a3ba59",
+      "ImportedLinear.vo": "8aec8165b0b3c91ef992c68a7bcc863b071bcd68b2513184858550d0e9eeb163",
+      "Imported.lean": "970601f105997dc505a4fc3c7b6881ec34eeb07b3495946096a552bba73b5ddb"
+    },
+    "mach-import": {
+      "ExportMach.v": "5358cba02140697820f194a9c42a825013f086a686ba1675bb6180e292517450",
+      "ExportMach.v.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "ExportMach.vo": "cc7938e99d35c8eb022750b68fffe4dbff0fa17f7cbea5ba36074e31e485db8c",
+      "EqualityMach.v": "c781ad8ea8ca4c77de956f4a062ff3fce9ade980949db5c10198970a65404ad8",
+      "EqualityMach.v.log": "188ff29b8a0705f491438ebf47623e533fe60658944f3f1f58e1f9b5badb1bcf",
+      "EqualityMach.vo": "eeeba9501ecba53a8eda6f08af896eea5c58ce3648067f5d6cbb2c9b509291b8",
+      "MachAfterStacking.v": "37075b5f4f277fac3a91cb663431e34bcf8567164804d128d026ae72da60fd30",
+      "MachAfterStacking.v.log": "188ff29b8a0705f491438ebf47623e533fe60658944f3f1f58e1f9b5badb1bcf",
+      "MachAfterStacking.vo": "6e794f588534095926263427c9ac02d0ade111679a91f6e9ee35bd0b4ca0a7d5",
+      "MachReturnAddresses.v": "fc0c996d70a68ddf34c6b309b93e5f8ea6684d515341dabcf1b13e8e561be042",
+      "MachReturnAddresses.v.log": "f0532d0e8a885018e887fe9f2fc1415078fabe8f12825919a931ee3c625a3996",
+      "MachReturnAddresses.vo": "e2551df1c497275c66e01777feb9c555d64780cab58c3c6ba928dcd78f1a93a0",
+      "RunMachExport.v": "d8b0ec8b791c3b7d10e654fb094b4b8b958b901f6311b20b714056a7c5b5b33d",
+      "RunMachExport.v.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "RunMachExport.vo": "8eda41bc9a775e22836b2a0d1af21f1519bd8d23fabe2b5bf8efd95f02482a16",
+      "ImportedMach.v": "9ee00f219cfc25e5f5d364b9fbdcd742b29d320ed082bbe399d3635d14f4a313",
+      "ImportedMach.v.log": "466c38c007b60cef89cda6ed02dffac9632ad313d00eaa706f8c682ad2c2f6ae",
+      "ImportedMach.vo": "597b95ff8a3abf9fe1617671d19ff8dc789cc603d662bd761dbc5d32f6a8cea0",
+      "Imported.lean": "912e60535a601fd0b291c19d7033edd04f0651c735cb573b64ccba3ad7aa5b21"
+    }
+  },
+  "dependency_work_dirs": {
+    "rtl-preallocation-import": "/mnt/build/robert/leanquadrature-preallocation-reproduction",
+    "ltl-import": "/mnt/build/robert/leanquadrature-ltl-reproduction",
+    "linear-import": "/mnt/build/robert/leanquadrature-linear-reproduction",
+    "mach-import": "/mnt/build/robert/leanquadrature-mach-reproduction"
+  },
+  "tool_source_sha256": {
+    "scripts/import-mach-return-addresses.py": "99abc335932e339e3afd859102bcf1df5d92e71d8aa9033012d7c280f2eb55b4",
+    "scripts/reproduce-mach-return-addresses.py": "7496909cafe1362b47ea8fcbdd5d8a87c41136db270c324a2883218c5d6b33ef",
+    "compcert/ExportMachReturnAddresses.v": "ab53066ee2148e9ab07a67a7daf96c652456e66eb4384eff94f9ee485819c851",
+    "compcert/MachReturnAddressTable.v": "0fc19795d6f47180a1f7c08add73c69cb342a25edad71cd8a9021403c9626d7c"
+  },
+  "upstream_source_sha256": {
+    "backend/Mach.v": "6490ee941a7892a90c5c241d7799d3a046d9e829fae63182e9c773d9c4fb45db",
+    "backend/Stacking.v": "9a20c2d04c4e5287510b9c13b49e8c936761468d5ff69fdee46ae3db188ce666",
+    "backend/Bounds.v": "dee68d14fc48b060535503b1f34123bead416e2a186d4e707fe05759a88fb335",
+    "x86/Stacklayout.v": "9a40f7a4c54f879d079e3c108b2faa2b7f69d4d6ee7a0dc122d6d492471d9b40",
+    "backend/Linear.v": "9ab166d6c4eb3afd264e0193420a7698d38a7202768fd4a465d0c869e67c54c8",
+    "backend/Locations.v": "650cb788322b82a9d08c60a58f605cd93f73fb4faac92e526f4f960f8093e2b5",
+    "x86/Machregs.v": "e012fb3000a6da6670f7320771332ced5d81e2feafd94dc177375e8044071cb6",
+    "x86/Conventions1.v": "80495e4830a02aa5ff094549691b681286bebc7fabfe04076a0a6c197d25be8e",
+    "x86_64/Archi.v": "6f6eaad80236ff892021318efcecffb957f2ee36bb6e763c6eda8217bc5205de",
+    "x86/Asmgen.v": "158957f76f7f0c04c99547bbab87e203d5227c81cf1818de8e35d4c4fd8e8e92",
+    "x86/Asmgenproof.v": "3fd12d37e53a15ae7bb9210eeb6e6163bbb006ecd80c946303801afc5bba90d4",
+    "backend/Asmgenproof0.v": "ce401b20dbf86e691973ef66ce41974293a4370cb729027aae62afa1c429c7f0",
+    "driver/Compiler.v": "f2828c5fea036927a9e57e9074b6ff1359393fc6faef3322968987f6ad9a2534",
+    "driver/Compopts.v": "ac48681209a684458594376f5a53b4a7facf874349ab237bcb0d6e1814832172"
+  },
+  "lean_import_sha256": "0765897c6b262979561f75cfaf2a903b73e9d5af71e3b4c51e7d9575bd1f2e4e",
+  "rocq_generic_theorems_closed": true,
+  "rocq_certificate_axioms": [
+    "ClassicalDedekindReals.sig_forall_dec",
+    "ClassicalDedekindReals.sig_not_dec",
+    "Classical_Prop.classic",
+    "FunctionalExtensionality.functional_extensionality_dep"
+  ],
+  "rocq_all_entries_valid": true,
+  "rocq_all_static_calls_covered": true,
+  "rocq_table_equivalent_to_assembly_relation_at_calls": true,
+  "rocq_certificate_theorem": "ImportedMachAddresses.table_lookup_iff",
+  "lean_table_reproduced_exactly": true,
+  "lean_assembly_relation_correspondence_proved": false,
+  "lean_rocq_interpretation_proved": false,
+  "offset_unit": "formal Asm instructions, not native machine-code bytes",
+  "trust_boundary": "Rocq proves that the reconstructed table exactly represents its assembly return-address relation at the imported programs' call sites. The Lean rendering is reproducible, but no interpretation between the kernels or between the Lean table and native assembly is supplied by this certificate.",
+  "orders": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10
+  ],
+  "rows_per_program": 16,
+  "rows": [
+    {
+      "global_index": 63,
+      "skip_mach_instructions": 8,
+      "formal_assembly_offset": 10
+    },
+    {
+      "global_index": 63,
+      "skip_mach_instructions": 24,
+      "formal_assembly_offset": 27
+    },
+    {
+      "global_index": 64,
+      "skip_mach_instructions": 31,
+      "formal_assembly_offset": 34
+    },
+    {
+      "global_index": 64,
+      "skip_mach_instructions": 35,
+      "formal_assembly_offset": 38
+    },
+    {
+      "global_index": 64,
+      "skip_mach_instructions": 40,
+      "formal_assembly_offset": 43
+    },
+    {
+      "global_index": 65,
+      "skip_mach_instructions": 6,
+      "formal_assembly_offset": 7
+    },
+    {
+      "global_index": 65,
+      "skip_mach_instructions": 11,
+      "formal_assembly_offset": 12
+    },
+    {
+      "global_index": 65,
+      "skip_mach_instructions": 41,
+      "formal_assembly_offset": 45
+    },
+    {
+      "global_index": 66,
+      "skip_mach_instructions": 15,
+      "formal_assembly_offset": 17
+    },
+    {
+      "global_index": 66,
+      "skip_mach_instructions": 24,
+      "formal_assembly_offset": 26
+    },
+    {
+      "global_index": 69,
+      "skip_mach_instructions": 8,
+      "formal_assembly_offset": 9
+    },
+    {
+      "global_index": 69,
+      "skip_mach_instructions": 38,
+      "formal_assembly_offset": 41
+    },
+    {
+      "global_index": 69,
+      "skip_mach_instructions": 53,
+      "formal_assembly_offset": 56
+    },
+    {
+      "global_index": 70,
+      "skip_mach_instructions": 24,
+      "formal_assembly_offset": 26
+    },
+    {
+      "global_index": 71,
+      "skip_mach_instructions": 13,
+      "formal_assembly_offset": 15
+    },
+    {
+      "global_index": 72,
+      "skip_mach_instructions": 3,
+      "formal_assembly_offset": 4
+    }
+  ],
+  "all_orders_share_rows": true,
+  "exports_sha256": {
+    "addresses1.out": "6206a58f3713054b9d1483c0fc371504c853d83869248ac030f053fadc15b4d3",
+    "addresses2.out": "6206a58f3713054b9d1483c0fc371504c853d83869248ac030f053fadc15b4d3",
+    "addresses3.out": "6206a58f3713054b9d1483c0fc371504c853d83869248ac030f053fadc15b4d3",
+    "addresses4.out": "6206a58f3713054b9d1483c0fc371504c853d83869248ac030f053fadc15b4d3",
+    "addresses5.out": "6206a58f3713054b9d1483c0fc371504c853d83869248ac030f053fadc15b4d3",
+    "addresses6.out": "6206a58f3713054b9d1483c0fc371504c853d83869248ac030f053fadc15b4d3",
+    "addresses7.out": "6206a58f3713054b9d1483c0fc371504c853d83869248ac030f053fadc15b4d3",
+    "addresses8.out": "6206a58f3713054b9d1483c0fc371504c853d83869248ac030f053fadc15b4d3",
+    "addresses9.out": "6206a58f3713054b9d1483c0fc371504c853d83869248ac030f053fadc15b4d3",
+    "addresses10.out": "6206a58f3713054b9d1483c0fc371504c853d83869248ac030f053fadc15b4d3"
+  },
+  "artifacts_sha256": {
+    "ExportMachReturnAddresses.v": "ab53066ee2148e9ab07a67a7daf96c652456e66eb4384eff94f9ee485819c851",
+    "ExportMachReturnAddresses.v.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "ExportMachReturnAddresses.vo": "20d19315b8281c708b9c95c5649a607a170dc7c59dee8ba30cfe8d9ef2ab41a5",
+    "MachReturnAddressTable.v": "0fc19795d6f47180a1f7c08add73c69cb342a25edad71cd8a9021403c9626d7c",
+    "MachReturnAddressTable.v.log": "e70ed2b02bbb05140ba7ad843b0286e87e58d01206b3dd29392066a9b0b9e012",
+    "MachReturnAddressTable.vo": "dec65e24eea7b37a3aece2da9a1259f09b002ed1d36d2bdb12fd1304520f4451",
+    "RunMachAddressExport.v": "bf8c90caabe4cf1bb522bcba4c37487c1aec35b893aa5fa718eeec91491a5f93",
+    "RunMachAddressExport.v.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "RunMachAddressExport.vo": "742816b8430c747bfbe6778a93e1dbbb9508de237e45ab206af7034f6b54e554",
+    "ImportedMachAddresses.v": "e2846599bfd3cf30a99fa36b66e292eb143dc69d2d4e741b971194974ff9cf13",
+    "ImportedMachAddresses.v.log": "ab3daa8b5d4ca1456e56ad4f6fe6abc30f798b88ea8f4747282db2da87119bfb",
+    "ImportedMachAddresses.vo": "8b78ad4f1ba36c5b554e0d2fb39a7a9aebd0eff1fdc88164d3ebcbbcb808d632",
+    "ImportedReturnAddresses.lean": "0765897c6b262979561f75cfaf2a903b73e9d5af71e3b4c51e7d9575bd1f2e4e"
+  }
+}

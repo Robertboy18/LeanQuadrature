@@ -1,0 +1,36 @@
+Axioms:
+ClassicalDedekindReals.sig_not_dec : forall P : Prop, {~ ~ P} + {~ P}
+ClassicalDedekindReals.sig_forall_dec :
+  forall P : nat -> Prop,
+  (forall n : nat, {P n} + {~ P n}) ->
+  {n : nat | ~ P n} + {forall n : nat, P n}
+boolp.propositional_extensionality : forall P Q : Prop, P <-> Q -> P = Q
+Axioms.prop_ext : ClassicalFacts.prop_extensionality
+boolp.functional_extensionality_dep :
+  forall (A : Type) (B : A -> Type) (f g : forall x : A, B x),
+  (forall x : A, f x = g x) -> f = g
+functional_extensionality_dep :
+  forall (A : Type) (B : A -> Type) (f g : forall x : A, B x),
+  (forall x : A, f x = g x) -> f = g
+Eqdep.Eq_rect_eq.eq_rect_eq :
+  forall (U : Type) (p : U) (Q : U -> Type) (x : Q p) (h : p = p),
+  x = eq_rect p Q x p h
+Epsilon.epsilon_statement :
+  forall (A : Type) (P : A -> Prop),
+  inhabited A -> {x : A | (exists x0 : A, P x0) -> P x}
+boolp.constructive_indefinite_description :
+  forall (A : Type) (P : A -> Prop), (exists x : A, P x) -> {x : A | P x}
+Classical_Prop.classic : forall P : Prop, P \/ ~ P
+spec_math.c_function :
+  forall (i : ident) (args : list FPCore.type) (res : FPCore.type)
+    (bnds : klist FPCore.bounds args)
+    (f : function_type (map FPCore.RR args) Rdefinitions.RbaseSymbolsImpl.R),
+  {ff : function_type (map FPCore.ftype' args) (FPCore.ftype res)
+  | FPCore.acc_prop args res (1 + 2 * spec_math.GNU_error i) 1 bnds f ff}
+spec_math.axiom_floatfunc_congr :
+  forall (args : list FPCore.type) (result : FPCore.type)
+    (ff_func : function_type (map FPCore.ftype' args) (FPCore.ftype' result)),
+  FPCore.floatfunc_congr ff_func
+Ensembles.Extensionality_Ensembles :
+  forall (U : Type) (A B : Ensembles.Ensemble U),
+  Ensembles.Same_set A B -> A = B

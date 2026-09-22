@@ -1,0 +1,3980 @@
+{
+  "checked_at": "2026-09-21T20:53:21.985394+00:00",
+  "kind": "Native C regression experiment with address and undefined-behavior sanitizers",
+  "upstream_revision": "e79a28dba247db9f934289bcf4e4debd5eebc884",
+  "source_sha256": {
+    "quadrules.c": "fb774551d772092f9ecba6dca51952ec9baaf4c3cdc27962f65d69818b2aeb91",
+    "quadrules.h": "d71440c24db6b5a5509848d6828ccaeb18b7853f2e238860afc24a13b39df112"
+  },
+  "project_sha256": {
+    "Quadrature/Clight/TableData.lean": "742e730d345b2f1085046190ae5da8ebcdcc18c5e5969b686e1ffb5d74c9133f",
+    "scripts/tests/upstream_quadrature.c": "098fef5e9477ec175edffca6106dec3aadbf6542b06fa551133d9192bf1558c6",
+    "scripts/check-upstream-c.py": "dfea8ca5087a10ad2a1189ea8203280a50b2144ef3371b611aace9d2bdc2031d",
+    "scripts/upstream_sources.py": "bd00cb89ee76b8a84ade84bebcee99307c96a97f7a4363a15fe4244927b632c1"
+  },
+  "status": "passed",
+  "compiler": "clang version 15.0.7 (AWS 15.0.7-3.amzn2023.0.4)",
+  "build_command": [
+    "clang",
+    "-std=c11",
+    "-O2",
+    "-Wall",
+    "-Wextra",
+    "-Wpedantic",
+    "-Wconversion",
+    "-Wshadow",
+    "-fno-builtin",
+    "-ffp-contract=off",
+    "-fsanitize=address,undefined",
+    "-fno-sanitize-recover=all",
+    "-fno-omit-frame-pointer",
+    "-I",
+    "/tmp/quadrature-c-domain-cw7v2h5s",
+    "/tmp/quadrature-c-domain-cw7v2h5s/quadrules.c",
+    "/tmp/quadrature-c-domain-cw7v2h5s/upstream_quadrature.c",
+    "-lm",
+    "-o",
+    "/tmp/quadrature-c-domain-cw7v2h5s/check"
+  ],
+  "monomial_checks": [
+    {
+      "case": [
+        "line",
+        1,
+        0
+      ],
+      "result_bits": "4000000000000000",
+      "reference": "2",
+      "absolute_error": "0",
+      "test_tolerance": "1/35184372088832"
+    },
+    {
+      "case": [
+        "line",
+        1,
+        1
+      ],
+      "result_bits": "0000000000000000",
+      "reference": "0",
+      "absolute_error": "0",
+      "test_tolerance": "1/70368744177664"
+    },
+    {
+      "case": [
+        "line",
+        2,
+        0
+      ],
+      "result_bits": "4000000000000000",
+      "reference": "2",
+      "absolute_error": "0",
+      "test_tolerance": "1/35184372088832"
+    },
+    {
+      "case": [
+        "line",
+        2,
+        1
+      ],
+      "result_bits": "0000000000000000",
+      "reference": "0",
+      "absolute_error": "0",
+      "test_tolerance": "1/70368744177664"
+    },
+    {
+      "case": [
+        "line",
+        2,
+        2
+      ],
+      "result_bits": "3fe5555555555555",
+      "reference": "2/3",
+      "absolute_error": "1/27021597764222976",
+      "test_tolerance": "1/70368744177664"
+    },
+    {
+      "case": [
+        "line",
+        2,
+        3
+      ],
+      "result_bits": "0000000000000000",
+      "reference": "0",
+      "absolute_error": "0",
+      "test_tolerance": "1/70368744177664"
+    },
+    {
+      "case": [
+        "line",
+        3,
+        0
+      ],
+      "result_bits": "4000000000000002",
+      "reference": "2",
+      "absolute_error": "1/1125899906842624",
+      "test_tolerance": "1/35184372088832"
+    },
+    {
+      "case": [
+        "line",
+        3,
+        1
+      ],
+      "result_bits": "0000000000000000",
+      "reference": "0",
+      "absolute_error": "0",
+      "test_tolerance": "1/70368744177664"
+    },
+    {
+      "case": [
+        "line",
+        3,
+        2
+      ],
+      "result_bits": "3fe555555555555b",
+      "reference": "2/3",
+      "absolute_error": "17/27021597764222976",
+      "test_tolerance": "1/70368744177664"
+    },
+    {
+      "case": [
+        "line",
+        3,
+        3
+      ],
+      "result_bits": "0000000000000000",
+      "reference": "0",
+      "absolute_error": "0",
+      "test_tolerance": "1/70368744177664"
+    },
+    {
+      "case": [
+        "line",
+        3,
+        4
+      ],
+      "result_bits": "3fd99999999999a2",
+      "reference": "2/5",
+      "absolute_error": "21/45035996273704960",
+      "test_tolerance": "1/70368744177664"
+    },
+    {
+      "case": [
+        "line",
+        3,
+        5
+      ],
+      "result_bits": "0000000000000000",
+      "reference": "0",
+      "absolute_error": "0",
+      "test_tolerance": "1/70368744177664"
+    },
+    {
+      "case": [
+        "line",
+        4,
+        0
+      ],
+      "result_bits": "4000000000000000",
+      "reference": "2",
+      "absolute_error": "0",
+      "test_tolerance": "1/35184372088832"
+    },
+    {
+      "case": [
+        "line",
+        4,
+        1
+      ],
+      "result_bits": "3c90000000000000",
+      "reference": "0",
+      "absolute_error": "1/18014398509481984",
+      "test_tolerance": "1/70368744177664"
+    },
+    {
+      "case": [
+        "line",
+        4,
+        2
+      ],
+      "result_bits": "3fe5555555555556",
+      "reference": "2/3",
+      "absolute_error": "1/13510798882111488",
+      "test_tolerance": "1/70368744177664"
+    },
+    {
+      "case": [
+        "line",
+        4,
+        3
+      ],
+      "result_bits": "0000000000000000",
+      "reference": "0",
+      "absolute_error": "0",
+      "test_tolerance": "1/70368744177664"
+    },
+    {
+      "case": [
+        "line",
+        4,
+        4
+      ],
+      "result_bits": "3fd999999999999a",
+      "reference": "2/5",
+      "absolute_error": "1/45035996273704960",
+      "test_tolerance": "1/70368744177664"
+    },
+    {
+      "case": [
+        "line",
+        4,
+        5
+      ],
+      "result_bits": "0000000000000000",
+      "reference": "0",
+      "absolute_error": "0",
+      "test_tolerance": "1/70368744177664"
+    },
+    {
+      "case": [
+        "line",
+        4,
+        6
+      ],
+      "result_bits": "3fd2492492492492",
+      "reference": "2/7",
+      "absolute_error": "1/63050394783186944",
+      "test_tolerance": "1/70368744177664"
+    },
+    {
+      "case": [
+        "line",
+        4,
+        7
+      ],
+      "result_bits": "0000000000000000",
+      "reference": "0",
+      "absolute_error": "0",
+      "test_tolerance": "1/70368744177664"
+    },
+    {
+      "case": [
+        "line",
+        5,
+        0
+      ],
+      "result_bits": "3ffffffffffffffc",
+      "reference": "2",
+      "absolute_error": "1/1125899906842624",
+      "test_tolerance": "1/35184372088832"
+    },
+    {
+      "case": [
+        "line",
+        5,
+        1
+      ],
+      "result_bits": "0000000000000000",
+      "reference": "0",
+      "absolute_error": "0",
+      "test_tolerance": "1/70368744177664"
+    },
+    {
+      "case": [
+        "line",
+        5,
+        2
+      ],
+      "result_bits": "3fe5555555555550",
+      "reference": "2/3",
+      "absolute_error": "1/1688849860263936",
+      "test_tolerance": "1/70368744177664"
+    },
+    {
+      "case": [
+        "line",
+        5,
+        3
+      ],
+      "result_bits": "bc80000000000000",
+      "reference": "0",
+      "absolute_error": "1/36028797018963968",
+      "test_tolerance": "1/70368744177664"
+    },
+    {
+      "case": [
+        "line",
+        5,
+        4
+      ],
+      "result_bits": "3fd9999999999995",
+      "reference": "2/5",
+      "absolute_error": "23/90071992547409920",
+      "test_tolerance": "1/70368744177664"
+    },
+    {
+      "case": [
+        "line",
+        5,
+        5
+      ],
+      "result_bits": "0000000000000000",
+      "reference": "0",
+      "absolute_error": "0",
+      "test_tolerance": "1/70368744177664"
+    },
+    {
+      "case": [
+        "line",
+        5,
+        6
+      ],
+      "result_bits": "3fd249249249248f",
+      "reference": "2/7",
+      "absolute_error": "23/126100789566373888",
+      "test_tolerance": "1/70368744177664"
+    },
+    {
+      "case": [
+        "line",
+        5,
+        7
+      ],
+      "result_bits": "bc70000000000000",
+      "reference": "0",
+      "absolute_error": "1/72057594037927936",
+      "test_tolerance": "1/70368744177664"
+    },
+    {
+      "case": [
+        "line",
+        5,
+        8
+      ],
+      "result_bits": "3fcc71c71c71c717",
+      "reference": "2/9",
+      "absolute_error": "49/324259173170675712",
+      "test_tolerance": "1/70368744177664"
+    },
+    {
+      "case": [
+        "line",
+        5,
+        9
+      ],
+      "result_bits": "0000000000000000",
+      "reference": "0",
+      "absolute_error": "0",
+      "test_tolerance": "1/70368744177664"
+    },
+    {
+      "case": [
+        "line",
+        6,
+        0
+      ],
+      "result_bits": "4000000000000000",
+      "reference": "2",
+      "absolute_error": "0",
+      "test_tolerance": "1/35184372088832"
+    },
+    {
+      "case": [
+        "line",
+        6,
+        1
+      ],
+      "result_bits": "3c90000000000000",
+      "reference": "0",
+      "absolute_error": "1/18014398509481984",
+      "test_tolerance": "1/70368744177664"
+    },
+    {
+      "case": [
+        "line",
+        6,
+        2
+      ],
+      "result_bits": "3fe5555555555558",
+      "reference": "2/3",
+      "absolute_error": "1/3377699720527872",
+      "test_tolerance": "1/70368744177664"
+    },
+    {
+      "case": [
+        "line",
+        6,
+        3
+      ],
+      "result_bits": "0000000000000000",
+      "reference": "0",
+      "absolute_error": "0",
+      "test_tolerance": "1/70368744177664"
+    },
+    {
+      "case": [
+        "line",
+        6,
+        4
+      ],
+      "result_bits": "3fd999999999999c",
+      "reference": "2/5",
+      "absolute_error": "3/22517998136852480",
+      "test_tolerance": "1/70368744177664"
+    },
+    {
+      "case": [
+        "line",
+        6,
+        5
+      ],
+      "result_bits": "0000000000000000",
+      "reference": "0",
+      "absolute_error": "0",
+      "test_tolerance": "1/70368744177664"
+    },
+    {
+      "case": [
+        "line",
+        6,
+        6
+      ],
+      "result_bits": "3fd2492492492491",
+      "reference": "2/7",
+      "absolute_error": "9/126100789566373888",
+      "test_tolerance": "1/70368744177664"
+    },
+    {
+      "case": [
+        "line",
+        6,
+        7
+      ],
+      "result_bits": "0000000000000000",
+      "reference": "0",
+      "absolute_error": "0",
+      "test_tolerance": "1/70368744177664"
+    },
+    {
+      "case": [
+        "line",
+        6,
+        8
+      ],
+      "result_bits": "3fcc71c71c71c718",
+      "reference": "2/9",
+      "absolute_error": "5/40532396646334464",
+      "test_tolerance": "1/70368744177664"
+    },
+    {
+      "case": [
+        "line",
+        6,
+        9
+      ],
+      "result_bits": "0000000000000000",
+      "reference": "0",
+      "absolute_error": "0",
+      "test_tolerance": "1/70368744177664"
+    },
+    {
+      "case": [
+        "line",
+        6,
+        10
+      ],
+      "result_bits": "3fc745d1745d173f",
+      "reference": "2/11",
+      "absolute_error": "75/396316767208603648",
+      "test_tolerance": "1/70368744177664"
+    },
+    {
+      "case": [
+        "line",
+        6,
+        11
+      ],
+      "result_bits": "0000000000000000",
+      "reference": "0",
+      "absolute_error": "0",
+      "test_tolerance": "1/70368744177664"
+    },
+    {
+      "case": [
+        "line",
+        7,
+        0
+      ],
+      "result_bits": "4000000000000002",
+      "reference": "2",
+      "absolute_error": "1/1125899906842624",
+      "test_tolerance": "1/35184372088832"
+    },
+    {
+      "case": [
+        "line",
+        7,
+        1
+      ],
+      "result_bits": "bc94000000000000",
+      "reference": "0",
+      "absolute_error": "5/72057594037927936",
+      "test_tolerance": "1/70368744177664"
+    },
+    {
+      "case": [
+        "line",
+        7,
+        2
+      ],
+      "result_bits": "3fe555555555555d",
+      "reference": "2/3",
+      "absolute_error": "23/27021597764222976",
+      "test_tolerance": "1/70368744177664"
+    },
+    {
+      "case": [
+        "line",
+        7,
+        3
+      ],
+      "result_bits": "bc70000000000000",
+      "reference": "0",
+      "absolute_error": "1/72057594037927936",
+      "test_tolerance": "1/70368744177664"
+    },
+    {
+      "case": [
+        "line",
+        7,
+        4
+      ],
+      "result_bits": "3fd99999999999a8",
+      "reference": "2/5",
+      "absolute_error": "9/11258999068426240",
+      "test_tolerance": "1/70368744177664"
+    },
+    {
+      "case": [
+        "line",
+        7,
+        5
+      ],
+      "result_bits": "0000000000000000",
+      "reference": "0",
+      "absolute_error": "0",
+      "test_tolerance": "1/70368744177664"
+    },
+    {
+      "case": [
+        "line",
+        7,
+        6
+      ],
+      "result_bits": "3fd24924924924a2",
+      "reference": "2/7",
+      "absolute_error": "55/63050394783186944",
+      "test_tolerance": "1/70368744177664"
+    },
+    {
+      "case": [
+        "line",
+        7,
+        7
+      ],
+      "result_bits": "0000000000000000",
+      "reference": "0",
+      "absolute_error": "0",
+      "test_tolerance": "1/70368744177664"
+    },
+    {
+      "case": [
+        "line",
+        7,
+        8
+      ],
+      "result_bits": "3fcc71c71c71c740",
+      "reference": "2/9",
+      "absolute_error": "5/5066549580791808",
+      "test_tolerance": "1/70368744177664"
+    },
+    {
+      "case": [
+        "line",
+        7,
+        9
+      ],
+      "result_bits": "0000000000000000",
+      "reference": "0",
+      "absolute_error": "0",
+      "test_tolerance": "1/70368744177664"
+    },
+    {
+      "case": [
+        "line",
+        7,
+        10
+      ],
+      "result_bits": "3fc745d1745d176c",
+      "reference": "2/11",
+      "absolute_error": "105/99079191802150912",
+      "test_tolerance": "1/70368744177664"
+    },
+    {
+      "case": [
+        "line",
+        7,
+        11
+      ],
+      "result_bits": "0000000000000000",
+      "reference": "0",
+      "absolute_error": "0",
+      "test_tolerance": "1/70368744177664"
+    },
+    {
+      "case": [
+        "line",
+        7,
+        12
+      ],
+      "result_bits": "3fc3b13b13b13b3c",
+      "reference": "2/13",
+      "absolute_error": "131/117093590311632896",
+      "test_tolerance": "1/70368744177664"
+    },
+    {
+      "case": [
+        "line",
+        7,
+        13
+      ],
+      "result_bits": "0000000000000000",
+      "reference": "0",
+      "absolute_error": "0",
+      "test_tolerance": "1/70368744177664"
+    },
+    {
+      "case": [
+        "line",
+        8,
+        0
+      ],
+      "result_bits": "3ffffffffffffff8",
+      "reference": "2",
+      "absolute_error": "1/562949953421312",
+      "test_tolerance": "1/35184372088832"
+    },
+    {
+      "case": [
+        "line",
+        8,
+        1
+      ],
+      "result_bits": "3c70000000000000",
+      "reference": "0",
+      "absolute_error": "1/72057594037927936",
+      "test_tolerance": "1/70368744177664"
+    },
+    {
+      "case": [
+        "line",
+        8,
+        2
+      ],
+      "result_bits": "3fe555555555554b",
+      "reference": "2/3",
+      "absolute_error": "31/27021597764222976",
+      "test_tolerance": "1/70368744177664"
+    },
+    {
+      "case": [
+        "line",
+        8,
+        3
+      ],
+      "result_bits": "0000000000000000",
+      "reference": "0",
+      "absolute_error": "0",
+      "test_tolerance": "1/70368744177664"
+    },
+    {
+      "case": [
+        "line",
+        8,
+        4
+      ],
+      "result_bits": "3fd999999999998a",
+      "reference": "2/5",
+      "absolute_error": "39/45035996273704960",
+      "test_tolerance": "1/70368744177664"
+    },
+    {
+      "case": [
+        "line",
+        8,
+        5
+      ],
+      "result_bits": "bc70000000000000",
+      "reference": "0",
+      "absolute_error": "1/72057594037927936",
+      "test_tolerance": "1/70368744177664"
+    },
+    {
+      "case": [
+        "line",
+        8,
+        6
+      ],
+      "result_bits": "3fd2492492492485",
+      "reference": "2/7",
+      "absolute_error": "93/126100789566373888",
+      "test_tolerance": "1/70368744177664"
+    },
+    {
+      "case": [
+        "line",
+        8,
+        7
+      ],
+      "result_bits": "0000000000000000",
+      "reference": "0",
+      "absolute_error": "0",
+      "test_tolerance": "1/70368744177664"
+    },
+    {
+      "case": [
+        "line",
+        8,
+        8
+      ],
+      "result_bits": "3fcc71c71c71c702",
+      "reference": "2/9",
+      "absolute_error": "119/162129586585337856",
+      "test_tolerance": "1/70368744177664"
+    },
+    {
+      "case": [
+        "line",
+        8,
+        9
+      ],
+      "result_bits": "0000000000000000",
+      "reference": "0",
+      "absolute_error": "0",
+      "test_tolerance": "1/70368744177664"
+    },
+    {
+      "case": [
+        "line",
+        8,
+        10
+      ],
+      "result_bits": "3fc745d1745d172c",
+      "reference": "2/11",
+      "absolute_error": "71/99079191802150912",
+      "test_tolerance": "1/70368744177664"
+    },
+    {
+      "case": [
+        "line",
+        8,
+        11
+      ],
+      "result_bits": "0000000000000000",
+      "reference": "0",
+      "absolute_error": "0",
+      "test_tolerance": "1/70368744177664"
+    },
+    {
+      "case": [
+        "line",
+        8,
+        12
+      ],
+      "result_bits": "3fc3b13b13b13af9",
+      "reference": "2/13",
+      "absolute_error": "347/468374361246531584",
+      "test_tolerance": "1/70368744177664"
+    },
+    {
+      "case": [
+        "line",
+        8,
+        13
+      ],
+      "result_bits": "0000000000000000",
+      "reference": "0",
+      "absolute_error": "0",
+      "test_tolerance": "1/70368744177664"
+    },
+    {
+      "case": [
+        "line",
+        8,
+        14
+      ],
+      "result_bits": "3fc11111111110f7",
+      "reference": "2/15",
+      "absolute_error": "391/540431955284459520",
+      "test_tolerance": "1/70368744177664"
+    },
+    {
+      "case": [
+        "line",
+        8,
+        15
+      ],
+      "result_bits": "0000000000000000",
+      "reference": "0",
+      "absolute_error": "0",
+      "test_tolerance": "1/70368744177664"
+    },
+    {
+      "case": [
+        "line",
+        9,
+        0
+      ],
+      "result_bits": "3ffffffffffffff8",
+      "reference": "2",
+      "absolute_error": "1/562949953421312",
+      "test_tolerance": "1/35184372088832"
+    },
+    {
+      "case": [
+        "line",
+        9,
+        1
+      ],
+      "result_bits": "0000000000000000",
+      "reference": "0",
+      "absolute_error": "0",
+      "test_tolerance": "1/70368744177664"
+    },
+    {
+      "case": [
+        "line",
+        9,
+        2
+      ],
+      "result_bits": "3fe5555555555546",
+      "reference": "2/3",
+      "absolute_error": "23/13510798882111488",
+      "test_tolerance": "1/70368744177664"
+    },
+    {
+      "case": [
+        "line",
+        9,
+        3
+      ],
+      "result_bits": "3c70000000000000",
+      "reference": "0",
+      "absolute_error": "1/72057594037927936",
+      "test_tolerance": "1/70368744177664"
+    },
+    {
+      "case": [
+        "line",
+        9,
+        4
+      ],
+      "result_bits": "3fd9999999999982",
+      "reference": "2/5",
+      "absolute_error": "59/45035996273704960",
+      "test_tolerance": "1/70368744177664"
+    },
+    {
+      "case": [
+        "line",
+        9,
+        5
+      ],
+      "result_bits": "0000000000000000",
+      "reference": "0",
+      "absolute_error": "0",
+      "test_tolerance": "1/70368744177664"
+    },
+    {
+      "case": [
+        "line",
+        9,
+        6
+      ],
+      "result_bits": "3fd2492492492480",
+      "reference": "2/7",
+      "absolute_error": "1/985162418487296",
+      "test_tolerance": "1/70368744177664"
+    },
+    {
+      "case": [
+        "line",
+        9,
+        7
+      ],
+      "result_bits": "3c70000000000000",
+      "reference": "0",
+      "absolute_error": "1/72057594037927936",
+      "test_tolerance": "1/70368744177664"
+    },
+    {
+      "case": [
+        "line",
+        9,
+        8
+      ],
+      "result_bits": "3fcc71c71c71c6fe",
+      "reference": "2/9",
+      "absolute_error": "137/162129586585337856",
+      "test_tolerance": "1/70368744177664"
+    },
+    {
+      "case": [
+        "line",
+        9,
+        9
+      ],
+      "result_bits": "bc60000000000000",
+      "reference": "0",
+      "absolute_error": "1/144115188075855872",
+      "test_tolerance": "1/70368744177664"
+    },
+    {
+      "case": [
+        "line",
+        9,
+        10
+      ],
+      "result_bits": "3fc745d1745d172a",
+      "reference": "2/11",
+      "absolute_error": "153/198158383604301824",
+      "test_tolerance": "1/70368744177664"
+    },
+    {
+      "case": [
+        "line",
+        9,
+        11
+      ],
+      "result_bits": "0000000000000000",
+      "reference": "0",
+      "absolute_error": "0",
+      "test_tolerance": "1/70368744177664"
+    },
+    {
+      "case": [
+        "line",
+        9,
+        12
+      ],
+      "result_bits": "3fc3b13b13b13af9",
+      "reference": "2/13",
+      "absolute_error": "347/468374361246531584",
+      "test_tolerance": "1/70368744177664"
+    },
+    {
+      "case": [
+        "line",
+        9,
+        13
+      ],
+      "result_bits": "0000000000000000",
+      "reference": "0",
+      "absolute_error": "0",
+      "test_tolerance": "1/70368744177664"
+    },
+    {
+      "case": [
+        "line",
+        9,
+        14
+      ],
+      "result_bits": "3fc11111111110f8",
+      "reference": "2/15",
+      "absolute_error": "47/67553994410557440",
+      "test_tolerance": "1/70368744177664"
+    },
+    {
+      "case": [
+        "line",
+        9,
+        15
+      ],
+      "result_bits": "3c60000000000000",
+      "reference": "0",
+      "absolute_error": "1/144115188075855872",
+      "test_tolerance": "1/70368744177664"
+    },
+    {
+      "case": [
+        "line",
+        9,
+        16
+      ],
+      "result_bits": "3fbe1e1e1e1e1dee",
+      "reference": "2/17",
+      "absolute_error": "409/612489549322387456",
+      "test_tolerance": "1/70368744177664"
+    },
+    {
+      "case": [
+        "line",
+        9,
+        17
+      ],
+      "result_bits": "0000000000000000",
+      "reference": "0",
+      "absolute_error": "0",
+      "test_tolerance": "1/70368744177664"
+    },
+    {
+      "case": [
+        "line",
+        10,
+        0
+      ],
+      "result_bits": "3fffffffffffffff",
+      "reference": "2",
+      "absolute_error": "1/4503599627370496",
+      "test_tolerance": "1/35184372088832"
+    },
+    {
+      "case": [
+        "line",
+        10,
+        1
+      ],
+      "result_bits": "bc80000000000000",
+      "reference": "0",
+      "absolute_error": "1/36028797018963968",
+      "test_tolerance": "1/70368744177664"
+    },
+    {
+      "case": [
+        "line",
+        10,
+        2
+      ],
+      "result_bits": "3fe5555555555555",
+      "reference": "2/3",
+      "absolute_error": "1/27021597764222976",
+      "test_tolerance": "1/70368744177664"
+    },
+    {
+      "case": [
+        "line",
+        10,
+        3
+      ],
+      "result_bits": "0000000000000000",
+      "reference": "0",
+      "absolute_error": "0",
+      "test_tolerance": "1/70368744177664"
+    },
+    {
+      "case": [
+        "line",
+        10,
+        4
+      ],
+      "result_bits": "3fd99999999999a1",
+      "reference": "2/5",
+      "absolute_error": "37/90071992547409920",
+      "test_tolerance": "1/70368744177664"
+    },
+    {
+      "case": [
+        "line",
+        10,
+        5
+      ],
+      "result_bits": "3c70000000000000",
+      "reference": "0",
+      "absolute_error": "1/72057594037927936",
+      "test_tolerance": "1/70368744177664"
+    },
+    {
+      "case": [
+        "line",
+        10,
+        6
+      ],
+      "result_bits": "3fd249249249249b",
+      "reference": "2/7",
+      "absolute_error": "61/126100789566373888",
+      "test_tolerance": "1/70368744177664"
+    },
+    {
+      "case": [
+        "line",
+        10,
+        7
+      ],
+      "result_bits": "0000000000000000",
+      "reference": "0",
+      "absolute_error": "0",
+      "test_tolerance": "1/70368744177664"
+    },
+    {
+      "case": [
+        "line",
+        10,
+        8
+      ],
+      "result_bits": "3fcc71c71c71c730",
+      "reference": "2/9",
+      "absolute_error": "11/20266198323167232",
+      "test_tolerance": "1/70368744177664"
+    },
+    {
+      "case": [
+        "line",
+        10,
+        9
+      ],
+      "result_bits": "0000000000000000",
+      "reference": "0",
+      "absolute_error": "0",
+      "test_tolerance": "1/70368744177664"
+    },
+    {
+      "case": [
+        "line",
+        10,
+        10
+      ],
+      "result_bits": "3fc745d1745d175b",
+      "reference": "2/11",
+      "absolute_error": "233/396316767208603648",
+      "test_tolerance": "1/70368744177664"
+    },
+    {
+      "case": [
+        "line",
+        10,
+        11
+      ],
+      "result_bits": "0000000000000000",
+      "reference": "0",
+      "absolute_error": "0",
+      "test_tolerance": "1/70368744177664"
+    },
+    {
+      "case": [
+        "line",
+        10,
+        12
+      ],
+      "result_bits": "3fc3b13b13b13b28",
+      "reference": "2/13",
+      "absolute_error": "33/58546795155816448",
+      "test_tolerance": "1/70368744177664"
+    },
+    {
+      "case": [
+        "line",
+        10,
+        13
+      ],
+      "result_bits": "bc60000000000000",
+      "reference": "0",
+      "absolute_error": "1/144115188075855872",
+      "test_tolerance": "1/70368744177664"
+    },
+    {
+      "case": [
+        "line",
+        10,
+        14
+      ],
+      "result_bits": "3fc1111111111124",
+      "reference": "2/15",
+      "absolute_error": "71/135107988821114880",
+      "test_tolerance": "1/70368744177664"
+    },
+    {
+      "case": [
+        "line",
+        10,
+        15
+      ],
+      "result_bits": "0000000000000000",
+      "reference": "0",
+      "absolute_error": "0",
+      "test_tolerance": "1/70368744177664"
+    },
+    {
+      "case": [
+        "line",
+        10,
+        16
+      ],
+      "result_bits": "3fbe1e1e1e1e1e44",
+      "reference": "2/17",
+      "absolute_error": "161/306244774661193728",
+      "test_tolerance": "1/70368744177664"
+    },
+    {
+      "case": [
+        "line",
+        10,
+        17
+      ],
+      "result_bits": "0000000000000000",
+      "reference": "0",
+      "absolute_error": "0",
+      "test_tolerance": "1/70368744177664"
+    },
+    {
+      "case": [
+        "line",
+        10,
+        18
+      ],
+      "result_bits": "3fbaf286bca1af4b",
+      "reference": "2/19",
+      "absolute_error": "657/1369094286720630784",
+      "test_tolerance": "1/70368744177664"
+    },
+    {
+      "case": [
+        "line",
+        10,
+        19
+      ],
+      "result_bits": "0000000000000000",
+      "reference": "0",
+      "absolute_error": "0",
+      "test_tolerance": "1/70368744177664"
+    },
+    {
+      "case": [
+        "square",
+        1,
+        0,
+        0
+      ],
+      "result_bits": "4010000000000000",
+      "reference": "4",
+      "absolute_error": "0",
+      "test_tolerance": "1/17592186044416"
+    },
+    {
+      "case": [
+        "square",
+        1,
+        0,
+        1
+      ],
+      "result_bits": "0000000000000000",
+      "reference": "0",
+      "absolute_error": "0",
+      "test_tolerance": "1/70368744177664"
+    },
+    {
+      "case": [
+        "square",
+        1,
+        1,
+        0
+      ],
+      "result_bits": "0000000000000000",
+      "reference": "0",
+      "absolute_error": "0",
+      "test_tolerance": "1/70368744177664"
+    },
+    {
+      "case": [
+        "square",
+        1,
+        1,
+        1
+      ],
+      "result_bits": "0000000000000000",
+      "reference": "0",
+      "absolute_error": "0",
+      "test_tolerance": "1/70368744177664"
+    },
+    {
+      "case": [
+        "square",
+        4,
+        0,
+        0
+      ],
+      "result_bits": "4010000000000000",
+      "reference": "4",
+      "absolute_error": "0",
+      "test_tolerance": "1/17592186044416"
+    },
+    {
+      "case": [
+        "square",
+        4,
+        0,
+        1
+      ],
+      "result_bits": "0000000000000000",
+      "reference": "0",
+      "absolute_error": "0",
+      "test_tolerance": "1/70368744177664"
+    },
+    {
+      "case": [
+        "square",
+        4,
+        0,
+        2
+      ],
+      "result_bits": "3ff5555555555555",
+      "reference": "4/3",
+      "absolute_error": "1/13510798882111488",
+      "test_tolerance": "1/52776558133248"
+    },
+    {
+      "case": [
+        "square",
+        4,
+        0,
+        3
+      ],
+      "result_bits": "0000000000000000",
+      "reference": "0",
+      "absolute_error": "0",
+      "test_tolerance": "1/70368744177664"
+    },
+    {
+      "case": [
+        "square",
+        4,
+        1,
+        0
+      ],
+      "result_bits": "0000000000000000",
+      "reference": "0",
+      "absolute_error": "0",
+      "test_tolerance": "1/70368744177664"
+    },
+    {
+      "case": [
+        "square",
+        4,
+        1,
+        1
+      ],
+      "result_bits": "0000000000000000",
+      "reference": "0",
+      "absolute_error": "0",
+      "test_tolerance": "1/70368744177664"
+    },
+    {
+      "case": [
+        "square",
+        4,
+        1,
+        2
+      ],
+      "result_bits": "0000000000000000",
+      "reference": "0",
+      "absolute_error": "0",
+      "test_tolerance": "1/70368744177664"
+    },
+    {
+      "case": [
+        "square",
+        4,
+        1,
+        3
+      ],
+      "result_bits": "0000000000000000",
+      "reference": "0",
+      "absolute_error": "0",
+      "test_tolerance": "1/70368744177664"
+    },
+    {
+      "case": [
+        "square",
+        4,
+        2,
+        0
+      ],
+      "result_bits": "3ff5555555555555",
+      "reference": "4/3",
+      "absolute_error": "1/13510798882111488",
+      "test_tolerance": "1/52776558133248"
+    },
+    {
+      "case": [
+        "square",
+        4,
+        2,
+        1
+      ],
+      "result_bits": "0000000000000000",
+      "reference": "0",
+      "absolute_error": "0",
+      "test_tolerance": "1/70368744177664"
+    },
+    {
+      "case": [
+        "square",
+        4,
+        2,
+        2
+      ],
+      "result_bits": "3fdc71c71c71c71c",
+      "reference": "4/9",
+      "absolute_error": "1/40532396646334464",
+      "test_tolerance": "1/70368744177664"
+    },
+    {
+      "case": [
+        "square",
+        4,
+        2,
+        3
+      ],
+      "result_bits": "0000000000000000",
+      "reference": "0",
+      "absolute_error": "0",
+      "test_tolerance": "1/70368744177664"
+    },
+    {
+      "case": [
+        "square",
+        4,
+        3,
+        0
+      ],
+      "result_bits": "0000000000000000",
+      "reference": "0",
+      "absolute_error": "0",
+      "test_tolerance": "1/70368744177664"
+    },
+    {
+      "case": [
+        "square",
+        4,
+        3,
+        1
+      ],
+      "result_bits": "0000000000000000",
+      "reference": "0",
+      "absolute_error": "0",
+      "test_tolerance": "1/70368744177664"
+    },
+    {
+      "case": [
+        "square",
+        4,
+        3,
+        2
+      ],
+      "result_bits": "0000000000000000",
+      "reference": "0",
+      "absolute_error": "0",
+      "test_tolerance": "1/70368744177664"
+    },
+    {
+      "case": [
+        "square",
+        4,
+        3,
+        3
+      ],
+      "result_bits": "0000000000000000",
+      "reference": "0",
+      "absolute_error": "0",
+      "test_tolerance": "1/70368744177664"
+    },
+    {
+      "case": [
+        "square",
+        9,
+        0,
+        0
+      ],
+      "result_bits": "4010000000000005",
+      "reference": "4",
+      "absolute_error": "5/1125899906842624",
+      "test_tolerance": "1/17592186044416"
+    },
+    {
+      "case": [
+        "square",
+        9,
+        0,
+        1
+      ],
+      "result_bits": "0000000000000000",
+      "reference": "0",
+      "absolute_error": "0",
+      "test_tolerance": "1/70368744177664"
+    },
+    {
+      "case": [
+        "square",
+        9,
+        0,
+        2
+      ],
+      "result_bits": "3ff555555555555f",
+      "reference": "4/3",
+      "absolute_error": "29/13510798882111488",
+      "test_tolerance": "1/52776558133248"
+    },
+    {
+      "case": [
+        "square",
+        9,
+        0,
+        3
+      ],
+      "result_bits": "bc80000000000000",
+      "reference": "0",
+      "absolute_error": "1/36028797018963968",
+      "test_tolerance": "1/70368744177664"
+    },
+    {
+      "case": [
+        "square",
+        9,
+        0,
+        4
+      ],
+      "result_bits": "3fe99999999999a7",
+      "reference": "4/5",
+      "absolute_error": "67/45035996273704960",
+      "test_tolerance": "1/70368744177664"
+    },
+    {
+      "case": [
+        "square",
+        9,
+        0,
+        5
+      ],
+      "result_bits": "bc70000000000000",
+      "reference": "0",
+      "absolute_error": "1/72057594037927936",
+      "test_tolerance": "1/70368744177664"
+    },
+    {
+      "case": [
+        "square",
+        9,
+        1,
+        0
+      ],
+      "result_bits": "0000000000000000",
+      "reference": "0",
+      "absolute_error": "0",
+      "test_tolerance": "1/70368744177664"
+    },
+    {
+      "case": [
+        "square",
+        9,
+        1,
+        1
+      ],
+      "result_bits": "0000000000000000",
+      "reference": "0",
+      "absolute_error": "0",
+      "test_tolerance": "1/70368744177664"
+    },
+    {
+      "case": [
+        "square",
+        9,
+        1,
+        2
+      ],
+      "result_bits": "0000000000000000",
+      "reference": "0",
+      "absolute_error": "0",
+      "test_tolerance": "1/70368744177664"
+    },
+    {
+      "case": [
+        "square",
+        9,
+        1,
+        3
+      ],
+      "result_bits": "0000000000000000",
+      "reference": "0",
+      "absolute_error": "0",
+      "test_tolerance": "1/70368744177664"
+    },
+    {
+      "case": [
+        "square",
+        9,
+        1,
+        4
+      ],
+      "result_bits": "0000000000000000",
+      "reference": "0",
+      "absolute_error": "0",
+      "test_tolerance": "1/70368744177664"
+    },
+    {
+      "case": [
+        "square",
+        9,
+        1,
+        5
+      ],
+      "result_bits": "0000000000000000",
+      "reference": "0",
+      "absolute_error": "0",
+      "test_tolerance": "1/70368744177664"
+    },
+    {
+      "case": [
+        "square",
+        9,
+        2,
+        0
+      ],
+      "result_bits": "3ff555555555555e",
+      "reference": "4/3",
+      "absolute_error": "13/6755399441055744",
+      "test_tolerance": "1/52776558133248"
+    },
+    {
+      "case": [
+        "square",
+        9,
+        2,
+        1
+      ],
+      "result_bits": "0000000000000000",
+      "reference": "0",
+      "absolute_error": "0",
+      "test_tolerance": "1/70368744177664"
+    },
+    {
+      "case": [
+        "square",
+        9,
+        2,
+        2
+      ],
+      "result_bits": "3fdc71c71c71c72d",
+      "reference": "4/9",
+      "absolute_error": "149/162129586585337856",
+      "test_tolerance": "1/70368744177664"
+    },
+    {
+      "case": [
+        "square",
+        9,
+        2,
+        3
+      ],
+      "result_bits": "0000000000000000",
+      "reference": "0",
+      "absolute_error": "0",
+      "test_tolerance": "1/70368744177664"
+    },
+    {
+      "case": [
+        "square",
+        9,
+        2,
+        4
+      ],
+      "result_bits": "3fd111111111111b",
+      "reference": "4/15",
+      "absolute_error": "149/270215977642229760",
+      "test_tolerance": "1/70368744177664"
+    },
+    {
+      "case": [
+        "square",
+        9,
+        2,
+        5
+      ],
+      "result_bits": "0000000000000000",
+      "reference": "0",
+      "absolute_error": "0",
+      "test_tolerance": "1/70368744177664"
+    },
+    {
+      "case": [
+        "square",
+        9,
+        3,
+        0
+      ],
+      "result_bits": "0000000000000000",
+      "reference": "0",
+      "absolute_error": "0",
+      "test_tolerance": "1/70368744177664"
+    },
+    {
+      "case": [
+        "square",
+        9,
+        3,
+        1
+      ],
+      "result_bits": "0000000000000000",
+      "reference": "0",
+      "absolute_error": "0",
+      "test_tolerance": "1/70368744177664"
+    },
+    {
+      "case": [
+        "square",
+        9,
+        3,
+        2
+      ],
+      "result_bits": "0000000000000000",
+      "reference": "0",
+      "absolute_error": "0",
+      "test_tolerance": "1/70368744177664"
+    },
+    {
+      "case": [
+        "square",
+        9,
+        3,
+        3
+      ],
+      "result_bits": "0000000000000000",
+      "reference": "0",
+      "absolute_error": "0",
+      "test_tolerance": "1/70368744177664"
+    },
+    {
+      "case": [
+        "square",
+        9,
+        3,
+        4
+      ],
+      "result_bits": "0000000000000000",
+      "reference": "0",
+      "absolute_error": "0",
+      "test_tolerance": "1/70368744177664"
+    },
+    {
+      "case": [
+        "square",
+        9,
+        3,
+        5
+      ],
+      "result_bits": "0000000000000000",
+      "reference": "0",
+      "absolute_error": "0",
+      "test_tolerance": "1/70368744177664"
+    },
+    {
+      "case": [
+        "square",
+        9,
+        4,
+        0
+      ],
+      "result_bits": "3fe99999999999a7",
+      "reference": "4/5",
+      "absolute_error": "67/45035996273704960",
+      "test_tolerance": "1/70368744177664"
+    },
+    {
+      "case": [
+        "square",
+        9,
+        4,
+        1
+      ],
+      "result_bits": "0000000000000000",
+      "reference": "0",
+      "absolute_error": "0",
+      "test_tolerance": "1/70368744177664"
+    },
+    {
+      "case": [
+        "square",
+        9,
+        4,
+        2
+      ],
+      "result_bits": "3fd111111111111c",
+      "reference": "4/15",
+      "absolute_error": "41/67553994410557440",
+      "test_tolerance": "1/70368744177664"
+    },
+    {
+      "case": [
+        "square",
+        9,
+        4,
+        3
+      ],
+      "result_bits": "0000000000000000",
+      "reference": "0",
+      "absolute_error": "0",
+      "test_tolerance": "1/70368744177664"
+    },
+    {
+      "case": [
+        "square",
+        9,
+        4,
+        4
+      ],
+      "result_bits": "3fc47ae147ae1488",
+      "reference": "4/25",
+      "absolute_error": "41/112589990684262400",
+      "test_tolerance": "1/70368744177664"
+    },
+    {
+      "case": [
+        "square",
+        9,
+        4,
+        5
+      ],
+      "result_bits": "0000000000000000",
+      "reference": "0",
+      "absolute_error": "0",
+      "test_tolerance": "1/70368744177664"
+    },
+    {
+      "case": [
+        "square",
+        9,
+        5,
+        0
+      ],
+      "result_bits": "0000000000000000",
+      "reference": "0",
+      "absolute_error": "0",
+      "test_tolerance": "1/70368744177664"
+    },
+    {
+      "case": [
+        "square",
+        9,
+        5,
+        1
+      ],
+      "result_bits": "0000000000000000",
+      "reference": "0",
+      "absolute_error": "0",
+      "test_tolerance": "1/70368744177664"
+    },
+    {
+      "case": [
+        "square",
+        9,
+        5,
+        2
+      ],
+      "result_bits": "0000000000000000",
+      "reference": "0",
+      "absolute_error": "0",
+      "test_tolerance": "1/70368744177664"
+    },
+    {
+      "case": [
+        "square",
+        9,
+        5,
+        3
+      ],
+      "result_bits": "0000000000000000",
+      "reference": "0",
+      "absolute_error": "0",
+      "test_tolerance": "1/70368744177664"
+    },
+    {
+      "case": [
+        "square",
+        9,
+        5,
+        4
+      ],
+      "result_bits": "0000000000000000",
+      "reference": "0",
+      "absolute_error": "0",
+      "test_tolerance": "1/70368744177664"
+    },
+    {
+      "case": [
+        "square",
+        9,
+        5,
+        5
+      ],
+      "result_bits": "0000000000000000",
+      "reference": "0",
+      "absolute_error": "0",
+      "test_tolerance": "1/70368744177664"
+    },
+    {
+      "case": [
+        "square",
+        16,
+        0,
+        0
+      ],
+      "result_bits": "4010000000000001",
+      "reference": "4",
+      "absolute_error": "1/1125899906842624",
+      "test_tolerance": "1/17592186044416"
+    },
+    {
+      "case": [
+        "square",
+        16,
+        0,
+        1
+      ],
+      "result_bits": "bc80000000000000",
+      "reference": "0",
+      "absolute_error": "1/36028797018963968",
+      "test_tolerance": "1/70368744177664"
+    },
+    {
+      "case": [
+        "square",
+        16,
+        0,
+        2
+      ],
+      "result_bits": "3ff5555555555555",
+      "reference": "4/3",
+      "absolute_error": "1/13510798882111488",
+      "test_tolerance": "1/52776558133248"
+    },
+    {
+      "case": [
+        "square",
+        16,
+        0,
+        3
+      ],
+      "result_bits": "3c80000000000000",
+      "reference": "0",
+      "absolute_error": "1/36028797018963968",
+      "test_tolerance": "1/70368744177664"
+    },
+    {
+      "case": [
+        "square",
+        16,
+        0,
+        4
+      ],
+      "result_bits": "3fe999999999999b",
+      "reference": "4/5",
+      "absolute_error": "7/45035996273704960",
+      "test_tolerance": "1/70368744177664"
+    },
+    {
+      "case": [
+        "square",
+        16,
+        0,
+        5
+      ],
+      "result_bits": "bc60000000000000",
+      "reference": "0",
+      "absolute_error": "1/144115188075855872",
+      "test_tolerance": "1/70368744177664"
+    },
+    {
+      "case": [
+        "square",
+        16,
+        0,
+        6
+      ],
+      "result_bits": "3fe2492492492492",
+      "reference": "4/7",
+      "absolute_error": "1/31525197391593472",
+      "test_tolerance": "1/70368744177664"
+    },
+    {
+      "case": [
+        "square",
+        16,
+        0,
+        7
+      ],
+      "result_bits": "0000000000000000",
+      "reference": "0",
+      "absolute_error": "0",
+      "test_tolerance": "1/70368744177664"
+    },
+    {
+      "case": [
+        "square",
+        16,
+        1,
+        0
+      ],
+      "result_bits": "3c70000000000000",
+      "reference": "0",
+      "absolute_error": "1/72057594037927936",
+      "test_tolerance": "1/70368744177664"
+    },
+    {
+      "case": [
+        "square",
+        16,
+        1,
+        1
+      ],
+      "result_bits": "bc70000000000000",
+      "reference": "0",
+      "absolute_error": "1/72057594037927936",
+      "test_tolerance": "1/70368744177664"
+    },
+    {
+      "case": [
+        "square",
+        16,
+        1,
+        2
+      ],
+      "result_bits": "0000000000000000",
+      "reference": "0",
+      "absolute_error": "0",
+      "test_tolerance": "1/70368744177664"
+    },
+    {
+      "case": [
+        "square",
+        16,
+        1,
+        3
+      ],
+      "result_bits": "0000000000000000",
+      "reference": "0",
+      "absolute_error": "0",
+      "test_tolerance": "1/70368744177664"
+    },
+    {
+      "case": [
+        "square",
+        16,
+        1,
+        4
+      ],
+      "result_bits": "bc60000000000000",
+      "reference": "0",
+      "absolute_error": "1/144115188075855872",
+      "test_tolerance": "1/70368744177664"
+    },
+    {
+      "case": [
+        "square",
+        16,
+        1,
+        5
+      ],
+      "result_bits": "0000000000000000",
+      "reference": "0",
+      "absolute_error": "0",
+      "test_tolerance": "1/70368744177664"
+    },
+    {
+      "case": [
+        "square",
+        16,
+        1,
+        6
+      ],
+      "result_bits": "0000000000000000",
+      "reference": "0",
+      "absolute_error": "0",
+      "test_tolerance": "1/70368744177664"
+    },
+    {
+      "case": [
+        "square",
+        16,
+        1,
+        7
+      ],
+      "result_bits": "0000000000000000",
+      "reference": "0",
+      "absolute_error": "0",
+      "test_tolerance": "1/70368744177664"
+    },
+    {
+      "case": [
+        "square",
+        16,
+        2,
+        0
+      ],
+      "result_bits": "3ff5555555555555",
+      "reference": "4/3",
+      "absolute_error": "1/13510798882111488",
+      "test_tolerance": "1/52776558133248"
+    },
+    {
+      "case": [
+        "square",
+        16,
+        2,
+        1
+      ],
+      "result_bits": "0000000000000000",
+      "reference": "0",
+      "absolute_error": "0",
+      "test_tolerance": "1/70368744177664"
+    },
+    {
+      "case": [
+        "square",
+        16,
+        2,
+        2
+      ],
+      "result_bits": "3fdc71c71c71c71c",
+      "reference": "4/9",
+      "absolute_error": "1/40532396646334464",
+      "test_tolerance": "1/70368744177664"
+    },
+    {
+      "case": [
+        "square",
+        16,
+        2,
+        3
+      ],
+      "result_bits": "0000000000000000",
+      "reference": "0",
+      "absolute_error": "0",
+      "test_tolerance": "1/70368744177664"
+    },
+    {
+      "case": [
+        "square",
+        16,
+        2,
+        4
+      ],
+      "result_bits": "3fd1111111111110",
+      "reference": "4/15",
+      "absolute_error": "1/16888498602639360",
+      "test_tolerance": "1/70368744177664"
+    },
+    {
+      "case": [
+        "square",
+        16,
+        2,
+        5
+      ],
+      "result_bits": "0000000000000000",
+      "reference": "0",
+      "absolute_error": "0",
+      "test_tolerance": "1/70368744177664"
+    },
+    {
+      "case": [
+        "square",
+        16,
+        2,
+        6
+      ],
+      "result_bits": "3fc8618618618618",
+      "reference": "4/21",
+      "absolute_error": "1/94575592174780416",
+      "test_tolerance": "1/70368744177664"
+    },
+    {
+      "case": [
+        "square",
+        16,
+        2,
+        7
+      ],
+      "result_bits": "3c60000000000000",
+      "reference": "0",
+      "absolute_error": "1/144115188075855872",
+      "test_tolerance": "1/70368744177664"
+    },
+    {
+      "case": [
+        "square",
+        16,
+        3,
+        0
+      ],
+      "result_bits": "0000000000000000",
+      "reference": "0",
+      "absolute_error": "0",
+      "test_tolerance": "1/70368744177664"
+    },
+    {
+      "case": [
+        "square",
+        16,
+        3,
+        1
+      ],
+      "result_bits": "0000000000000000",
+      "reference": "0",
+      "absolute_error": "0",
+      "test_tolerance": "1/70368744177664"
+    },
+    {
+      "case": [
+        "square",
+        16,
+        3,
+        2
+      ],
+      "result_bits": "0000000000000000",
+      "reference": "0",
+      "absolute_error": "0",
+      "test_tolerance": "1/70368744177664"
+    },
+    {
+      "case": [
+        "square",
+        16,
+        3,
+        3
+      ],
+      "result_bits": "0000000000000000",
+      "reference": "0",
+      "absolute_error": "0",
+      "test_tolerance": "1/70368744177664"
+    },
+    {
+      "case": [
+        "square",
+        16,
+        3,
+        4
+      ],
+      "result_bits": "0000000000000000",
+      "reference": "0",
+      "absolute_error": "0",
+      "test_tolerance": "1/70368744177664"
+    },
+    {
+      "case": [
+        "square",
+        16,
+        3,
+        5
+      ],
+      "result_bits": "0000000000000000",
+      "reference": "0",
+      "absolute_error": "0",
+      "test_tolerance": "1/70368744177664"
+    },
+    {
+      "case": [
+        "square",
+        16,
+        3,
+        6
+      ],
+      "result_bits": "0000000000000000",
+      "reference": "0",
+      "absolute_error": "0",
+      "test_tolerance": "1/70368744177664"
+    },
+    {
+      "case": [
+        "square",
+        16,
+        3,
+        7
+      ],
+      "result_bits": "0000000000000000",
+      "reference": "0",
+      "absolute_error": "0",
+      "test_tolerance": "1/70368744177664"
+    },
+    {
+      "case": [
+        "square",
+        16,
+        4,
+        0
+      ],
+      "result_bits": "3fe999999999999a",
+      "reference": "4/5",
+      "absolute_error": "1/22517998136852480",
+      "test_tolerance": "1/70368744177664"
+    },
+    {
+      "case": [
+        "square",
+        16,
+        4,
+        1
+      ],
+      "result_bits": "3c60000000000000",
+      "reference": "0",
+      "absolute_error": "1/144115188075855872",
+      "test_tolerance": "1/70368744177664"
+    },
+    {
+      "case": [
+        "square",
+        16,
+        4,
+        2
+      ],
+      "result_bits": "3fd1111111111111",
+      "reference": "4/15",
+      "absolute_error": "1/270215977642229760",
+      "test_tolerance": "1/70368744177664"
+    },
+    {
+      "case": [
+        "square",
+        16,
+        4,
+        3
+      ],
+      "result_bits": "0000000000000000",
+      "reference": "0",
+      "absolute_error": "0",
+      "test_tolerance": "1/70368744177664"
+    },
+    {
+      "case": [
+        "square",
+        16,
+        4,
+        4
+      ],
+      "result_bits": "3fc47ae147ae147a",
+      "reference": "4/25",
+      "absolute_error": "11/450359962737049600",
+      "test_tolerance": "1/70368744177664"
+    },
+    {
+      "case": [
+        "square",
+        16,
+        4,
+        5
+      ],
+      "result_bits": "0000000000000000",
+      "reference": "0",
+      "absolute_error": "0",
+      "test_tolerance": "1/70368744177664"
+    },
+    {
+      "case": [
+        "square",
+        16,
+        4,
+        6
+      ],
+      "result_bits": "3fbd41d41d41d420",
+      "reference": "4/35",
+      "absolute_error": "3/78812993478983680",
+      "test_tolerance": "1/70368744177664"
+    },
+    {
+      "case": [
+        "square",
+        16,
+        4,
+        7
+      ],
+      "result_bits": "0000000000000000",
+      "reference": "0",
+      "absolute_error": "0",
+      "test_tolerance": "1/70368744177664"
+    },
+    {
+      "case": [
+        "square",
+        16,
+        5,
+        0
+      ],
+      "result_bits": "0000000000000000",
+      "reference": "0",
+      "absolute_error": "0",
+      "test_tolerance": "1/70368744177664"
+    },
+    {
+      "case": [
+        "square",
+        16,
+        5,
+        1
+      ],
+      "result_bits": "0000000000000000",
+      "reference": "0",
+      "absolute_error": "0",
+      "test_tolerance": "1/70368744177664"
+    },
+    {
+      "case": [
+        "square",
+        16,
+        5,
+        2
+      ],
+      "result_bits": "0000000000000000",
+      "reference": "0",
+      "absolute_error": "0",
+      "test_tolerance": "1/70368744177664"
+    },
+    {
+      "case": [
+        "square",
+        16,
+        5,
+        3
+      ],
+      "result_bits": "0000000000000000",
+      "reference": "0",
+      "absolute_error": "0",
+      "test_tolerance": "1/70368744177664"
+    },
+    {
+      "case": [
+        "square",
+        16,
+        5,
+        4
+      ],
+      "result_bits": "0000000000000000",
+      "reference": "0",
+      "absolute_error": "0",
+      "test_tolerance": "1/70368744177664"
+    },
+    {
+      "case": [
+        "square",
+        16,
+        5,
+        5
+      ],
+      "result_bits": "0000000000000000",
+      "reference": "0",
+      "absolute_error": "0",
+      "test_tolerance": "1/70368744177664"
+    },
+    {
+      "case": [
+        "square",
+        16,
+        5,
+        6
+      ],
+      "result_bits": "0000000000000000",
+      "reference": "0",
+      "absolute_error": "0",
+      "test_tolerance": "1/70368744177664"
+    },
+    {
+      "case": [
+        "square",
+        16,
+        5,
+        7
+      ],
+      "result_bits": "0000000000000000",
+      "reference": "0",
+      "absolute_error": "0",
+      "test_tolerance": "1/70368744177664"
+    },
+    {
+      "case": [
+        "square",
+        16,
+        6,
+        0
+      ],
+      "result_bits": "3fe2492492492492",
+      "reference": "4/7",
+      "absolute_error": "1/31525197391593472",
+      "test_tolerance": "1/70368744177664"
+    },
+    {
+      "case": [
+        "square",
+        16,
+        6,
+        1
+      ],
+      "result_bits": "0000000000000000",
+      "reference": "0",
+      "absolute_error": "0",
+      "test_tolerance": "1/70368744177664"
+    },
+    {
+      "case": [
+        "square",
+        16,
+        6,
+        2
+      ],
+      "result_bits": "3fc8618618618616",
+      "reference": "4/21",
+      "absolute_error": "25/378302368699121664",
+      "test_tolerance": "1/70368744177664"
+    },
+    {
+      "case": [
+        "square",
+        16,
+        6,
+        3
+      ],
+      "result_bits": "0000000000000000",
+      "reference": "0",
+      "absolute_error": "0",
+      "test_tolerance": "1/70368744177664"
+    },
+    {
+      "case": [
+        "square",
+        16,
+        6,
+        4
+      ],
+      "result_bits": "3fbd41d41d41d41f",
+      "reference": "4/35",
+      "absolute_error": "61/2522015791327477760",
+      "test_tolerance": "1/70368744177664"
+    },
+    {
+      "case": [
+        "square",
+        16,
+        6,
+        5
+      ],
+      "result_bits": "0000000000000000",
+      "reference": "0",
+      "absolute_error": "0",
+      "test_tolerance": "1/70368744177664"
+    },
+    {
+      "case": [
+        "square",
+        16,
+        6,
+        6
+      ],
+      "result_bits": "3fb4e5e0a72f053c",
+      "reference": "4/49",
+      "absolute_error": "31/882705526964617216",
+      "test_tolerance": "1/70368744177664"
+    },
+    {
+      "case": [
+        "square",
+        16,
+        6,
+        7
+      ],
+      "result_bits": "0000000000000000",
+      "reference": "0",
+      "absolute_error": "0",
+      "test_tolerance": "1/70368744177664"
+    },
+    {
+      "case": [
+        "square",
+        16,
+        7,
+        0
+      ],
+      "result_bits": "0000000000000000",
+      "reference": "0",
+      "absolute_error": "0",
+      "test_tolerance": "1/70368744177664"
+    },
+    {
+      "case": [
+        "square",
+        16,
+        7,
+        1
+      ],
+      "result_bits": "0000000000000000",
+      "reference": "0",
+      "absolute_error": "0",
+      "test_tolerance": "1/70368744177664"
+    },
+    {
+      "case": [
+        "square",
+        16,
+        7,
+        2
+      ],
+      "result_bits": "0000000000000000",
+      "reference": "0",
+      "absolute_error": "0",
+      "test_tolerance": "1/70368744177664"
+    },
+    {
+      "case": [
+        "square",
+        16,
+        7,
+        3
+      ],
+      "result_bits": "0000000000000000",
+      "reference": "0",
+      "absolute_error": "0",
+      "test_tolerance": "1/70368744177664"
+    },
+    {
+      "case": [
+        "square",
+        16,
+        7,
+        4
+      ],
+      "result_bits": "0000000000000000",
+      "reference": "0",
+      "absolute_error": "0",
+      "test_tolerance": "1/70368744177664"
+    },
+    {
+      "case": [
+        "square",
+        16,
+        7,
+        5
+      ],
+      "result_bits": "0000000000000000",
+      "reference": "0",
+      "absolute_error": "0",
+      "test_tolerance": "1/70368744177664"
+    },
+    {
+      "case": [
+        "square",
+        16,
+        7,
+        6
+      ],
+      "result_bits": "0000000000000000",
+      "reference": "0",
+      "absolute_error": "0",
+      "test_tolerance": "1/70368744177664"
+    },
+    {
+      "case": [
+        "square",
+        16,
+        7,
+        7
+      ],
+      "result_bits": "0000000000000000",
+      "reference": "0",
+      "absolute_error": "0",
+      "test_tolerance": "1/70368744177664"
+    },
+    {
+      "case": [
+        "square",
+        25,
+        0,
+        0
+      ],
+      "result_bits": "400ffffffffffff7",
+      "reference": "4",
+      "absolute_error": "9/2251799813685248",
+      "test_tolerance": "1/17592186044416"
+    },
+    {
+      "case": [
+        "square",
+        25,
+        0,
+        1
+      ],
+      "result_bits": "bc70000000000000",
+      "reference": "0",
+      "absolute_error": "1/72057594037927936",
+      "test_tolerance": "1/70368744177664"
+    },
+    {
+      "case": [
+        "square",
+        25,
+        0,
+        2
+      ],
+      "result_bits": "3ff555555555554e",
+      "reference": "4/3",
+      "absolute_error": "11/6755399441055744",
+      "test_tolerance": "1/52776558133248"
+    },
+    {
+      "case": [
+        "square",
+        25,
+        0,
+        3
+      ],
+      "result_bits": "bc9c000000000000",
+      "reference": "0",
+      "absolute_error": "7/72057594037927936",
+      "test_tolerance": "1/70368744177664"
+    },
+    {
+      "case": [
+        "square",
+        25,
+        0,
+        4
+      ],
+      "result_bits": "3fe9999999999992",
+      "reference": "4/5",
+      "absolute_error": "19/22517998136852480",
+      "test_tolerance": "1/70368744177664"
+    },
+    {
+      "case": [
+        "square",
+        25,
+        0,
+        5
+      ],
+      "result_bits": "bc60000000000000",
+      "reference": "0",
+      "absolute_error": "1/144115188075855872",
+      "test_tolerance": "1/70368744177664"
+    },
+    {
+      "case": [
+        "square",
+        25,
+        0,
+        6
+      ],
+      "result_bits": "3fe249249249248c",
+      "reference": "4/7",
+      "absolute_error": "11/15762598695796736",
+      "test_tolerance": "1/70368744177664"
+    },
+    {
+      "case": [
+        "square",
+        25,
+        0,
+        7
+      ],
+      "result_bits": "bc82000000000000",
+      "reference": "0",
+      "absolute_error": "9/288230376151711744",
+      "test_tolerance": "1/70368744177664"
+    },
+    {
+      "case": [
+        "square",
+        25,
+        0,
+        8
+      ],
+      "result_bits": "3fdc71c71c71c713",
+      "reference": "4/9",
+      "absolute_error": "85/162129586585337856",
+      "test_tolerance": "1/70368744177664"
+    },
+    {
+      "case": [
+        "square",
+        25,
+        0,
+        9
+      ],
+      "result_bits": "3c50000000000000",
+      "reference": "0",
+      "absolute_error": "1/288230376151711744",
+      "test_tolerance": "1/70368744177664"
+    },
+    {
+      "case": [
+        "square",
+        25,
+        1,
+        0
+      ],
+      "result_bits": "3c60000000000000",
+      "reference": "0",
+      "absolute_error": "1/144115188075855872",
+      "test_tolerance": "1/70368744177664"
+    },
+    {
+      "case": [
+        "square",
+        25,
+        1,
+        1
+      ],
+      "result_bits": "0000000000000000",
+      "reference": "0",
+      "absolute_error": "0",
+      "test_tolerance": "1/70368744177664"
+    },
+    {
+      "case": [
+        "square",
+        25,
+        1,
+        2
+      ],
+      "result_bits": "0000000000000000",
+      "reference": "0",
+      "absolute_error": "0",
+      "test_tolerance": "1/70368744177664"
+    },
+    {
+      "case": [
+        "square",
+        25,
+        1,
+        3
+      ],
+      "result_bits": "3c60000000000000",
+      "reference": "0",
+      "absolute_error": "1/144115188075855872",
+      "test_tolerance": "1/70368744177664"
+    },
+    {
+      "case": [
+        "square",
+        25,
+        1,
+        4
+      ],
+      "result_bits": "bc60000000000000",
+      "reference": "0",
+      "absolute_error": "1/144115188075855872",
+      "test_tolerance": "1/70368744177664"
+    },
+    {
+      "case": [
+        "square",
+        25,
+        1,
+        5
+      ],
+      "result_bits": "3c60000000000000",
+      "reference": "0",
+      "absolute_error": "1/144115188075855872",
+      "test_tolerance": "1/70368744177664"
+    },
+    {
+      "case": [
+        "square",
+        25,
+        1,
+        6
+      ],
+      "result_bits": "3c50000000000000",
+      "reference": "0",
+      "absolute_error": "1/288230376151711744",
+      "test_tolerance": "1/70368744177664"
+    },
+    {
+      "case": [
+        "square",
+        25,
+        1,
+        7
+      ],
+      "result_bits": "3c50000000000000",
+      "reference": "0",
+      "absolute_error": "1/288230376151711744",
+      "test_tolerance": "1/70368744177664"
+    },
+    {
+      "case": [
+        "square",
+        25,
+        1,
+        8
+      ],
+      "result_bits": "3c50000000000000",
+      "reference": "0",
+      "absolute_error": "1/288230376151711744",
+      "test_tolerance": "1/70368744177664"
+    },
+    {
+      "case": [
+        "square",
+        25,
+        1,
+        9
+      ],
+      "result_bits": "bc50000000000000",
+      "reference": "0",
+      "absolute_error": "1/288230376151711744",
+      "test_tolerance": "1/70368744177664"
+    },
+    {
+      "case": [
+        "square",
+        25,
+        2,
+        0
+      ],
+      "result_bits": "3ff5555555555550",
+      "reference": "4/3",
+      "absolute_error": "1/844424930131968",
+      "test_tolerance": "1/52776558133248"
+    },
+    {
+      "case": [
+        "square",
+        25,
+        2,
+        1
+      ],
+      "result_bits": "3c80000000000000",
+      "reference": "0",
+      "absolute_error": "1/36028797018963968",
+      "test_tolerance": "1/70368744177664"
+    },
+    {
+      "case": [
+        "square",
+        25,
+        2,
+        2
+      ],
+      "result_bits": "3fdc71c71c71c710",
+      "reference": "4/9",
+      "absolute_error": "7/10133099161583616",
+      "test_tolerance": "1/70368744177664"
+    },
+    {
+      "case": [
+        "square",
+        25,
+        2,
+        3
+      ],
+      "result_bits": "3c60000000000000",
+      "reference": "0",
+      "absolute_error": "1/144115188075855872",
+      "test_tolerance": "1/70368744177664"
+    },
+    {
+      "case": [
+        "square",
+        25,
+        2,
+        4
+      ],
+      "result_bits": "3fd1111111111109",
+      "reference": "4/15",
+      "absolute_error": "121/270215977642229760",
+      "test_tolerance": "1/70368744177664"
+    },
+    {
+      "case": [
+        "square",
+        25,
+        2,
+        5
+      ],
+      "result_bits": "bc50000000000000",
+      "reference": "0",
+      "absolute_error": "1/288230376151711744",
+      "test_tolerance": "1/70368744177664"
+    },
+    {
+      "case": [
+        "square",
+        25,
+        2,
+        6
+      ],
+      "result_bits": "3fc861861861860f",
+      "reference": "4/21",
+      "absolute_error": "197/756604737398243328",
+      "test_tolerance": "1/70368744177664"
+    },
+    {
+      "case": [
+        "square",
+        25,
+        2,
+        7
+      ],
+      "result_bits": "3c50000000000000",
+      "reference": "0",
+      "absolute_error": "1/288230376151711744",
+      "test_tolerance": "1/70368744177664"
+    },
+    {
+      "case": [
+        "square",
+        25,
+        2,
+        8
+      ],
+      "result_bits": "3fc2f684bda12f5f",
+      "reference": "4/27",
+      "absolute_error": "251/972777519512027136",
+      "test_tolerance": "1/70368744177664"
+    },
+    {
+      "case": [
+        "square",
+        25,
+        2,
+        9
+      ],
+      "result_bits": "0000000000000000",
+      "reference": "0",
+      "absolute_error": "0",
+      "test_tolerance": "1/70368744177664"
+    },
+    {
+      "case": [
+        "square",
+        25,
+        3,
+        0
+      ],
+      "result_bits": "bc70000000000000",
+      "reference": "0",
+      "absolute_error": "1/72057594037927936",
+      "test_tolerance": "1/70368744177664"
+    },
+    {
+      "case": [
+        "square",
+        25,
+        3,
+        1
+      ],
+      "result_bits": "bc60000000000000",
+      "reference": "0",
+      "absolute_error": "1/144115188075855872",
+      "test_tolerance": "1/70368744177664"
+    },
+    {
+      "case": [
+        "square",
+        25,
+        3,
+        2
+      ],
+      "result_bits": "3c60000000000000",
+      "reference": "0",
+      "absolute_error": "1/144115188075855872",
+      "test_tolerance": "1/70368744177664"
+    },
+    {
+      "case": [
+        "square",
+        25,
+        3,
+        3
+      ],
+      "result_bits": "3c50000000000000",
+      "reference": "0",
+      "absolute_error": "1/288230376151711744",
+      "test_tolerance": "1/70368744177664"
+    },
+    {
+      "case": [
+        "square",
+        25,
+        3,
+        4
+      ],
+      "result_bits": "0000000000000000",
+      "reference": "0",
+      "absolute_error": "0",
+      "test_tolerance": "1/70368744177664"
+    },
+    {
+      "case": [
+        "square",
+        25,
+        3,
+        5
+      ],
+      "result_bits": "bc50000000000000",
+      "reference": "0",
+      "absolute_error": "1/288230376151711744",
+      "test_tolerance": "1/70368744177664"
+    },
+    {
+      "case": [
+        "square",
+        25,
+        3,
+        6
+      ],
+      "result_bits": "3c50000000000000",
+      "reference": "0",
+      "absolute_error": "1/288230376151711744",
+      "test_tolerance": "1/70368744177664"
+    },
+    {
+      "case": [
+        "square",
+        25,
+        3,
+        7
+      ],
+      "result_bits": "0000000000000000",
+      "reference": "0",
+      "absolute_error": "0",
+      "test_tolerance": "1/70368744177664"
+    },
+    {
+      "case": [
+        "square",
+        25,
+        3,
+        8
+      ],
+      "result_bits": "0000000000000000",
+      "reference": "0",
+      "absolute_error": "0",
+      "test_tolerance": "1/70368744177664"
+    },
+    {
+      "case": [
+        "square",
+        25,
+        3,
+        9
+      ],
+      "result_bits": "0000000000000000",
+      "reference": "0",
+      "absolute_error": "0",
+      "test_tolerance": "1/70368744177664"
+    },
+    {
+      "case": [
+        "square",
+        25,
+        4,
+        0
+      ],
+      "result_bits": "3fe9999999999990",
+      "reference": "4/5",
+      "absolute_error": "3/2814749767106560",
+      "test_tolerance": "1/70368744177664"
+    },
+    {
+      "case": [
+        "square",
+        25,
+        4,
+        1
+      ],
+      "result_bits": "bc70000000000000",
+      "reference": "0",
+      "absolute_error": "1/72057594037927936",
+      "test_tolerance": "1/70368744177664"
+    },
+    {
+      "case": [
+        "square",
+        25,
+        4,
+        2
+      ],
+      "result_bits": "3fd111111111110a",
+      "reference": "4/15",
+      "absolute_error": "53/135107988821114880",
+      "test_tolerance": "1/70368744177664"
+    },
+    {
+      "case": [
+        "square",
+        25,
+        4,
+        3
+      ],
+      "result_bits": "bc70000000000000",
+      "reference": "0",
+      "absolute_error": "1/72057594037927936",
+      "test_tolerance": "1/70368744177664"
+    },
+    {
+      "case": [
+        "square",
+        25,
+        4,
+        4
+      ],
+      "result_bits": "3fc47ae147ae1473",
+      "reference": "4/25",
+      "absolute_error": "197/900719925474099200",
+      "test_tolerance": "1/70368744177664"
+    },
+    {
+      "case": [
+        "square",
+        25,
+        4,
+        5
+      ],
+      "result_bits": "3c60000000000000",
+      "reference": "0",
+      "absolute_error": "1/144115188075855872",
+      "test_tolerance": "1/70368744177664"
+    },
+    {
+      "case": [
+        "square",
+        25,
+        4,
+        6
+      ],
+      "result_bits": "3fbd41d41d41d412",
+      "reference": "4/35",
+      "absolute_error": "197/1261007895663738880",
+      "test_tolerance": "1/70368744177664"
+    },
+    {
+      "case": [
+        "square",
+        25,
+        4,
+        7
+      ],
+      "result_bits": "0000000000000000",
+      "reference": "0",
+      "absolute_error": "0",
+      "test_tolerance": "1/70368744177664"
+    },
+    {
+      "case": [
+        "square",
+        25,
+        4,
+        8
+      ],
+      "result_bits": "3fb6c16c16c16c0e",
+      "reference": "4/45",
+      "absolute_error": "197/1621295865853378560",
+      "test_tolerance": "1/70368744177664"
+    },
+    {
+      "case": [
+        "square",
+        25,
+        4,
+        9
+      ],
+      "result_bits": "0000000000000000",
+      "reference": "0",
+      "absolute_error": "0",
+      "test_tolerance": "1/70368744177664"
+    },
+    {
+      "case": [
+        "square",
+        25,
+        5,
+        0
+      ],
+      "result_bits": "0000000000000000",
+      "reference": "0",
+      "absolute_error": "0",
+      "test_tolerance": "1/70368744177664"
+    },
+    {
+      "case": [
+        "square",
+        25,
+        5,
+        1
+      ],
+      "result_bits": "bc60000000000000",
+      "reference": "0",
+      "absolute_error": "1/144115188075855872",
+      "test_tolerance": "1/70368744177664"
+    },
+    {
+      "case": [
+        "square",
+        25,
+        5,
+        2
+      ],
+      "result_bits": "3c50000000000000",
+      "reference": "0",
+      "absolute_error": "1/288230376151711744",
+      "test_tolerance": "1/70368744177664"
+    },
+    {
+      "case": [
+        "square",
+        25,
+        5,
+        3
+      ],
+      "result_bits": "0000000000000000",
+      "reference": "0",
+      "absolute_error": "0",
+      "test_tolerance": "1/70368744177664"
+    },
+    {
+      "case": [
+        "square",
+        25,
+        5,
+        4
+      ],
+      "result_bits": "0000000000000000",
+      "reference": "0",
+      "absolute_error": "0",
+      "test_tolerance": "1/70368744177664"
+    },
+    {
+      "case": [
+        "square",
+        25,
+        5,
+        5
+      ],
+      "result_bits": "0000000000000000",
+      "reference": "0",
+      "absolute_error": "0",
+      "test_tolerance": "1/70368744177664"
+    },
+    {
+      "case": [
+        "square",
+        25,
+        5,
+        6
+      ],
+      "result_bits": "0000000000000000",
+      "reference": "0",
+      "absolute_error": "0",
+      "test_tolerance": "1/70368744177664"
+    },
+    {
+      "case": [
+        "square",
+        25,
+        5,
+        7
+      ],
+      "result_bits": "0000000000000000",
+      "reference": "0",
+      "absolute_error": "0",
+      "test_tolerance": "1/70368744177664"
+    },
+    {
+      "case": [
+        "square",
+        25,
+        5,
+        8
+      ],
+      "result_bits": "0000000000000000",
+      "reference": "0",
+      "absolute_error": "0",
+      "test_tolerance": "1/70368744177664"
+    },
+    {
+      "case": [
+        "square",
+        25,
+        5,
+        9
+      ],
+      "result_bits": "bc40000000000000",
+      "reference": "0",
+      "absolute_error": "1/576460752303423488",
+      "test_tolerance": "1/70368744177664"
+    },
+    {
+      "case": [
+        "square",
+        25,
+        6,
+        0
+      ],
+      "result_bits": "3fe249249249248c",
+      "reference": "4/7",
+      "absolute_error": "11/15762598695796736",
+      "test_tolerance": "1/70368744177664"
+    },
+    {
+      "case": [
+        "square",
+        25,
+        6,
+        1
+      ],
+      "result_bits": "bc50000000000000",
+      "reference": "0",
+      "absolute_error": "1/288230376151711744",
+      "test_tolerance": "1/70368744177664"
+    },
+    {
+      "case": [
+        "square",
+        25,
+        6,
+        2
+      ],
+      "result_bits": "3fc861861861860f",
+      "reference": "4/21",
+      "absolute_error": "197/756604737398243328",
+      "test_tolerance": "1/70368744177664"
+    },
+    {
+      "case": [
+        "square",
+        25,
+        6,
+        3
+      ],
+      "result_bits": "0000000000000000",
+      "reference": "0",
+      "absolute_error": "0",
+      "test_tolerance": "1/70368744177664"
+    },
+    {
+      "case": [
+        "square",
+        25,
+        6,
+        4
+      ],
+      "result_bits": "3fbd41d41d41d411",
+      "reference": "4/35",
+      "absolute_error": "429/2522015791327477760",
+      "test_tolerance": "1/70368744177664"
+    },
+    {
+      "case": [
+        "square",
+        25,
+        6,
+        5
+      ],
+      "result_bits": "0000000000000000",
+      "reference": "0",
+      "absolute_error": "0",
+      "test_tolerance": "1/70368744177664"
+    },
+    {
+      "case": [
+        "square",
+        25,
+        6,
+        6
+      ],
+      "result_bits": "3fb4e5e0a72f0532",
+      "reference": "4/49",
+      "absolute_error": "183/1765411053929234432",
+      "test_tolerance": "1/70368744177664"
+    },
+    {
+      "case": [
+        "square",
+        25,
+        6,
+        7
+      ],
+      "result_bits": "bc40000000000000",
+      "reference": "0",
+      "absolute_error": "1/576460752303423488",
+      "test_tolerance": "1/70368744177664"
+    },
+    {
+      "case": [
+        "square",
+        25,
+        6,
+        8
+      ],
+      "result_bits": "3fb041041041040a",
+      "reference": "4/63",
+      "absolute_error": "197/2269814212194729984",
+      "test_tolerance": "1/70368744177664"
+    },
+    {
+      "case": [
+        "square",
+        25,
+        6,
+        9
+      ],
+      "result_bits": "0000000000000000",
+      "reference": "0",
+      "absolute_error": "0",
+      "test_tolerance": "1/70368744177664"
+    },
+    {
+      "case": [
+        "square",
+        25,
+        7,
+        0
+      ],
+      "result_bits": "0000000000000000",
+      "reference": "0",
+      "absolute_error": "0",
+      "test_tolerance": "1/70368744177664"
+    },
+    {
+      "case": [
+        "square",
+        25,
+        7,
+        1
+      ],
+      "result_bits": "0000000000000000",
+      "reference": "0",
+      "absolute_error": "0",
+      "test_tolerance": "1/70368744177664"
+    },
+    {
+      "case": [
+        "square",
+        25,
+        7,
+        2
+      ],
+      "result_bits": "0000000000000000",
+      "reference": "0",
+      "absolute_error": "0",
+      "test_tolerance": "1/70368744177664"
+    },
+    {
+      "case": [
+        "square",
+        25,
+        7,
+        3
+      ],
+      "result_bits": "0000000000000000",
+      "reference": "0",
+      "absolute_error": "0",
+      "test_tolerance": "1/70368744177664"
+    },
+    {
+      "case": [
+        "square",
+        25,
+        7,
+        4
+      ],
+      "result_bits": "0000000000000000",
+      "reference": "0",
+      "absolute_error": "0",
+      "test_tolerance": "1/70368744177664"
+    },
+    {
+      "case": [
+        "square",
+        25,
+        7,
+        5
+      ],
+      "result_bits": "0000000000000000",
+      "reference": "0",
+      "absolute_error": "0",
+      "test_tolerance": "1/70368744177664"
+    },
+    {
+      "case": [
+        "square",
+        25,
+        7,
+        6
+      ],
+      "result_bits": "0000000000000000",
+      "reference": "0",
+      "absolute_error": "0",
+      "test_tolerance": "1/70368744177664"
+    },
+    {
+      "case": [
+        "square",
+        25,
+        7,
+        7
+      ],
+      "result_bits": "0000000000000000",
+      "reference": "0",
+      "absolute_error": "0",
+      "test_tolerance": "1/70368744177664"
+    },
+    {
+      "case": [
+        "square",
+        25,
+        7,
+        8
+      ],
+      "result_bits": "0000000000000000",
+      "reference": "0",
+      "absolute_error": "0",
+      "test_tolerance": "1/70368744177664"
+    },
+    {
+      "case": [
+        "square",
+        25,
+        7,
+        9
+      ],
+      "result_bits": "0000000000000000",
+      "reference": "0",
+      "absolute_error": "0",
+      "test_tolerance": "1/70368744177664"
+    },
+    {
+      "case": [
+        "square",
+        25,
+        8,
+        0
+      ],
+      "result_bits": "3fdc71c71c71c715",
+      "reference": "4/9",
+      "absolute_error": "67/162129586585337856",
+      "test_tolerance": "1/70368744177664"
+    },
+    {
+      "case": [
+        "square",
+        25,
+        8,
+        1
+      ],
+      "result_bits": "0000000000000000",
+      "reference": "0",
+      "absolute_error": "0",
+      "test_tolerance": "1/70368744177664"
+    },
+    {
+      "case": [
+        "square",
+        25,
+        8,
+        2
+      ],
+      "result_bits": "3fc2f684bda12f5f",
+      "reference": "4/27",
+      "absolute_error": "251/972777519512027136",
+      "test_tolerance": "1/70368744177664"
+    },
+    {
+      "case": [
+        "square",
+        25,
+        8,
+        3
+      ],
+      "result_bits": "0000000000000000",
+      "reference": "0",
+      "absolute_error": "0",
+      "test_tolerance": "1/70368744177664"
+    },
+    {
+      "case": [
+        "square",
+        25,
+        8,
+        4
+      ],
+      "result_bits": "3fb6c16c16c16c0c",
+      "reference": "4/45",
+      "absolute_error": "121/810647932926689280",
+      "test_tolerance": "1/70368744177664"
+    },
+    {
+      "case": [
+        "square",
+        25,
+        8,
+        5
+      ],
+      "result_bits": "0000000000000000",
+      "reference": "0",
+      "absolute_error": "0",
+      "test_tolerance": "1/70368744177664"
+    },
+    {
+      "case": [
+        "square",
+        25,
+        8,
+        6
+      ],
+      "result_bits": "3fb041041041040a",
+      "reference": "4/63",
+      "absolute_error": "197/2269814212194729984",
+      "test_tolerance": "1/70368744177664"
+    },
+    {
+      "case": [
+        "square",
+        25,
+        8,
+        7
+      ],
+      "result_bits": "0000000000000000",
+      "reference": "0",
+      "absolute_error": "0",
+      "test_tolerance": "1/70368744177664"
+    },
+    {
+      "case": [
+        "square",
+        25,
+        8,
+        8
+      ],
+      "result_bits": "3fa948b0fcd6e9d7",
+      "reference": "4/81",
+      "absolute_error": "761/11673330234144325632",
+      "test_tolerance": "1/70368744177664"
+    },
+    {
+      "case": [
+        "square",
+        25,
+        8,
+        9
+      ],
+      "result_bits": "0000000000000000",
+      "reference": "0",
+      "absolute_error": "0",
+      "test_tolerance": "1/70368744177664"
+    },
+    {
+      "case": [
+        "square",
+        25,
+        9,
+        0
+      ],
+      "result_bits": "0000000000000000",
+      "reference": "0",
+      "absolute_error": "0",
+      "test_tolerance": "1/70368744177664"
+    },
+    {
+      "case": [
+        "square",
+        25,
+        9,
+        1
+      ],
+      "result_bits": "0000000000000000",
+      "reference": "0",
+      "absolute_error": "0",
+      "test_tolerance": "1/70368744177664"
+    },
+    {
+      "case": [
+        "square",
+        25,
+        9,
+        2
+      ],
+      "result_bits": "0000000000000000",
+      "reference": "0",
+      "absolute_error": "0",
+      "test_tolerance": "1/70368744177664"
+    },
+    {
+      "case": [
+        "square",
+        25,
+        9,
+        3
+      ],
+      "result_bits": "0000000000000000",
+      "reference": "0",
+      "absolute_error": "0",
+      "test_tolerance": "1/70368744177664"
+    },
+    {
+      "case": [
+        "square",
+        25,
+        9,
+        4
+      ],
+      "result_bits": "0000000000000000",
+      "reference": "0",
+      "absolute_error": "0",
+      "test_tolerance": "1/70368744177664"
+    },
+    {
+      "case": [
+        "square",
+        25,
+        9,
+        5
+      ],
+      "result_bits": "0000000000000000",
+      "reference": "0",
+      "absolute_error": "0",
+      "test_tolerance": "1/70368744177664"
+    },
+    {
+      "case": [
+        "square",
+        25,
+        9,
+        6
+      ],
+      "result_bits": "0000000000000000",
+      "reference": "0",
+      "absolute_error": "0",
+      "test_tolerance": "1/70368744177664"
+    },
+    {
+      "case": [
+        "square",
+        25,
+        9,
+        7
+      ],
+      "result_bits": "0000000000000000",
+      "reference": "0",
+      "absolute_error": "0",
+      "test_tolerance": "1/70368744177664"
+    },
+    {
+      "case": [
+        "square",
+        25,
+        9,
+        8
+      ],
+      "result_bits": "0000000000000000",
+      "reference": "0",
+      "absolute_error": "0",
+      "test_tolerance": "1/70368744177664"
+    },
+    {
+      "case": [
+        "square",
+        25,
+        9,
+        9
+      ],
+      "result_bits": "0000000000000000",
+      "reference": "0",
+      "absolute_error": "0",
+      "test_tolerance": "1/70368744177664"
+    },
+    {
+      "case": [
+        "triangle",
+        0,
+        0
+      ],
+      "result_bits": "3fe0000000000000",
+      "reference": "1/2",
+      "absolute_error": "0",
+      "test_tolerance": "1/70368744177664"
+    },
+    {
+      "case": [
+        "triangle",
+        0,
+        1
+      ],
+      "result_bits": "3fc5555555555555",
+      "reference": "1/6",
+      "absolute_error": "1/108086391056891904",
+      "test_tolerance": "1/70368744177664"
+    },
+    {
+      "case": [
+        "triangle",
+        0,
+        2
+      ],
+      "result_bits": "3fb5555555555555",
+      "reference": "1/12",
+      "absolute_error": "1/216172782113783808",
+      "test_tolerance": "1/70368744177664"
+    },
+    {
+      "case": [
+        "triangle",
+        1,
+        0
+      ],
+      "result_bits": "3fc5555555555555",
+      "reference": "1/6",
+      "absolute_error": "1/108086391056891904",
+      "test_tolerance": "1/70368744177664"
+    },
+    {
+      "case": [
+        "triangle",
+        1,
+        1
+      ],
+      "result_bits": "3fa5555555555555",
+      "reference": "1/24",
+      "absolute_error": "1/432345564227567616",
+      "test_tolerance": "1/70368744177664"
+    },
+    {
+      "case": [
+        "triangle",
+        2,
+        0
+      ],
+      "result_bits": "3fb5555555555555",
+      "reference": "1/12",
+      "absolute_error": "1/216172782113783808",
+      "test_tolerance": "1/70368744177664"
+    }
+  ],
+  "cosine_example": {
+    "result": 0.8379118276949932,
+    "reference_sin_one": 0.8414709848078965,
+    "absolute_error": "32058037294849/9007199254740992",
+    "advertised_bound": "0.00224",
+    "corrected_bound": "0.00356"
+  },
+  "table_words_checked": 110,
+  "inputs_unchanged": true,
+  "logs": {
+    "build.txt": {
+      "path": "evidence/upstream-c-checked-logs/build.txt",
+      "sha256": "d7eedb1f061e4ea01bf9f361af8e7e75c7066a4c0fe5243773a84a64a950637d"
+    },
+    "results.txt": {
+      "path": "evidence/upstream-c-checked-logs/results.txt",
+      "sha256": "1f24a212424b90abbdae32d6c036de803857c47d91606b65767345db37984c04"
+    },
+    "sanitizers.txt": {
+      "path": "evidence/upstream-c-checked-logs/sanitizers.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  }
+}

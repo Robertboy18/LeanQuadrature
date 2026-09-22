@@ -1,0 +1,525 @@
+Axioms:
+Uint63Axioms.tail0_spec :
+  forall x : PrimInt63.int,
+  0 < Uint63Axioms.to_Z x ->
+  exists y : Z,
+    0 <= y /\
+    Uint63Axioms.to_Z x =
+    ((2 * y + 1) * 2 ^ Uint63Axioms.to_Z (PrimInt63.tail0 x))%Z
+PrimInt63.tail0 : PrimInt63.int -> PrimInt63.int
+Uint63Axioms.subcarryc_def_spec :
+  forall x y : PrimInt63.int,
+  PrimInt63.subcarryc x y = Uint63Axioms.subcarryc_def x y
+PrimInt63.subcarryc :
+  PrimInt63.int -> PrimInt63.int -> CarryType.carry PrimInt63.int
+Uint63Axioms.subc_def_spec :
+  forall x y : PrimInt63.int, PrimInt63.subc x y = Uint63Axioms.subc_def x y
+PrimInt63.subc :
+  PrimInt63.int -> PrimInt63.int -> CarryType.carry PrimInt63.int
+Uint63Axioms.sub_spec :
+  forall x y : PrimInt63.int,
+  Uint63Axioms.to_Z (PrimInt63.sub x y) =
+  (Uint63Axioms.to_Z x - Uint63Axioms.to_Z y) mod Uint63Axioms.wB
+FloatAxioms.sub_spec :
+  forall x y : PrimFloat.float,
+  FloatOps.Prim2SF (PrimFloat.sub x y) =
+  FloatAxioms.SF64sub (FloatOps.Prim2SF x) (FloatOps.Prim2SF y)
+PrimInt63.sub : PrimInt63.int -> PrimInt63.int -> PrimInt63.int
+PrimFloat.sub : PrimFloat.float -> PrimFloat.float -> PrimFloat.float
+FloatAxioms.sqrt_spec :
+  forall x : PrimFloat.float,
+  FloatOps.Prim2SF (PrimFloat.sqrt x) =
+  FloatAxioms.SF64sqrt (FloatOps.Prim2SF x)
+PrimFloat.sqrt : PrimFloat.float -> PrimFloat.float
+ClassicalDedekindReals.sig_not_dec : forall P : Prop, {~ ~ P} + {~ P}
+ClassicalDedekindReals.sig_forall_dec :
+  forall P : nat -> Prop,
+  (forall n : nat, {P n} + {~ P n}) ->
+  {n : nat | ~ P n} + {forall n : nat, P n}
+quadrature.quadrature_error :
+  forall (R : reals.Real.type) (a b : reals.Real.sort R),
+  Datatypes.is_true (preorder.Order.lt a b) ->
+  forall w : reals.Real.sort R -> reals.Real.sort R,
+  (forall
+     x : preorder.Order.Preorder.sort
+           (reals.Real.Exports.reals_Real__to__Order_Preorder R),
+   Datatypes.is_true (preorder.Order.le a x && preorder.Order.le x b) ->
+   Datatypes.is_true (preorder.Order.lt nmodule.Algebra.zero (w x))) ->
+  ssrbool.prop_in1
+    (ssrbool.mem
+       (classical_sets.mkset
+          (fun
+             x : order.Order.POrder.sort
+                   (reals.Real.Exports.reals_Real__to__Order_POrder R) =>
+           Datatypes.is_true
+             (ssrbool.in_mem x
+                (ssrbool.mem
+                   (interval.Interval (interval.BSide true a)
+                      (interval.BSide false b)))))))
+    (ssrbool.inPhantom
+       (forall
+          x : filter.Nbhs.sort
+                (num_topology.numFieldTopology.Real_sort__canonical__filter_Nbhs
+                   R),
+        filter.continuous_at x w)) ->
+  forall (n : nat) (roots : quadrature.roots_of_ortho_p a b w n)
+    (f : reals.Real.sort R -> reals.Real.sort R),
+  exists ξ : reals.Real.sort R,
+    Datatypes.is_true (preorder.Order.le a ξ && preorder.Order.le ξ b) /\
+    nmodule.Algebra.add (quadrature.intgal a b w f)
+      (nmodule.Algebra.opp (quadrature.G a b w n roots f)) =
+    ssralg.GRing.mul
+      (ssralg.GRing.mul
+         (derive.derive1n (ssrnat.addn (ssrnat.muln 2 n) 2) f ξ)
+         (ssralg.GRing.inv
+            (nmodule.Algebra.natmul
+               (ssralg.GRing.one
+                  (ssralg.GRing.UnitRing.Exports.GRing_UnitRing__to__GRing_PzSemiRing
+                     (reals.Real.Exports.reals_Real__to__GRing_UnitRing R)))
+               (ssrnat.factorial (ssrnat.addn (ssrnat.muln 2 n) 2)))))
+      (quadrature.intgal a b w
+         (fun x : reals.Real.sort R =>
+          ssrint.exprz (poly.horner (quadrature.ortho_p a b w (S n)) x)
+            (nmodule.Algebra.natmul
+               (ssralg.GRing.one
+                  ssrint.ssrint_int__canonical__GRing_PzSemiRing)
+               2)))
+boolp.propositional_extensionality : forall P Q : Prop, P <-> Q -> P = Q
+prop_ext : ClassicalFacts.prop_extensionality
+Axioms.prop_ext : ClassicalFacts.prop_extensionality
+quadmodel_accuracy.perturb_sum :
+  forall t : type,
+  FPCore.Nans ->
+  forall (n : fintype.ordinal 5)
+    (gauss_pt_f
+     gauss_wt_f : fintype.ordinal (fintype.nat_of_ord n) -> ftype t),
+  (forall i : fintype.ordinal (fintype.nat_of_ord n),
+   Rdefinitions.Rle (Rbasic_fun.Rabs (FT2R (gauss_pt_f i)))
+     (Rdefinitions.IZR 1)) ->
+  quadmodel_accuracy.gauss_pts_accuracy t n gauss_pt_f ->
+  quadmodel_accuracy.gauss_wts_accuracy t n gauss_wt_f ->
+  forall (fb : Rdefinitions.RbaseSymbolsImpl.R)
+    (g : Rdefinitions.RbaseSymbolsImpl.R -> Rdefinitions.RbaseSymbolsImpl.R),
+  quadrature2.fbound g fb ->
+  forall b : Rdefinitions.RbaseSymbolsImpl.R,
+  quadrature.Legendre.quadrature_error_bound g n b ->
+  forall d : Rdefinitions.RbaseSymbolsImpl.R,
+  quadrature2.deriv_bound g d ->
+  forall (f : ftype t -> ftype t) (f_acc : Rdefinitions.RbaseSymbolsImpl.R),
+  quadmodel_accuracy.function_accuracy g f f_acc ->
+  quadmodel_accuracy.parameter_limits t n fb f_acc ->
+  quadmodel_accuracy.gauss_wt_f_range t n gauss_wt_f ->
+  forall
+    (a
+     b0 : fintype.ordinal (fintype.nat_of_ord n) ->
+          Rdefinitions.RbaseSymbolsImpl.R)
+    (c : Rdefinitions.RbaseSymbolsImpl.R),
+  (forall i : fintype.ordinal (fintype.nat_of_ord n),
+   Rdefinitions.Rle (Rbasic_fun.Rabs (Rdefinitions.Rminus (a i) (b0 i))) c) ->
+  Rdefinitions.Rle
+    (Rbasic_fun.Rabs
+       (Rdefinitions.Rminus
+          (bigop.bigop.body nmodule.Algebra.zero
+             (bigop.index_enum
+                (fintype.fintype_ordinal__canonical__fintype_Finite
+                   (fintype.nat_of_ord n)))
+             (fun i : fintype.ordinal (fintype.nat_of_ord n) =>
+              bigop.BigBody i nmodule.Algebra.add true (a i)))
+          (bigop.bigop.body nmodule.Algebra.zero
+             (bigop.index_enum
+                (fintype.fintype_ordinal__canonical__fintype_Finite
+                   (fintype.nat_of_ord n)))
+             (fun i : fintype.ordinal (fintype.nat_of_ord n) =>
+              bigop.BigBody i nmodule.Algebra.add true (b0 i)))))
+    (Rdefinitions.RbaseSymbolsImpl.Rmult (Raxioms.INR (fintype.nat_of_ord n))
+       c)
+FloatAxioms.opp_spec :
+  forall x : PrimFloat.float,
+  FloatOps.Prim2SF (PrimFloat.opp x) = SpecFloat.SFopp (FloatOps.Prim2SF x)
+PrimFloat.opp : PrimFloat.float -> PrimFloat.float
+FloatAxioms.of_uint63_spec :
+  forall n : PrimInt63.int,
+  FloatOps.Prim2SF (PrimFloat.of_uint63 n) =
+  SpecFloat.binary_normalize FloatOps.prec FloatOps.emax
+    (Uint63Axioms.to_Z n) 0 false
+PrimFloat.of_uint63 : PrimInt63.int -> PrimFloat.float
+Uint63Axioms.of_to_Z :
+  forall x : PrimInt63.int, Uint63Axioms.of_Z (Uint63Axioms.to_Z x) = x
+FloatAxioms.normfr_mantissa_spec :
+  forall f : PrimFloat.float,
+  Uint63Axioms.to_Z (PrimFloat.normfr_mantissa f) =
+  IntDef.Z.of_N
+    (SpecFloat.SFnormfr_mantissa FloatOps.prec (FloatOps.Prim2SF f))
+PrimFloat.normfr_mantissa : PrimFloat.float -> PrimInt63.int
+FloatAxioms.next_up_spec :
+  forall x : PrimFloat.float,
+  FloatOps.Prim2SF (PrimFloat.next_up x) =
+  FloatAxioms.SF64succ (FloatOps.Prim2SF x)
+PrimFloat.next_up : PrimFloat.float -> PrimFloat.float
+FloatAxioms.next_down_spec :
+  forall x : PrimFloat.float,
+  FloatOps.Prim2SF (PrimFloat.next_down x) =
+  FloatAxioms.SF64pred (FloatOps.Prim2SF x)
+PrimFloat.next_down : PrimFloat.float -> PrimFloat.float
+Uint63Axioms.mulc_spec :
+  forall x y : PrimInt63.int,
+  (Uint63Axioms.to_Z x * Uint63Axioms.to_Z y)%Z =
+  Uint63Axioms.to_Z (fst (PrimInt63.mulc x y)) * Uint63Axioms.wB +
+  Uint63Axioms.to_Z (snd (PrimInt63.mulc x y))
+PrimInt63.mulc :
+  PrimInt63.int -> PrimInt63.int -> PrimInt63.int * PrimInt63.int
+Uint63Axioms.mul_spec :
+  forall x y : PrimInt63.int,
+  Uint63Axioms.to_Z (PrimInt63.mul x y) =
+  (Uint63Axioms.to_Z x * Uint63Axioms.to_Z y) mod Uint63Axioms.wB
+FloatAxioms.mul_spec :
+  forall x y : PrimFloat.float,
+  FloatOps.Prim2SF (PrimFloat.mul x y) =
+  FloatAxioms.SF64mul (FloatOps.Prim2SF x) (FloatOps.Prim2SF y)
+PrimInt63.mul : PrimInt63.int -> PrimInt63.int -> PrimInt63.int
+PrimFloat.mul : PrimFloat.float -> PrimFloat.float -> PrimFloat.float
+Uint63Axioms.mod_spec :
+  forall x y : PrimInt63.int,
+  Uint63Axioms.to_Z (PrimInt63.mod x y) =
+  Uint63Axioms.to_Z x mod Uint63Axioms.to_Z y
+PrimInt63.mod : PrimInt63.int -> PrimInt63.int -> PrimInt63.int
+Uint63Axioms.lxor_spec :
+  forall x y i : PrimInt63.int,
+  Uint63Axioms.bit (PrimInt63.lxor x y) i =
+  xorb (Uint63Axioms.bit x i) (Uint63Axioms.bit y i)
+PrimInt63.lxor : PrimInt63.int -> PrimInt63.int -> PrimInt63.int
+Uint63Axioms.ltb_spec :
+  forall x y : PrimInt63.int,
+  PrimInt63.ltb x y = true <-> Uint63Axioms.to_Z x < Uint63Axioms.to_Z y
+FloatAxioms.ltb_spec :
+  forall x y : PrimFloat.float,
+  PrimFloat.ltb x y =
+  SpecFloat.SFltb (FloatOps.Prim2SF x) (FloatOps.Prim2SF y)
+PrimInt63.ltb : PrimInt63.int -> PrimInt63.int -> bool
+PrimFloat.ltb : PrimFloat.float -> PrimFloat.float -> bool
+Uint63Axioms.lsr_spec :
+  forall x p : PrimInt63.int,
+  Uint63Axioms.to_Z (PrimInt63.lsr x p) =
+  Uint63Axioms.to_Z x / 2 ^ Uint63Axioms.to_Z p
+PrimInt63.lsr : PrimInt63.int -> PrimInt63.int -> PrimInt63.int
+Uint63Axioms.lsl_spec :
+  forall x p : PrimInt63.int,
+  Uint63Axioms.to_Z (PrimInt63.lsl x p) =
+  (Uint63Axioms.to_Z x * 2 ^ Uint63Axioms.to_Z p) mod Uint63Axioms.wB
+PrimInt63.lsl : PrimInt63.int -> PrimInt63.int -> PrimInt63.int
+Uint63Axioms.lor_spec :
+  forall x y i : PrimInt63.int,
+  Uint63Axioms.bit (PrimInt63.lor x y) i =
+  (Uint63Axioms.bit x i || Uint63Axioms.bit y i)%bool
+PrimInt63.lor : PrimInt63.int -> PrimInt63.int -> PrimInt63.int
+PrimInt63.lesb : PrimInt63.int -> PrimInt63.int -> bool
+PrimArray.length : forall A : Type, PrimArray.array A -> PrimInt63.int
+Uint63Axioms.leb_spec :
+  forall x y : PrimInt63.int,
+  PrimInt63.leb x y = true <-> Uint63Axioms.to_Z x <= Uint63Axioms.to_Z y
+Sint63Axioms.leb_spec :
+  forall x y : PrimInt63.int,
+  PrimInt63.lesb x y = true <->
+  (Sint63Axioms.to_Z x ?= Sint63Axioms.to_Z y) <> Gt
+PrimInt63.leb : PrimInt63.int -> PrimInt63.int -> bool
+FloatAxioms.ldshiftexp_spec :
+  forall (f : PrimFloat.float) (e : PrimInt63.int),
+  FloatOps.Prim2SF (PrimFloat.ldshiftexp f e) =
+  SpecFloat.SFldexp FloatOps.prec FloatOps.emax (FloatOps.Prim2SF f)
+    (Uint63Axioms.to_Z e - FloatOps.shift)
+PrimFloat.ldshiftexp : PrimFloat.float -> PrimInt63.int -> PrimFloat.float
+Uint63Axioms.land_spec :
+  forall x y i : PrimInt63.int,
+  Uint63Axioms.bit (PrimInt63.land x y) i =
+  (Uint63Axioms.bit x i && Uint63Axioms.bit y i)%bool
+PrimInt63.land : PrimInt63.int -> PrimInt63.int -> PrimInt63.int
+PrimInt63.int : Set
+Uint63Axioms.head0_spec :
+  forall x : PrimInt63.int,
+  0 < Uint63Axioms.to_Z x ->
+  Uint63Axioms.wB / 2 <=
+  2 ^ Uint63Axioms.to_Z (PrimInt63.head0 x) * Uint63Axioms.to_Z x <
+  Uint63Axioms.wB
+PrimInt63.head0 : PrimInt63.int -> PrimInt63.int
+PrimArray.get : forall A : Type, PrimArray.array A -> PrimInt63.int -> A
+quadmodel_accuracy.gauss_pt_wt_limit_aux :
+  forall t : type,
+  FPCore.Nans ->
+  forall (n : fintype.ordinal 5)
+    (gauss_pt_f
+     gauss_wt_f : fintype.ordinal (fintype.nat_of_ord n) -> ftype t),
+  (forall i : fintype.ordinal (fintype.nat_of_ord n),
+   Rdefinitions.Rle (Rbasic_fun.Rabs (FT2R (gauss_pt_f i)))
+     (Rdefinitions.IZR 1)) ->
+  quadmodel_accuracy.gauss_pts_accuracy t n gauss_pt_f ->
+  quadmodel_accuracy.gauss_wts_accuracy t n gauss_wt_f ->
+  forall (fb : Rdefinitions.RbaseSymbolsImpl.R)
+    (g : Rdefinitions.RbaseSymbolsImpl.R -> Rdefinitions.RbaseSymbolsImpl.R),
+  quadrature2.fbound g fb ->
+  forall b : Rdefinitions.RbaseSymbolsImpl.R,
+  quadrature.Legendre.quadrature_error_bound g n b ->
+  forall d : Rdefinitions.RbaseSymbolsImpl.R,
+  quadrature2.deriv_bound g d ->
+  forall (f : ftype t -> ftype t) (f_acc : Rdefinitions.RbaseSymbolsImpl.R),
+  quadmodel_accuracy.function_accuracy g f f_acc ->
+  quadmodel_accuracy.parameter_limits t n fb f_acc ->
+  quadmodel_accuracy.gauss_wt_f_range t n gauss_wt_f ->
+  Rdefinitions.RbaseSymbolsImpl.Rlt
+    (Rdefinitions.RbaseSymbolsImpl.Rplus
+       (Rdefinitions.RbaseSymbolsImpl.Rmult
+          (Rdefinitions.RbaseSymbolsImpl.Rmult (Rdefinitions.IZR 2)
+             (Rdefinitions.RbaseSymbolsImpl.Rplus fb f_acc))
+          (Rdefinitions.RbaseSymbolsImpl.Rplus (Rdefinitions.IZR 1)
+             common.default_rel))
+       common.default_abs)
+    common.fmax
+quadrature2.g_max_deriv :
+  forall
+    (fb
+     d : reals.Real.sort Rstruct.RbaseSymbolsImpl_R__canonical__reals_Real)
+    (g : reals.Real.sort Rstruct.RbaseSymbolsImpl_R__canonical__reals_Real ->
+         reals.Real.sort Rstruct.RbaseSymbolsImpl_R__canonical__reals_Real),
+  quadrature2.fbound g fb ->
+  quadrature2.deriv_bound g d ->
+  forall
+    x y : reals.Real.sort Rstruct.RbaseSymbolsImpl_R__canonical__reals_Real,
+  Datatypes.is_true
+    (preorder.Order.le quadrature.Legendre.lo x &&
+     preorder.Order.le x quadrature.Legendre.hi) ->
+  Datatypes.is_true
+    (preorder.Order.le quadrature.Legendre.lo (nmodule.Algebra.add x y) &&
+     preorder.Order.le (nmodule.Algebra.add x y) quadrature.Legendre.hi) ->
+  Datatypes.is_true
+    (preorder.Order.le
+       (numdomain.Num.norm
+          (nmodule.Algebra.add (g (nmodule.Algebra.add x y))
+             (nmodule.Algebra.opp (g x))))
+       (ssralg.GRing.mul (numdomain.Num.norm y) d))
+boolp.functional_extensionality_dep :
+  forall (A : Type) (B : A -> Type) (f g : forall x : A, B x),
+  (forall x : A, f x = g x) -> f = g
+functional_extensionality_dep :
+  forall (A : Type) (B : A -> Type) (f g : forall x : A, B x),
+  (forall x : A, f x = g x) -> f = g
+FloatAxioms.frshiftexp_spec :
+  forall f : PrimFloat.float,
+  let (m, e) := PrimFloat.frshiftexp f in
+  (FloatOps.Prim2SF m, Uint63Axioms.to_Z e - FloatOps.shift) =
+  SpecFloat.SFfrexp FloatOps.prec FloatOps.emax (FloatOps.Prim2SF f)
+PrimFloat.frshiftexp : PrimFloat.float -> PrimFloat.float * PrimInt63.int
+PrimFloat.float : Set
+quadmodel_accuracy.finite_integrate_model_aux :
+  forall t : type,
+  FPCore.Nans ->
+  forall (n : fintype.ordinal 5)
+    (gauss_pt_f
+     gauss_wt_f : fintype.ordinal (fintype.nat_of_ord n) -> ftype t),
+  (forall i : fintype.ordinal (fintype.nat_of_ord n),
+   Rdefinitions.Rle (Rbasic_fun.Rabs (FT2R (gauss_pt_f i)))
+     (Rdefinitions.IZR 1)) ->
+  quadmodel_accuracy.gauss_pts_accuracy t n gauss_pt_f ->
+  quadmodel_accuracy.gauss_wts_accuracy t n gauss_wt_f ->
+  forall (fb : Rdefinitions.RbaseSymbolsImpl.R)
+    (g : Rdefinitions.RbaseSymbolsImpl.R -> Rdefinitions.RbaseSymbolsImpl.R),
+  quadrature2.fbound g fb ->
+  forall b : Rdefinitions.RbaseSymbolsImpl.R,
+  quadrature.Legendre.quadrature_error_bound g n b ->
+  forall d : Rdefinitions.RbaseSymbolsImpl.R,
+  quadrature2.deriv_bound g d ->
+  forall (f : ftype t -> ftype t) (f_acc : Rdefinitions.RbaseSymbolsImpl.R),
+  quadmodel_accuracy.function_accuracy g f f_acc ->
+  quadmodel_accuracy.parameter_limits t n fb f_acc ->
+  quadmodel_accuracy.gauss_wt_f_range t n gauss_wt_f ->
+  Rdefinitions.RbaseSymbolsImpl.Rlt
+    (Rdefinitions.RbaseSymbolsImpl.Rplus
+       (Rdefinitions.RbaseSymbolsImpl.Rmult (Rdefinitions.IZR 2) fb)
+       (quadmodel_accuracy.maxwf t fb d f_acc))
+    (Rdefinitions.Rdiv
+       (Rdefinitions.RbaseSymbolsImpl.Rmult
+          (Rdefinitions.Rdiv common.fmax
+             (Rdefinitions.RbaseSymbolsImpl.Rplus 
+                (Rdefinitions.IZR 1) common.default_rel))
+          (Rdefinitions.IZR 1))
+       (Rdefinitions.RbaseSymbolsImpl.Rplus (Rdefinitions.IZR 1)
+          (Rdefinitions.RbaseSymbolsImpl.Rmult
+             (Raxioms.INR (fintype.nat_of_ord n))
+             (Rdefinitions.RbaseSymbolsImpl.Rplus
+                (common.g (ssrnat.subn (fintype.nat_of_ord n) 1))
+                (Rdefinitions.IZR 1)))))
+FloatAxioms.eqb_spec :
+  forall x y : PrimFloat.float,
+  PrimFloat.eqb x y =
+  SpecFloat.SFeqb (FloatOps.Prim2SF x) (FloatOps.Prim2SF y)
+Uint63Axioms.eqb_refl : forall x : PrimInt63.int, PrimInt63.eqb x x = true
+Uint63Axioms.eqb_correct :
+  forall i j : PrimInt63.int, PrimInt63.eqb i j = true -> i = j
+PrimInt63.eqb : PrimInt63.int -> PrimInt63.int -> bool
+PrimFloat.eqb : PrimFloat.float -> PrimFloat.float -> bool
+Epsilon.epsilon_statement :
+  forall (A : Type) (P : A -> Prop),
+  inhabited A -> {x : A | (exists x0 : A, P x0) -> P x}
+PrimInt63.divs : PrimInt63.int -> PrimInt63.int -> PrimInt63.int
+Uint63Axioms.diveucl_def_spec :
+  forall x y : PrimInt63.int,
+  PrimInt63.diveucl x y = Uint63Axioms.diveucl_def x y
+Uint63Axioms.diveucl_21_spec :
+  forall a1 a2 b : PrimInt63.int,
+  let (q, r) := PrimInt63.diveucl_21 a1 a2 b in
+  let (q', r') :=
+    IntDef.Z.div_eucl
+      (Uint63Axioms.to_Z a1 * Uint63Axioms.wB + Uint63Axioms.to_Z a2)
+      (Uint63Axioms.to_Z b) in
+  Uint63Axioms.to_Z a1 < Uint63Axioms.to_Z b ->
+  Uint63Axioms.to_Z q = q' /\ Uint63Axioms.to_Z r = r'
+PrimInt63.diveucl_21 :
+  PrimInt63.int ->
+  PrimInt63.int -> PrimInt63.int -> PrimInt63.int * PrimInt63.int
+PrimInt63.diveucl :
+  PrimInt63.int -> PrimInt63.int -> PrimInt63.int * PrimInt63.int
+Uint63Axioms.div_spec :
+  forall x y : PrimInt63.int,
+  Uint63Axioms.to_Z (PrimInt63.div x y) =
+  Uint63Axioms.to_Z x / Uint63Axioms.to_Z y
+Sint63Axioms.div_spec :
+  forall x y : PrimInt63.int,
+  Sint63Axioms.to_Z x <> Sint63Axioms.to_Z Sint63Axioms.min_int \/
+  Sint63Axioms.to_Z y <> -1 ->
+  Sint63Axioms.to_Z (PrimInt63.divs x y) =
+  Sint63Axioms.to_Z x ÷ Sint63Axioms.to_Z y
+FloatAxioms.div_spec :
+  forall x y : PrimFloat.float,
+  FloatOps.Prim2SF (PrimFloat.div x y) =
+  FloatAxioms.SF64div (FloatOps.Prim2SF x) (FloatOps.Prim2SF y)
+PrimInt63.div : PrimInt63.int -> PrimInt63.int -> PrimInt63.int
+PrimFloat.div : PrimFloat.float -> PrimFloat.float -> PrimFloat.float
+boolp.constructive_indefinite_description :
+  forall (A : Type) (P : A -> Prop), (exists x : A, P x) -> {x : A | P x}
+FloatAxioms.compare_spec :
+  forall x y : PrimFloat.float,
+  PrimFloat.compare x y =
+  FloatAxioms.flatten_cmp_opt
+    (SpecFloat.SFcompare (FloatOps.Prim2SF x) (FloatOps.Prim2SF y))
+Uint63Axioms.compare_def_spec :
+  forall x y : PrimInt63.int,
+  PrimInt63.compare x y = Uint63Axioms.compare_def x y
+PrimInt63.compare : PrimInt63.int -> PrimInt63.int -> Datatypes.comparison
+PrimFloat.compare :
+  PrimFloat.float -> PrimFloat.float -> PrimFloat.float_comparison
+FloatAxioms.classify_spec :
+  forall x : PrimFloat.float,
+  PrimFloat.classify x = FloatAxioms.SF64classify (FloatOps.Prim2SF x)
+PrimFloat.classify : PrimFloat.float -> FloatClass.float_class
+Classical_Prop.classic : forall P : Prop, P \/ ~ P
+Sint63Axioms.asr_spec :
+  forall x p : PrimInt63.int,
+  Sint63Axioms.to_Z (PrimInt63.asr x p) =
+  Sint63Axioms.to_Z x / 2 ^ Sint63Axioms.to_Z p
+PrimInt63.asr : PrimInt63.int -> PrimInt63.int -> PrimInt63.int
+PrimArray.array : Type -> Type
+Uint63Axioms.addmuldiv_def_spec :
+  forall p x y : PrimInt63.int,
+  PrimInt63.addmuldiv p x y = Uint63Axioms.addmuldiv_def p x y
+PrimInt63.addmuldiv :
+  PrimInt63.int -> PrimInt63.int -> PrimInt63.int -> PrimInt63.int
+Uint63Axioms.addcarryc_def_spec :
+  forall x y : PrimInt63.int,
+  PrimInt63.addcarryc x y = Uint63Axioms.addcarryc_def x y
+PrimInt63.addcarryc :
+  PrimInt63.int -> PrimInt63.int -> CarryType.carry PrimInt63.int
+Uint63Axioms.addc_def_spec :
+  forall x y : PrimInt63.int, PrimInt63.addc x y = Uint63Axioms.addc_def x y
+PrimInt63.addc :
+  PrimInt63.int -> PrimInt63.int -> CarryType.carry PrimInt63.int
+Uint63Axioms.add_spec :
+  forall x y : PrimInt63.int,
+  Uint63Axioms.to_Z (PrimInt63.add x y) =
+  (Uint63Axioms.to_Z x + Uint63Axioms.to_Z y) mod Uint63Axioms.wB
+FloatAxioms.add_spec :
+  forall x y : PrimFloat.float,
+  FloatOps.Prim2SF (PrimFloat.add x y) =
+  FloatAxioms.SF64add (FloatOps.Prim2SF x) (FloatOps.Prim2SF y)
+PrimInt63.add : PrimInt63.int -> PrimInt63.int -> PrimInt63.int
+PrimFloat.add : PrimFloat.float -> PrimFloat.float -> PrimFloat.float
+FloatAxioms.abs_spec :
+  forall x : PrimFloat.float,
+  FloatOps.Prim2SF (PrimFloat.abs x) = SpecFloat.SFabs (FloatOps.Prim2SF x)
+PrimFloat.abs : PrimFloat.float -> PrimFloat.float
+FloatAxioms.SF2Prim_Prim2SF :
+  forall x : PrimFloat.float, FloatOps.SF2Prim (FloatOps.Prim2SF x) = x
+quadrature.Rintegral_gt_0 :
+  forall (R : reals.Real.type) (a b : reals.Real.sort R)
+    (h : reals.Real.sort R -> reals.Real.sort R),
+  ssrbool.prop_in1
+    (ssrbool.mem
+       (classical_sets.mkset
+          (fun
+             x : order.Order.POrder.sort
+                   (reals.Real.Exports.reals_Real__to__Order_POrder R) =>
+           Datatypes.is_true
+             (ssrbool.in_mem x
+                (ssrbool.mem
+                   (interval.Interval (interval.BSide true a)
+                      (interval.BSide false b)))))))
+    (ssrbool.inPhantom
+       (forall
+          x : filter.Nbhs.sort
+                (num_topology.numFieldTopology.Real_sort__canonical__filter_Nbhs
+                   R),
+        filter.continuous_at x h)) ->
+  ssrbool.prop_in1
+    (ssrbool.mem
+       (classical_sets.mkset
+          (fun
+             x : order.Order.POrder.sort
+                   (reals.Real.Exports.reals_Real__to__Order_POrder R) =>
+           Datatypes.is_true
+             (ssrbool.in_mem x
+                (ssrbool.mem
+                   (interval.Interval (interval.BSide true a)
+                      (interval.BSide false b)))))))
+    (ssrbool.inPhantom
+       (forall x : reals.Real.sort R,
+        Datatypes.is_true (preorder.Order.le nmodule.Algebra.zero (h x)))) ->
+  ~
+  ssrbool.prop_in1
+    (ssrbool.mem
+       (classical_sets.mkset
+          (fun
+             x : order.Order.POrder.sort
+                   (reals.Real.Exports.reals_Real__to__Order_POrder R) =>
+           Datatypes.is_true
+             (ssrbool.in_mem x
+                (ssrbool.mem
+                   (interval.Interval (interval.BSide true a)
+                      (interval.BSide false b)))))))
+    (ssrbool.inPhantom
+       (forall x : reals.Real.sort R,
+        Datatypes.is_true (eqtype.eq_op (h x) nmodule.Algebra.zero))) ->
+  Datatypes.is_true
+    (preorder.Order.lt nmodule.Algebra.zero
+       (lebesgue_Rintegral.Rintegral lebesgue_measure.lebesgue_measure
+          (classical_sets.mkset
+             (fun
+                x : order.Order.POrder.sort
+                      (reals.Real.Exports.reals_Real__to__Order_POrder R) =>
+              Datatypes.is_true
+                (ssrbool.in_mem x
+                   (ssrbool.mem
+                      (interval.Interval (interval.BSide true a)
+                         (interval.BSide false b))))))
+          (fun
+             x : measurable_structure.Measurable.sort
+                   (measurable_structure.measurable_structure_g_sigma_algebraType__canonical__measurable_structure_Measurable
+                      measurable_structure.measurable) =>
+           h x)))
+FloatAxioms.Prim2SF_valid :
+  forall x : PrimFloat.float,
+  SpecFloat.valid_binary FloatOps.prec FloatOps.emax (FloatOps.Prim2SF x) =
+  true
+FloatAxioms.Prim2SF_SF2Prim :
+  forall x : SpecFloat.spec_float,
+  SpecFloat.valid_binary FloatOps.prec FloatOps.emax x = true ->
+  FloatOps.Prim2SF (FloatOps.SF2Prim x) = x
+Ensembles.Extensionality_Ensembles :
+  forall (U : Type) (A B : Ensembles.Ensemble U),
+  Ensembles.Same_set A B -> A = B

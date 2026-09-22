@@ -1,0 +1,15 @@
+Audited 3329 source-wrapper declarations, including 1391 theorems.
+The original callback and two-point wrapper have complete terminating strategy calls.
+Callback entry, integer promotion, arithmetic, return, and freeing are derived.
+The wrapper composes the integrator with a proved callback contract.
+The internal C cosine executes the rounded polynomial and preserves caller memory.
+Parsing and initialization discharge the polynomial library's table/function contracts.
+Every C evaluation order terminates correctly for the initialized polynomial library.
+No reachable state gets stuck, and no infinite execution is possible.
+All ten stored orders have integral-error bounds in the C small-step semantics.
+The parsed two-point wrapper returns 0x3fead02c771c35ed, with integral error <= 0.00356.
+Both frontend outputs have equivalent behavior for all six selected functions.
+The comparison includes initialization, lookup, all returns, termination, and memory.
+The Clight proof requires no external-call determinism assumption.
+The original external-cosine variant retains its library contract.
+General frontend correctness, Lean/Rocq correspondence, and native execution remain open.

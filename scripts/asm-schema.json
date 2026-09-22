@@ -1,0 +1,725 @@
+{
+  "upstream_sha256": "1fcda5fb6cca8767457477ba59ecf83c99b0259ccbd28cdccc8bc7d57ed0be05",
+  "instruction_constructor_count": 177,
+  "schema": {
+    "Pmov_rr": [
+      "auto",
+      "auto"
+    ],
+    "Pmovl_ri": [
+      "auto",
+      "int"
+    ],
+    "Pmovq_ri": [
+      "auto",
+      "long"
+    ],
+    "Pmov_rs": [
+      "auto",
+      "id"
+    ],
+    "Pmovl_rm": [
+      "auto",
+      "auto"
+    ],
+    "Pmovq_rm": [
+      "auto",
+      "auto"
+    ],
+    "Pmovl_mr": [
+      "auto",
+      "auto"
+    ],
+    "Pmovq_mr": [
+      "auto",
+      "auto"
+    ],
+    "Pmovsd_ff": [
+      "auto",
+      "auto"
+    ],
+    "Pmovsd_fi": [
+      "auto",
+      "float"
+    ],
+    "Pmovsd_fm": [
+      "auto",
+      "auto"
+    ],
+    "Pmovsd_mf": [
+      "auto",
+      "auto"
+    ],
+    "Pmovss_fi": [
+      "auto",
+      "single"
+    ],
+    "Pmovss_fm": [
+      "auto",
+      "auto"
+    ],
+    "Pmovss_mf": [
+      "auto",
+      "auto"
+    ],
+    "Pfldl_m": [
+      "auto"
+    ],
+    "Pfstpl_m": [
+      "auto"
+    ],
+    "Pflds_m": [
+      "auto"
+    ],
+    "Pfstps_m": [
+      "auto"
+    ],
+    "Pmovb_mr": [
+      "auto",
+      "auto"
+    ],
+    "Pmovw_mr": [
+      "auto",
+      "auto"
+    ],
+    "Pmovzb_rr": [
+      "auto",
+      "auto"
+    ],
+    "Pmovzb_rm": [
+      "auto",
+      "auto"
+    ],
+    "Pmovsb_rr": [
+      "auto",
+      "auto"
+    ],
+    "Pmovsb_rm": [
+      "auto",
+      "auto"
+    ],
+    "Pmovzw_rr": [
+      "auto",
+      "auto"
+    ],
+    "Pmovzw_rm": [
+      "auto",
+      "auto"
+    ],
+    "Pmovsw_rr": [
+      "auto",
+      "auto"
+    ],
+    "Pmovsw_rm": [
+      "auto",
+      "auto"
+    ],
+    "Pmovzl_rr": [
+      "auto",
+      "auto"
+    ],
+    "Pmovsl_rr": [
+      "auto",
+      "auto"
+    ],
+    "Pmovls_rr": [
+      "auto"
+    ],
+    "Pcvtsd2ss_ff": [
+      "auto",
+      "auto"
+    ],
+    "Pcvtss2sd_ff": [
+      "auto",
+      "auto"
+    ],
+    "Pcvttsd2si_rf": [
+      "auto",
+      "auto"
+    ],
+    "Pcvtsi2sd_fr": [
+      "auto",
+      "auto"
+    ],
+    "Pcvttss2si_rf": [
+      "auto",
+      "auto"
+    ],
+    "Pcvtsi2ss_fr": [
+      "auto",
+      "auto"
+    ],
+    "Pcvttsd2sl_rf": [
+      "auto",
+      "auto"
+    ],
+    "Pcvtsl2sd_fr": [
+      "auto",
+      "auto"
+    ],
+    "Pcvttss2sl_rf": [
+      "auto",
+      "auto"
+    ],
+    "Pcvtsl2ss_fr": [
+      "auto",
+      "auto"
+    ],
+    "Pleal": [
+      "auto",
+      "auto"
+    ],
+    "Pleaq": [
+      "auto",
+      "auto"
+    ],
+    "Pnegl": [
+      "auto"
+    ],
+    "Pnegq": [
+      "auto"
+    ],
+    "Paddl_ri": [
+      "auto",
+      "int"
+    ],
+    "Paddq_ri": [
+      "auto",
+      "long"
+    ],
+    "Psubl_rr": [
+      "auto",
+      "auto"
+    ],
+    "Psubq_rr": [
+      "auto",
+      "auto"
+    ],
+    "Pimull_rr": [
+      "auto",
+      "auto"
+    ],
+    "Pimulq_rr": [
+      "auto",
+      "auto"
+    ],
+    "Pimull_ri": [
+      "auto",
+      "int"
+    ],
+    "Pimulq_ri": [
+      "auto",
+      "long"
+    ],
+    "Pimull_r": [
+      "auto"
+    ],
+    "Pimulq_r": [
+      "auto"
+    ],
+    "Pmull_r": [
+      "auto"
+    ],
+    "Pmulq_r": [
+      "auto"
+    ],
+    "Pdivl": [
+      "auto"
+    ],
+    "Pdivq": [
+      "auto"
+    ],
+    "Pidivl": [
+      "auto"
+    ],
+    "Pidivq": [
+      "auto"
+    ],
+    "Pandl_rr": [
+      "auto",
+      "auto"
+    ],
+    "Pandq_rr": [
+      "auto",
+      "auto"
+    ],
+    "Pandl_ri": [
+      "auto",
+      "int"
+    ],
+    "Pandq_ri": [
+      "auto",
+      "long"
+    ],
+    "Porl_rr": [
+      "auto",
+      "auto"
+    ],
+    "Porq_rr": [
+      "auto",
+      "auto"
+    ],
+    "Porl_ri": [
+      "auto",
+      "int"
+    ],
+    "Porq_ri": [
+      "auto",
+      "long"
+    ],
+    "Pxorl_r": [
+      "auto"
+    ],
+    "Pxorq_r": [
+      "auto"
+    ],
+    "Pxorl_rr": [
+      "auto",
+      "auto"
+    ],
+    "Pxorq_rr": [
+      "auto",
+      "auto"
+    ],
+    "Pxorl_ri": [
+      "auto",
+      "int"
+    ],
+    "Pxorq_ri": [
+      "auto",
+      "long"
+    ],
+    "Pnotl": [
+      "auto"
+    ],
+    "Pnotq": [
+      "auto"
+    ],
+    "Psall_rcl": [
+      "auto"
+    ],
+    "Psalq_rcl": [
+      "auto"
+    ],
+    "Psall_ri": [
+      "auto",
+      "int"
+    ],
+    "Psalq_ri": [
+      "auto",
+      "int"
+    ],
+    "Pshrl_rcl": [
+      "auto"
+    ],
+    "Pshrq_rcl": [
+      "auto"
+    ],
+    "Pshrl_ri": [
+      "auto",
+      "int"
+    ],
+    "Pshrq_ri": [
+      "auto",
+      "int"
+    ],
+    "Psarl_rcl": [
+      "auto"
+    ],
+    "Psarq_rcl": [
+      "auto"
+    ],
+    "Psarl_ri": [
+      "auto",
+      "int"
+    ],
+    "Psarq_ri": [
+      "auto",
+      "int"
+    ],
+    "Pshld_ri": [
+      "auto",
+      "auto",
+      "int"
+    ],
+    "Prorl_ri": [
+      "auto",
+      "int"
+    ],
+    "Prorq_ri": [
+      "auto",
+      "int"
+    ],
+    "Pcmpl_rr": [
+      "auto",
+      "auto"
+    ],
+    "Pcmpq_rr": [
+      "auto",
+      "auto"
+    ],
+    "Pcmpl_ri": [
+      "auto",
+      "int"
+    ],
+    "Pcmpq_ri": [
+      "auto",
+      "long"
+    ],
+    "Ptestl_rr": [
+      "auto",
+      "auto"
+    ],
+    "Ptestq_rr": [
+      "auto",
+      "auto"
+    ],
+    "Ptestl_ri": [
+      "auto",
+      "int"
+    ],
+    "Ptestq_ri": [
+      "auto",
+      "long"
+    ],
+    "Pcmov": [
+      "auto",
+      "auto",
+      "auto"
+    ],
+    "Psetcc": [
+      "auto",
+      "auto"
+    ],
+    "Paddd_ff": [
+      "auto",
+      "auto"
+    ],
+    "Psubd_ff": [
+      "auto",
+      "auto"
+    ],
+    "Pmuld_ff": [
+      "auto",
+      "auto"
+    ],
+    "Pdivd_ff": [
+      "auto",
+      "auto"
+    ],
+    "Pnegd": [
+      "auto"
+    ],
+    "Pabsd": [
+      "auto"
+    ],
+    "Pcomisd_ff": [
+      "auto",
+      "auto"
+    ],
+    "Pxorpd_f": [
+      "auto"
+    ],
+    "Padds_ff": [
+      "auto",
+      "auto"
+    ],
+    "Psubs_ff": [
+      "auto",
+      "auto"
+    ],
+    "Pmuls_ff": [
+      "auto",
+      "auto"
+    ],
+    "Pdivs_ff": [
+      "auto",
+      "auto"
+    ],
+    "Pnegs": [
+      "auto"
+    ],
+    "Pabss": [
+      "auto"
+    ],
+    "Pcomiss_ff": [
+      "auto",
+      "auto"
+    ],
+    "Pxorps_f": [
+      "auto"
+    ],
+    "Pjmp_l": [
+      "id"
+    ],
+    "Pjmp_s": [
+      "id",
+      "auto"
+    ],
+    "Pjmp_r": [
+      "auto",
+      "auto"
+    ],
+    "Pjcc": [
+      "auto",
+      "id"
+    ],
+    "Pjcc2": [
+      "auto",
+      "auto",
+      "id"
+    ],
+    "Pjmptbl": [
+      "auto",
+      "list:id"
+    ],
+    "Pcall_s": [
+      "id",
+      "auto"
+    ],
+    "Pcall_r": [
+      "auto",
+      "auto"
+    ],
+    "Pmov_rm_a": [
+      "auto",
+      "auto"
+    ],
+    "Pmov_mr_a": [
+      "auto",
+      "auto"
+    ],
+    "Pmovsd_fm_a": [
+      "auto",
+      "auto"
+    ],
+    "Pmovsd_mf_a": [
+      "auto",
+      "auto"
+    ],
+    "Plabel": [
+      "id"
+    ],
+    "Pallocframe": [
+      "z",
+      "offset",
+      "offset"
+    ],
+    "Pfreeframe": [
+      "z",
+      "offset",
+      "offset"
+    ],
+    "Pbuiltin": [
+      "auto",
+      "list:auto",
+      "auto"
+    ],
+    "Padcl_ri": [
+      "auto",
+      "int"
+    ],
+    "Padcl_rr": [
+      "auto",
+      "auto"
+    ],
+    "Paddl_mi": [
+      "auto",
+      "int"
+    ],
+    "Paddl_rr": [
+      "auto",
+      "auto"
+    ],
+    "Pbsfl": [
+      "auto",
+      "auto"
+    ],
+    "Pbsfq": [
+      "auto",
+      "auto"
+    ],
+    "Pbsrl": [
+      "auto",
+      "auto"
+    ],
+    "Pbsrq": [
+      "auto",
+      "auto"
+    ],
+    "Pbswap64": [
+      "auto"
+    ],
+    "Pbswap32": [
+      "auto"
+    ],
+    "Pbswap16": [
+      "auto"
+    ],
+    "Pcfi_adjust": [
+      "int"
+    ],
+    "Pfmadd132": [
+      "auto",
+      "auto",
+      "auto"
+    ],
+    "Pfmadd213": [
+      "auto",
+      "auto",
+      "auto"
+    ],
+    "Pfmadd231": [
+      "auto",
+      "auto",
+      "auto"
+    ],
+    "Pfmsub132": [
+      "auto",
+      "auto",
+      "auto"
+    ],
+    "Pfmsub213": [
+      "auto",
+      "auto",
+      "auto"
+    ],
+    "Pfmsub231": [
+      "auto",
+      "auto",
+      "auto"
+    ],
+    "Pfnmadd132": [
+      "auto",
+      "auto",
+      "auto"
+    ],
+    "Pfnmadd213": [
+      "auto",
+      "auto",
+      "auto"
+    ],
+    "Pfnmadd231": [
+      "auto",
+      "auto",
+      "auto"
+    ],
+    "Pfnmsub132": [
+      "auto",
+      "auto",
+      "auto"
+    ],
+    "Pfnmsub213": [
+      "auto",
+      "auto",
+      "auto"
+    ],
+    "Pfnmsub231": [
+      "auto",
+      "auto",
+      "auto"
+    ],
+    "Pmaxsd": [
+      "auto",
+      "auto"
+    ],
+    "Pminsd": [
+      "auto",
+      "auto"
+    ],
+    "Pmovb_rm": [
+      "auto",
+      "auto"
+    ],
+    "Pmovq_rf": [
+      "auto",
+      "auto"
+    ],
+    "Pmovsq_mr": [
+      "auto",
+      "auto"
+    ],
+    "Pmovsq_rm": [
+      "auto",
+      "auto"
+    ],
+    "Pmovw_rm": [
+      "auto",
+      "auto"
+    ],
+    "Psbbl_rr": [
+      "auto",
+      "auto"
+    ],
+    "Psqrtsd": [
+      "auto",
+      "auto"
+    ],
+    "Psubl_ri": [
+      "auto",
+      "int"
+    ],
+    "Psubq_ri": [
+      "auto",
+      "long"
+    ]
+  },
+  "atoms": [
+    "RAX",
+    "RBX",
+    "RCX",
+    "RDX",
+    "RSI",
+    "RDI",
+    "RBP",
+    "RSP",
+    "R8",
+    "R9",
+    "R10",
+    "R11",
+    "R12",
+    "R13",
+    "R14",
+    "R15",
+    "XMM0",
+    "XMM1",
+    "XMM2",
+    "XMM3",
+    "XMM4",
+    "XMM5",
+    "XMM6",
+    "XMM7",
+    "XMM8",
+    "XMM9",
+    "XMM10",
+    "XMM11",
+    "XMM12",
+    "XMM13",
+    "XMM14",
+    "XMM15",
+    "ZF",
+    "CF",
+    "PF",
+    "SF",
+    "OF",
+    "Cond_e",
+    "Cond_ne",
+    "Cond_b",
+    "Cond_be",
+    "Cond_ae",
+    "Cond_a",
+    "Cond_l",
+    "Cond_le",
+    "Cond_ge",
+    "Cond_g",
+    "Cond_p",
+    "Cond_np",
+    "Pcltd",
+    "Pcqto",
+    "Pret",
+    "Pmovsb",
+    "Pmovsw",
+    "Pnop",
+    "Prep_movsl"
+  ]
+}

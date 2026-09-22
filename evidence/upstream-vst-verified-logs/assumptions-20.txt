@@ -1,0 +1,4 @@
+Axioms:
+testfun_function_accuracy :
+  quadmodel_accuracy.function_accuracy spec_quadrules_highlevel.testfun_r
+    spec_quadrules.testfun_f testfun_f_acc

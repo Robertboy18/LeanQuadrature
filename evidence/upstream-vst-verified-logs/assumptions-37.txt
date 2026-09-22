@@ -1,0 +1,7 @@
+Axioms:
+boolp.propositional_extensionality : forall P Q : Prop, P <-> Q -> P = Q
+boolp.functional_extensionality_dep :
+  forall (A : Type) (B : A -> Type) (f g : forall x : A, B x),
+  (forall x : A, f x = g x) -> f = g
+boolp.constructive_indefinite_description :
+  forall (A : Type) (P : A -> Prop), (exists x : A, P x) -> {x : A | P x}

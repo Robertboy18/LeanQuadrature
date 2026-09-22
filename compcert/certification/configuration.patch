@@ -1,0 +1,626 @@
+--- a/x86_64/Archi.v
++++ b/x86_64/Archi.v
+@@ -62,7 +62,7 @@
+ Definition float_conversion_default_nan := false.
+ 
+ (** Which ABI to use. *)
+-Parameter win64: bool.
++Definition win64 : bool := false.
+ 
+ Global Opaque ptr64 big_endian splitlong
+               default_nan_64 choose_nan_64
+@@ -70,3 +70,6 @@
+               fma_order fma_invalid_mul_is_nan
+               float_of_single_preserves_sNaN
+               float_conversion_default_nan.
++
++(* Explicit computational choices for the quadrature certificate. *)
++Global Opaque win64.
+--- a/driver/Compopts.v
++++ b/driver/Compopts.v
+@@ -18,29 +18,32 @@
+   to accessors for the flags in [Clflags.ml]. *)
+ 
+ (** Flag [-Os].  For instruction selection (mainly). *)
+-Parameter optim_for_size: unit -> bool.
++Definition optim_for_size : unit -> bool := fun _ => false.
+ 
+ (** Flag [-ffloat-const-prop].  For value analysis and constant propagation. *)
+-Parameter propagate_float_constants: unit -> bool.
+-Parameter generate_float_constants: unit -> bool.
++Definition propagate_float_constants : unit -> bool := fun _ => false.
++Definition generate_float_constants : unit -> bool := fun _ => false.
+ 
+ (** For value analysis.  Currently always false. *)
+-Parameter va_strict: unit -> bool.
++Definition va_strict : unit -> bool := fun _ => false.
+ 
+ (** Flag -ftailcalls.  For tail call optimization. *)
+-Parameter optim_tailcalls: unit -> bool.
++Definition optim_tailcalls : unit -> bool := fun _ => false.
+ 
+ (** Flag -fconstprop.  For constant propagation. *)
+-Parameter optim_constprop: unit -> bool.
++Definition optim_constprop : unit -> bool := fun _ => false.
+ 
+ (** Flag -fcse.  For common subexpression elimination. *)
+-Parameter optim_CSE: unit -> bool.
++Definition optim_CSE : unit -> bool := fun _ => false.
+ 
+ (** Flag -fredundancy.  For dead code elimination. *)
+-Parameter optim_redundancy: unit -> bool.
++Definition optim_redundancy : unit -> bool := fun _ => false.
+ 
+ (** Flag -fthumb.  For the ARM back-end. *)
+-Parameter thumb: unit -> bool.
++Definition thumb : unit -> bool := fun _ => false.
+ 
+ (** Flag -g.  For insertion of debugging information. *)
+-Parameter debug: unit -> bool.
++Definition debug : unit -> bool := fun _ => false.
++
++(* Explicit computational choices for the quadrature certificate. *)
++Global Opaque optim_for_size propagate_float_constants generate_float_constants va_strict optim_tailcalls optim_constprop optim_CSE optim_redundancy thumb debug.
+--- a/x86/SelectOp.v
++++ b/x86/SelectOp.v
+@@ -51,7 +51,7 @@
+   Indirect access is needed for data symbols imported from shared libraries
+   in macOS and Cygwin, and for PIC code in ELF. *)
+ 
+-Parameter symbol_is_relocatable: ident -> bool.
++Definition symbol_is_relocatable : ident -> bool := fun _ => false.
+ 
+ Definition Olea_ptr (a: addressing) := if Archi.ptr64 then Oleal a else Olea a.
+ 
+@@ -1548,3 +1548,6 @@
+   | BI_fmin, e1 ::: e2 ::: Enil => Some (Eop Ominf (e1 ::: e2 ::: Enil))
+   | _, _ => None
+   end.
++
++(* Explicit computational choices for the quadrature certificate. *)
++Global Opaque symbol_is_relocatable.
+--- a/x86/SelectOp.vp
++++ b/x86/SelectOp.vp
+@@ -51,7 +51,7 @@
+   Indirect access is needed for data symbols imported from shared libraries
+   in macOS and Cygwin, and for PIC code in ELF. *)
+ 
+-Parameter symbol_is_relocatable: ident -> bool.
++Definition symbol_is_relocatable : ident -> bool := fun _ => false.
+ 
+ Definition Olea_ptr (a: addressing) := if Archi.ptr64 then Oleal a else Olea a.
+ 
+@@ -581,3 +581,6 @@
+   | BI_fmin, e1 ::: e2 ::: Enil => Some (Eop Ominf (e1 ::: e2 ::: Enil))
+   | _, _ => None
+   end.
++
++(* Explicit computational choices for the quadrature certificate. *)
++Global Opaque symbol_is_relocatable.
+--- a/backend/Inlining.v
++++ b/backend/Inlining.v
+@@ -27,11 +27,11 @@
+ 
+ Definition size_fenv (fenv: funenv) := PTree_Properties.cardinal fenv.
+ 
+-Parameter inlining_info: Type.  (* abstract type, implemented on the Caml side *)
+-
+-Parameter inlining_analysis: program -> inlining_info.
+-
+-Parameter should_inline: inlining_info -> ident -> function -> bool.
++Definition inlining_info : Type := unit.  (* abstract type, implemented on the Caml side *)
++
++Definition inlining_analysis : program -> inlining_info := fun _ => tt.
++
++Definition should_inline : inlining_info -> ident -> function -> bool := fun _ _ _ => false.
+ 
+ Definition add_globdef (io: inlining_info) (fenv: funenv) (idg: ident * globdef fundef unit) : funenv :=
+   match idg with
+@@ -468,3 +468,6 @@
+   let fenv := funenv_program p in
+   AST.transform_partial_program (transf_fundef fenv) p.
+ 
++
++(* Explicit computational choices for the quadrature certificate. *)
++Global Opaque inlining_info inlining_analysis should_inline.
+--- a/backend/RTLgen.v
++++ b/backend/RTLgen.v
+@@ -539,7 +539,7 @@
+   no impact on program correctness.  We delegate the choice to an
+   external heuristic (written in OCaml), declared below.  *)
+ 
+-Parameter more_likely: condexpr -> stmt -> stmt -> bool.
++Definition more_likely : condexpr -> stmt -> stmt -> bool := fun _ _ _ => false.
+ 
+ (** Translation of statements.  [transl_stmt map s nd nexits nret rret]
+   enriches the current CFG with the RTL instructions necessary to
+@@ -695,3 +695,6 @@
+ 
+ Definition transl_program (p: CminorSel.program) : Errors.res RTL.program :=
+   transform_partial_program transl_fundef p.
++
++(* Explicit computational choices for the quadrature certificate. *)
++Global Opaque more_likely.
+--- a/backend/Selection.v
++++ b/backend/Selection.v
+@@ -287,7 +287,9 @@
+ 
+ (** Conversion of Cminor [switch] statements to decision trees. *)
+ 
+-Parameter compile_switch: Z -> nat -> table -> comptree.
++Definition compile_switch (_ : Z) (default : nat) (cases : table) : comptree :=
++  List.fold_right (fun entry rest => CTifeq (fst entry) (snd entry) rest)
++    (CTaction default) cases.
+ 
+ Section SEL_SWITCH.
+ 
+@@ -366,8 +368,9 @@
+     Arguments are: the condition, the "then" and the "else" expressions,
+     and the type at which selection is done. *)
+ 
+-Parameter if_conversion_heuristic:
+-  ident -> Cminor.expr -> Cminor.expr -> Cminor.expr -> AST.typ -> CminorSel.stmt -> bool.
++Definition if_conversion_heuristic :
++  ident -> Cminor.expr -> Cminor.expr -> Cminor.expr -> AST.typ -> CminorSel.stmt -> bool :=
++  fun _ _ _ _ _ _ => false.
+ 
+ Definition if_conversion_base
+       (ki: known_idents) (env: typenv)
+@@ -551,3 +554,6 @@
+   do hf <- get_helpers dm;
+   transform_partial_program (sel_fundef dm hf) p.
+ 
++
++(* Explicit computational choices for the quadrature certificate. *)
++Global Opaque compile_switch if_conversion_heuristic.
+--- a/backend/Linearize.v
++++ b/backend/Linearize.v
+@@ -94,7 +94,8 @@
+ (** We then enumerate the nodes of reachable blocks.
+   This task is performed by external, untrusted Caml code. *)
+ 
+-Parameter enumerate_aux: LTL.function -> PMap.t bool -> list node.
++Definition enumerate_aux (f : LTL.function) (_ : PMap.t bool) : list node :=
++  List.map (@fst node LTL.bblock) (PTree.elements f.(LTL.fn_code)).
+ 
+ (** Now comes the a posteriori validation of a node enumeration. *)
+ 
+@@ -215,3 +216,6 @@
+ 
+ Definition transf_program (p: LTL.program) : res Linear.program :=
+   transform_partial_program transf_fundef p.
++
++(* Explicit computational choices for the quadrature certificate. *)
++Global Opaque enumerate_aux.
+--- a/driver/Compiler.v
++++ b/driver/Compiler.v
+@@ -74,11 +74,11 @@
+ Require Import Compopts.
+ 
+ (** Pretty-printers (defined in Caml). *)
+-Parameter print_Clight: Clight.program -> unit.
+-Parameter print_Cminor: Cminor.program -> unit.
+-Parameter print_RTL: Z -> RTL.program -> unit.
+-Parameter print_LTL: LTL.program -> unit.
+-Parameter print_Mach: Mach.program -> unit.
++Definition print_Clight : Clight.program -> unit := fun _ => tt.
++Definition print_Cminor : Cminor.program -> unit := fun _ => tt.
++Definition print_RTL : Z -> RTL.program -> unit := fun _ _ => tt.
++Definition print_LTL : LTL.program -> unit := fun _ => tt.
++Definition print_Mach : Mach.program -> unit := fun _ => tt.
+ 
+ Local Open Scope string_scope.
+ 
+@@ -479,3 +479,6 @@
+   destruct H2 as (asm_program & P & Q).
+   exists asm_program; split; auto. apply c_semantic_preservation; auto.
+ Qed.
++
++(* Explicit computational choices for the quadrature certificate. *)
++Global Opaque print_Clight print_Cminor print_RTL print_LTL print_Mach.
+--- a/lib/Iteration.v
++++ b/lib/Iteration.v
+@@ -158,7 +158,19 @@
+ (** The [iterate] function is defined as [iter] up to
+     [num_iterations] through the loop. *)
+ 
+-Definition iterate := iter num_iterations.
++Fixpoint bounded_iter (fuel : nat) (a : A) : option B :=
++  match fuel with
++  | O => None
++  | S remaining =>
++      match step a with
++      | inl b => Some b
++      | inr next => bounded_iter remaining next
++      end
++  end.
++
++(** The certificate checks success with at most 10000 dataflow iterations. *)
++Definition iteration_budget : nat := Nat.pow 10 4.
++Definition iterate := bounded_iter iteration_budget.
+ 
+ (** We now prove the invariance property [iterate_prop]. *)
+ 
+@@ -185,12 +197,20 @@
+ Lemma iterate_prop:
+   forall a b, iterate a = Some b -> P a -> Q b.
+ Proof.
+-  intros. apply iter_prop with num_iterations a; assumption.
++  unfold iterate. generalize iteration_budget. intro fuel.
++  induction fuel as [|fuel IH]; intros a b H HP.
++  - discriminate.
++  - simpl in H. specialize (step_prop a HP).
++    destruct (step a) as [result | next] eqn:STEP.
++    + inversion H; subst. exact step_prop.
++    + eapply IH; eauto.
+ Qed.
+ 
+ End ITERATION.
+ 
+ End PrimIter.
++
++Global Opaque PrimIter.iterate PrimIter.bounded_iter.
+ 
+ (** * General iteration *)
+ 
+--- a/cfrontend/SimplLocalsproof.v
++++ b/cfrontend/SimplLocalsproof.v
+@@ -1946,7 +1946,6 @@
+   monadInv TS; auto.
+   (* var *)
+   destruct (is_liftable_var cenv e); monadInv TS; auto.
+-  unfold Sset_debug. destruct (Compopts.debug tt); auto.
+   (* set *)
+   monadInv TS; auto.
+   (* call *)
+--- a/backend/ValueAnalysis.v
++++ b/backend/ValueAnalysis.v
+@@ -1628,8 +1628,6 @@
+     inv H0. apply plub_least; auto.
+   }
+   destruct id; auto.
+-  simpl. destruct (propagate_float_constants tt); auto.
+-  simpl. destruct (propagate_float_constants tt); auto.
+   apply DFL. constructor. constructor.
+ Qed.
+ 
+@@ -1648,10 +1646,6 @@
+   bmatch bc m' b (store_init_data ab p id).
+ Proof.
+   intros. destruct id; try (eapply ablock_store_sound; eauto; constructor).
+-- (* float32 *)
+-  simpl. destruct (propagate_float_constants tt); eapply ablock_store_sound; eauto; constructor.
+-- (* float64 *)
+-  simpl. destruct (propagate_float_constants tt); eapply ablock_store_sound; eauto; constructor.
+ - (* space *)
+   simpl in H. inv H. auto.
+ - (* addrof *)
+--- a/x86/ConstpropOpproof.v
++++ b/x86/ConstpropOpproof.v
+@@ -102,10 +102,6 @@
+   exists (Vint n); split; auto. inv H0; auto.
+ - (* long *)
+   destruct ptr64; inv H2. exists (Vlong n); auto.
+-- (* float *)
+-  destruct (Compopts.generate_float_constants tt); inv H2. exists (Vfloat f); auto.
+-- (* single *)
+-  destruct (Compopts.generate_float_constants tt); inv H2. exists (Vsingle f); auto.
+ - (* pointer *)
+   destruct p; try discriminate; SimplVM.
+   + (* global *)
+--- a/backend/Constpropproof.v
++++ b/backend/Constpropproof.v
+@@ -186,8 +186,6 @@
+ - specialize (H x). unfold areg. destruct (AE.get x ae); try constructor.
+   + inv H. constructor.
+   + inv H. constructor.
+-  + destruct (Compopts.generate_float_constants tt); [inv H|idtac]; constructor.
+-  + destruct (Compopts.generate_float_constants tt); [inv H|idtac]; constructor.
+ - destruct (builtin_arg_reduction ae hi); auto with barg.
+   destruct (builtin_arg_reduction ae lo); auto with barg.
+   inv IHeval_builtin_arg1; inv IHeval_builtin_arg2. constructor.
+--- a/backend/Allocation.v
++++ b/backend/Allocation.v
+@@ -12,7 +12,8 @@
+ 
+ (** Register allocation by external oracle and a posteriori validation. *)
+ 
+-From Coq Require Import FSets.
++From Coq Require Import FSets List ZArith String.
++Import ListNotations.
+ Require Import FSetAVLplus.
+ Require Import Coqlib Ordered Maps Errors Integers Floats.
+ Require Import AST Lattice Kildall Memdata.
+@@ -1352,7 +1353,97 @@
+ (** [regalloc] is the external register allocator.  It is written in OCaml
+   in file [backend/Regalloc.ml]. *)
+ 
+-Parameter regalloc: RTL.function -> res LTL.function.
++Definition candidate_0 : LTL.function :=
++{| LTL.fn_sig := (mksignature (AST.Xint :: AST.Xint :: nil) AST.Xfloat cc_default); LTL.fn_stacksize := 0; LTL.fn_code := (PTree.set 8%positive ((LTL.Lop (Op.Olea (Op.Aindexed (-1))) (Machregs.AX :: nil) Machregs.DX) :: (LTL.Lbranch 7%positive) :: nil) (PTree.set 4%positive ((LTL.Lop Op.Ocast32signed (Machregs.AX :: nil) Machregs.CX) :: (LTL.Lbranch 3%positive) :: nil) (PTree.set 2%positive ((LTL.Lbranch 1%positive) :: nil) (PTree.set 10%positive ((LTL.Lop Op.Omove (Machregs.SI :: nil) Machregs.AX) :: (LTL.Lbranch 9%positive) :: nil) (PTree.set 6%positive ((LTL.Lop (Op.Oshrximm (Int.repr 1)) (Machregs.AX :: nil) Machregs.AX) :: (LTL.Lbranch 5%positive) :: nil) (PTree.set 1%positive (LTL.Lreturn :: nil) (PTree.set 9%positive ((LTL.Lop (Op.Oleal (Op.Aglobal 26025026242339472%positive (Ptrofs.repr 0))) (nil) Machregs.SI) :: (LTL.Lbranch 8%positive) :: nil) (PTree.set 5%positive ((LTL.Lop (Op.Olea (Op.Aindexed2 0)) (Machregs.AX :: Machregs.DI :: nil) Machregs.AX) :: (LTL.Lbranch 4%positive) :: nil) (PTree.set 3%positive ((LTL.Lload Mfloat64 (Op.Aindexed2scaled 8 0) (Machregs.SI :: Machregs.CX :: nil) Machregs.X0) :: (LTL.Lbranch 2%positive) :: nil) (PTree.set 7%positive ((LTL.Lop Op.Omul (Machregs.AX :: Machregs.DX :: nil) Machregs.AX) :: (LTL.Lbranch 6%positive) :: nil) (PTree.empty _))))))))))); LTL.fn_entrypoint := 10%positive |}.
++
++Definition candidate_1 : LTL.function :=
++{| LTL.fn_sig := (mksignature (AST.Xint :: AST.Xint :: nil) AST.Xfloat cc_default); LTL.fn_stacksize := 0; LTL.fn_code := (PTree.set 8%positive ((LTL.Lop (Op.Olea (Op.Aindexed (-1))) (Machregs.AX :: nil) Machregs.DX) :: (LTL.Lbranch 7%positive) :: nil) (PTree.set 4%positive ((LTL.Lop Op.Ocast32signed (Machregs.AX :: nil) Machregs.CX) :: (LTL.Lbranch 3%positive) :: nil) (PTree.set 2%positive ((LTL.Lbranch 1%positive) :: nil) (PTree.set 10%positive ((LTL.Lop Op.Omove (Machregs.SI :: nil) Machregs.AX) :: (LTL.Lbranch 9%positive) :: nil) (PTree.set 6%positive ((LTL.Lop (Op.Oshrximm (Int.repr 1)) (Machregs.AX :: nil) Machregs.AX) :: (LTL.Lbranch 5%positive) :: nil) (PTree.set 1%positive (LTL.Lreturn :: nil) (PTree.set 9%positive ((LTL.Lop (Op.Oleal (Op.Aglobal 26025507278676624%positive (Ptrofs.repr 0))) (nil) Machregs.SI) :: (LTL.Lbranch 8%positive) :: nil) (PTree.set 5%positive ((LTL.Lop (Op.Olea (Op.Aindexed2 0)) (Machregs.AX :: Machregs.DI :: nil) Machregs.AX) :: (LTL.Lbranch 4%positive) :: nil) (PTree.set 3%positive ((LTL.Lload Mfloat64 (Op.Aindexed2scaled 8 0) (Machregs.SI :: Machregs.CX :: nil) Machregs.X0) :: (LTL.Lbranch 2%positive) :: nil) (PTree.set 7%positive ((LTL.Lop Op.Omul (Machregs.AX :: Machregs.DX :: nil) Machregs.AX) :: (LTL.Lbranch 6%positive) :: nil) (PTree.empty _))))))))))); LTL.fn_entrypoint := 10%positive |}.
++
++Definition candidate_2 : LTL.function :=
++{| LTL.fn_sig := (mksignature (AST.Xint :: nil) AST.Xint cc_default); LTL.fn_stacksize := 0; LTL.fn_code := (PTree.set 16%positive ((LTL.Lcond (Op.Ccompimm Ceq (Int.repr 1)) (Machregs.DI :: nil) 2%positive 15%positive) :: nil) (PTree.set 8%positive ((LTL.Lop Op.Omove (Machregs.DI :: nil) Machregs.DX) :: (LTL.Lop Op.Omove (Machregs.AX :: nil) Machregs.DI) :: (LTL.Lcall (mksignature (AST.Xptr :: AST.Xptr :: AST.Xint :: nil) AST.Xint
++  {|cc_vararg:=(Some 2); cc_unproto:=false; cc_structret:=false|}) (inr 5460367881807%positive)) :: (LTL.Lbranch 7%positive) :: nil) (PTree.set 4%positive ((LTL.Lop (Op.Ointconst (Int.repr 3)) (nil) Machregs.BX) :: (LTL.Lbranch 1%positive) :: nil) (PTree.set 12%positive ((LTL.Lcond (Op.Ccompimm Ceq (Int.repr 25)) (Machregs.DI :: nil) 11%positive 10%positive) :: nil) (PTree.set 2%positive ((LTL.Lop (Op.Ointconst (Int.repr 1)) (nil) Machregs.BX) :: (LTL.Lbranch 1%positive) :: nil) (PTree.set 18%positive ((LTL.Lbranch 17%positive) :: nil) (PTree.set 10%positive ((LTL.Lload Mint64 (Op.Aglobal 25171890867130302%positive (Ptrofs.repr 0)) (nil) Machregs.AX) :: (LTL.Lbranch 9%positive) :: nil) (PTree.set 6%positive ((LTL.Lcall (mksignature (AST.Xint :: nil) AST.Xvoid cc_default) (inr 24455246%positive)) :: (LTL.Lbranch 1%positive) :: nil) (PTree.set 14%positive ((LTL.Lcond (Op.Ccompimm Ceq (Int.repr 9)) (Machregs.DI :: nil) 4%positive 13%positive) :: nil) (PTree.set 1%positive ((LTL.Lop Op.Omove (Machregs.BX :: nil) Machregs.AX) :: LTL.Lreturn :: nil) (PTree.set 17%positive ((LTL.Lbranch 16%positive) :: nil) (PTree.set 9%positive ((LTL.Lop (Op.Oleal (Op.Aglobal 311562378882557268053950%positive (Ptrofs.repr 0))) (nil) Machregs.SI) :: (LTL.Lbranch 8%positive) :: nil) (PTree.set 5%positive ((LTL.Lop (Op.Ointconst (Int.repr 4)) (nil) Machregs.BX) :: (LTL.Lbranch 1%positive) :: nil) (PTree.set 13%positive ((LTL.Lcond (Op.Ccompimm Ceq (Int.repr 16)) (Machregs.DI :: nil) 5%positive 12%positive) :: nil) (PTree.set 3%positive ((LTL.Lop (Op.Ointconst (Int.repr 2)) (nil) Machregs.BX) :: (LTL.Lbranch 1%positive) :: nil) (PTree.set 11%positive ((LTL.Lop (Op.Ointconst (Int.repr 5)) (nil) Machregs.BX) :: (LTL.Lbranch 1%positive) :: nil) (PTree.set 7%positive ((LTL.Lop (Op.Ointconst (Int.repr (-1))) (nil) Machregs.DI) :: (LTL.Lbranch 6%positive) :: nil) (PTree.set 15%positive ((LTL.Lcond (Op.Ccompimm Ceq (Int.repr 4)) (Machregs.DI :: nil) 3%positive 14%positive) :: nil) (PTree.empty _))))))))))))))))))); LTL.fn_entrypoint := 18%positive |}.
++
++Definition candidate_3 : LTL.function :=
++{| LTL.fn_sig := (mksignature (AST.Xptr :: AST.Xint :: AST.Xint :: nil) AST.Xvoid cc_default); LTL.fn_stacksize := 0; LTL.fn_code := (PTree.set 8%positive ((LTL.Lop Op.Omove (Machregs.AX :: nil) Machregs.BX) :: (LTL.Lbranch 7%positive) :: nil) (PTree.set 4%positive ((LTL.Lstore Mfloat64 (Op.Aindexed 0) (Machregs.R12 :: nil) Machregs.X0) :: (LTL.Lbranch 3%positive) :: nil) (PTree.set 2%positive ((LTL.Lstore Mfloat64 (Op.Aindexed 8) (Machregs.R12 :: nil) Machregs.X0) :: (LTL.Lbranch 1%positive) :: nil) (PTree.set 10%positive ((LTL.Lop Op.Omove (Machregs.DI :: nil) Machregs.R12) :: (LTL.Lop Op.Omove (Machregs.DX :: nil) Machregs.DI) :: (LTL.Lop Op.Omove (Machregs.SI :: nil) Machregs.BP) :: (LTL.Lbranch 9%positive) :: nil) (PTree.set 6%positive ((LTL.Lop Op.Omove (Machregs.BP :: nil) Machregs.AX) :: (LTL.Lop Op.Omove (Machregs.BX :: nil) Machregs.CX) :: (LTL.Lop Op.Odiv (Machregs.AX :: Machregs.CX :: nil) Machregs.AX) :: (LTL.Lop Op.Omove (Machregs.AX :: nil) Machregs.BP) :: (LTL.Lbranch 5%positive) :: nil) (PTree.set 1%positive (LTL.Lreturn :: nil) (PTree.set 9%positive ((LTL.Lcall (mksignature (AST.Xint :: nil) AST.Xint cc_default) (inr 95349600521002224177099432592%positive)) :: (LTL.Lbranch 8%positive) :: nil) (PTree.set 5%positive ((LTL.Lop Op.Omove (Machregs.BX :: nil) Machregs.SI) :: (LTL.Lcall (mksignature (AST.Xint :: AST.Xint :: nil) AST.Xfloat cc_default) (inr 107641204981888049808%positive)) :: (LTL.Lbranch 4%positive) :: nil) (PTree.set 3%positive ((LTL.Lop Op.Omove (Machregs.BX :: nil) Machregs.SI) :: (LTL.Lop Op.Omove (Machregs.BP :: nil) Machregs.DI) :: (LTL.Lcall (mksignature (AST.Xint :: AST.Xint :: nil) AST.Xfloat cc_default) (inr 107641204981888049808%positive)) :: (LTL.Lbranch 2%positive) :: nil) (PTree.set 7%positive ((LTL.Lop Op.Omove (Machregs.BP :: nil) Machregs.AX) :: (LTL.Lop Op.Omove (Machregs.BX :: nil) Machregs.CX) :: (LTL.Lop Op.Omod (Machregs.AX :: Machregs.CX :: nil) Machregs.DX) :: (LTL.Lop Op.Omove (Machregs.DX :: nil) Machregs.DI) :: (LTL.Lbranch 6%positive) :: nil) (PTree.empty _))))))))))); LTL.fn_entrypoint := 10%positive |}.
++
++Definition candidate_4 : LTL.function :=
++{| LTL.fn_sig := (mksignature (AST.Xint :: AST.Xint :: nil) AST.Xfloat cc_default); LTL.fn_stacksize := 0; LTL.fn_code := (PTree.set 8%positive ((LTL.Lop Op.Omove (Machregs.SI :: nil) Machregs.DI) :: (LTL.Lcall (mksignature (AST.Xint :: nil) AST.Xint cc_default) (inr 95349600521002224177099432592%positive)) :: (LTL.Lop Op.Omove (Machregs.AX :: nil) Machregs.BX) :: (LTL.Lbranch 7%positive) :: nil) (PTree.set 4%positive ((LTL.Lop Op.Omove (Machregs.BX :: nil) Machregs.SI) :: (LTL.Lcall (mksignature (AST.Xint :: AST.Xint :: nil) AST.Xfloat cc_default) (inr 6882081821762725733008%positive)) :: (LTL.Lsetstack Machregs.X0 Locations.Local 0 AST.Tfloat) :: (LTL.Lbranch 3%positive) :: nil) (PTree.set 2%positive ((LTL.Lgetstack Locations.Local 0 AST.Tfloat Machregs.X1) :: (LTL.Lop Op.Omulf (Machregs.X1 :: Machregs.X0 :: nil) Machregs.X1) :: (LTL.Lop Op.Omove (Machregs.X1 :: nil) Machregs.X0) :: (LTL.Lbranch 1%positive) :: nil) (PTree.set 6%positive ((LTL.Lop Op.Omove (Machregs.BP :: nil) Machregs.AX) :: (LTL.Lop Op.Omove (Machregs.BX :: nil) Machregs.CX) :: (LTL.Lop Op.Omod (Machregs.AX :: Machregs.CX :: nil) Machregs.DX) :: (LTL.Lop Op.Omove (Machregs.DX :: nil) Machregs.DI) :: (LTL.Lbranch 5%positive) :: nil) (PTree.set 1%positive (LTL.Lreturn :: nil) (PTree.set 9%positive ((LTL.Lop Op.Omove (Machregs.DI :: nil) Machregs.BP) :: (LTL.Lbranch 8%positive) :: nil) (PTree.set 5%positive ((LTL.Lop Op.Omove (Machregs.BP :: nil) Machregs.AX) :: (LTL.Lop Op.Omove (Machregs.BX :: nil) Machregs.CX) :: (LTL.Lop Op.Odiv (Machregs.AX :: Machregs.CX :: nil) Machregs.AX) :: (LTL.Lop Op.Omove (Machregs.AX :: nil) Machregs.BP) :: (LTL.Lbranch 4%positive) :: nil) (PTree.set 3%positive ((LTL.Lop Op.Omove (Machregs.BX :: nil) Machregs.SI) :: (LTL.Lop Op.Omove (Machregs.BP :: nil) Machregs.DI) :: (LTL.Lcall (mksignature (AST.Xint :: AST.Xint :: nil) AST.Xfloat cc_default) (inr 6882081821762725733008%positive)) :: (LTL.Lbranch 2%positive) :: nil) (PTree.set 7%positive ((LTL.Lbranch 6%positive) :: nil) (PTree.empty _)))))))))); LTL.fn_entrypoint := 9%positive |}.
++
++Definition candidate_5 : LTL.function :=
++{| LTL.fn_sig := (mksignature (AST.Xptr :: AST.Xint :: AST.Xint :: nil) AST.Xvoid cc_default); LTL.fn_stacksize := 0; LTL.fn_code := (PTree.set 16%positive ((LTL.Lop (Op.Ofloatconst (Float.of_bits (Int64.repr 4602678819172646912))) (nil) Machregs.X3) :: (LTL.Lbranch 15%positive) :: nil) (PTree.set 8%positive ((LTL.Lstore Mfloat64 (Op.Aindexed 0) (Machregs.DI :: nil) Machregs.X5) :: (LTL.Lbranch 7%positive) :: nil) (PTree.set 4%positive ((LTL.Lstore Mfloat64 (Op.Aindexed 0) (Machregs.DI :: nil) Machregs.X2) :: (LTL.Lbranch 3%positive) :: nil) (PTree.set 20%positive ((LTL.Lcond (Op.Ccompimm Ceq (Int.repr 1)) (Machregs.SI :: nil) 9%positive 19%positive) :: nil) (PTree.set 12%positive ((LTL.Lcall (mksignature (AST.Xptr :: AST.Xptr :: nil) AST.Xint
++  {|cc_vararg:=(Some 2); cc_unproto:=false; cc_structret:=false|}) (inr 5460367881807%positive)) :: (LTL.Lbranch 11%positive) :: nil) (PTree.set 2%positive ((LTL.Lstore Mfloat64 (Op.Aindexed 8) (Machregs.DI :: nil) Machregs.X6) :: (LTL.Lbranch 1%positive) :: nil) (PTree.set 18%positive ((LTL.Lop (Op.Ofloatconst (Float.of_bits (Int64.repr 0))) (nil) Machregs.X1) :: (LTL.Lbranch 17%positive) :: nil) (PTree.set 10%positive ((LTL.Lcall (mksignature (AST.Xint :: nil) AST.Xvoid cc_default) (inr 24455246%positive)) :: (LTL.Lbranch 1%positive) :: nil) (PTree.set 6%positive ((LTL.Lstore Mfloat64 (Op.Aindexed 8) (Machregs.DI :: nil) Machregs.X4) :: (LTL.Lbranch 1%positive) :: nil) (PTree.set 22%positive ((LTL.Lbranch 21%positive) :: nil) (PTree.set 14%positive ((LTL.Lload Mint64 (Op.Aglobal 25171890867130302%positive (Ptrofs.repr 0)) (nil) Machregs.DI) :: (LTL.Lbranch 13%positive) :: nil) (PTree.set 1%positive (LTL.Lreturn :: nil) (PTree.set 17%positive ((LTL.Lstore Mfloat64 (Op.Aindexed 0) (Machregs.DI :: nil) Machregs.X1) :: (LTL.Lbranch 16%positive) :: nil) (PTree.set 9%positive ((LTL.Lop (Op.Ofloatconst (Float.of_bits (Int64.repr 4602678819172646912))) (nil) Machregs.X5) :: (LTL.Lbranch 8%positive) :: nil) (PTree.set 5%positive ((LTL.Lop (Op.Ofloatconst (Float.of_bits (Int64.repr 4602678819172646912))) (nil) Machregs.X2) :: (LTL.Lbranch 4%positive) :: nil) (PTree.set 21%positive ((LTL.Lcond (Op.Ccompimm Ceq (Int.repr 0)) (Machregs.SI :: nil) 5%positive 20%positive) :: nil) (PTree.set 13%positive ((LTL.Lop (Op.Oleal (Op.Aglobal 316284745365426913267646%positive (Ptrofs.repr 0))) (nil) Machregs.SI) :: (LTL.Lbranch 12%positive) :: nil) (PTree.set 3%positive ((LTL.Lop (Op.Ofloatconst (Float.of_bits (Int64.repr 0))) (nil) Machregs.X6) :: (LTL.Lbranch 2%positive) :: nil) (PTree.set 19%positive ((LTL.Lcond (Op.Ccompimm Ceq (Int.repr 2)) (Machregs.SI :: nil) 18%positive 14%positive) :: nil) (PTree.set 11%positive ((LTL.Lop (Op.Ointconst (Int.repr (-1))) (nil) Machregs.DI) :: (LTL.Lbranch 10%positive) :: nil) (PTree.set 7%positive ((LTL.Lop (Op.Ofloatconst (Float.of_bits (Int64.repr 4602678819172646912))) (nil) Machregs.X4) :: (LTL.Lbranch 6%positive) :: nil) (PTree.set 23%positive ((LTL.Lbranch 22%positive) :: nil) (PTree.set 15%positive ((LTL.Lstore Mfloat64 (Op.Aindexed 8) (Machregs.DI :: nil) Machregs.X3) :: (LTL.Lbranch 1%positive) :: nil) (PTree.empty _)))))))))))))))))))))))); LTL.fn_entrypoint := 23%positive |}.
++
++Definition candidate_6 : LTL.function :=
++{| LTL.fn_sig := (mksignature (AST.Xint :: AST.Xint :: nil) AST.Xfloat cc_default); LTL.fn_stacksize := 0; LTL.fn_code := (PTree.set 4%positive ((LTL.Lop (Op.Ofloatconst (Float.of_bits (Int64.repr 4607182418800017408))) (nil) Machregs.X0) :: (LTL.Lbranch 3%positive) :: nil) (PTree.set 2%positive ((LTL.Lop Op.Odivf (Machregs.X0 :: Machregs.X1 :: nil) Machregs.X0) :: (LTL.Lbranch 1%positive) :: nil) (PTree.set 1%positive (LTL.Lreturn :: nil) (PTree.set 5%positive ((LTL.Lbranch 4%positive) :: nil) (PTree.set 3%positive ((LTL.Lop (Op.Ofloatconst (Float.of_bits (Int64.repr 4618441417868443648))) (nil) Machregs.X1) :: (LTL.Lbranch 2%positive) :: nil) (PTree.empty _)))))); LTL.fn_entrypoint := 5%positive |}.
++
++Definition candidate_7 : LTL.function :=
++{| LTL.fn_sig := (mksignature (AST.Xfloat :: nil) AST.Xfloat cc_default); LTL.fn_stacksize := 0; LTL.fn_code := (PTree.set 16%positive ((LTL.Lop Op.Oaddf (Machregs.X1 :: Machregs.X9 :: nil) Machregs.X1) :: (LTL.Lbranch 15%positive) :: nil) (PTree.set 8%positive ((LTL.Lop Op.Oaddf (Machregs.X2 :: Machregs.X9 :: nil) Machregs.X2) :: (LTL.Lbranch 7%positive) :: nil) (PTree.set 24%positive ((LTL.Lop (Op.Ofloatconst (Float.of_bits (Int64.repr 4586165620538955093))) (nil) Machregs.X7) :: (LTL.Lbranch 23%positive) :: nil) (PTree.set 4%positive ((LTL.Lop Op.Oaddf (Machregs.X3 :: Machregs.X10 :: nil) Machregs.X3) :: (LTL.Lbranch 3%positive) :: nil) (PTree.set 20%positive ((LTL.Lop (Op.Ofloatconst (Float.of_bits (Int64.repr 4477122120089393304))) (nil) Machregs.X8) :: (LTL.Lbranch 19%positive) :: nil) (PTree.set 12%positive ((LTL.Lop Op.Oaddf (Machregs.X4 :: Machregs.X11 :: nil) Machregs.X4) :: (LTL.Lbranch 11%positive) :: nil) (PTree.set 28%positive ((LTL.Lop Op.Omove (Machregs.X0 :: nil) Machregs.X5) :: (LTL.Lbranch 27%positive) :: nil) (PTree.set 2%positive ((LTL.Lop Op.Oaddf (Machregs.X0 :: Machregs.X5 :: nil) Machregs.X0) :: (LTL.Lbranch 1%positive) :: nil) (PTree.set 18%positive ((LTL.Lop (Op.Ofloatconst (Float.of_bits (Int64.repr 0))) (nil) Machregs.X15) :: (LTL.Lbranch 17%positive) :: nil) (PTree.set 10%positive ((LTL.Lop Op.Oaddf (Machregs.X6 :: Machregs.X12 :: nil) Machregs.X6) :: (LTL.Lbranch 9%positive) :: nil) (PTree.set 26%positive ((LTL.Lop (Op.Ofloatconst (Float.of_bits (Int64.repr 4607182418800017408))) (nil) Machregs.X0) :: (LTL.Lbranch 25%positive) :: nil) (PTree.set 6%positive ((LTL.Lop Op.Oaddf (Machregs.X7 :: Machregs.X13 :: nil) Machregs.X7) :: (LTL.Lbranch 5%positive) :: nil) (PTree.set 22%positive ((LTL.Lop (Op.Ofloatconst (Float.of_bits (Int64.repr 4537941361671905306))) (nil) Machregs.X6) :: (LTL.Lbranch 21%positive) :: nil) (PTree.set 14%positive ((LTL.Lop Op.Oaddf (Machregs.X8 :: Machregs.X14 :: nil) Machregs.X8) :: (LTL.Lbranch 13%positive) :: nil) (PTree.set 1%positive (LTL.Lreturn :: nil) (PTree.set 17%positive ((LTL.Lop Op.Omove (Machregs.X5 :: nil) Machregs.X9) :: (LTL.Lop Op.Omulf (Machregs.X9 :: Machregs.X15 :: nil) Machregs.X9) :: (LTL.Lbranch 16%positive) :: nil) (PTree.set 9%positive ((LTL.Lop Op.Omove (Machregs.X5 :: nil) Machregs.X9) :: (LTL.Lop Op.Omulf (Machregs.X9 :: Machregs.X6 :: nil) Machregs.X9) :: (LTL.Lbranch 8%positive) :: nil) (PTree.set 25%positive ((LTL.Lop (Op.Ofloatconst (Float.of_bits (Int64.repr (-4620693217682128896)))) (nil) Machregs.X3) :: (LTL.Lbranch 24%positive) :: nil) (PTree.set 5%positive ((LTL.Lop Op.Omove (Machregs.X5 :: nil) Machregs.X10) :: (LTL.Lop Op.Omulf (Machregs.X10 :: Machregs.X7 :: nil) Machregs.X10) :: (LTL.Lbranch 4%positive) :: nil) (PTree.set 21%positive ((LTL.Lop (Op.Ofloatconst (Float.of_bits (Int64.repr (-4714566979057836196)))) (nil) Machregs.X4) :: (LTL.Lbranch 20%positive) :: nil) (PTree.set 13%positive ((LTL.Lop Op.Omove (Machregs.X5 :: nil) Machregs.X11) :: (LTL.Lop Op.Omulf (Machregs.X11 :: Machregs.X8 :: nil) Machregs.X11) :: (LTL.Lbranch 12%positive) :: nil) (PTree.set 3%positive ((LTL.Lop Op.Omulf (Machregs.X5 :: Machregs.X3 :: nil) Machregs.X5) :: (LTL.Lbranch 2%positive) :: nil) (PTree.set 19%positive ((LTL.Lop (Op.Ofloatconst (Float.of_bits (Int64.repr (-4780226356266894179)))) (nil) Machregs.X1) :: (LTL.Lbranch 18%positive) :: nil) (PTree.set 11%positive ((LTL.Lop Op.Omove (Machregs.X5 :: nil) Machregs.X12) :: (LTL.Lop Op.Omulf (Machregs.X12 :: Machregs.X4 :: nil) Machregs.X12) :: (LTL.Lbranch 10%positive) :: nil) (PTree.set 27%positive ((LTL.Lop Op.Omulf (Machregs.X5 :: Machregs.X5 :: nil) Machregs.X5) :: (LTL.Lbranch 26%positive) :: nil) (PTree.set 7%positive ((LTL.Lop Op.Omove (Machregs.X5 :: nil) Machregs.X13) :: (LTL.Lop Op.Omulf (Machregs.X13 :: Machregs.X2 :: nil) Machregs.X13) :: (LTL.Lbranch 6%positive) :: nil) (PTree.set 23%positive ((LTL.Lop (Op.Ofloatconst (Float.of_bits (Int64.repr (-4659324094485795817)))) (nil) Machregs.X2) :: (LTL.Lbranch 22%positive) :: nil) (PTree.set 15%positive ((LTL.Lop Op.Omove (Machregs.X5 :: nil) Machregs.X14) :: (LTL.Lop Op.Omulf (Machregs.X14 :: Machregs.X1 :: nil) Machregs.X14) :: (LTL.Lbranch 14%positive) :: nil) (PTree.empty _))))))))))))))))))))))))))))); LTL.fn_entrypoint := 28%positive |}.
++
++Definition candidate_8 : LTL.function :=
++{| LTL.fn_sig := (mksignature (AST.Xptr :: AST.Xint :: nil) AST.Xfloat cc_default); LTL.fn_stacksize := 0; LTL.fn_code := (PTree.set 8%positive ((LTL.Lop Op.Omove (Machregs.BX :: nil) Machregs.SI) :: (LTL.Lop Op.Omove (Machregs.BP :: nil) Machregs.DI) :: (LTL.Lcall (mksignature (AST.Xint :: AST.Xint :: nil) AST.Xfloat cc_default) (inr 107641204981888049808%positive)) :: (LTL.Lbranch 7%positive) :: nil) (PTree.set 4%positive ((LTL.Lop (Op.Olea (Op.Aindexed 1)) (Machregs.BP :: nil) Machregs.BP) :: (LTL.Lbranch 3%positive) :: nil) (PTree.set 12%positive ((LTL.Lop (Op.Ointconst (Int.repr 0)) (nil) Machregs.BP) :: (LTL.Lbranch 11%positive) :: nil) (PTree.set 2%positive ((LTL.Lgetstack Locations.Local 0 AST.Tfloat Machregs.X0) :: (LTL.Lbranch 1%positive) :: nil) (PTree.set 10%positive ((LTL.Lcond (Op.Ccomp Clt) (Machregs.BP :: Machregs.BX :: nil) 9%positive 2%positive) :: nil) (PTree.set 6%positive ((LTL.Lgetstack Locations.Local 2 AST.Tfloat Machregs.X2) :: (LTL.Lop Op.Omulf (Machregs.X2 :: Machregs.X0 :: nil) Machregs.X2) :: (LTL.Lbranch 5%positive) :: nil) (PTree.set 14%positive ((LTL.Lop Op.Omove (Machregs.SI :: nil) Machregs.BX) :: (LTL.Lop Op.Omove (Machregs.DI :: nil) Machregs.R12) :: (LTL.Lbranch 13%positive) :: nil) (PTree.set 1%positive (LTL.Lreturn :: nil) (PTree.set 9%positive ((LTL.Lop Op.Omove (Machregs.BX :: nil) Machregs.SI) :: (LTL.Lop Op.Omove (Machregs.BP :: nil) Machregs.DI) :: (LTL.Lcall (mksignature (AST.Xint :: AST.Xint :: nil) AST.Xfloat cc_default) (inr 6882081821762725733008%positive)) :: (LTL.Lsetstack Machregs.X0 Locations.Local 2 AST.Tfloat) :: (LTL.Lbranch 8%positive) :: nil) (PTree.set 5%positive ((LTL.Lgetstack Locations.Local 0 AST.Tfloat Machregs.X1) :: (LTL.Lop Op.Oaddf (Machregs.X1 :: Machregs.X2 :: nil) Machregs.X1) :: (LTL.Lsetstack Machregs.X1 Locations.Local 0 AST.Tfloat) :: (LTL.Lbranch 4%positive) :: nil) (PTree.set 13%positive ((LTL.Lop (Op.Ofloatconst (Float.of_bits (Int64.repr 0))) (nil) Machregs.X0) :: (LTL.Lsetstack Machregs.X0 Locations.Local 0 AST.Tfloat) :: (LTL.Lbranch 12%positive) :: nil) (PTree.set 3%positive ((LTL.Lbranch 10%positive) :: nil) (PTree.set 11%positive ((LTL.Lbranch 10%positive) :: nil) (PTree.set 7%positive ((LTL.Lcall (mksignature (AST.Xfloat :: nil) AST.Xfloat cc_default) (inl Machregs.R12)) :: (LTL.Lbranch 6%positive) :: nil) (PTree.empty _))))))))))))))); LTL.fn_entrypoint := 14%positive |}.
++
++Definition candidate_9 : LTL.function :=
++{| LTL.fn_sig := (mksignature (AST.Xfloat :: nil) AST.Xfloat cc_default); LTL.fn_stacksize := 0; LTL.fn_code := (PTree.set 8%positive ((LTL.Lsetstack Machregs.X0 Locations.Local 0 AST.Tfloat) :: (LTL.Lbranch 7%positive) :: nil) (PTree.set 4%positive ((LTL.Lgetstack Locations.Local 0 AST.Tfloat Machregs.X1) :: (LTL.Lop Op.Osubf (Machregs.X2 :: Machregs.X1 :: nil) Machregs.X2) :: (LTL.Lbranch 3%positive) :: nil) (PTree.set 2%positive ((LTL.Lop Op.Omulf (Machregs.X3 :: Machregs.X0 :: nil) Machregs.X3) :: (LTL.Lbranch 1%positive) :: nil) (PTree.set 6%positive ((LTL.Lop (Op.Ofloatconst (Float.of_bits (Int64.repr 4602678819172646912))) (nil) Machregs.X3) :: (LTL.Lbranch 5%positive) :: nil) (PTree.set 1%positive ((LTL.Lop Op.Omove (Machregs.X3 :: nil) Machregs.X0) :: LTL.Lreturn :: nil) (PTree.set 5%positive ((LTL.Lop (Op.Ofloatconst (Float.of_bits (Int64.repr 4607182418800017408))) (nil) Machregs.X2) :: (LTL.Lbranch 4%positive) :: nil) (PTree.set 3%positive ((LTL.Lop Op.Omulf (Machregs.X3 :: Machregs.X2 :: nil) Machregs.X3) :: (LTL.Lbranch 2%positive) :: nil) (PTree.set 7%positive ((LTL.Lgetstack Locations.Local 0 AST.Tfloat Machregs.X0) :: (LTL.Lcall (mksignature (AST.Xfloat :: nil) AST.Xfloat cc_default) (inr 378380%positive)) :: (LTL.Lbranch 6%positive) :: nil) (PTree.empty _))))))))); LTL.fn_entrypoint := 8%positive |}.
++
++Definition candidate_10 : LTL.function :=
++{| LTL.fn_sig := (mksignature nil AST.Xfloat cc_default); LTL.fn_stacksize := 0; LTL.fn_code := (PTree.set 4%positive ((LTL.Lop (Op.Ointconst (Int.repr 2)) (nil) Machregs.SI) :: (LTL.Lbranch 3%positive) :: nil) (PTree.set 2%positive ((LTL.Lbranch 1%positive) :: nil) (PTree.set 6%positive ((LTL.Lbranch 5%positive) :: nil) (PTree.set 1%positive (LTL.Lreturn :: nil) (PTree.set 5%positive ((LTL.Lop (Op.Oleal (Op.Aglobal 6011066106781%positive (Ptrofs.repr 0))) (nil) Machregs.DI) :: (LTL.Lbranch 4%positive) :: nil) (PTree.set 3%positive ((LTL.Lcall (mksignature (AST.Xptr :: AST.Xint :: nil) AST.Xfloat cc_default) (inr 22083307990275538%positive)) :: (LTL.Lbranch 2%positive) :: nil) (PTree.empty _))))))); LTL.fn_entrypoint := 6%positive |}.
++
++Definition candidate_11 : LTL.function :=
++{| LTL.fn_sig := (mksignature nil AST.Xint cc_default); LTL.fn_stacksize := 0; LTL.fn_code := (PTree.set 4%positive ((LTL.Lcall (mksignature nil AST.Xfloat cc_default) (inr 6930287380122293369677211620818%positive)) :: (LTL.Lbranch 3%positive) :: nil) (PTree.set 2%positive ((LTL.Lop (Op.Ointconst (Int.repr 0)) (nil) Machregs.AX) :: (LTL.Lbranch 1%positive) :: nil) (PTree.set 1%positive (LTL.Lreturn :: nil) (PTree.set 5%positive ((LTL.Lbranch 4%positive) :: nil) (PTree.set 3%positive ((LTL.Lbuiltin (EF_annot 1%positive "quadrature-result" (AST.Tfloat :: nil)) ((BA (Locations.R Machregs.X0)) :: nil) BR_none) :: (LTL.Lbranch 2%positive) :: nil) (PTree.empty _)))))); LTL.fn_entrypoint := 5%positive |}.
++
++Definition candidate_12 : LTL.function :=
++{| LTL.fn_sig := (mksignature nil AST.Xint cc_default); LTL.fn_stacksize := 0; LTL.fn_code := (PTree.set 4%positive ((LTL.Lcall (mksignature (AST.Xptr :: AST.Xint :: nil) AST.Xfloat cc_default) (inr 22083307990275538%positive)) :: (LTL.Lbranch 3%positive) :: nil) (PTree.set 2%positive ((LTL.Lop (Op.Ointconst (Int.repr 0)) (nil) Machregs.AX) :: (LTL.Lbranch 1%positive) :: nil) (PTree.set 6%positive ((LTL.Lop (Op.Oleal (Op.Aglobal 6011066106781%positive (Ptrofs.repr 0))) (nil) Machregs.DI) :: (LTL.Lbranch 5%positive) :: nil) (PTree.set 1%positive (LTL.Lreturn :: nil) (PTree.set 5%positive ((LTL.Lop (Op.Ointconst (Int.repr 1)) (nil) Machregs.SI) :: (LTL.Lbranch 4%positive) :: nil) (PTree.set 3%positive ((LTL.Lbuiltin (EF_annot 1%positive "quadrature-result" (AST.Tfloat :: nil)) ((BA (Locations.R Machregs.X0)) :: nil) BR_none) :: (LTL.Lbranch 2%positive) :: nil) (PTree.set 7%positive ((LTL.Lbranch 6%positive) :: nil) (PTree.empty _)))))))); LTL.fn_entrypoint := 7%positive |}.
++
++Definition candidate_13 : LTL.function :=
++{| LTL.fn_sig := (mksignature nil AST.Xint cc_default); LTL.fn_stacksize := 0; LTL.fn_code := (PTree.set 4%positive ((LTL.Lcall (mksignature (AST.Xptr :: AST.Xint :: nil) AST.Xfloat cc_default) (inr 22083307990275538%positive)) :: (LTL.Lbranch 3%positive) :: nil) (PTree.set 2%positive ((LTL.Lop (Op.Ointconst (Int.repr 0)) (nil) Machregs.AX) :: (LTL.Lbranch 1%positive) :: nil) (PTree.set 6%positive ((LTL.Lop (Op.Oleal (Op.Aglobal 6011066106781%positive (Ptrofs.repr 0))) (nil) Machregs.DI) :: (LTL.Lbranch 5%positive) :: nil) (PTree.set 1%positive (LTL.Lreturn :: nil) (PTree.set 5%positive ((LTL.Lop (Op.Ointconst (Int.repr 2)) (nil) Machregs.SI) :: (LTL.Lbranch 4%positive) :: nil) (PTree.set 3%positive ((LTL.Lbuiltin (EF_annot 1%positive "quadrature-result" (AST.Tfloat :: nil)) ((BA (Locations.R Machregs.X0)) :: nil) BR_none) :: (LTL.Lbranch 2%positive) :: nil) (PTree.set 7%positive ((LTL.Lbranch 6%positive) :: nil) (PTree.empty _)))))))); LTL.fn_entrypoint := 7%positive |}.
++
++Definition candidate_14 : LTL.function :=
++{| LTL.fn_sig := (mksignature nil AST.Xint cc_default); LTL.fn_stacksize := 0; LTL.fn_code := (PTree.set 4%positive ((LTL.Lcall (mksignature (AST.Xptr :: AST.Xint :: nil) AST.Xfloat cc_default) (inr 22083307990275538%positive)) :: (LTL.Lbranch 3%positive) :: nil) (PTree.set 2%positive ((LTL.Lop (Op.Ointconst (Int.repr 0)) (nil) Machregs.AX) :: (LTL.Lbranch 1%positive) :: nil) (PTree.set 6%positive ((LTL.Lop (Op.Oleal (Op.Aglobal 6011066106781%positive (Ptrofs.repr 0))) (nil) Machregs.DI) :: (LTL.Lbranch 5%positive) :: nil) (PTree.set 1%positive (LTL.Lreturn :: nil) (PTree.set 5%positive ((LTL.Lop (Op.Ointconst (Int.repr 3)) (nil) Machregs.SI) :: (LTL.Lbranch 4%positive) :: nil) (PTree.set 3%positive ((LTL.Lbuiltin (EF_annot 1%positive "quadrature-result" (AST.Tfloat :: nil)) ((BA (Locations.R Machregs.X0)) :: nil) BR_none) :: (LTL.Lbranch 2%positive) :: nil) (PTree.set 7%positive ((LTL.Lbranch 6%positive) :: nil) (PTree.empty _)))))))); LTL.fn_entrypoint := 7%positive |}.
++
++Definition candidate_15 : LTL.function :=
++{| LTL.fn_sig := (mksignature nil AST.Xint cc_default); LTL.fn_stacksize := 0; LTL.fn_code := (PTree.set 4%positive ((LTL.Lcall (mksignature (AST.Xptr :: AST.Xint :: nil) AST.Xfloat cc_default) (inr 22083307990275538%positive)) :: (LTL.Lbranch 3%positive) :: nil) (PTree.set 2%positive ((LTL.Lop (Op.Ointconst (Int.repr 0)) (nil) Machregs.AX) :: (LTL.Lbranch 1%positive) :: nil) (PTree.set 6%positive ((LTL.Lop (Op.Oleal (Op.Aglobal 6011066106781%positive (Ptrofs.repr 0))) (nil) Machregs.DI) :: (LTL.Lbranch 5%positive) :: nil) (PTree.set 1%positive (LTL.Lreturn :: nil) (PTree.set 5%positive ((LTL.Lop (Op.Ointconst (Int.repr 4)) (nil) Machregs.SI) :: (LTL.Lbranch 4%positive) :: nil) (PTree.set 3%positive ((LTL.Lbuiltin (EF_annot 1%positive "quadrature-result" (AST.Tfloat :: nil)) ((BA (Locations.R Machregs.X0)) :: nil) BR_none) :: (LTL.Lbranch 2%positive) :: nil) (PTree.set 7%positive ((LTL.Lbranch 6%positive) :: nil) (PTree.empty _)))))))); LTL.fn_entrypoint := 7%positive |}.
++
++Definition candidate_16 : LTL.function :=
++{| LTL.fn_sig := (mksignature nil AST.Xint cc_default); LTL.fn_stacksize := 0; LTL.fn_code := (PTree.set 4%positive ((LTL.Lcall (mksignature (AST.Xptr :: AST.Xint :: nil) AST.Xfloat cc_default) (inr 22083307990275538%positive)) :: (LTL.Lbranch 3%positive) :: nil) (PTree.set 2%positive ((LTL.Lop (Op.Ointconst (Int.repr 0)) (nil) Machregs.AX) :: (LTL.Lbranch 1%positive) :: nil) (PTree.set 6%positive ((LTL.Lop (Op.Oleal (Op.Aglobal 6011066106781%positive (Ptrofs.repr 0))) (nil) Machregs.DI) :: (LTL.Lbranch 5%positive) :: nil) (PTree.set 1%positive (LTL.Lreturn :: nil) (PTree.set 5%positive ((LTL.Lop (Op.Ointconst (Int.repr 5)) (nil) Machregs.SI) :: (LTL.Lbranch 4%positive) :: nil) (PTree.set 3%positive ((LTL.Lbuiltin (EF_annot 1%positive "quadrature-result" (AST.Tfloat :: nil)) ((BA (Locations.R Machregs.X0)) :: nil) BR_none) :: (LTL.Lbranch 2%positive) :: nil) (PTree.set 7%positive ((LTL.Lbranch 6%positive) :: nil) (PTree.empty _)))))))); LTL.fn_entrypoint := 7%positive |}.
++
++Definition candidate_17 : LTL.function :=
++{| LTL.fn_sig := (mksignature nil AST.Xint cc_default); LTL.fn_stacksize := 0; LTL.fn_code := (PTree.set 4%positive ((LTL.Lcall (mksignature (AST.Xptr :: AST.Xint :: nil) AST.Xfloat cc_default) (inr 22083307990275538%positive)) :: (LTL.Lbranch 3%positive) :: nil) (PTree.set 2%positive ((LTL.Lop (Op.Ointconst (Int.repr 0)) (nil) Machregs.AX) :: (LTL.Lbranch 1%positive) :: nil) (PTree.set 6%positive ((LTL.Lop (Op.Oleal (Op.Aglobal 6011066106781%positive (Ptrofs.repr 0))) (nil) Machregs.DI) :: (LTL.Lbranch 5%positive) :: nil) (PTree.set 1%positive (LTL.Lreturn :: nil) (PTree.set 5%positive ((LTL.Lop (Op.Ointconst (Int.repr 6)) (nil) Machregs.SI) :: (LTL.Lbranch 4%positive) :: nil) (PTree.set 3%positive ((LTL.Lbuiltin (EF_annot 1%positive "quadrature-result" (AST.Tfloat :: nil)) ((BA (Locations.R Machregs.X0)) :: nil) BR_none) :: (LTL.Lbranch 2%positive) :: nil) (PTree.set 7%positive ((LTL.Lbranch 6%positive) :: nil) (PTree.empty _)))))))); LTL.fn_entrypoint := 7%positive |}.
++
++Definition candidate_18 : LTL.function :=
++{| LTL.fn_sig := (mksignature nil AST.Xint cc_default); LTL.fn_stacksize := 0; LTL.fn_code := (PTree.set 4%positive ((LTL.Lcall (mksignature (AST.Xptr :: AST.Xint :: nil) AST.Xfloat cc_default) (inr 22083307990275538%positive)) :: (LTL.Lbranch 3%positive) :: nil) (PTree.set 2%positive ((LTL.Lop (Op.Ointconst (Int.repr 0)) (nil) Machregs.AX) :: (LTL.Lbranch 1%positive) :: nil) (PTree.set 6%positive ((LTL.Lop (Op.Oleal (Op.Aglobal 6011066106781%positive (Ptrofs.repr 0))) (nil) Machregs.DI) :: (LTL.Lbranch 5%positive) :: nil) (PTree.set 1%positive (LTL.Lreturn :: nil) (PTree.set 5%positive ((LTL.Lop (Op.Ointconst (Int.repr 7)) (nil) Machregs.SI) :: (LTL.Lbranch 4%positive) :: nil) (PTree.set 3%positive ((LTL.Lbuiltin (EF_annot 1%positive "quadrature-result" (AST.Tfloat :: nil)) ((BA (Locations.R Machregs.X0)) :: nil) BR_none) :: (LTL.Lbranch 2%positive) :: nil) (PTree.set 7%positive ((LTL.Lbranch 6%positive) :: nil) (PTree.empty _)))))))); LTL.fn_entrypoint := 7%positive |}.
++
++Definition candidate_19 : LTL.function :=
++{| LTL.fn_sig := (mksignature nil AST.Xint cc_default); LTL.fn_stacksize := 0; LTL.fn_code := (PTree.set 4%positive ((LTL.Lcall (mksignature (AST.Xptr :: AST.Xint :: nil) AST.Xfloat cc_default) (inr 22083307990275538%positive)) :: (LTL.Lbranch 3%positive) :: nil) (PTree.set 2%positive ((LTL.Lop (Op.Ointconst (Int.repr 0)) (nil) Machregs.AX) :: (LTL.Lbranch 1%positive) :: nil) (PTree.set 6%positive ((LTL.Lop (Op.Oleal (Op.Aglobal 6011066106781%positive (Ptrofs.repr 0))) (nil) Machregs.DI) :: (LTL.Lbranch 5%positive) :: nil) (PTree.set 1%positive (LTL.Lreturn :: nil) (PTree.set 5%positive ((LTL.Lop (Op.Ointconst (Int.repr 8)) (nil) Machregs.SI) :: (LTL.Lbranch 4%positive) :: nil) (PTree.set 3%positive ((LTL.Lbuiltin (EF_annot 1%positive "quadrature-result" (AST.Tfloat :: nil)) ((BA (Locations.R Machregs.X0)) :: nil) BR_none) :: (LTL.Lbranch 2%positive) :: nil) (PTree.set 7%positive ((LTL.Lbranch 6%positive) :: nil) (PTree.empty _)))))))); LTL.fn_entrypoint := 7%positive |}.
++
++Definition candidate_20 : LTL.function :=
++{| LTL.fn_sig := (mksignature nil AST.Xint cc_default); LTL.fn_stacksize := 0; LTL.fn_code := (PTree.set 4%positive ((LTL.Lcall (mksignature (AST.Xptr :: AST.Xint :: nil) AST.Xfloat cc_default) (inr 22083307990275538%positive)) :: (LTL.Lbranch 3%positive) :: nil) (PTree.set 2%positive ((LTL.Lop (Op.Ointconst (Int.repr 0)) (nil) Machregs.AX) :: (LTL.Lbranch 1%positive) :: nil) (PTree.set 6%positive ((LTL.Lop (Op.Oleal (Op.Aglobal 6011066106781%positive (Ptrofs.repr 0))) (nil) Machregs.DI) :: (LTL.Lbranch 5%positive) :: nil) (PTree.set 1%positive (LTL.Lreturn :: nil) (PTree.set 5%positive ((LTL.Lop (Op.Ointconst (Int.repr 9)) (nil) Machregs.SI) :: (LTL.Lbranch 4%positive) :: nil) (PTree.set 3%positive ((LTL.Lbuiltin (EF_annot 1%positive "quadrature-result" (AST.Tfloat :: nil)) ((BA (Locations.R Machregs.X0)) :: nil) BR_none) :: (LTL.Lbranch 2%positive) :: nil) (PTree.set 7%positive ((LTL.Lbranch 6%positive) :: nil) (PTree.empty _)))))))); LTL.fn_entrypoint := 7%positive |}.
++
++Definition candidate_21 : LTL.function :=
++{| LTL.fn_sig := (mksignature nil AST.Xint cc_default); LTL.fn_stacksize := 0; LTL.fn_code := (PTree.set 4%positive ((LTL.Lcall (mksignature (AST.Xptr :: AST.Xint :: nil) AST.Xfloat cc_default) (inr 22083307990275538%positive)) :: (LTL.Lbranch 3%positive) :: nil) (PTree.set 2%positive ((LTL.Lop (Op.Ointconst (Int.repr 0)) (nil) Machregs.AX) :: (LTL.Lbranch 1%positive) :: nil) (PTree.set 6%positive ((LTL.Lop (Op.Oleal (Op.Aglobal 6011066106781%positive (Ptrofs.repr 0))) (nil) Machregs.DI) :: (LTL.Lbranch 5%positive) :: nil) (PTree.set 1%positive (LTL.Lreturn :: nil) (PTree.set 5%positive ((LTL.Lop (Op.Ointconst (Int.repr 10)) (nil) Machregs.SI) :: (LTL.Lbranch 4%positive) :: nil) (PTree.set 3%positive ((LTL.Lbuiltin (EF_annot 1%positive "quadrature-result" (AST.Tfloat :: nil)) ((BA (Locations.R Machregs.X0)) :: nil) BR_none) :: (LTL.Lbranch 2%positive) :: nil) (PTree.set 7%positive ((LTL.Lbranch 6%positive) :: nil) (PTree.empty _)))))))); LTL.fn_entrypoint := 7%positive |}.
++
++Definition allocation_candidates : list LTL.function := [candidate_0; candidate_1; candidate_2; candidate_3; candidate_4; candidate_5; candidate_6; candidate_7; candidate_8; candidate_9; candidate_10; candidate_11; candidate_12; candidate_13; candidate_14; candidate_15; candidate_16; candidate_17; candidate_18; candidate_19; candidate_20; candidate_21].
++
++(** These candidates are data. Every returned function passes the existing
++    register-allocation validator for the supplied RTL input. *)
++Fixpoint choose_allocation (f : RTL.function) (env : regenv)
++    (candidates : list LTL.function) : res LTL.function :=
++  match candidates with
++  | nil => Error (msg "no validated allocation candidate")
++  | tf :: rest =>
++      if signature_eq (RTL.fn_sig f) (LTL.fn_sig tf) then
++        match check_function f tf env with
++        | OK _ => OK tf
++        | Error _ => choose_allocation f env rest
++        end
++      else choose_allocation f env rest
++  end.
++
++Definition regalloc (f : RTL.function) : res LTL.function :=
++  match type_function f with
++  | Error m => Error m
++  | OK env => choose_allocation f env allocation_candidates
++  end.
++
+ 
+ (** Register allocation followed by validation. *)
+ 
+@@ -1372,3 +1463,5 @@
+ Definition transf_program (p: RTL.program) : res LTL.program :=
+   transform_partial_program transf_fundef p.
+ 
++
++Global Opaque regalloc choose_allocation allocation_candidates.
+--- a/common/Unityping.v
++++ b/common/Unityping.v
+@@ -167,7 +167,7 @@
+ Proof.
+   intros. exploit length_solve_rec; eauto. simpl. intros.
+   unfold weight_typenv. lia.
+-Qed.
++Defined.
+ 
+ Definition typassign := positive -> T.t.
+ 
+--- a/lib/Postorder.v
++++ b/lib/Postorder.v
+@@ -319,8 +319,49 @@
+ 
+ End POSTORDER.
+ 
+-Definition postorder (g: graph) (root: node) :=
+-  WfIter.iterate _ _ transition lt_state lt_state_wf transition_decreases (init_state g root).
++Definition postorder_from (s : state) :=
++  WfIter.iterate _ _ transition lt_state lt_state_wf transition_decreases s.
++
++Lemma postorder_from_unroll s :
++  postorder_from s =
++    match transition s with inl result => result | inr next => postorder_from next end.
++Proof.
++  unfold postorder_from at 1. unfold WfIter.iterate at 1.
++  rewrite Wfsimpl.unroll_Fix. unfold WfIter.iterate_F.
++  destruct (@WfIter.step_info state (PTree.t positive) transition lt_state
++    transition_decreases s) as [[result H] | [next H D]]; rewrite H; reflexivity.
++Qed.
++
++Lemma bounded_postorder_agrees fuel :
++  forall s result, PrimIter.bounded_iter _ _ transition fuel s = Some result ->
++  postorder_from s = result.
++Proof.
++  induction fuel as [|fuel IH]; intros s result H.
++  - discriminate.
++  - cbn [PrimIter.bounded_iter] in H.
++    rewrite postorder_from_unroll.
++    destruct (transition s) as [answer | next] eqn:STEP.
++    + inversion H. reflexivity.
++    + apply IH. exact H.
++Qed.
++
++Definition postorder_spec (g: graph) (root: node) := postorder_from (init_state g root).
++
++(** The bounded path is executable in the kernel. Falling back to the original
++    definition makes this function extensionally equal to the original one. *)
++Definition postorder (g : graph) (root : node) :=
++  match PrimIter.iterate _ _ transition (init_state g root) with
++  | Some result => result
++  | None => postorder_spec g root
++  end.
++
++Lemma postorder_equiv g root : postorder g root = postorder_spec g root.
++Proof.
++  unfold postorder.
++  destruct (PrimIter.iterate _ _ transition (init_state g root)) as [result |] eqn:H.
++  - symmetry. unfold postorder_spec. eapply bounded_postorder_agrees. exact H.
++  - reflexivity.
++Qed.
+ 
+ Inductive reachable (g: graph) (root: positive) : positive -> Prop :=
+   | reachable_root:
+@@ -337,7 +378,7 @@
+ Proof.
+   intros.
+   assert (postcondition g root m).
+-    unfold m. unfold postorder.
++    unfold m. rewrite postorder_equiv. unfold postorder_spec, postorder_from.
+     apply WfIter.iterate_prop with (P := invariant g root).
+     apply transition_spec.
+     apply initial_state_spec.
+--- a/backend/Kildall.v
++++ b/backend/Kildall.v
+@@ -935,7 +935,7 @@
+   semi-lattice structure, by applying the forward dataflow solver
+   with the predecessor relation instead of the successor relation. *)
+ 
+-Module Backward_Dataflow_Solver (LAT: SEMILATTICE) (NS: NODE_SET):
++Module Backward_Dataflow_Solver (LAT: SEMILATTICE) (NS: NODE_SET) <:
+                    BACKWARD_DATAFLOW_SOLVER with Module L := LAT.
+ 
+ Module L := LAT.
+--- a/backend/Allocproof.v
++++ b/backend/Allocproof.v
+@@ -1701,7 +1701,7 @@
+   an!!pc = OK e ->
+   exists e', transfer f env bsh s an!!s = OK e' /\ EqSet.Subset e' e.
+ Proof.
+-  unfold analyze; intros. exploit DS.fixpoint_allnodes_solution; eauto.
++  unfold analyze; intros. exploit (@DS.fixpoint_allnodes_solution block_shape); eauto.
+   rewrite H2. unfold DS.L.ge. destruct (transfer f env bsh s an#s); intros.
+   exists e0; auto.
+   contradiction.
+--- a/lib/UnionFind.v
++++ b/lib/UnionFind.v
+@@ -134,7 +134,7 @@
+ 
+ End UNIONFIND.
+ 
+-Module UF (M: MAP) : UNIONFIND with Definition elt := M.elt.
++Module UF (M: MAP) <: UNIONFIND with Definition elt := M.elt.
+ 
+ Definition elt := M.elt.
+ Definition elt_eq := M.elt_eq.
+@@ -172,16 +172,63 @@
+   | inright _ => a
+   end.
+ 
+-Definition repr (a: elt) : elt := Fix uf.(mwf) (fun _ => elt) F_repr a.
+-
+-Lemma repr_unroll:
+-  forall a, repr a = match M.get a uf.(m) with Some a' => repr a' | None => a end.
+-Proof.
+-  intros. unfold repr at 1. rewrite Fix_eq.
++Definition repr_spec (a: elt) : elt := Fix uf.(mwf) (fun _ => elt) F_repr a.
++
++Lemma repr_spec_unroll:
++  forall a, repr_spec a = match M.get a uf.(m) with Some a' => repr_spec a' | None => a end.
++Proof.
++  intros. unfold repr_spec at 1. rewrite Fix_eq.
+   unfold F_repr. destruct (getlink uf.(m) a) as [[a' P] | Q].
+   rewrite P; auto.
+   rewrite Q; auto.
+   intros. unfold F_repr. destruct (getlink (m uf) x) as [[a' P] | Q]; auto.
++Qed.
++
++(** A bounded computational path, with the original well-founded definition
++    as fallback. Its result is proved equal to the original representative. *)
++Fixpoint bounded_repr (fuel: nat) (a: elt) : option elt :=
++  match fuel with
++  | O => None
++  | S remaining =>
++      match M.get a uf.(m) with
++      | Some next => bounded_repr remaining next
++      | None => Some a
++      end
++  end.
++
++Lemma bounded_repr_agrees:
++  forall fuel a result,
++  bounded_repr fuel a = Some result -> repr_spec a = result.
++Proof.
++  induction fuel as [|fuel IH]; intros a result H; simpl in H.
++  - discriminate.
++  - rewrite repr_spec_unroll.
++    destruct (M.get a (m uf)) as [next|] eqn:GET.
++    + eapply IH; exact H.
++    + inversion H; reflexivity.
++Qed.
++
++Definition repr (a: elt) : elt :=
++  match bounded_repr (Nat.pow 10 4) a with
++  | Some result => result
++  | None => repr_spec a
++  end.
++
++Lemma repr_equiv: forall a, repr a = repr_spec a.
++Proof.
++  intro a; unfold repr.
++  destruct (bounded_repr (Nat.pow 10 4) a) as [result|] eqn:H.
++  - symmetry; eapply bounded_repr_agrees; exact H.
++  - reflexivity.
++Qed.
++
++Lemma repr_unroll:
++  forall a, repr a = match M.get a uf.(m) with Some a' => repr a' | None => a end.
++Proof.
++  intro a. rewrite repr_equiv, repr_spec_unroll.
++  destruct (M.get a (m uf)) as [next|].
++  - symmetry; apply repr_equiv.
++  - reflexivity.
+ Qed.
+ 
+ Lemma repr_none:
+--- a/backend/Tunneling.v
++++ b/backend/Tunneling.v
+@@ -149,7 +149,7 @@
+   unfold record_conds_1, measure_state; intros. 
+   destruct A as [_ A]. rewrite teq in A. simpl in *.
+   lia.
+-Qed.
++Defined.
+ 
+ Definition record_gotos (f: LTL.function) : U.t :=
+   record_conds (f.(fn_code), record_branches f).

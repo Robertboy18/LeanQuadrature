@@ -1,0 +1,1686 @@
+Chars 0 - 602 [From~QuadratureC~Require~Impor...] 0.857 secs (0.696u,0.161s)
+Axioms:
+ClassicalDedekindReals.sig_not_dec : forall P : Prop, {~ ~ P} + {~ P}
+ClassicalDedekindReals.sig_forall_dec :
+  forall P : nat -> Prop,
+  (forall n : nat, {P n} + {~ P n}) ->
+  {n : nat | ~ P n} + {forall n : nat, P n}
+FunctionalExtensionality.functional_extensionality_dep :
+  forall (A : Type) (B : A -> Type) (f g : forall x : A, B x),
+  (forall x : A, f x = g x) -> f = g
+Classical_Prop.classic : forall P : Prop, P \/ ~ P
+Chars 603 - 675 [Print~Assumptions~FiniteArithm...] 0.586 secs (0.524u,0.061s)
+Axioms:
+ClassicalDedekindReals.sig_not_dec : forall P : Prop, {~ ~ P} + {~ P}
+ClassicalDedekindReals.sig_forall_dec :
+  forall P : nat -> Prop,
+  (forall n : nat, {P n} + {~ P n}) ->
+  {n : nat | ~ P n} + {forall n : nat, P n}
+FunctionalExtensionality.functional_extensionality_dep :
+  forall (A : Type) (B : A -> Type) (f g : forall x : A, B x),
+  (forall x : A, f x = g x) -> f = g
+Classical_Prop.classic : forall P : Prop, P \/ ~ P
+Chars 676 - 742 [Print~Assumptions~FiniteArithm...] 0.752 secs (0.751u,0.s)
+Axioms:
+ClassicalDedekindReals.sig_not_dec : forall P : Prop, {~ ~ P} + {~ P}
+ClassicalDedekindReals.sig_forall_dec :
+  forall P : nat -> Prop,
+  (forall n : nat, {P n} + {~ P n}) ->
+  {n : nat | ~ P n} + {forall n : nat, P n}
+FunctionalExtensionality.functional_extensionality_dep :
+  forall (A : Type) (B : A -> Type) (f g : forall x : A, B x),
+  (forall x : A, f x = g x) -> f = g
+Classical_Prop.classic : forall P : Prop, P \/ ~ P
+Chars 743 - 813 [Print~Assumptions~FiniteArithm...] 0.49 secs (0.49u,0.s)
+Axioms:
+ClassicalDedekindReals.sig_not_dec : forall P : Prop, {~ ~ P} + {~ P}
+ClassicalDedekindReals.sig_forall_dec :
+  forall P : nat -> Prop,
+  (forall n : nat, {P n} + {~ P n}) ->
+  {n : nat | ~ P n} + {forall n : nat, P n}
+FunctionalExtensionality.functional_extensionality_dep :
+  forall (A : Type) (B : A -> Type) (f g : forall x : A, B x),
+  (forall x : A, f x = g x) -> f = g
+Classical_Prop.classic : forall P : Prop, P \/ ~ P
+Chars 814 - 878 [Print~Assumptions~FiniteArithm...] 0.537 secs (0.537u,0.s)
+Axioms:
+ClassicalDedekindReals.sig_not_dec : forall P : Prop, {~ ~ P} + {~ P}
+ClassicalDedekindReals.sig_forall_dec :
+  forall P : nat -> Prop,
+  (forall n : nat, {P n} + {~ P n}) ->
+  {n : nat | ~ P n} + {forall n : nat, P n}
+FunctionalExtensionality.functional_extensionality_dep :
+  forall (A : Type) (B : A -> Type) (f g : forall x : A, B x),
+  (forall x : A, f x = g x) -> f = g
+Classical_Prop.classic : forall P : Prop, P \/ ~ P
+Chars 879 - 943 [Print~Assumptions~FiniteArithm...] 0.72 secs (0.71u,0.009s)
+Axioms:
+ClassicalDedekindReals.sig_forall_dec :
+  forall P : nat -> Prop,
+  (forall n : nat, {P n} + {~ P n}) ->
+  {n : nat | ~ P n} + {forall n : nat, P n}
+FunctionalExtensionality.functional_extensionality_dep :
+  forall (A : Type) (B : A -> Type) (f g : forall x : A, B x),
+  (forall x : A, f x = g x) -> f = g
+Chars 944 - 1021 [Print~Assumptions~FiniteArithm...] 0.48 secs (0.48u,0.s)
+Axioms:
+ClassicalDedekindReals.sig_not_dec : forall P : Prop, {~ ~ P} + {~ P}
+ClassicalDedekindReals.sig_forall_dec :
+  forall P : nat -> Prop,
+  (forall n : nat, {P n} + {~ P n}) ->
+  {n : nat | ~ P n} + {forall n : nat, P n}
+FunctionalExtensionality.functional_extensionality_dep :
+  forall (A : Type) (B : A -> Type) (f g : forall x : A, B x),
+  (forall x : A, f x = g x) -> f = g
+Classical_Prop.classic : forall P : Prop, P \/ ~ P
+Chars 1022 - 1092 [Print~Assumptions~FiniteArithm...] 0.509 secs (0.509u,0.s)
+Axioms:
+ClassicalDedekindReals.sig_not_dec : forall P : Prop, {~ ~ P} + {~ P}
+ClassicalDedekindReals.sig_forall_dec :
+  forall P : nat -> Prop,
+  (forall n : nat, {P n} + {~ P n}) ->
+  {n : nat | ~ P n} + {forall n : nat, P n}
+FunctionalExtensionality.functional_extensionality_dep :
+  forall (A : Type) (B : A -> Type) (f g : forall x : A, B x),
+  (forall x : A, f x = g x) -> f = g
+Classical_Prop.classic : forall P : Prop, P \/ ~ P
+Chars 1093 - 1156 [Print~Assumptions~RuleLibrary....] 0.489 secs (0.489u,0.s)
+Axioms:
+ClassicalDedekindReals.sig_not_dec : forall P : Prop, {~ ~ P} + {~ P}
+ClassicalDedekindReals.sig_forall_dec :
+  forall P : nat -> Prop,
+  (forall n : nat, {P n} + {~ P n}) ->
+  {n : nat | ~ P n} + {forall n : nat, P n}
+FunctionalExtensionality.functional_extensionality_dep :
+  forall (A : Type) (B : A -> Type) (f g : forall x : A, B x),
+  (forall x : A, f x = g x) -> f = g
+Classical_Prop.classic : forall P : Prop, P \/ ~ P
+Chars 1157 - 1216 [Print~Assumptions~RuleLibrary....] 0.913 secs (0.902u,0.01s)
+Axioms:
+ClassicalDedekindReals.sig_not_dec : forall P : Prop, {~ ~ P} + {~ P}
+ClassicalDedekindReals.sig_forall_dec :
+  forall P : nat -> Prop,
+  (forall n : nat, {P n} + {~ P n}) ->
+  {n : nat | ~ P n} + {forall n : nat, P n}
+FunctionalExtensionality.functional_extensionality_dep :
+  forall (A : Type) (B : A -> Type) (f g : forall x : A, B x),
+  (forall x : A, f x = g x) -> f = g
+Classical_Prop.classic : forall P : Prop, P \/ ~ P
+Chars 1217 - 1277 [Print~Assumptions~RuleLibrary....] 0.541 secs (0.521u,0.019s)
+Axioms:
+ClassicalDedekindReals.sig_not_dec : forall P : Prop, {~ ~ P} + {~ P}
+ClassicalDedekindReals.sig_forall_dec :
+  forall P : nat -> Prop,
+  (forall n : nat, {P n} + {~ P n}) ->
+  {n : nat | ~ P n} + {forall n : nat, P n}
+Events.inline_assembly_sem :
+  String.string -> AST.signature -> Events.extcall_sem
+FunctionalExtensionality.functional_extensionality_dep :
+  forall (A : Type) (B : A -> Type) (f g : forall x : A, B x),
+  (forall x : A, f x = g x) -> f = g
+Events.external_functions_sem :
+  String.string -> AST.signature -> Events.extcall_sem
+Classical_Prop.classic : forall P : Prop, P \/ ~ P
+Chars 1278 - 1342 [Print~Assumptions~RuleLibrary....] 0.694 secs (0.694u,0.s)
+Axioms:
+ClassicalDedekindReals.sig_not_dec : forall P : Prop, {~ ~ P} + {~ P}
+ClassicalDedekindReals.sig_forall_dec :
+  forall P : nat -> Prop,
+  (forall n : nat, {P n} + {~ P n}) ->
+  {n : nat | ~ P n} + {forall n : nat, P n}
+Events.inline_assembly_sem :
+  String.string -> AST.signature -> Events.extcall_sem
+FunctionalExtensionality.functional_extensionality_dep :
+  forall (A : Type) (B : A -> Type) (f g : forall x : A, B x),
+  (forall x : A, f x = g x) -> f = g
+Events.external_functions_sem :
+  String.string -> AST.signature -> Events.extcall_sem
+Classical_Prop.classic : forall P : Prop, P \/ ~ P
+Chars 1343 - 1408 [Print~Assumptions~RuleLibrary....] 0.664 secs (0.663u,0.s)
+Axioms:
+ClassicalDedekindReals.sig_not_dec : forall P : Prop, {~ ~ P} + {~ P}
+ClassicalDedekindReals.sig_forall_dec :
+  forall P : nat -> Prop,
+  (forall n : nat, {P n} + {~ P n}) ->
+  {n : nat | ~ P n} + {forall n : nat, P n}
+Events.inline_assembly_sem :
+  String.string -> AST.signature -> Events.extcall_sem
+FunctionalExtensionality.functional_extensionality_dep :
+  forall (A : Type) (B : A -> Type) (f g : forall x : A, B x),
+  (forall x : A, f x = g x) -> f = g
+Events.external_functions_sem :
+  String.string -> AST.signature -> Events.extcall_sem
+Classical_Prop.classic : forall P : Prop, P \/ ~ P
+Chars 1409 - 1476 [Print~Assumptions~RuleLibrary....] 2.635 secs (2.625u,0.009s)
+Axioms:
+ClassicalDedekindReals.sig_not_dec : forall P : Prop, {~ ~ P} + {~ P}
+ClassicalDedekindReals.sig_forall_dec :
+  forall P : nat -> Prop,
+  (forall n : nat, {P n} + {~ P n}) ->
+  {n : nat | ~ P n} + {forall n : nat, P n}
+Events.inline_assembly_sem :
+  String.string -> AST.signature -> Events.extcall_sem
+FunctionalExtensionality.functional_extensionality_dep :
+  forall (A : Type) (B : A -> Type) (f g : forall x : A, B x),
+  (forall x : A, f x = g x) -> f = g
+Events.external_functions_sem :
+  String.string -> AST.signature -> Events.extcall_sem
+Classical_Prop.classic : forall P : Prop, P \/ ~ P
+Chars 1477 - 1540 [Print~Assumptions~RuleLibrary....] 2.658 secs (2.648u,0.01s)
+Axioms:
+ClassicalDedekindReals.sig_not_dec : forall P : Prop, {~ ~ P} + {~ P}
+ClassicalDedekindReals.sig_forall_dec :
+  forall P : nat -> Prop,
+  (forall n : nat, {P n} + {~ P n}) ->
+  {n : nat | ~ P n} + {forall n : nat, P n}
+FunctionalExtensionality.functional_extensionality_dep :
+  forall (A : Type) (B : A -> Type) (f g : forall x : A, B x),
+  (forall x : A, f x = g x) -> f = g
+Classical_Prop.classic : forall P : Prop, P \/ ~ P
+Chars 1541 - 1591 [Print~Assumptions~StoredRules....] 0.454 secs (0.444u,0.01s)
+Axioms:
+ClassicalDedekindReals.sig_not_dec : forall P : Prop, {~ ~ P} + {~ P}
+ClassicalDedekindReals.sig_forall_dec :
+  forall P : nat -> Prop,
+  (forall n : nat, {P n} + {~ P n}) ->
+  {n : nat | ~ P n} + {forall n : nat, P n}
+FunctionalExtensionality.functional_extensionality_dep :
+  forall (A : Type) (B : A -> Type) (f g : forall x : A, B x),
+  (forall x : A, f x = g x) -> f = g
+Classical_Prop.classic : forall P : Prop, P \/ ~ P
+Chars 1592 - 1646 [Print~Assumptions~StoredRules....] 0.459 secs (0.459u,0.s)
+Axioms:
+ClassicalDedekindReals.sig_not_dec : forall P : Prop, {~ ~ P} + {~ P}
+ClassicalDedekindReals.sig_forall_dec :
+  forall P : nat -> Prop,
+  (forall n : nat, {P n} + {~ P n}) ->
+  {n : nat | ~ P n} + {forall n : nat, P n}
+FunctionalExtensionality.functional_extensionality_dep :
+  forall (A : Type) (B : A -> Type) (f g : forall x : A, B x),
+  (forall x : A, f x = g x) -> f = g
+Classical_Prop.classic : forall P : Prop, P \/ ~ P
+Chars 1647 - 1701 [Print~Assumptions~StoredRules....] 0.489 secs (0.489u,0.s)
+Axioms:
+ClassicalDedekindReals.sig_not_dec : forall P : Prop, {~ ~ P} + {~ P}
+ClassicalDedekindReals.sig_forall_dec :
+  forall P : nat -> Prop,
+  (forall n : nat, {P n} + {~ P n}) ->
+  {n : nat | ~ P n} + {forall n : nat, P n}
+Events.inline_assembly_sem :
+  String.string -> AST.signature -> Events.extcall_sem
+FunctionalExtensionality.functional_extensionality_dep :
+  forall (A : Type) (B : A -> Type) (f g : forall x : A, B x),
+  (forall x : A, f x = g x) -> f = g
+Events.external_functions_sem :
+  String.string -> AST.signature -> Events.extcall_sem
+Classical_Prop.classic : forall P : Prop, P \/ ~ P
+Chars 1702 - 1773 [Print~Assumptions~RuleLibrary....] 0.658 secs (0.658u,0.s)
+Axioms:
+ClassicalDedekindReals.sig_not_dec : forall P : Prop, {~ ~ P} + {~ P}
+ClassicalDedekindReals.sig_forall_dec :
+  forall P : nat -> Prop,
+  (forall n : nat, {P n} + {~ P n}) ->
+  {n : nat | ~ P n} + {forall n : nat, P n}
+Events.inline_assembly_sem :
+  String.string -> AST.signature -> Events.extcall_sem
+FunctionalExtensionality.functional_extensionality_dep :
+  forall (A : Type) (B : A -> Type) (f g : forall x : A, B x),
+  (forall x : A, f x = g x) -> f = g
+Events.external_functions_sem :
+  String.string -> AST.signature -> Events.extcall_sem
+Classical_Prop.classic : forall P : Prop, P \/ ~ P
+Chars 1774 - 1846 [Print~Assumptions~RuleLibrary....] 0.665 secs (0.665u,0.s)
+Axioms:
+ClassicalDedekindReals.sig_not_dec : forall P : Prop, {~ ~ P} + {~ P}
+ClassicalDedekindReals.sig_forall_dec :
+  forall P : nat -> Prop,
+  (forall n : nat, {P n} + {~ P n}) ->
+  {n : nat | ~ P n} + {forall n : nat, P n}
+Events.inline_assembly_sem :
+  String.string -> AST.signature -> Events.extcall_sem
+FunctionalExtensionality.functional_extensionality_dep :
+  forall (A : Type) (B : A -> Type) (f g : forall x : A, B x),
+  (forall x : A, f x = g x) -> f = g
+Events.external_functions_sem :
+  String.string -> AST.signature -> Events.extcall_sem
+Classical_Prop.classic : forall P : Prop, P \/ ~ P
+Chars 1847 - 1916 [Print~Assumptions~RuleLibrary....] 2.629 secs (2.629u,0.s)
+Axioms:
+ClassicalDedekindReals.sig_not_dec : forall P : Prop, {~ ~ P} + {~ P}
+ClassicalDedekindReals.sig_forall_dec :
+  forall P : nat -> Prop,
+  (forall n : nat, {P n} + {~ P n}) ->
+  {n : nat | ~ P n} + {forall n : nat, P n}
+Events.inline_assembly_sem :
+  String.string -> AST.signature -> Events.extcall_sem
+FunctionalExtensionality.functional_extensionality_dep :
+  forall (A : Type) (B : A -> Type) (f g : forall x : A, B x),
+  (forall x : A, f x = g x) -> f = g
+Events.external_functions_sem :
+  String.string -> AST.signature -> Events.extcall_sem
+Classical_Prop.classic : forall P : Prop, P \/ ~ P
+Chars 1917 - 1982 [Print~Assumptions~RuleLibrary....] 2.655 secs (2.655u,0.s)
+Axioms:
+ClassicalDedekindReals.sig_not_dec : forall P : Prop, {~ ~ P} + {~ P}
+ClassicalDedekindReals.sig_forall_dec :
+  forall P : nat -> Prop,
+  (forall n : nat, {P n} + {~ P n}) ->
+  {n : nat | ~ P n} + {forall n : nat, P n}
+FunctionalExtensionality.functional_extensionality_dep :
+  forall (A : Type) (B : A -> Type) (f g : forall x : A, B x),
+  (forall x : A, f x = g x) -> f = g
+Classical_Prop.classic : forall P : Prop, P \/ ~ P
+Chars 1983 - 2036 [Print~Assumptions~PolynomialRu...] 0.478 secs (0.468u,0.009s)
+Axioms:
+ClassicalDedekindReals.sig_not_dec : forall P : Prop, {~ ~ P} + {~ P}
+ClassicalDedekindReals.sig_forall_dec :
+  forall P : nat -> Prop,
+  (forall n : nat, {P n} + {~ P n}) ->
+  {n : nat | ~ P n} + {forall n : nat, P n}
+FunctionalExtensionality.functional_extensionality_dep :
+  forall (A : Type) (B : A -> Type) (f g : forall x : A, B x),
+  (forall x : A, f x = g x) -> f = g
+Classical_Prop.classic : forall P : Prop, P \/ ~ P
+Chars 2037 - 2095 [Print~Assumptions~PolynomialRu...] 0.899 secs (0.889u,0.009s)
+Axioms:
+ClassicalDedekindReals.sig_not_dec : forall P : Prop, {~ ~ P} + {~ P}
+ClassicalDedekindReals.sig_forall_dec :
+  forall P : nat -> Prop,
+  (forall n : nat, {P n} + {~ P n}) ->
+  {n : nat | ~ P n} + {forall n : nat, P n}
+FunctionalExtensionality.functional_extensionality_dep :
+  forall (A : Type) (B : A -> Type) (f g : forall x : A, B x),
+  (forall x : A, f x = g x) -> f = g
+Classical_Prop.classic : forall P : Prop, P \/ ~ P
+Chars 2096 - 2152 [Print~Assumptions~PolynomialRu...] 0.895 secs (0.894u,0.s)
+Axioms:
+ClassicalDedekindReals.sig_not_dec : forall P : Prop, {~ ~ P} + {~ P}
+ClassicalDedekindReals.sig_forall_dec :
+  forall P : nat -> Prop,
+  (forall n : nat, {P n} + {~ P n}) ->
+  {n : nat | ~ P n} + {forall n : nat, P n}
+Events.inline_assembly_sem :
+  String.string -> AST.signature -> Events.extcall_sem
+FunctionalExtensionality.functional_extensionality_dep :
+  forall (A : Type) (B : A -> Type) (f g : forall x : A, B x),
+  (forall x : A, f x = g x) -> f = g
+Events.external_functions_sem :
+  String.string -> AST.signature -> Events.extcall_sem
+Classical_Prop.classic : forall P : Prop, P \/ ~ P
+Chars 2153 - 2205 [Print~Assumptions~PolynomialRu...] 1.008 secs (1.008u,0.s)
+Axioms:
+ClassicalDedekindReals.sig_not_dec : forall P : Prop, {~ ~ P} + {~ P}
+ClassicalDedekindReals.sig_forall_dec :
+  forall P : nat -> Prop,
+  (forall n : nat, {P n} + {~ P n}) ->
+  {n : nat | ~ P n} + {forall n : nat, P n}
+Events.inline_assembly_sem :
+  String.string -> AST.signature -> Events.extcall_sem
+FunctionalExtensionality.functional_extensionality_dep :
+  forall (A : Type) (B : A -> Type) (f g : forall x : A, B x),
+  (forall x : A, f x = g x) -> f = g
+Events.external_functions_sem :
+  String.string -> AST.signature -> Events.extcall_sem
+Classical_Prop.classic : forall P : Prop, P \/ ~ P
+Chars 2206 - 2258 [Print~Assumptions~PolynomialRu...] 3.033 secs (3.003u,0.029s)
+Axioms:
+ClassicalDedekindReals.sig_not_dec : forall P : Prop, {~ ~ P} + {~ P}
+ClassicalDedekindReals.sig_forall_dec :
+  forall P : nat -> Prop,
+  (forall n : nat, {P n} + {~ P n}) ->
+  {n : nat | ~ P n} + {forall n : nat, P n}
+Events.inline_assembly_sem :
+  String.string -> AST.signature -> Events.extcall_sem
+FunctionalExtensionality.functional_extensionality_dep :
+  forall (A : Type) (B : A -> Type) (f g : forall x : A, B x),
+  (forall x : A, f x = g x) -> f = g
+Events.external_functions_sem :
+  String.string -> AST.signature -> Events.extcall_sem
+Classical_Prop.classic : forall P : Prop, P \/ ~ P
+Chars 2259 - 2308 [Print~Assumptions~PolynomialRu...] 3.013 secs (3.003u,0.01s)
+Axioms:
+ClassicalDedekindReals.sig_not_dec : forall P : Prop, {~ ~ P} + {~ P}
+ClassicalDedekindReals.sig_forall_dec :
+  forall P : nat -> Prop,
+  (forall n : nat, {P n} + {~ P n}) ->
+  {n : nat | ~ P n} + {forall n : nat, P n}
+FunctionalExtensionality.functional_extensionality_dep :
+  forall (A : Type) (B : A -> Type) (f g : forall x : A, B x),
+  (forall x : A, f x = g x) -> f = g
+Classical_Prop.classic : forall P : Prop, P \/ ~ P
+Chars 2309 - 2362 [Print~Assumptions~PolynomialRu...] 0.895 secs (0.895u,0.s)
+Axioms:
+ClassicalDedekindReals.sig_not_dec : forall P : Prop, {~ ~ P} + {~ P}
+ClassicalDedekindReals.sig_forall_dec :
+  forall P : nat -> Prop,
+  (forall n : nat, {P n} + {~ P n}) ->
+  {n : nat | ~ P n} + {forall n : nat, P n}
+Events.inline_assembly_sem :
+  String.string -> AST.signature -> Events.extcall_sem
+FunctionalExtensionality.functional_extensionality_dep :
+  forall (A : Type) (B : A -> Type) (f g : forall x : A, B x),
+  (forall x : A, f x = g x) -> f = g
+Events.external_functions_sem :
+  String.string -> AST.signature -> Events.extcall_sem
+Classical_Prop.classic : forall P : Prop, P \/ ~ P
+Chars 2363 - 2408 [Print~Assumptions~PolynomialRu...] 3.033 secs (3.023u,0.009s)
+Axioms:
+ClassicalDedekindReals.sig_not_dec : forall P : Prop, {~ ~ P} + {~ P}
+ClassicalDedekindReals.sig_forall_dec :
+  forall P : nat -> Prop,
+  (forall n : nat, {P n} + {~ P n}) ->
+  {n : nat | ~ P n} + {forall n : nat, P n}
+Events.inline_assembly_sem :
+  String.string -> AST.signature -> Events.extcall_sem
+FunctionalExtensionality.functional_extensionality_dep :
+  forall (A : Type) (B : A -> Type) (f g : forall x : A, B x),
+  (forall x : A, f x = g x) -> f = g
+Events.external_functions_sem :
+  String.string -> AST.signature -> Events.extcall_sem
+Classical_Prop.classic : forall P : Prop, P \/ ~ P
+Chars 2409 - 2466 [Print~Assumptions~PolynomialRu...] 3.055 secs (3.055u,0.s)
+Axioms:
+ClassicalDedekindReals.sig_not_dec : forall P : Prop, {~ ~ P} + {~ P}
+ClassicalDedekindReals.sig_forall_dec :
+  forall P : nat -> Prop,
+  (forall n : nat, {P n} + {~ P n}) ->
+  {n : nat | ~ P n} + {forall n : nat, P n}
+Events.inline_assembly_sem :
+  String.string -> AST.signature -> Events.extcall_sem
+Events.inline_assembly_properties :
+  forall (id : String.string) (sg : AST.signature),
+  Events.extcall_properties (Events.inline_assembly_sem id sg) sg
+FunctionalExtensionality.functional_extensionality_dep :
+  forall (A : Type) (B : A -> Type) (f g : forall x : A, B x),
+  (forall x : A, f x = g x) -> f = g
+Events.external_functions_sem :
+  String.string -> AST.signature -> Events.extcall_sem
+Events.external_functions_properties :
+  forall (id : String.string) (sg : AST.signature),
+  Events.extcall_properties (Events.external_functions_sem id sg) sg
+Classical_Prop.classic : forall P : Prop, P \/ ~ P
+Chars 2467 - 2527 [Print~Assumptions~PolynomialRu...] 3.204 secs (3.194u,0.009s)
+Axioms:
+ClassicalDedekindReals.sig_not_dec : forall P : Prop, {~ ~ P} + {~ P}
+ClassicalDedekindReals.sig_forall_dec :
+  forall P : nat -> Prop,
+  (forall n : nat, {P n} + {~ P n}) ->
+  {n : nat | ~ P n} + {forall n : nat, P n}
+FunctionalExtensionality.functional_extensionality_dep :
+  forall (A : Type) (B : A -> Type) (f g : forall x : A, B x),
+  (forall x : A, f x = g x) -> f = g
+Classical_Prop.classic : forall P : Prop, P \/ ~ P
+Chars 2528 - 2588 [Print~Assumptions~PolynomialRu...] 0.483 secs (0.483u,0.s)
+Axioms:
+ClassicalDedekindReals.sig_not_dec : forall P : Prop, {~ ~ P} + {~ P}
+ClassicalDedekindReals.sig_forall_dec :
+  forall P : nat -> Prop,
+  (forall n : nat, {P n} + {~ P n}) ->
+  {n : nat | ~ P n} + {forall n : nat, P n}
+FunctionalExtensionality.functional_extensionality_dep :
+  forall (A : Type) (B : A -> Type) (f g : forall x : A, B x),
+  (forall x : A, f x = g x) -> f = g
+Classical_Prop.classic : forall P : Prop, P \/ ~ P
+Chars 2589 - 2649 [Print~Assumptions~PolynomialRu...] 0.495 secs (0.495u,0.s)
+Axioms:
+ClassicalDedekindReals.sig_not_dec : forall P : Prop, {~ ~ P} + {~ P}
+ClassicalDedekindReals.sig_forall_dec :
+  forall P : nat -> Prop,
+  (forall n : nat, {P n} + {~ P n}) ->
+  {n : nat | ~ P n} + {forall n : nat, P n}
+FunctionalExtensionality.functional_extensionality_dep :
+  forall (A : Type) (B : A -> Type) (f g : forall x : A, B x),
+  (forall x : A, f x = g x) -> f = g
+Classical_Prop.classic : forall P : Prop, P \/ ~ P
+Chars 2650 - 2712 [Print~Assumptions~PolynomialRu...] 0.506 secs (0.506u,0.s)
+Axioms:
+ClassicalDedekindReals.sig_not_dec : forall P : Prop, {~ ~ P} + {~ P}
+ClassicalDedekindReals.sig_forall_dec :
+  forall P : nat -> Prop,
+  (forall n : nat, {P n} + {~ P n}) ->
+  {n : nat | ~ P n} + {forall n : nat, P n}
+FunctionalExtensionality.functional_extensionality_dep :
+  forall (A : Type) (B : A -> Type) (f g : forall x : A, B x),
+  (forall x : A, f x = g x) -> f = g
+Chars 2713 - 2779 [Print~Assumptions~PolynomialRu...] 0.371 secs (0.371u,0.s)
+Axioms:
+ClassicalDedekindReals.sig_not_dec : forall P : Prop, {~ ~ P} + {~ P}
+ClassicalDedekindReals.sig_forall_dec :
+  forall P : nat -> Prop,
+  (forall n : nat, {P n} + {~ P n}) ->
+  {n : nat | ~ P n} + {forall n : nat, P n}
+FunctionalExtensionality.functional_extensionality_dep :
+  forall (A : Type) (B : A -> Type) (f g : forall x : A, B x),
+  (forall x : A, f x = g x) -> f = g
+Classical_Prop.classic : forall P : Prop, P \/ ~ P
+Chars 2780 - 2844 [Print~Assumptions~PolynomialRu...] 0.526 secs (0.526u,0.s)
+Axioms:
+ClassicalDedekindReals.sig_not_dec : forall P : Prop, {~ ~ P} + {~ P}
+ClassicalDedekindReals.sig_forall_dec :
+  forall P : nat -> Prop,
+  (forall n : nat, {P n} + {~ P n}) ->
+  {n : nat | ~ P n} + {forall n : nat, P n}
+FunctionalExtensionality.functional_extensionality_dep :
+  forall (A : Type) (B : A -> Type) (f g : forall x : A, B x),
+  (forall x : A, f x = g x) -> f = g
+Classical_Prop.classic : forall P : Prop, P \/ ~ P
+Chars 2845 - 2912 [Print~Assumptions~PolynomialRu...] 0.59 secs (0.59u,0.s)
+Axioms:
+ClassicalDedekindReals.sig_not_dec : forall P : Prop, {~ ~ P} + {~ P}
+ClassicalDedekindReals.sig_forall_dec :
+  forall P : nat -> Prop,
+  (forall n : nat, {P n} + {~ P n}) ->
+  {n : nat | ~ P n} + {forall n : nat, P n}
+FunctionalExtensionality.functional_extensionality_dep :
+  forall (A : Type) (B : A -> Type) (f g : forall x : A, B x),
+  (forall x : A, f x = g x) -> f = g
+Classical_Prop.classic : forall P : Prop, P \/ ~ P
+Chars 2913 - 2980 [Print~Assumptions~PolynomialRu...] 0.617 secs (0.607u,0.009s)
+Axioms:
+ClassicalDedekindReals.sig_not_dec : forall P : Prop, {~ ~ P} + {~ P}
+ClassicalDedekindReals.sig_forall_dec :
+  forall P : nat -> Prop,
+  (forall n : nat, {P n} + {~ P n}) ->
+  {n : nat | ~ P n} + {forall n : nat, P n}
+Events.inline_assembly_sem :
+  String.string -> AST.signature -> Events.extcall_sem
+Events.inline_assembly_properties :
+  forall (id : String.string) (sg : AST.signature),
+  Events.extcall_properties (Events.inline_assembly_sem id sg) sg
+FunctionalExtensionality.functional_extensionality_dep :
+  forall (A : Type) (B : A -> Type) (f g : forall x : A, B x),
+  (forall x : A, f x = g x) -> f = g
+Events.external_functions_sem :
+  String.string -> AST.signature -> Events.extcall_sem
+Events.external_functions_properties :
+  forall (id : String.string) (sg : AST.signature),
+  Events.extcall_properties (Events.external_functions_sem id sg) sg
+Classical_Prop.classic : forall P : Prop, P \/ ~ P
+Chars 2981 - 3051 [Print~Assumptions~PolynomialRu...] 3.259 secs (3.239u,0.019s)
+Axioms:
+ClassicalDedekindReals.sig_not_dec : forall P : Prop, {~ ~ P} + {~ P}
+ClassicalDedekindReals.sig_forall_dec :
+  forall P : nat -> Prop,
+  (forall n : nat, {P n} + {~ P n}) ->
+  {n : nat | ~ P n} + {forall n : nat, P n}
+FunctionalExtensionality.functional_extensionality_dep :
+  forall (A : Type) (B : A -> Type) (f g : forall x : A, B x),
+  (forall x : A, f x = g x) -> f = g
+Classical_Prop.classic : forall P : Prop, P \/ ~ P
+Chars 3052 - 3124 [Print~Assumptions~PolynomialRu...] 0.461 secs (0.461u,0.s)
+Axioms:
+ClassicalDedekindReals.sig_not_dec : forall P : Prop, {~ ~ P} + {~ P}
+ClassicalDedekindReals.sig_forall_dec :
+  forall P : nat -> Prop,
+  (forall n : nat, {P n} + {~ P n}) ->
+  {n : nat | ~ P n} + {forall n : nat, P n}
+FunctionalExtensionality.functional_extensionality_dep :
+  forall (A : Type) (B : A -> Type) (f g : forall x : A, B x),
+  (forall x : A, f x = g x) -> f = g
+Classical_Prop.classic : forall P : Prop, P \/ ~ P
+Chars 3125 - 3198 [Print~Assumptions~PolynomialRu...] 0.469 secs (0.449u,0.019s)
+Axioms:
+ClassicalDedekindReals.sig_not_dec : forall P : Prop, {~ ~ P} + {~ P}
+ClassicalDedekindReals.sig_forall_dec :
+  forall P : nat -> Prop,
+  (forall n : nat, {P n} + {~ P n}) ->
+  {n : nat | ~ P n} + {forall n : nat, P n}
+FunctionalExtensionality.functional_extensionality_dep :
+  forall (A : Type) (B : A -> Type) (f g : forall x : A, B x),
+  (forall x : A, f x = g x) -> f = g
+Classical_Prop.classic : forall P : Prop, P \/ ~ P
+Chars 3199 - 3270 [Print~Assumptions~PolynomialRu...] 0.471 secs (0.471u,0.s)
+Axioms:
+ClassicalDedekindReals.sig_not_dec : forall P : Prop, {~ ~ P} + {~ P}
+ClassicalDedekindReals.sig_forall_dec :
+  forall P : nat -> Prop,
+  (forall n : nat, {P n} + {~ P n}) ->
+  {n : nat | ~ P n} + {forall n : nat, P n}
+FunctionalExtensionality.functional_extensionality_dep :
+  forall (A : Type) (B : A -> Type) (f g : forall x : A, B x),
+  (forall x : A, f x = g x) -> f = g
+Classical_Prop.classic : forall P : Prop, P \/ ~ P
+Chars 3271 - 3343 [Print~Assumptions~PolynomialRu...] 0.502 secs (0.492u,0.009s)
+Axioms:
+ClassicalDedekindReals.sig_not_dec : forall P : Prop, {~ ~ P} + {~ P}
+ClassicalDedekindReals.sig_forall_dec :
+  forall P : nat -> Prop,
+  (forall n : nat, {P n} + {~ P n}) ->
+  {n : nat | ~ P n} + {forall n : nat, P n}
+Axioms.proof_irr : ClassicalFacts.proof_irrelevance
+Events.inline_assembly_sem :
+  String.string -> AST.signature -> Events.extcall_sem
+Events.inline_assembly_properties :
+  forall (id : String.string) (sg : AST.signature),
+  Events.extcall_properties (Events.inline_assembly_sem id sg) sg
+FunctionalExtensionality.functional_extensionality_dep :
+  forall (A : Type) (B : A -> Type) (f g : forall x : A, B x),
+  (forall x : A, f x = g x) -> f = g
+Events.external_functions_sem :
+  String.string -> AST.signature -> Events.extcall_sem
+Events.external_functions_properties :
+  forall (id : String.string) (sg : AST.signature),
+  Events.extcall_properties (Events.external_functions_sem id sg) sg
+Eqdep.Eq_rect_eq.eq_rect_eq :
+  forall (U : Type) (p : U) (Q : U -> Type) (x : Q p) (h : p = p),
+  x = eq_rect p Q x p h
+Classical_Prop.classic : forall P : Prop, P \/ ~ P
+Chars 3344 - 3420 [Print~Assumptions~PolynomialRu...] 0.975 secs (0.945u,0.03s)
+Axioms:
+ClassicalDedekindReals.sig_not_dec : forall P : Prop, {~ ~ P} + {~ P}
+ClassicalDedekindReals.sig_forall_dec :
+  forall P : nat -> Prop,
+  (forall n : nat, {P n} + {~ P n}) ->
+  {n : nat | ~ P n} + {forall n : nat, P n}
+Axioms.proof_irr : ClassicalFacts.proof_irrelevance
+Events.inline_assembly_sem :
+  String.string -> AST.signature -> Events.extcall_sem
+Events.inline_assembly_properties :
+  forall (id : String.string) (sg : AST.signature),
+  Events.extcall_properties (Events.inline_assembly_sem id sg) sg
+FunctionalExtensionality.functional_extensionality_dep :
+  forall (A : Type) (B : A -> Type) (f g : forall x : A, B x),
+  (forall x : A, f x = g x) -> f = g
+Events.external_functions_sem :
+  String.string -> AST.signature -> Events.extcall_sem
+Events.external_functions_properties :
+  forall (id : String.string) (sg : AST.signature),
+  Events.extcall_properties (Events.external_functions_sem id sg) sg
+Eqdep.Eq_rect_eq.eq_rect_eq :
+  forall (U : Type) (p : U) (Q : U -> Type) (x : Q p) (h : p = p),
+  x = eq_rect p Q x p h
+Classical_Prop.classic : forall P : Prop, P \/ ~ P
+Chars 3421 - 3489 [Print~Assumptions~PolynomialRu...] 3.416 secs (3.406u,0.009s)
+Axioms:
+ClassicalDedekindReals.sig_not_dec : forall P : Prop, {~ ~ P} + {~ P}
+ClassicalDedekindReals.sig_forall_dec :
+  forall P : nat -> Prop,
+  (forall n : nat, {P n} + {~ P n}) ->
+  {n : nat | ~ P n} + {forall n : nat, P n}
+Axioms.proof_irr : ClassicalFacts.proof_irrelevance
+Events.inline_assembly_sem :
+  String.string -> AST.signature -> Events.extcall_sem
+Events.inline_assembly_properties :
+  forall (id : String.string) (sg : AST.signature),
+  Events.extcall_properties (Events.inline_assembly_sem id sg) sg
+FunctionalExtensionality.functional_extensionality_dep :
+  forall (A : Type) (B : A -> Type) (f g : forall x : A, B x),
+  (forall x : A, f x = g x) -> f = g
+Events.external_functions_sem :
+  String.string -> AST.signature -> Events.extcall_sem
+Events.external_functions_properties :
+  forall (id : String.string) (sg : AST.signature),
+  Events.extcall_properties (Events.external_functions_sem id sg) sg
+Eqdep.Eq_rect_eq.eq_rect_eq :
+  forall (U : Type) (p : U) (Q : U -> Type) (x : Q p) (h : p = p),
+  x = eq_rect p Q x p h
+Classical_Prop.classic : forall P : Prop, P \/ ~ P
+Chars 3490 - 3561 [Print~Assumptions~PolynomialRu...] 3.391 secs (3.371u,0.02s)
+Axioms:
+ClassicalDedekindReals.sig_not_dec : forall P : Prop, {~ ~ P} + {~ P}
+ClassicalDedekindReals.sig_forall_dec :
+  forall P : nat -> Prop,
+  (forall n : nat, {P n} + {~ P n}) ->
+  {n : nat | ~ P n} + {forall n : nat, P n}
+Axioms.proof_irr : ClassicalFacts.proof_irrelevance
+Events.inline_assembly_sem :
+  String.string -> AST.signature -> Events.extcall_sem
+Events.inline_assembly_properties :
+  forall (id : String.string) (sg : AST.signature),
+  Events.extcall_properties (Events.inline_assembly_sem id sg) sg
+FunctionalExtensionality.functional_extensionality_dep :
+  forall (A : Type) (B : A -> Type) (f g : forall x : A, B x),
+  (forall x : A, f x = g x) -> f = g
+Events.external_functions_sem :
+  String.string -> AST.signature -> Events.extcall_sem
+Events.external_functions_properties :
+  forall (id : String.string) (sg : AST.signature),
+  Events.extcall_properties (Events.external_functions_sem id sg) sg
+Eqdep.Eq_rect_eq.eq_rect_eq :
+  forall (U : Type) (p : U) (Q : U -> Type) (x : Q p) (h : p = p),
+  x = eq_rect p Q x p h
+Classical_Prop.classic : forall P : Prop, P \/ ~ P
+Chars 3562 - 3635 [Print~Assumptions~PolynomialRu...] 3.523 secs (3.512u,0.01s)
+Axioms:
+ClassicalDedekindReals.sig_not_dec : forall P : Prop, {~ ~ P} + {~ P}
+ClassicalDedekindReals.sig_forall_dec :
+  forall P : nat -> Prop,
+  (forall n : nat, {P n} + {~ P n}) ->
+  {n : nat | ~ P n} + {forall n : nat, P n}
+Axioms.proof_irr : ClassicalFacts.proof_irrelevance
+Events.inline_assembly_sem :
+  String.string -> AST.signature -> Events.extcall_sem
+Events.inline_assembly_properties :
+  forall (id : String.string) (sg : AST.signature),
+  Events.extcall_properties (Events.inline_assembly_sem id sg) sg
+FunctionalExtensionality.functional_extensionality_dep :
+  forall (A : Type) (B : A -> Type) (f g : forall x : A, B x),
+  (forall x : A, f x = g x) -> f = g
+Events.external_functions_sem :
+  String.string -> AST.signature -> Events.extcall_sem
+Events.external_functions_properties :
+  forall (id : String.string) (sg : AST.signature),
+  Events.extcall_properties (Events.external_functions_sem id sg) sg
+Eqdep.Eq_rect_eq.eq_rect_eq :
+  forall (U : Type) (p : U) (Q : U -> Type) (x : Q p) (h : p = p),
+  x = eq_rect p Q x p h
+Classical_Prop.classic : forall P : Prop, P \/ ~ P
+Chars 3636 - 3709 [Print~Assumptions~PolynomialRu...] 4.296 secs (4.286u,0.009s)
+Axioms:
+ClassicalDedekindReals.sig_not_dec : forall P : Prop, {~ ~ P} + {~ P}
+ClassicalDedekindReals.sig_forall_dec :
+  forall P : nat -> Prop,
+  (forall n : nat, {P n} + {~ P n}) ->
+  {n : nat | ~ P n} + {forall n : nat, P n}
+Axioms.proof_irr : ClassicalFacts.proof_irrelevance
+Events.inline_assembly_sem :
+  String.string -> AST.signature -> Events.extcall_sem
+Events.inline_assembly_properties :
+  forall (id : String.string) (sg : AST.signature),
+  Events.extcall_properties (Events.inline_assembly_sem id sg) sg
+FunctionalExtensionality.functional_extensionality_dep :
+  forall (A : Type) (B : A -> Type) (f g : forall x : A, B x),
+  (forall x : A, f x = g x) -> f = g
+Events.external_functions_sem :
+  String.string -> AST.signature -> Events.extcall_sem
+Events.external_functions_properties :
+  forall (id : String.string) (sg : AST.signature),
+  Events.extcall_properties (Events.external_functions_sem id sg) sg
+Eqdep.Eq_rect_eq.eq_rect_eq :
+  forall (U : Type) (p : U) (Q : U -> Type) (x : Q p) (h : p = p),
+  x = eq_rect p Q x p h
+Classical_Prop.classic : forall P : Prop, P \/ ~ P
+Chars 3710 - 3775 [Print~Assumptions~PolynomialRu...] 6.646 secs (6.646u,0.s)
+Axioms:
+ClassicalDedekindReals.sig_not_dec : forall P : Prop, {~ ~ P} + {~ P}
+ClassicalDedekindReals.sig_forall_dec :
+  forall P : nat -> Prop,
+  (forall n : nat, {P n} + {~ P n}) ->
+  {n : nat | ~ P n} + {forall n : nat, P n}
+Axioms.proof_irr : ClassicalFacts.proof_irrelevance
+Events.inline_assembly_sem :
+  String.string -> AST.signature -> Events.extcall_sem
+Events.inline_assembly_properties :
+  forall (id : String.string) (sg : AST.signature),
+  Events.extcall_properties (Events.inline_assembly_sem id sg) sg
+FunctionalExtensionality.functional_extensionality_dep :
+  forall (A : Type) (B : A -> Type) (f g : forall x : A, B x),
+  (forall x : A, f x = g x) -> f = g
+Events.external_functions_sem :
+  String.string -> AST.signature -> Events.extcall_sem
+Events.external_functions_properties :
+  forall (id : String.string) (sg : AST.signature),
+  Events.extcall_properties (Events.external_functions_sem id sg) sg
+Eqdep.Eq_rect_eq.eq_rect_eq :
+  forall (U : Type) (p : U) (Q : U -> Type) (x : Q p) (h : p = p),
+  x = eq_rect p Q x p h
+Classical_Prop.classic : forall P : Prop, P \/ ~ P
+Chars 3776 - 3844 [Print~Assumptions~PolynomialRu...] 6.589 secs (6.548u,0.039s)
+Axioms:
+ClassicalDedekindReals.sig_not_dec : forall P : Prop, {~ ~ P} + {~ P}
+ClassicalDedekindReals.sig_forall_dec :
+  forall P : nat -> Prop,
+  (forall n : nat, {P n} + {~ P n}) ->
+  {n : nat | ~ P n} + {forall n : nat, P n}
+Axioms.proof_irr : ClassicalFacts.proof_irrelevance
+Events.inline_assembly_sem :
+  String.string -> AST.signature -> Events.extcall_sem
+Events.inline_assembly_properties :
+  forall (id : String.string) (sg : AST.signature),
+  Events.extcall_properties (Events.inline_assembly_sem id sg) sg
+FunctionalExtensionality.functional_extensionality_dep :
+  forall (A : Type) (B : A -> Type) (f g : forall x : A, B x),
+  (forall x : A, f x = g x) -> f = g
+Events.external_functions_sem :
+  String.string -> AST.signature -> Events.extcall_sem
+Events.external_functions_properties :
+  forall (id : String.string) (sg : AST.signature),
+  Events.extcall_properties (Events.external_functions_sem id sg) sg
+Eqdep.Eq_rect_eq.eq_rect_eq :
+  forall (U : Type) (p : U) (Q : U -> Type) (x : Q p) (h : p = p),
+  x = eq_rect p Q x p h
+Classical_Prop.classic : forall P : Prop, P \/ ~ P
+Chars 3845 - 3920 [Print~Assumptions~PolynomialRu...] 6.514 secs (6.514u,0.s)
+Axioms:
+ClassicalDedekindReals.sig_not_dec : forall P : Prop, {~ ~ P} + {~ P}
+ClassicalDedekindReals.sig_forall_dec :
+  forall P : nat -> Prop,
+  (forall n : nat, {P n} + {~ P n}) ->
+  {n : nat | ~ P n} + {forall n : nat, P n}
+FunctionalExtensionality.functional_extensionality_dep :
+  forall (A : Type) (B : A -> Type) (f g : forall x : A, B x),
+  (forall x : A, f x = g x) -> f = g
+Classical_Prop.classic : forall P : Prop, P \/ ~ P
+Chars 3921 - 3985 [Print~Assumptions~StoredPolyno...] 0.923 secs (0.923u,0.s)
+Axioms:
+ClassicalDedekindReals.sig_not_dec : forall P : Prop, {~ ~ P} + {~ P}
+ClassicalDedekindReals.sig_forall_dec :
+  forall P : nat -> Prop,
+  (forall n : nat, {P n} + {~ P n}) ->
+  {n : nat | ~ P n} + {forall n : nat, P n}
+FunctionalExtensionality.functional_extensionality_dep :
+  forall (A : Type) (B : A -> Type) (f g : forall x : A, B x),
+  (forall x : A, f x = g x) -> f = g
+Classical_Prop.classic : forall P : Prop, P \/ ~ P
+Chars 3986 - 4048 [Print~Assumptions~StoredPolyno...] 0.903 secs (0.903u,0.s)
+Axioms:
+ClassicalDedekindReals.sig_not_dec : forall P : Prop, {~ ~ P} + {~ P}
+ClassicalDedekindReals.sig_forall_dec :
+  forall P : nat -> Prop,
+  (forall n : nat, {P n} + {~ P n}) ->
+  {n : nat | ~ P n} + {forall n : nat, P n}
+Events.inline_assembly_sem :
+  String.string -> AST.signature -> Events.extcall_sem
+FunctionalExtensionality.functional_extensionality_dep :
+  forall (A : Type) (B : A -> Type) (f g : forall x : A, B x),
+  (forall x : A, f x = g x) -> f = g
+Events.external_functions_sem :
+  String.string -> AST.signature -> Events.extcall_sem
+Classical_Prop.classic : forall P : Prop, P \/ ~ P
+Chars 4049 - 4107 [Print~Assumptions~StoredPolyno...] 1.007 secs (1.007u,0.s)
+Axioms:
+ClassicalDedekindReals.sig_not_dec : forall P : Prop, {~ ~ P} + {~ P}
+ClassicalDedekindReals.sig_forall_dec :
+  forall P : nat -> Prop,
+  (forall n : nat, {P n} + {~ P n}) ->
+  {n : nat | ~ P n} + {forall n : nat, P n}
+Events.inline_assembly_sem :
+  String.string -> AST.signature -> Events.extcall_sem
+FunctionalExtensionality.functional_extensionality_dep :
+  forall (A : Type) (B : A -> Type) (f g : forall x : A, B x),
+  (forall x : A, f x = g x) -> f = g
+Events.external_functions_sem :
+  String.string -> AST.signature -> Events.extcall_sem
+Classical_Prop.classic : forall P : Prop, P \/ ~ P
+Chars 4108 - 4166 [Print~Assumptions~StoredPolyno...] 3.055 secs (3.055u,0.s)
+Axioms:
+ClassicalDedekindReals.sig_not_dec : forall P : Prop, {~ ~ P} + {~ P}
+ClassicalDedekindReals.sig_forall_dec :
+  forall P : nat -> Prop,
+  (forall n : nat, {P n} + {~ P n}) ->
+  {n : nat | ~ P n} + {forall n : nat, P n}
+Events.inline_assembly_sem :
+  String.string -> AST.signature -> Events.extcall_sem
+FunctionalExtensionality.functional_extensionality_dep :
+  forall (A : Type) (B : A -> Type) (f g : forall x : A, B x),
+  (forall x : A, f x = g x) -> f = g
+Events.external_functions_sem :
+  String.string -> AST.signature -> Events.extcall_sem
+Classical_Prop.classic : forall P : Prop, P \/ ~ P
+Chars 4167 - 4222 [Print~Assumptions~StoredPolyno...] 3.09 secs (3.09u,0.s)
+Axioms:
+ClassicalDedekindReals.sig_not_dec : forall P : Prop, {~ ~ P} + {~ P}
+ClassicalDedekindReals.sig_forall_dec :
+  forall P : nat -> Prop,
+  (forall n : nat, {P n} + {~ P n}) ->
+  {n : nat | ~ P n} + {forall n : nat, P n}
+FunctionalExtensionality.functional_extensionality_dep :
+  forall (A : Type) (B : A -> Type) (f g : forall x : A, B x),
+  (forall x : A, f x = g x) -> f = g
+Classical_Prop.classic : forall P : Prop, P \/ ~ P
+Chars 4223 - 4282 [Print~Assumptions~StoredPolyno...] 0.917 secs (0.917u,0.s)
+Axioms:
+ClassicalDedekindReals.sig_not_dec : forall P : Prop, {~ ~ P} + {~ P}
+ClassicalDedekindReals.sig_forall_dec :
+  forall P : nat -> Prop,
+  (forall n : nat, {P n} + {~ P n}) ->
+  {n : nat | ~ P n} + {forall n : nat, P n}
+Events.inline_assembly_sem :
+  String.string -> AST.signature -> Events.extcall_sem
+FunctionalExtensionality.functional_extensionality_dep :
+  forall (A : Type) (B : A -> Type) (f g : forall x : A, B x),
+  (forall x : A, f x = g x) -> f = g
+Events.external_functions_sem :
+  String.string -> AST.signature -> Events.extcall_sem
+Classical_Prop.classic : forall P : Prop, P \/ ~ P
+Chars 4283 - 4334 [Print~Assumptions~StoredPolyno...] 3.135 secs (3.134u,0.s)
+Axioms:
+ClassicalDedekindReals.sig_not_dec : forall P : Prop, {~ ~ P} + {~ P}
+ClassicalDedekindReals.sig_forall_dec :
+  forall P : nat -> Prop,
+  (forall n : nat, {P n} + {~ P n}) ->
+  {n : nat | ~ P n} + {forall n : nat, P n}
+Events.inline_assembly_sem :
+  String.string -> AST.signature -> Events.extcall_sem
+FunctionalExtensionality.functional_extensionality_dep :
+  forall (A : Type) (B : A -> Type) (f g : forall x : A, B x),
+  (forall x : A, f x = g x) -> f = g
+Events.external_functions_sem :
+  String.string -> AST.signature -> Events.extcall_sem
+Classical_Prop.classic : forall P : Prop, P \/ ~ P
+Chars 4335 - 4398 [Print~Assumptions~StoredPolyno...] 3.107 secs (3.107u,0.s)
+Axioms:
+ClassicalDedekindReals.sig_not_dec : forall P : Prop, {~ ~ P} + {~ P}
+ClassicalDedekindReals.sig_forall_dec :
+  forall P : nat -> Prop,
+  (forall n : nat, {P n} + {~ P n}) ->
+  {n : nat | ~ P n} + {forall n : nat, P n}
+Events.inline_assembly_sem :
+  String.string -> AST.signature -> Events.extcall_sem
+Events.inline_assembly_properties :
+  forall (id : String.string) (sg : AST.signature),
+  Events.extcall_properties (Events.inline_assembly_sem id sg) sg
+FunctionalExtensionality.functional_extensionality_dep :
+  forall (A : Type) (B : A -> Type) (f g : forall x : A, B x),
+  (forall x : A, f x = g x) -> f = g
+Events.external_functions_sem :
+  String.string -> AST.signature -> Events.extcall_sem
+Events.external_functions_properties :
+  forall (id : String.string) (sg : AST.signature),
+  Events.extcall_properties (Events.external_functions_sem id sg) sg
+Classical_Prop.classic : forall P : Prop, P \/ ~ P
+Chars 4399 - 4465 [Print~Assumptions~StoredPolyno...] 3.202 secs (3.202u,0.s)
+Axioms:
+ClassicalDedekindReals.sig_not_dec : forall P : Prop, {~ ~ P} + {~ P}
+ClassicalDedekindReals.sig_forall_dec :
+  forall P : nat -> Prop,
+  (forall n : nat, {P n} + {~ P n}) ->
+  {n : nat | ~ P n} + {forall n : nat, P n}
+FunctionalExtensionality.functional_extensionality_dep :
+  forall (A : Type) (B : A -> Type) (f g : forall x : A, B x),
+  (forall x : A, f x = g x) -> f = g
+Classical_Prop.classic : forall P : Prop, P \/ ~ P
+Chars 4466 - 4529 [Print~Assumptions~StoredPolyno...] 0.472 secs (0.462u,0.009s)
+Axioms:
+ClassicalDedekindReals.sig_not_dec : forall P : Prop, {~ ~ P} + {~ P}
+ClassicalDedekindReals.sig_forall_dec :
+  forall P : nat -> Prop,
+  (forall n : nat, {P n} + {~ P n}) ->
+  {n : nat | ~ P n} + {forall n : nat, P n}
+FunctionalExtensionality.functional_extensionality_dep :
+  forall (A : Type) (B : A -> Type) (f g : forall x : A, B x),
+  (forall x : A, f x = g x) -> f = g
+Classical_Prop.classic : forall P : Prop, P \/ ~ P
+Chars 4530 - 4594 [Print~Assumptions~StoredPolyno...] 0.506 secs (0.506u,0.s)
+Axioms:
+ClassicalDedekindReals.sig_not_dec : forall P : Prop, {~ ~ P} + {~ P}
+ClassicalDedekindReals.sig_forall_dec :
+  forall P : nat -> Prop,
+  (forall n : nat, {P n} + {~ P n}) ->
+  {n : nat | ~ P n} + {forall n : nat, P n}
+FunctionalExtensionality.functional_extensionality_dep :
+  forall (A : Type) (B : A -> Type) (f g : forall x : A, B x),
+  (forall x : A, f x = g x) -> f = g
+Classical_Prop.classic : forall P : Prop, P \/ ~ P
+Chars 4595 - 4659 [Print~Assumptions~StoredPolyno...] 0.514 secs (0.504u,0.009s)
+Axioms:
+ClassicalDedekindReals.sig_not_dec : forall P : Prop, {~ ~ P} + {~ P}
+ClassicalDedekindReals.sig_forall_dec :
+  forall P : nat -> Prop,
+  (forall n : nat, {P n} + {~ P n}) ->
+  {n : nat | ~ P n} + {forall n : nat, P n}
+FunctionalExtensionality.functional_extensionality_dep :
+  forall (A : Type) (B : A -> Type) (f g : forall x : A, B x),
+  (forall x : A, f x = g x) -> f = g
+Classical_Prop.classic : forall P : Prop, P \/ ~ P
+Chars 4660 - 4721 [Print~Assumptions~StoredPolyno...] 0.519 secs (0.519u,0.s)
+Axioms:
+ClassicalDedekindReals.sig_not_dec : forall P : Prop, {~ ~ P} + {~ P}
+ClassicalDedekindReals.sig_forall_dec :
+  forall P : nat -> Prop,
+  (forall n : nat, {P n} + {~ P n}) ->
+  {n : nat | ~ P n} + {forall n : nat, P n}
+FunctionalExtensionality.functional_extensionality_dep :
+  forall (A : Type) (B : A -> Type) (f g : forall x : A, B x),
+  (forall x : A, f x = g x) -> f = g
+Classical_Prop.classic : forall P : Prop, P \/ ~ P
+Chars 4722 - 4783 [Print~Assumptions~StoredPolyno...] 0.543 secs (0.543u,0.s)
+Axioms:
+ClassicalDedekindReals.sig_not_dec : forall P : Prop, {~ ~ P} + {~ P}
+ClassicalDedekindReals.sig_forall_dec :
+  forall P : nat -> Prop,
+  (forall n : nat, {P n} + {~ P n}) ->
+  {n : nat | ~ P n} + {forall n : nat, P n}
+FunctionalExtensionality.functional_extensionality_dep :
+  forall (A : Type) (B : A -> Type) (f g : forall x : A, B x),
+  (forall x : A, f x = g x) -> f = g
+Classical_Prop.classic : forall P : Prop, P \/ ~ P
+Chars 4784 - 4847 [Print~Assumptions~StoredPolyno...] 0.514 secs (0.504u,0.01s)
+Axioms:
+ClassicalDedekindReals.sig_not_dec : forall P : Prop, {~ ~ P} + {~ P}
+ClassicalDedekindReals.sig_forall_dec :
+  forall P : nat -> Prop,
+  (forall n : nat, {P n} + {~ P n}) ->
+  {n : nat | ~ P n} + {forall n : nat, P n}
+FunctionalExtensionality.functional_extensionality_dep :
+  forall (A : Type) (B : A -> Type) (f g : forall x : A, B x),
+  (forall x : A, f x = g x) -> f = g
+Chars 4848 - 4917 [Print~Assumptions~StoredPolyno...] 0.383 secs (0.383u,0.s)
+Axioms:
+ClassicalDedekindReals.sig_not_dec : forall P : Prop, {~ ~ P} + {~ P}
+ClassicalDedekindReals.sig_forall_dec :
+  forall P : nat -> Prop,
+  (forall n : nat, {P n} + {~ P n}) ->
+  {n : nat | ~ P n} + {forall n : nat, P n}
+FunctionalExtensionality.functional_extensionality_dep :
+  forall (A : Type) (B : A -> Type) (f g : forall x : A, B x),
+  (forall x : A, f x = g x) -> f = g
+Classical_Prop.classic : forall P : Prop, P \/ ~ P
+Chars 4918 - 4983 [Print~Assumptions~StoredPolyno...] 0.557 secs (0.557u,0.s)
+Axioms:
+ClassicalDedekindReals.sig_not_dec : forall P : Prop, {~ ~ P} + {~ P}
+ClassicalDedekindReals.sig_forall_dec :
+  forall P : nat -> Prop,
+  (forall n : nat, {P n} + {~ P n}) ->
+  {n : nat | ~ P n} + {forall n : nat, P n}
+FunctionalExtensionality.functional_extensionality_dep :
+  forall (A : Type) (B : A -> Type) (f g : forall x : A, B x),
+  (forall x : A, f x = g x) -> f = g
+Classical_Prop.classic : forall P : Prop, P \/ ~ P
+Chars 4984 - 5052 [Print~Assumptions~StoredPolyno...] 0.639 secs (0.629u,0.01s)
+Axioms:
+ClassicalDedekindReals.sig_not_dec : forall P : Prop, {~ ~ P} + {~ P}
+ClassicalDedekindReals.sig_forall_dec :
+  forall P : nat -> Prop,
+  (forall n : nat, {P n} + {~ P n}) ->
+  {n : nat | ~ P n} + {forall n : nat, P n}
+FunctionalExtensionality.functional_extensionality_dep :
+  forall (A : Type) (B : A -> Type) (f g : forall x : A, B x),
+  (forall x : A, f x = g x) -> f = g
+Classical_Prop.classic : forall P : Prop, P \/ ~ P
+Chars 5053 - 5121 [Print~Assumptions~StoredPolyno...] 0.642 secs (0.632u,0.009s)
+Axioms:
+ClassicalDedekindReals.sig_not_dec : forall P : Prop, {~ ~ P} + {~ P}
+ClassicalDedekindReals.sig_forall_dec :
+  forall P : nat -> Prop,
+  (forall n : nat, {P n} + {~ P n}) ->
+  {n : nat | ~ P n} + {forall n : nat, P n}
+Events.inline_assembly_sem :
+  String.string -> AST.signature -> Events.extcall_sem
+Events.inline_assembly_properties :
+  forall (id : String.string) (sg : AST.signature),
+  Events.extcall_properties (Events.inline_assembly_sem id sg) sg
+FunctionalExtensionality.functional_extensionality_dep :
+  forall (A : Type) (B : A -> Type) (f g : forall x : A, B x),
+  (forall x : A, f x = g x) -> f = g
+Events.external_functions_sem :
+  String.string -> AST.signature -> Events.extcall_sem
+Events.external_functions_properties :
+  forall (id : String.string) (sg : AST.signature),
+  Events.extcall_properties (Events.external_functions_sem id sg) sg
+Classical_Prop.classic : forall P : Prop, P \/ ~ P
+Chars 5122 - 5193 [Print~Assumptions~StoredPolyno...] 3.399 secs (3.389u,0.009s)
+Axioms:
+ClassicalDedekindReals.sig_not_dec : forall P : Prop, {~ ~ P} + {~ P}
+ClassicalDedekindReals.sig_forall_dec :
+  forall P : nat -> Prop,
+  (forall n : nat, {P n} + {~ P n}) ->
+  {n : nat | ~ P n} + {forall n : nat, P n}
+FunctionalExtensionality.functional_extensionality_dep :
+  forall (A : Type) (B : A -> Type) (f g : forall x : A, B x),
+  (forall x : A, f x = g x) -> f = g
+Classical_Prop.classic : forall P : Prop, P \/ ~ P
+Chars 5194 - 5267 [Print~Assumptions~StoredPolyno...] 0.481 secs (0.481u,0.s)
+Axioms:
+ClassicalDedekindReals.sig_not_dec : forall P : Prop, {~ ~ P} + {~ P}
+ClassicalDedekindReals.sig_forall_dec :
+  forall P : nat -> Prop,
+  (forall n : nat, {P n} + {~ P n}) ->
+  {n : nat | ~ P n} + {forall n : nat, P n}
+FunctionalExtensionality.functional_extensionality_dep :
+  forall (A : Type) (B : A -> Type) (f g : forall x : A, B x),
+  (forall x : A, f x = g x) -> f = g
+Classical_Prop.classic : forall P : Prop, P \/ ~ P
+Chars 5268 - 5342 [Print~Assumptions~StoredPolyno...] 0.466 secs (0.466u,0.s)
+Axioms:
+ClassicalDedekindReals.sig_not_dec : forall P : Prop, {~ ~ P} + {~ P}
+ClassicalDedekindReals.sig_forall_dec :
+  forall P : nat -> Prop,
+  (forall n : nat, {P n} + {~ P n}) ->
+  {n : nat | ~ P n} + {forall n : nat, P n}
+FunctionalExtensionality.functional_extensionality_dep :
+  forall (A : Type) (B : A -> Type) (f g : forall x : A, B x),
+  (forall x : A, f x = g x) -> f = g
+Classical_Prop.classic : forall P : Prop, P \/ ~ P
+Chars 5343 - 5415 [Print~Assumptions~StoredPolyno...] 0.464 secs (0.464u,0.s)
+Axioms:
+ClassicalDedekindReals.sig_not_dec : forall P : Prop, {~ ~ P} + {~ P}
+ClassicalDedekindReals.sig_forall_dec :
+  forall P : nat -> Prop,
+  (forall n : nat, {P n} + {~ P n}) ->
+  {n : nat | ~ P n} + {forall n : nat, P n}
+FunctionalExtensionality.functional_extensionality_dep :
+  forall (A : Type) (B : A -> Type) (f g : forall x : A, B x),
+  (forall x : A, f x = g x) -> f = g
+Classical_Prop.classic : forall P : Prop, P \/ ~ P
+Chars 5416 - 5489 [Print~Assumptions~StoredPolyno...] 0.469 secs (0.469u,0.s)
+Axioms:
+ClassicalDedekindReals.sig_not_dec : forall P : Prop, {~ ~ P} + {~ P}
+ClassicalDedekindReals.sig_forall_dec :
+  forall P : nat -> Prop,
+  (forall n : nat, {P n} + {~ P n}) ->
+  {n : nat | ~ P n} + {forall n : nat, P n}
+Axioms.proof_irr : ClassicalFacts.proof_irrelevance
+Events.inline_assembly_sem :
+  String.string -> AST.signature -> Events.extcall_sem
+Events.inline_assembly_properties :
+  forall (id : String.string) (sg : AST.signature),
+  Events.extcall_properties (Events.inline_assembly_sem id sg) sg
+FunctionalExtensionality.functional_extensionality_dep :
+  forall (A : Type) (B : A -> Type) (f g : forall x : A, B x),
+  (forall x : A, f x = g x) -> f = g
+Events.external_functions_sem :
+  String.string -> AST.signature -> Events.extcall_sem
+Events.external_functions_properties :
+  forall (id : String.string) (sg : AST.signature),
+  Events.extcall_properties (Events.external_functions_sem id sg) sg
+Eqdep.Eq_rect_eq.eq_rect_eq :
+  forall (U : Type) (p : U) (Q : U -> Type) (x : Q p) (h : p = p),
+  x = eq_rect p Q x p h
+Classical_Prop.classic : forall P : Prop, P \/ ~ P
+Chars 5490 - 5567 [Print~Assumptions~StoredPolyno...] 0.949 secs (0.949u,0.s)
+Axioms:
+ClassicalDedekindReals.sig_not_dec : forall P : Prop, {~ ~ P} + {~ P}
+ClassicalDedekindReals.sig_forall_dec :
+  forall P : nat -> Prop,
+  (forall n : nat, {P n} + {~ P n}) ->
+  {n : nat | ~ P n} + {forall n : nat, P n}
+Axioms.proof_irr : ClassicalFacts.proof_irrelevance
+Events.inline_assembly_sem :
+  String.string -> AST.signature -> Events.extcall_sem
+Events.inline_assembly_properties :
+  forall (id : String.string) (sg : AST.signature),
+  Events.extcall_properties (Events.inline_assembly_sem id sg) sg
+FunctionalExtensionality.functional_extensionality_dep :
+  forall (A : Type) (B : A -> Type) (f g : forall x : A, B x),
+  (forall x : A, f x = g x) -> f = g
+Events.external_functions_sem :
+  String.string -> AST.signature -> Events.extcall_sem
+Events.external_functions_properties :
+  forall (id : String.string) (sg : AST.signature),
+  Events.extcall_properties (Events.external_functions_sem id sg) sg
+Eqdep.Eq_rect_eq.eq_rect_eq :
+  forall (U : Type) (p : U) (Q : U -> Type) (x : Q p) (h : p = p),
+  x = eq_rect p Q x p h
+Classical_Prop.classic : forall P : Prop, P \/ ~ P
+Chars 5568 - 5637 [Print~Assumptions~StoredPolyno...] 3.349 secs (3.319u,0.029s)
+Axioms:
+ClassicalDedekindReals.sig_not_dec : forall P : Prop, {~ ~ P} + {~ P}
+ClassicalDedekindReals.sig_forall_dec :
+  forall P : nat -> Prop,
+  (forall n : nat, {P n} + {~ P n}) ->
+  {n : nat | ~ P n} + {forall n : nat, P n}
+Axioms.proof_irr : ClassicalFacts.proof_irrelevance
+Events.inline_assembly_sem :
+  String.string -> AST.signature -> Events.extcall_sem
+Events.inline_assembly_properties :
+  forall (id : String.string) (sg : AST.signature),
+  Events.extcall_properties (Events.inline_assembly_sem id sg) sg
+FunctionalExtensionality.functional_extensionality_dep :
+  forall (A : Type) (B : A -> Type) (f g : forall x : A, B x),
+  (forall x : A, f x = g x) -> f = g
+Events.external_functions_sem :
+  String.string -> AST.signature -> Events.extcall_sem
+Events.external_functions_properties :
+  forall (id : String.string) (sg : AST.signature),
+  Events.extcall_properties (Events.external_functions_sem id sg) sg
+Eqdep.Eq_rect_eq.eq_rect_eq :
+  forall (U : Type) (p : U) (Q : U -> Type) (x : Q p) (h : p = p),
+  x = eq_rect p Q x p h
+Classical_Prop.classic : forall P : Prop, P \/ ~ P
+Chars 5638 - 5710 [Print~Assumptions~StoredPolyno...] 3.351 secs (3.351u,0.s)
+Axioms:
+ClassicalDedekindReals.sig_not_dec : forall P : Prop, {~ ~ P} + {~ P}
+ClassicalDedekindReals.sig_forall_dec :
+  forall P : nat -> Prop,
+  (forall n : nat, {P n} + {~ P n}) ->
+  {n : nat | ~ P n} + {forall n : nat, P n}
+Axioms.proof_irr : ClassicalFacts.proof_irrelevance
+Events.inline_assembly_sem :
+  String.string -> AST.signature -> Events.extcall_sem
+Events.inline_assembly_properties :
+  forall (id : String.string) (sg : AST.signature),
+  Events.extcall_properties (Events.inline_assembly_sem id sg) sg
+FunctionalExtensionality.functional_extensionality_dep :
+  forall (A : Type) (B : A -> Type) (f g : forall x : A, B x),
+  (forall x : A, f x = g x) -> f = g
+Events.external_functions_sem :
+  String.string -> AST.signature -> Events.extcall_sem
+Events.external_functions_properties :
+  forall (id : String.string) (sg : AST.signature),
+  Events.extcall_properties (Events.external_functions_sem id sg) sg
+Eqdep.Eq_rect_eq.eq_rect_eq :
+  forall (U : Type) (p : U) (Q : U -> Type) (x : Q p) (h : p = p),
+  x = eq_rect p Q x p h
+Classical_Prop.classic : forall P : Prop, P \/ ~ P
+Chars 5711 - 5785 [Print~Assumptions~StoredPolyno...] 3.454 secs (3.454u,0.s)
+Axioms:
+ClassicalDedekindReals.sig_not_dec : forall P : Prop, {~ ~ P} + {~ P}
+ClassicalDedekindReals.sig_forall_dec :
+  forall P : nat -> Prop,
+  (forall n : nat, {P n} + {~ P n}) ->
+  {n : nat | ~ P n} + {forall n : nat, P n}
+Axioms.proof_irr : ClassicalFacts.proof_irrelevance
+Events.inline_assembly_sem :
+  String.string -> AST.signature -> Events.extcall_sem
+Events.inline_assembly_properties :
+  forall (id : String.string) (sg : AST.signature),
+  Events.extcall_properties (Events.inline_assembly_sem id sg) sg
+FunctionalExtensionality.functional_extensionality_dep :
+  forall (A : Type) (B : A -> Type) (f g : forall x : A, B x),
+  (forall x : A, f x = g x) -> f = g
+Events.external_functions_sem :
+  String.string -> AST.signature -> Events.extcall_sem
+Events.external_functions_properties :
+  forall (id : String.string) (sg : AST.signature),
+  Events.extcall_properties (Events.external_functions_sem id sg) sg
+Eqdep.Eq_rect_eq.eq_rect_eq :
+  forall (U : Type) (p : U) (Q : U -> Type) (x : Q p) (h : p = p),
+  x = eq_rect p Q x p h
+Classical_Prop.classic : forall P : Prop, P \/ ~ P
+Chars 5786 - 5860 [Print~Assumptions~StoredPolyno...] 3.933 secs (3.923u,0.009s)
+Axioms:
+ClassicalDedekindReals.sig_not_dec : forall P : Prop, {~ ~ P} + {~ P}
+ClassicalDedekindReals.sig_forall_dec :
+  forall P : nat -> Prop,
+  (forall n : nat, {P n} + {~ P n}) ->
+  {n : nat | ~ P n} + {forall n : nat, P n}
+Axioms.proof_irr : ClassicalFacts.proof_irrelevance
+Events.inline_assembly_sem :
+  String.string -> AST.signature -> Events.extcall_sem
+Events.inline_assembly_properties :
+  forall (id : String.string) (sg : AST.signature),
+  Events.extcall_properties (Events.inline_assembly_sem id sg) sg
+FunctionalExtensionality.functional_extensionality_dep :
+  forall (A : Type) (B : A -> Type) (f g : forall x : A, B x),
+  (forall x : A, f x = g x) -> f = g
+Events.external_functions_sem :
+  String.string -> AST.signature -> Events.extcall_sem
+Events.external_functions_properties :
+  forall (id : String.string) (sg : AST.signature),
+  Events.extcall_properties (Events.external_functions_sem id sg) sg
+Eqdep.Eq_rect_eq.eq_rect_eq :
+  forall (U : Type) (p : U) (Q : U -> Type) (x : Q p) (h : p = p),
+  x = eq_rect p Q x p h
+Classical_Prop.classic : forall P : Prop, P \/ ~ P
+Chars 5861 - 5927 [Print~Assumptions~StoredPolyno...] 6.446 secs (6.446u,0.s)
+Axioms:
+ClassicalDedekindReals.sig_not_dec : forall P : Prop, {~ ~ P} + {~ P}
+ClassicalDedekindReals.sig_forall_dec :
+  forall P : nat -> Prop,
+  (forall n : nat, {P n} + {~ P n}) ->
+  {n : nat | ~ P n} + {forall n : nat, P n}
+Axioms.proof_irr : ClassicalFacts.proof_irrelevance
+Events.inline_assembly_sem :
+  String.string -> AST.signature -> Events.extcall_sem
+Events.inline_assembly_properties :
+  forall (id : String.string) (sg : AST.signature),
+  Events.extcall_properties (Events.inline_assembly_sem id sg) sg
+FunctionalExtensionality.functional_extensionality_dep :
+  forall (A : Type) (B : A -> Type) (f g : forall x : A, B x),
+  (forall x : A, f x = g x) -> f = g
+Events.external_functions_sem :
+  String.string -> AST.signature -> Events.extcall_sem
+Events.external_functions_properties :
+  forall (id : String.string) (sg : AST.signature),
+  Events.extcall_properties (Events.external_functions_sem id sg) sg
+Eqdep.Eq_rect_eq.eq_rect_eq :
+  forall (U : Type) (p : U) (Q : U -> Type) (x : Q p) (h : p = p),
+  x = eq_rect p Q x p h
+Classical_Prop.classic : forall P : Prop, P \/ ~ P
+Chars 5928 - 5997 [Print~Assumptions~StoredPolyno...] 6.47 secs (6.46u,0.009s)
+Axioms:
+ClassicalDedekindReals.sig_not_dec : forall P : Prop, {~ ~ P} + {~ P}
+ClassicalDedekindReals.sig_forall_dec :
+  forall P : nat -> Prop,
+  (forall n : nat, {P n} + {~ P n}) ->
+  {n : nat | ~ P n} + {forall n : nat, P n}
+Axioms.proof_irr : ClassicalFacts.proof_irrelevance
+Events.inline_assembly_sem :
+  String.string -> AST.signature -> Events.extcall_sem
+Events.inline_assembly_properties :
+  forall (id : String.string) (sg : AST.signature),
+  Events.extcall_properties (Events.inline_assembly_sem id sg) sg
+FunctionalExtensionality.functional_extensionality_dep :
+  forall (A : Type) (B : A -> Type) (f g : forall x : A, B x),
+  (forall x : A, f x = g x) -> f = g
+Events.external_functions_sem :
+  String.string -> AST.signature -> Events.extcall_sem
+Events.external_functions_properties :
+  forall (id : String.string) (sg : AST.signature),
+  Events.extcall_properties (Events.external_functions_sem id sg) sg
+Eqdep.Eq_rect_eq.eq_rect_eq :
+  forall (U : Type) (p : U) (Q : U -> Type) (x : Q p) (h : p = p),
+  x = eq_rect p Q x p h
+Classical_Prop.classic : forall P : Prop, P \/ ~ P
+Chars 5998 - 6074 [Print~Assumptions~StoredPolyno...] 6.65 secs (6.65u,0.s)
+Axioms:
+ClassicalDedekindReals.sig_not_dec : forall P : Prop, {~ ~ P} + {~ P}
+ClassicalDedekindReals.sig_forall_dec :
+  forall P : nat -> Prop,
+  (forall n : nat, {P n} + {~ P n}) ->
+  {n : nat | ~ P n} + {forall n : nat, P n}
+Axioms.proof_irr : ClassicalFacts.proof_irrelevance
+FunctionalExtensionality.functional_extensionality_dep :
+  forall (A : Type) (B : A -> Type) (f g : forall x : A, B x),
+  (forall x : A, f x = g x) -> f = g
+Classical_Prop.classic : forall P : Prop, P \/ ~ P
+Chars 6075 - 6130 [Print~Assumptions~CertifiedPol...] 0.931 secs (0.92u,0.009s)
+Axioms:
+ClassicalDedekindReals.sig_not_dec : forall P : Prop, {~ ~ P} + {~ P}
+ClassicalDedekindReals.sig_forall_dec :
+  forall P : nat -> Prop,
+  (forall n : nat, {P n} + {~ P n}) ->
+  {n : nat | ~ P n} + {forall n : nat, P n}
+FunctionalExtensionality.functional_extensionality_dep :
+  forall (A : Type) (B : A -> Type) (f g : forall x : A, B x),
+  (forall x : A, f x = g x) -> f = g
+Classical_Prop.classic : forall P : Prop, P \/ ~ P
+Chars 6131 - 6188 [Print~Assumptions~CertifiedPol...] 0.46 secs (0.46u,0.s)
+Axioms:
+ClassicalDedekindReals.sig_not_dec : forall P : Prop, {~ ~ P} + {~ P}
+ClassicalDedekindReals.sig_forall_dec :
+  forall P : nat -> Prop,
+  (forall n : nat, {P n} + {~ P n}) ->
+  {n : nat | ~ P n} + {forall n : nat, P n}
+Axioms.proof_irr : ClassicalFacts.proof_irrelevance
+FunctionalExtensionality.functional_extensionality_dep :
+  forall (A : Type) (B : A -> Type) (f g : forall x : A, B x),
+  (forall x : A, f x = g x) -> f = g
+Classical_Prop.classic : forall P : Prop, P \/ ~ P
+Chars 6189 - 6236 [Print~Assumptions~CertifiedPol...] 0.929 secs (0.929u,0.s)
+Axioms:
+ClassicalDedekindReals.sig_not_dec : forall P : Prop, {~ ~ P} + {~ P}
+ClassicalDedekindReals.sig_forall_dec :
+  forall P : nat -> Prop,
+  (forall n : nat, {P n} + {~ P n}) ->
+  {n : nat | ~ P n} + {forall n : nat, P n}
+Axioms.proof_irr : ClassicalFacts.proof_irrelevance
+Events.inline_assembly_sem :
+  String.string -> AST.signature -> Events.extcall_sem
+Events.inline_assembly_properties :
+  forall (id : String.string) (sg : AST.signature),
+  Events.extcall_properties (Events.inline_assembly_sem id sg) sg
+FunctionalExtensionality.functional_extensionality_dep :
+  forall (A : Type) (B : A -> Type) (f g : forall x : A, B x),
+  (forall x : A, f x = g x) -> f = g
+Events.external_functions_sem :
+  String.string -> AST.signature -> Events.extcall_sem
+Events.external_functions_properties :
+  forall (id : String.string) (sg : AST.signature),
+  Events.extcall_properties (Events.external_functions_sem id sg) sg
+Eqdep.Eq_rect_eq.eq_rect_eq :
+  forall (U : Type) (p : U) (Q : U -> Type) (x : Q p) (h : p = p),
+  x = eq_rect p Q x p h
+Classical_Prop.classic : forall P : Prop, P \/ ~ P
+Chars 6237 - 6298 [Print~Assumptions~CertifiedPol...] 4.314 secs (4.273u,0.04s)
+Axioms:
+ClassicalDedekindReals.sig_not_dec : forall P : Prop, {~ ~ P} + {~ P}
+ClassicalDedekindReals.sig_forall_dec :
+  forall P : nat -> Prop,
+  (forall n : nat, {P n} + {~ P n}) ->
+  {n : nat | ~ P n} + {forall n : nat, P n}
+Axioms.proof_irr : ClassicalFacts.proof_irrelevance
+Events.inline_assembly_sem :
+  String.string -> AST.signature -> Events.extcall_sem
+Events.inline_assembly_properties :
+  forall (id : String.string) (sg : AST.signature),
+  Events.extcall_properties (Events.inline_assembly_sem id sg) sg
+FunctionalExtensionality.functional_extensionality_dep :
+  forall (A : Type) (B : A -> Type) (f g : forall x : A, B x),
+  (forall x : A, f x = g x) -> f = g
+Events.external_functions_sem :
+  String.string -> AST.signature -> Events.extcall_sem
+Events.external_functions_properties :
+  forall (id : String.string) (sg : AST.signature),
+  Events.extcall_properties (Events.external_functions_sem id sg) sg
+Eqdep.Eq_rect_eq.eq_rect_eq :
+  forall (U : Type) (p : U) (Q : U -> Type) (x : Q p) (h : p = p),
+  x = eq_rect p Q x p h
+Classical_Prop.classic : forall P : Prop, P \/ ~ P
+Chars 6299 - 6363 [Print~Assumptions~CertifiedPol...] 4.263 secs (4.263u,0.s)
+Axioms:
+ClassicalDedekindReals.sig_not_dec : forall P : Prop, {~ ~ P} + {~ P}
+ClassicalDedekindReals.sig_forall_dec :
+  forall P : nat -> Prop,
+  (forall n : nat, {P n} + {~ P n}) ->
+  {n : nat | ~ P n} + {forall n : nat, P n}
+Axioms.proof_irr : ClassicalFacts.proof_irrelevance
+Events.inline_assembly_sem :
+  String.string -> AST.signature -> Events.extcall_sem
+Events.inline_assembly_properties :
+  forall (id : String.string) (sg : AST.signature),
+  Events.extcall_properties (Events.inline_assembly_sem id sg) sg
+FunctionalExtensionality.functional_extensionality_dep :
+  forall (A : Type) (B : A -> Type) (f g : forall x : A, B x),
+  (forall x : A, f x = g x) -> f = g
+Events.external_functions_sem :
+  String.string -> AST.signature -> Events.extcall_sem
+Events.external_functions_properties :
+  forall (id : String.string) (sg : AST.signature),
+  Events.extcall_properties (Events.external_functions_sem id sg) sg
+Eqdep.Eq_rect_eq.eq_rect_eq :
+  forall (U : Type) (p : U) (Q : U -> Type) (x : Q p) (h : p = p),
+  x = eq_rect p Q x p h
+Classical_Prop.classic : forall P : Prop, P \/ ~ P
+Chars 6364 - 6423 [Print~Assumptions~CertifiedPol...] 4.36 secs (4.35u,0.009s)
+Axioms:
+ClassicalDedekindReals.sig_not_dec : forall P : Prop, {~ ~ P} + {~ P}
+ClassicalDedekindReals.sig_forall_dec :
+  forall P : nat -> Prop,
+  (forall n : nat, {P n} + {~ P n}) ->
+  {n : nat | ~ P n} + {forall n : nat, P n}
+Axioms.proof_irr : ClassicalFacts.proof_irrelevance
+FunctionalExtensionality.functional_extensionality_dep :
+  forall (A : Type) (B : A -> Type) (f g : forall x : A, B x),
+  (forall x : A, f x = g x) -> f = g
+Classical_Prop.classic : forall P : Prop, P \/ ~ P
+Chars 6424 - 6477 [Print~Assumptions~CertifiedExt...] 0.912 secs (0.912u,0.s)
+Axioms:
+ClassicalDedekindReals.sig_not_dec : forall P : Prop, {~ ~ P} + {~ P}
+ClassicalDedekindReals.sig_forall_dec :
+  forall P : nat -> Prop,
+  (forall n : nat, {P n} + {~ P n}) ->
+  {n : nat | ~ P n} + {forall n : nat, P n}
+FunctionalExtensionality.functional_extensionality_dep :
+  forall (A : Type) (B : A -> Type) (f g : forall x : A, B x),
+  (forall x : A, f x = g x) -> f = g
+Classical_Prop.classic : forall P : Prop, P \/ ~ P
+Chars 6478 - 6533 [Print~Assumptions~CertifiedExt...] 0.458 secs (0.458u,0.s)
+Axioms:
+ClassicalDedekindReals.sig_not_dec : forall P : Prop, {~ ~ P} + {~ P}
+ClassicalDedekindReals.sig_forall_dec :
+  forall P : nat -> Prop,
+  (forall n : nat, {P n} + {~ P n}) ->
+  {n : nat | ~ P n} + {forall n : nat, P n}
+Axioms.proof_irr : ClassicalFacts.proof_irrelevance
+FunctionalExtensionality.functional_extensionality_dep :
+  forall (A : Type) (B : A -> Type) (f g : forall x : A, B x),
+  (forall x : A, f x = g x) -> f = g
+Classical_Prop.classic : forall P : Prop, P \/ ~ P
+Chars 6534 - 6579 [Print~Assumptions~CertifiedExt...] 0.919 secs (0.919u,0.s)
+Axioms:
+ClassicalDedekindReals.sig_not_dec : forall P : Prop, {~ ~ P} + {~ P}
+ClassicalDedekindReals.sig_forall_dec :
+  forall P : nat -> Prop,
+  (forall n : nat, {P n} + {~ P n}) ->
+  {n : nat | ~ P n} + {forall n : nat, P n}
+Axioms.proof_irr : ClassicalFacts.proof_irrelevance
+Events.inline_assembly_sem :
+  String.string -> AST.signature -> Events.extcall_sem
+Events.inline_assembly_properties :
+  forall (id : String.string) (sg : AST.signature),
+  Events.extcall_properties (Events.inline_assembly_sem id sg) sg
+FunctionalExtensionality.functional_extensionality_dep :
+  forall (A : Type) (B : A -> Type) (f g : forall x : A, B x),
+  (forall x : A, f x = g x) -> f = g
+Events.external_functions_sem :
+  String.string -> AST.signature -> Events.extcall_sem
+Events.external_functions_properties :
+  forall (id : String.string) (sg : AST.signature),
+  Events.extcall_properties (Events.external_functions_sem id sg) sg
+Eqdep.Eq_rect_eq.eq_rect_eq :
+  forall (U : Type) (p : U) (Q : U -> Type) (x : Q p) (h : p = p),
+  x = eq_rect p Q x p h
+Classical_Prop.classic : forall P : Prop, P \/ ~ P
+Chars 6580 - 6639 [Print~Assumptions~CertifiedExt...] 4.457 secs (4.457u,0.s)
+Axioms:
+ClassicalDedekindReals.sig_not_dec : forall P : Prop, {~ ~ P} + {~ P}
+ClassicalDedekindReals.sig_forall_dec :
+  forall P : nat -> Prop,
+  (forall n : nat, {P n} + {~ P n}) ->
+  {n : nat | ~ P n} + {forall n : nat, P n}
+Axioms.proof_irr : ClassicalFacts.proof_irrelevance
+Events.inline_assembly_sem :
+  String.string -> AST.signature -> Events.extcall_sem
+Events.inline_assembly_properties :
+  forall (id : String.string) (sg : AST.signature),
+  Events.extcall_properties (Events.inline_assembly_sem id sg) sg
+FunctionalExtensionality.functional_extensionality_dep :
+  forall (A : Type) (B : A -> Type) (f g : forall x : A, B x),
+  (forall x : A, f x = g x) -> f = g
+Events.external_functions_sem :
+  String.string -> AST.signature -> Events.extcall_sem
+Events.external_functions_properties :
+  forall (id : String.string) (sg : AST.signature),
+  Events.extcall_properties (Events.external_functions_sem id sg) sg
+Eqdep.Eq_rect_eq.eq_rect_eq :
+  forall (U : Type) (p : U) (Q : U -> Type) (x : Q p) (h : p = p),
+  x = eq_rect p Q x p h
+Classical_Prop.classic : forall P : Prop, P \/ ~ P
+Chars 6640 - 6702 [Print~Assumptions~CertifiedExt...] 4.502 secs (4.491u,0.009s)
+Axioms:
+ClassicalDedekindReals.sig_not_dec : forall P : Prop, {~ ~ P} + {~ P}
+ClassicalDedekindReals.sig_forall_dec :
+  forall P : nat -> Prop,
+  (forall n : nat, {P n} + {~ P n}) ->
+  {n : nat | ~ P n} + {forall n : nat, P n}
+Axioms.proof_irr : ClassicalFacts.proof_irrelevance
+Events.inline_assembly_sem :
+  String.string -> AST.signature -> Events.extcall_sem
+Events.inline_assembly_properties :
+  forall (id : String.string) (sg : AST.signature),
+  Events.extcall_properties (Events.inline_assembly_sem id sg) sg
+FunctionalExtensionality.functional_extensionality_dep :
+  forall (A : Type) (B : A -> Type) (f g : forall x : A, B x),
+  (forall x : A, f x = g x) -> f = g
+Events.external_functions_sem :
+  String.string -> AST.signature -> Events.extcall_sem
+Events.external_functions_properties :
+  forall (id : String.string) (sg : AST.signature),
+  Events.extcall_properties (Events.external_functions_sem id sg) sg
+Eqdep.Eq_rect_eq.eq_rect_eq :
+  forall (U : Type) (p : U) (Q : U -> Type) (x : Q p) (h : p = p),
+  x = eq_rect p Q x p h
+Classical_Prop.classic : forall P : Prop, P \/ ~ P
+Chars 6703 - 6760 [Print~Assumptions~CertifiedExt...] 4.506 secs (4.495u,0.01s)
+Axioms:
+ClassicalDedekindReals.sig_not_dec : forall P : Prop, {~ ~ P} + {~ P}
+ClassicalDedekindReals.sig_forall_dec :
+  forall P : nat -> Prop,
+  (forall n : nat, {P n} + {~ P n}) ->
+  {n : nat | ~ P n} + {forall n : nat, P n}
+Axioms.proof_irr : ClassicalFacts.proof_irrelevance
+FunctionalExtensionality.functional_extensionality_dep :
+  forall (A : Type) (B : A -> Type) (f g : forall x : A, B x),
+  (forall x : A, f x = g x) -> f = g
+Classical_Prop.classic : forall P : Prop, P \/ ~ P
+Chars 6761 - 6821 [Print~Assumptions~CertifiedPol...] 0.897 secs (0.897u,0.s)
+Axioms:
+ClassicalDedekindReals.sig_not_dec : forall P : Prop, {~ ~ P} + {~ P}
+ClassicalDedekindReals.sig_forall_dec :
+  forall P : nat -> Prop,
+  (forall n : nat, {P n} + {~ P n}) ->
+  {n : nat | ~ P n} + {forall n : nat, P n}
+FunctionalExtensionality.functional_extensionality_dep :
+  forall (A : Type) (B : A -> Type) (f g : forall x : A, B x),
+  (forall x : A, f x = g x) -> f = g
+Classical_Prop.classic : forall P : Prop, P \/ ~ P
+Chars 6822 - 6884 [Print~Assumptions~CertifiedPol...] 0.457 secs (0.457u,0.s)
+Axioms:
+ClassicalDedekindReals.sig_not_dec : forall P : Prop, {~ ~ P} + {~ P}
+ClassicalDedekindReals.sig_forall_dec :
+  forall P : nat -> Prop,
+  (forall n : nat, {P n} + {~ P n}) ->
+  {n : nat | ~ P n} + {forall n : nat, P n}
+Axioms.proof_irr : ClassicalFacts.proof_irrelevance
+FunctionalExtensionality.functional_extensionality_dep :
+  forall (A : Type) (B : A -> Type) (f g : forall x : A, B x),
+  (forall x : A, f x = g x) -> f = g
+Classical_Prop.classic : forall P : Prop, P \/ ~ P
+Chars 6885 - 6937 [Print~Assumptions~CertifiedPol...] 0.905 secs (0.895u,0.009s)
+Axioms:
+ClassicalDedekindReals.sig_not_dec : forall P : Prop, {~ ~ P} + {~ P}
+ClassicalDedekindReals.sig_forall_dec :
+  forall P : nat -> Prop,
+  (forall n : nat, {P n} + {~ P n}) ->
+  {n : nat | ~ P n} + {forall n : nat, P n}
+Axioms.proof_irr : ClassicalFacts.proof_irrelevance
+Events.inline_assembly_sem :
+  String.string -> AST.signature -> Events.extcall_sem
+Events.inline_assembly_properties :
+  forall (id : String.string) (sg : AST.signature),
+  Events.extcall_properties (Events.inline_assembly_sem id sg) sg
+FunctionalExtensionality.functional_extensionality_dep :
+  forall (A : Type) (B : A -> Type) (f g : forall x : A, B x),
+  (forall x : A, f x = g x) -> f = g
+Events.external_functions_sem :
+  String.string -> AST.signature -> Events.extcall_sem
+Events.external_functions_properties :
+  forall (id : String.string) (sg : AST.signature),
+  Events.extcall_properties (Events.external_functions_sem id sg) sg
+Eqdep.Eq_rect_eq.eq_rect_eq :
+  forall (U : Type) (p : U) (Q : U -> Type) (x : Q p) (h : p = p),
+  x = eq_rect p Q x p h
+Classical_Prop.classic : forall P : Prop, P \/ ~ P
+Chars 6938 - 7004 [Print~Assumptions~CertifiedPol...] 6.347 secs (6.346u,0.s)
+Axioms:
+ClassicalDedekindReals.sig_not_dec : forall P : Prop, {~ ~ P} + {~ P}
+ClassicalDedekindReals.sig_forall_dec :
+  forall P : nat -> Prop,
+  (forall n : nat, {P n} + {~ P n}) ->
+  {n : nat | ~ P n} + {forall n : nat, P n}
+Axioms.proof_irr : ClassicalFacts.proof_irrelevance
+Events.inline_assembly_sem :
+  String.string -> AST.signature -> Events.extcall_sem
+Events.inline_assembly_properties :
+  forall (id : String.string) (sg : AST.signature),
+  Events.extcall_properties (Events.inline_assembly_sem id sg) sg
+FunctionalExtensionality.functional_extensionality_dep :
+  forall (A : Type) (B : A -> Type) (f g : forall x : A, B x),
+  (forall x : A, f x = g x) -> f = g
+Events.external_functions_sem :
+  String.string -> AST.signature -> Events.extcall_sem
+Events.external_functions_properties :
+  forall (id : String.string) (sg : AST.signature),
+  Events.extcall_properties (Events.external_functions_sem id sg) sg
+Eqdep.Eq_rect_eq.eq_rect_eq :
+  forall (U : Type) (p : U) (Q : U -> Type) (x : Q p) (h : p = p),
+  x = eq_rect p Q x p h
+Classical_Prop.classic : forall P : Prop, P \/ ~ P
+Chars 7005 - 7074 [Print~Assumptions~CertifiedPol...] 6.319 secs (6.308u,0.009s)
+Axioms:
+ClassicalDedekindReals.sig_not_dec : forall P : Prop, {~ ~ P} + {~ P}
+ClassicalDedekindReals.sig_forall_dec :
+  forall P : nat -> Prop,
+  (forall n : nat, {P n} + {~ P n}) ->
+  {n : nat | ~ P n} + {forall n : nat, P n}
+Axioms.proof_irr : ClassicalFacts.proof_irrelevance
+Events.inline_assembly_sem :
+  String.string -> AST.signature -> Events.extcall_sem
+Events.inline_assembly_properties :
+  forall (id : String.string) (sg : AST.signature),
+  Events.extcall_properties (Events.inline_assembly_sem id sg) sg
+FunctionalExtensionality.functional_extensionality_dep :
+  forall (A : Type) (B : A -> Type) (f g : forall x : A, B x),
+  (forall x : A, f x = g x) -> f = g
+Events.external_functions_sem :
+  String.string -> AST.signature -> Events.extcall_sem
+Events.external_functions_properties :
+  forall (id : String.string) (sg : AST.signature),
+  Events.extcall_properties (Events.external_functions_sem id sg) sg
+Eqdep.Eq_rect_eq.eq_rect_eq :
+  forall (U : Type) (p : U) (Q : U -> Type) (x : Q p) (h : p = p),
+  x = eq_rect p Q x p h
+Classical_Prop.classic : forall P : Prop, P \/ ~ P
+Chars 7075 - 7139 [Print~Assumptions~CertifiedPol...] 6.501 secs (6.5u,0.s)
+Axioms:
+ClassicalDedekindReals.sig_not_dec : forall P : Prop, {~ ~ P} + {~ P}
+ClassicalDedekindReals.sig_forall_dec :
+  forall P : nat -> Prop,
+  (forall n : nat, {P n} + {~ P n}) ->
+  {n : nat | ~ P n} + {forall n : nat, P n}
+Axioms.proof_irr : ClassicalFacts.proof_irrelevance
+FunctionalExtensionality.functional_extensionality_dep :
+  forall (A : Type) (B : A -> Type) (f g : forall x : A, B x),
+  (forall x : A, f x = g x) -> f = g
+Classical_Prop.classic : forall P : Prop, P \/ ~ P
+Chars 7140 - 7201 [Print~Assumptions~CertifiedSto...] 0.922 secs (0.922u,0.s)
+Axioms:
+ClassicalDedekindReals.sig_not_dec : forall P : Prop, {~ ~ P} + {~ P}
+ClassicalDedekindReals.sig_forall_dec :
+  forall P : nat -> Prop,
+  (forall n : nat, {P n} + {~ P n}) ->
+  {n : nat | ~ P n} + {forall n : nat, P n}
+FunctionalExtensionality.functional_extensionality_dep :
+  forall (A : Type) (B : A -> Type) (f g : forall x : A, B x),
+  (forall x : A, f x = g x) -> f = g
+Classical_Prop.classic : forall P : Prop, P \/ ~ P
+Chars 7202 - 7265 [Print~Assumptions~CertifiedSto...] 0.475 secs (0.475u,0.s)
+Axioms:
+ClassicalDedekindReals.sig_not_dec : forall P : Prop, {~ ~ P} + {~ P}
+ClassicalDedekindReals.sig_forall_dec :
+  forall P : nat -> Prop,
+  (forall n : nat, {P n} + {~ P n}) ->
+  {n : nat | ~ P n} + {forall n : nat, P n}
+Axioms.proof_irr : ClassicalFacts.proof_irrelevance
+FunctionalExtensionality.functional_extensionality_dep :
+  forall (A : Type) (B : A -> Type) (f g : forall x : A, B x),
+  (forall x : A, f x = g x) -> f = g
+Classical_Prop.classic : forall P : Prop, P \/ ~ P
+Chars 7266 - 7319 [Print~Assumptions~CertifiedSto...] 0.943 secs (0.943u,0.s)
+Axioms:
+ClassicalDedekindReals.sig_not_dec : forall P : Prop, {~ ~ P} + {~ P}
+ClassicalDedekindReals.sig_forall_dec :
+  forall P : nat -> Prop,
+  (forall n : nat, {P n} + {~ P n}) ->
+  {n : nat | ~ P n} + {forall n : nat, P n}
+Axioms.proof_irr : ClassicalFacts.proof_irrelevance
+Events.inline_assembly_sem :
+  String.string -> AST.signature -> Events.extcall_sem
+Events.inline_assembly_properties :
+  forall (id : String.string) (sg : AST.signature),
+  Events.extcall_properties (Events.inline_assembly_sem id sg) sg
+FunctionalExtensionality.functional_extensionality_dep :
+  forall (A : Type) (B : A -> Type) (f g : forall x : A, B x),
+  (forall x : A, f x = g x) -> f = g
+Events.external_functions_sem :
+  String.string -> AST.signature -> Events.extcall_sem
+Events.external_functions_properties :
+  forall (id : String.string) (sg : AST.signature),
+  Events.extcall_properties (Events.external_functions_sem id sg) sg
+Eqdep.Eq_rect_eq.eq_rect_eq :
+  forall (U : Type) (p : U) (Q : U -> Type) (x : Q p) (h : p = p),
+  x = eq_rect p Q x p h
+Classical_Prop.classic : forall P : Prop, P \/ ~ P
+Chars 7320 - 7387 [Print~Assumptions~CertifiedSto...] 6.516 secs (6.506u,0.009s)
+Axioms:
+ClassicalDedekindReals.sig_not_dec : forall P : Prop, {~ ~ P} + {~ P}
+ClassicalDedekindReals.sig_forall_dec :
+  forall P : nat -> Prop,
+  (forall n : nat, {P n} + {~ P n}) ->
+  {n : nat | ~ P n} + {forall n : nat, P n}
+Axioms.proof_irr : ClassicalFacts.proof_irrelevance
+Events.inline_assembly_sem :
+  String.string -> AST.signature -> Events.extcall_sem
+Events.inline_assembly_properties :
+  forall (id : String.string) (sg : AST.signature),
+  Events.extcall_properties (Events.inline_assembly_sem id sg) sg
+FunctionalExtensionality.functional_extensionality_dep :
+  forall (A : Type) (B : A -> Type) (f g : forall x : A, B x),
+  (forall x : A, f x = g x) -> f = g
+Events.external_functions_sem :
+  String.string -> AST.signature -> Events.extcall_sem
+Events.external_functions_properties :
+  forall (id : String.string) (sg : AST.signature),
+  Events.extcall_properties (Events.external_functions_sem id sg) sg
+Eqdep.Eq_rect_eq.eq_rect_eq :
+  forall (U : Type) (p : U) (Q : U -> Type) (x : Q p) (h : p = p),
+  x = eq_rect p Q x p h
+Classical_Prop.classic : forall P : Prop, P \/ ~ P
+Chars 7388 - 7458 [Print~Assumptions~CertifiedSto...] 6.571 secs (6.561u,0.01s)
+Axioms:
+ClassicalDedekindReals.sig_not_dec : forall P : Prop, {~ ~ P} + {~ P}
+ClassicalDedekindReals.sig_forall_dec :
+  forall P : nat -> Prop,
+  (forall n : nat, {P n} + {~ P n}) ->
+  {n : nat | ~ P n} + {forall n : nat, P n}
+Axioms.proof_irr : ClassicalFacts.proof_irrelevance
+Events.inline_assembly_sem :
+  String.string -> AST.signature -> Events.extcall_sem
+Events.inline_assembly_properties :
+  forall (id : String.string) (sg : AST.signature),
+  Events.extcall_properties (Events.inline_assembly_sem id sg) sg
+FunctionalExtensionality.functional_extensionality_dep :
+  forall (A : Type) (B : A -> Type) (f g : forall x : A, B x),
+  (forall x : A, f x = g x) -> f = g
+Events.external_functions_sem :
+  String.string -> AST.signature -> Events.extcall_sem
+Events.external_functions_properties :
+  forall (id : String.string) (sg : AST.signature),
+  Events.extcall_properties (Events.external_functions_sem id sg) sg
+Eqdep.Eq_rect_eq.eq_rect_eq :
+  forall (U : Type) (p : U) (Q : U -> Type) (x : Q p) (h : p = p),
+  x = eq_rect p Q x p h
+Classical_Prop.classic : forall P : Prop, P \/ ~ P
+Chars 7459 - 7524 [Print~Assumptions~CertifiedSto...] 6.514 secs (6.514u,0.s)

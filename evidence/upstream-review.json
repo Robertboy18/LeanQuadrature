@@ -1,0 +1,157 @@
+{
+  "updated_at": "2026-09-23T18:22:17.656719+00:00",
+  "kind": "Index of the source review and supporting checks",
+  "report": "docs/review.md",
+  "upstream_revision": "e79a28dba247db9f934289bcf4e4debd5eebc884",
+  "laproof_revision": "4286f63f456e47ea9da25d9474ca7f3e20523784",
+  "original_paper": {
+    "url": "https://www.cs.princeton.edu/~appel/papers/Quadrature.pdf",
+    "sha256": "165ac5c1eab5e266f618f8b47ad77fc66ff13bb9cf2c6c52fabab21d24ef01fc",
+    "bytes": 967072,
+    "last_download_checked_at": "2026-09-22T18:58:45.203024+00:00",
+    "title": "Formalization of Gaussian Quadrature and Application Verification (Preliminary Draft)"
+  },
+  "original_paper_scope": "The preliminary author PDF dated September 22, 2026, identified by this hash. The four numerical and indexing findings remain in this copy. Admitted lemmas represent unfinished work. The public source revision is named above; this review does not cover unpublished source or later revisions.",
+  "findings": [
+    {
+      "name": "Missing strict interval hypothesis",
+      "source": "proof/quadrature.v:Rintegral_gt_0",
+      "evidence": [
+        "Quadrature/Examples/IntegralPositivity.lean",
+        "scripts/upstream/MathematicalAudit.v"
+      ],
+      "result": "The constant function one on [0,0] satisfies the stated premises and has integral zero.",
+      "native_diagnostic": "A separate Rocq theorem derives False using the original admission; its report retains the admission and the singleton-integral theorem's logical assumptions.",
+      "scope": "The use in sqr_poly_positive already has a < b. The diagnostic is not imported by our program certificates."
+    },
+    {
+      "name": "Wrong identifier in the Hughes weight specification",
+      "source": "proof/C/spec_quadrules.v:hughes_weight_spec",
+      "evidence": [
+        "scripts/upstream/SpecAudit.v"
+      ],
+      "result": "The specification declares _gauss2d_weight. The high-level interface repeats that identifier and omits _hughes_weight.",
+      "scope": "Retagging preserves the existing body proof. A VSU would check caller/callee specification compatibility and the exported interface. A corrected whole quadrature interface has not been assembled and verified here."
+    },
+    {
+      "name": "Callback body proof absent",
+      "source": "proof/C/verif_quadrules.v",
+      "result": "The quadrature source has ten internal Clight functions and nine body lemmas; no body_testfun is present.",
+      "scope": "A proof coverage gap, not a demonstrated incorrect callback evaluation."
+    },
+    {
+      "name": "Two false admitted overflow-helper inequalities",
+      "source": "proof/quadmodel_accuracy.v",
+      "evidence": [
+        "Quadrature/Examples/Overflow.lean",
+        "evidence/upstream-numerical-checked.json"
+      ],
+      "result": "The one-node summation helper and zero-node product helper fail at witnesses satisfying parameter_limits. The product helper holds at the one-node witness.",
+      "scope": "Manually transcribed real inequalities, with dependency definitions inspected. The zero callbacks do not overflow."
+    },
+    {
+      "name": "Numerical and indexing findings independently rechecked",
+      "evidence": [
+        "evidence/upstream-numerical-checked.json"
+      ],
+      "result": "The two-point 0.00223 bound, one-point 0.02 bound, mixed remainder indexing, and outer three-point table mismatch persist.",
+      "scope": "For n nodes the derivative order is 2n; two nodes require the fourth derivative. The middle weight spellings produce the same bits."
+    },
+    {
+      "name": "Weight upper bound misstated in the prose",
+      "source": "Author PDF, page 4, paragraph 18; proof/quadrature.v:gauss_weight_leq_1",
+      "evidence": [
+        "Quadrature/Analysis/Weighted.lean",
+        "Quadrature/Rules/Basic.lean"
+      ],
+      "result": "The quoted discussion says each weight is at most one. The correct bound is the total integral mass; the sole weight of the one-point Legendre rule on [-1,1] is two.",
+      "scope": "The original Rocq theorem statement already has the correct integral bound. This is a prose discrepancy, separate from the four numerical and indexing findings."
+    }
+  ],
+  "validation": {
+    "lean": {
+      "file": "evidence/lean-quality.json",
+      "sha256": "a9c0f21652e34af0a556ad2211719ee2b4e1cac0b78ad3573ae5a3795841bb02"
+    },
+    "original_vst": {
+      "file": "evidence/upstream-vst-verified.json",
+      "sha256": "cfd81f75db0a1434071dcf25fb3b55bb91f47e778d84260efd82ccdb7c0831a1"
+    },
+    "unmodified_build_failure": {
+      "file": "evidence/upstream-vst-checked.json",
+      "sha256": "e8b9397f846e4a9dbb428fa95c1a64c9af1a913636ec6ea024703dc3dd23e7aa"
+    },
+    "c_regression": {
+      "file": "evidence/upstream-c-checked.json",
+      "sha256": "2ad5b2258fc8971db387af40ca1d6f244ec7f4d1b9f6fa523035ca6b5bc74cb5"
+    },
+    "rational_numerical_check": {
+      "file": "evidence/upstream-numerical-checked.json",
+      "sha256": "7f19a2a4124f9f2704c489613f3c8a8f1bca90c3c1cc0d5280db3043e0907612"
+    },
+    "configured_compcert": {
+      "file": "evidence/independent-review-rocq.json",
+      "sha256": "a3fabb8530e35ffafd01bee7f12994784540bc2cdd984682c6a57b5f0e824681"
+    },
+    "rocq_source_coverage": {
+      "file": "evidence/independent-review-rocq-coverage.json",
+      "sha256": "dfc5d6ef0647c5e297900cca1d447d81af4dc8bf9ce7242426c3f57834b42b04"
+    },
+    "exceptional_values": {
+      "file": "evidence/exceptional-values.json",
+      "sha256": "dc6a38f7d8d2dd7eafbf0198c64cc6859f6c40e9b05d2cddb38aa630829bcc0d"
+    },
+    "paper": {
+      "file": "evidence/paper-checks.json",
+      "sha256": "0264f0b323e9b30d772a71e84a3f04f68b929fbd2017e6b90b56e7b33385efb5"
+    },
+    "website": {
+      "file": "evidence/website-checks.json",
+      "sha256": "e1e81bfedf24424fa3229bb406f7a57c102a4bbd5564d46eaa24fe23bc046371"
+    }
+  },
+  "scope": "This index links each finding and source-attribution discussion to its supporting records. Each record identifies its own inputs, check date, and scope. Updating this index does not rerun the existing numerical, VST, or compiler checks.",
+  "remaining_limits": [
+    "No claim that either codebase is free of all other errors.",
+    "The original admitted statements remain in the original-source rebuild; false hypotheses do not become valid because a dependent proof compiles.",
+    "The committed Apple AArch64 Clight syntax was checked using an x86-64 CompCert configuration; the original C-to-Clight translation and native executable were not regenerated and verified.",
+    "No complete original quadrature VSU or whole-program VST certificate is claimed.",
+    "Kernel checks do not prove that every definition faithfully captures the intended model.",
+    "General mathematics covers compact intervals with the stated weight hypotheses; infinite intervals are outside this proof.",
+    "General floating-point theorems retain callback accuracy and range hypotheses.",
+    "The original external-cosine variant retains its cosine contract. The selected polynomial library has initialized total-correctness and C-to-Clight normalization proofs, but a general parser/elaborator theorem, including preprocessing and local static-array handling, remains open.",
+    "The assembly proofs start from authored initialized Clight applications with internal callbacks, checked separately in Lean and Rocq. Their composition with the normalized C library remains unproved.",
+    "A general Lean/Rocq interpretation and the native assembly/encoding/linking/output chain remain open.",
+    "Independent rational evaluation forgets zero signs; it does not replace the complete floating-point semantics.",
+    "C sanitizer tests cover the recorded finite set of inputs, not every input."
+  ],
+  "review_context": {
+    "preliminary_development": "The review distinguishes false statements, admitted proof obligations, and pending program-module composition. LeanQuadrature is a separate reconstruction and does not complete or modify the original Rocq proofs.",
+    "public_derivative_bound_work": {
+      "source": "proof/g_max_deriv.v",
+      "url": "https://github.com/VeriNum/simple_cfem/blob/e79a28dba247db9f934289bcf4e4debd5eebc884/proof/g_max_deriv.v",
+      "sha256": "605b896a0b85774e4984b6920b0bc13a55e08a112345aea45efbd09196bdd54c",
+      "present_in_examined_revision": true,
+      "statement": "On a fixed interval lo < hi, fbound bounds the function on that interval and deriv_bound requires differentiability and an absolute derivative bound there. The perturbation conclusion requires both x and x+y to lie in the interval.",
+      "proof_status": "g_max_deriv ends in Qed but uses g_max_deriv_oneway, which ends in Admitted. Other admissions remain. The file is separate from the integrated quadrature proofs.",
+      "scope": "Source inspection of ongoing public work; not a claim that the revised derivative-bound development is complete."
+    },
+    "software_unit_composition": {
+      "source": "https://github.com/PrincetonUniversity/VST/blob/v2.16/floyd/VSU.v",
+      "sha256": "96b4936db7769977b1d4d478d223190df0b0d04b7fcdd3dfc3f8470f742555bf",
+      "relevant_definitions": [
+        "VSU_of_Component",
+        "VSU_MkInitPred",
+        "VSU_initializer",
+        "WholeComponent_semax_prog"
+      ],
+      "role": "Verified Software Units check compatibility of imported and exported function specifications. Whole-program assembly also connects initialized globals to the program precondition. The table and Hughes-identifier discrepancies concern these composition obligations; individual function-body proofs do not establish the assembled program.",
+      "scope": "Explanation of the existing VST mechanism. This project does not supply a completed original quadrature VSU."
+    },
+    "mathematical_attribution": {
+      "file": "docs/stewart-comparison.md",
+      "sha256": "7c419de5f13f4a38f34b5d537a554e143d0b6dc8eb8d37fdd7a45781af0d911a",
+      "scope": "All 24 numbered paragraphs compared with the pinned LeanPDE revision and LeanQuadrature, with exact hypotheses and omitted or bypassed arguments stated."
+    }
+  }
+}

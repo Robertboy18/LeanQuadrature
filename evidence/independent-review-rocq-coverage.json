@@ -1,0 +1,578 @@
+{
+  "kind": "Current Rocq sources compared with retained validation hashes",
+  "current_file_count": 72,
+  "scope": "All 72 current Rocq source files have the hashes recorded by their linked checks. This comparison does not rerun Rocq. The configured compiler build in independent-review-rocq.json covers 31 project/certificate files; the other files are covered by separate checks.",
+  "files": {
+    "compcert/AnnotatedBehavior.v": {
+      "sha256": "b3084d1a0a8ec8ac4570a3459b661f65e5ed56c2a4bced5922dc24994d2c6c74",
+      "matching_records": [
+        "evidence/assembly-certificate.json",
+        "evidence/clight-proof.json",
+        "evidence/independent-review-rocq.json"
+      ]
+    },
+    "compcert/ApplicationAccuracy.v": {
+      "sha256": "0ca1930d7f437acbe233414b7d2890e6e2be85a7f319150bfb7962968b20c1bd",
+      "matching_records": [
+        "evidence/assembly-certificate.json",
+        "evidence/clight-proof.json",
+        "evidence/independent-review-rocq.json"
+      ]
+    },
+    "compcert/AsmApplication.v": {
+      "sha256": "ac6a55f064457fcb60b35400cc6e84180c24aba17b2f88949834c933bac03e24",
+      "matching_records": [
+        "evidence/assembly-certificate.json",
+        "evidence/clight-proof.json",
+        "evidence/independent-review-rocq.json"
+      ]
+    },
+    "compcert/CallbackAccuracy.v": {
+      "sha256": "534425d9246f8444130c7fd16864f5aad928894eb4fff38e96133e6307a409c4",
+      "matching_records": [
+        "evidence/clight-integral.json",
+        "evidence/clight-roundoff.json"
+      ]
+    },
+    "compcert/ClightAccuracy.v": {
+      "sha256": "faf5ab964a22b4f88faeee0c69af897735877e1b084171e83b20b56c3769c07b",
+      "matching_records": [
+        "evidence/clight-integral.json",
+        "evidence/clight-roundoff.json"
+      ]
+    },
+    "compcert/ClightApplication.v": {
+      "sha256": "bfe3c4de52806d4f8263d631b99e280f44008c1384d08cbd91b525f7f75930aa",
+      "matching_records": [
+        "evidence/assembly-certificate.json",
+        "evidence/clight-proof.json",
+        "evidence/independent-review-rocq.json"
+      ]
+    },
+    "compcert/ClightDeterminism.v": {
+      "sha256": "ec4d708133e8d9a18d02d77227a57c4be0b82aa9d4f59e9c7e2f92ab27325e3b",
+      "matching_records": [
+        "evidence/assembly-certificate.json",
+        "evidence/clight-integral.json",
+        "evidence/clight-proof.json",
+        "evidence/clight-roundoff.json",
+        "evidence/independent-review-rocq.json"
+      ]
+    },
+    "compcert/ClightExample.v": {
+      "sha256": "5c159c36907a4af14be01e9955e98ef67bd3f84208e283385457580da723d395",
+      "matching_records": [
+        "evidence/assembly-certificate.json",
+        "evidence/clight-integral.json",
+        "evidence/clight-proof.json",
+        "evidence/clight-roundoff.json",
+        "evidence/independent-review-rocq.json"
+      ]
+    },
+    "compcert/ClightInteger.v": {
+      "sha256": "84930bf6c464cba0ad013f2c58723dec4788112fab422e182e139dd29b539c60",
+      "matching_records": [
+        "evidence/clight-integral.json",
+        "evidence/clight-roundoff.json"
+      ]
+    },
+    "compcert/ClightIntegralAccuracy.v": {
+      "sha256": "21baccaa5b0b6f707ce2b7e9cda89851a8cf7feef0b7ab9e0ef171ae08083a87",
+      "matching_records": [
+        "evidence/clight-integral.json"
+      ]
+    },
+    "compcert/ClightLibrary.v": {
+      "sha256": "0575b77104bdf88ce2d50a4eb849eb69e617715bf1177e5aba98e6d2a3a792e1",
+      "matching_records": [
+        "evidence/assembly-certificate.json",
+        "evidence/clight-proof.json",
+        "evidence/independent-review-rocq.json"
+      ]
+    },
+    "compcert/ClightRepresentation.v": {
+      "sha256": "8efcf5b2b6559d982de8d07e2616ba5325fc8a22e5ad7e8cdca292673d9b9c42",
+      "matching_records": [
+        "evidence/clight-integral.json",
+        "evidence/clight-roundoff.json"
+      ]
+    },
+    "compcert/ClightRoundoff.v": {
+      "sha256": "e402a3d551402b66cc5f4fede82c135c7dea73bb21115734008c1e6cd2cb45b7",
+      "matching_records": [
+        "evidence/clight-integral.json",
+        "evidence/clight-roundoff.json"
+      ]
+    },
+    "compcert/ClightRules.v": {
+      "sha256": "649fc962ab9aa8a20723e9cb750bd13ee44bfa2d41b9b48e1f00dae5ae97decd",
+      "matching_records": [
+        "evidence/assembly-certificate.json",
+        "evidence/clight-integral.json",
+        "evidence/clight-proof.json",
+        "evidence/clight-roundoff.json",
+        "evidence/independent-review-rocq.json"
+      ]
+    },
+    "compcert/ClightSafety.v": {
+      "sha256": "c84d34afb2838ac58dcc834fd74f02e3a2cae331b07196d6d13372afe50f3a37",
+      "matching_records": [
+        "evidence/assembly-certificate.json",
+        "evidence/clight-integral.json",
+        "evidence/clight-proof.json",
+        "evidence/clight-roundoff.json",
+        "evidence/independent-review-rocq.json"
+      ]
+    },
+    "compcert/CminorApplication.v": {
+      "sha256": "b75741b8d6a79711e7956e03dd4c78832382da1d20e441ffd5a39e86b80782ea",
+      "matching_records": [
+        "evidence/assembly-certificate.json",
+        "evidence/clight-proof.json",
+        "evidence/independent-review-rocq.json"
+      ]
+    },
+    "compcert/CminorExample.v": {
+      "sha256": "b13ecb83e44edc200dd2f90cb10e819c40f0ad42326bf8bf5f248db02d47316d",
+      "matching_records": [
+        "evidence/assembly-certificate.json",
+        "evidence/clight-integral.json",
+        "evidence/clight-proof.json",
+        "evidence/independent-review-rocq.json"
+      ]
+    },
+    "compcert/CminorIntegralAccuracy.v": {
+      "sha256": "cda6c22f5d25a263be43a9f41f832756d1f246ed62da2139c97406fff8282c13",
+      "matching_records": [
+        "evidence/clight-integral.json"
+      ]
+    },
+    "compcert/CminorSafety.v": {
+      "sha256": "11e9aa4089744f2c56947981085d9cd00144bce82626af7b685ba685f45355e8",
+      "matching_records": [
+        "evidence/clight-integral.json"
+      ]
+    },
+    "compcert/CompilerBackend.v": {
+      "sha256": "ad13977419109a1f98e6b9c64ea2e5c33fc4a8d485ab1a6356b6dd3f9955be49",
+      "matching_records": [
+        "evidence/assembly-certificate.json",
+        "evidence/clight-proof.json",
+        "evidence/independent-review-rocq.json"
+      ]
+    },
+    "compcert/CsharpminorExample.v": {
+      "sha256": "5bfdbd8b338277c477db151fdd30d0ba27ee058235db92d212e2ef499f3976cf",
+      "matching_records": [
+        "evidence/assembly-certificate.json",
+        "evidence/clight-integral.json",
+        "evidence/clight-proof.json",
+        "evidence/independent-review-rocq.json"
+      ]
+    },
+    "compcert/EqualityAsm.v": {
+      "sha256": "38145de1552863087e8deed2af38c5675930463837ea8f45f4b2779a41de1e16",
+      "matching_records": [
+        "evidence/asm-import.json"
+      ]
+    },
+    "compcert/EqualityCminorSel.v": {
+      "sha256": "fa98114c9f2e41826fe765d88e29d6b3bce872a643bef13f1d14d942a3616d04",
+      "matching_records": [
+        "evidence/asm-import.json",
+        "evidence/cminorsel-import.json",
+        "evidence/linear-import.json",
+        "evidence/ltl-import.json",
+        "evidence/mach-import.json",
+        "evidence/mach-return-addresses.json",
+        "evidence/rtl-import.json",
+        "evidence/rtl-preallocation-import.json"
+      ]
+    },
+    "compcert/EqualityLTL.v": {
+      "sha256": "4a7a3ef1c8931d36449f2dbe8d70336cba3e568b44798b7068001b1e5da3a685",
+      "matching_records": [
+        "evidence/asm-import.json",
+        "evidence/linear-import.json",
+        "evidence/ltl-import.json",
+        "evidence/mach-import.json",
+        "evidence/mach-return-addresses.json"
+      ]
+    },
+    "compcert/EqualityLinear.v": {
+      "sha256": "bfc423ac15dbdbf2f16c080975c89cc74c0b5553ea5d7aadbfd4e88147efa1a4",
+      "matching_records": [
+        "evidence/asm-import.json",
+        "evidence/linear-import.json",
+        "evidence/mach-import.json",
+        "evidence/mach-return-addresses.json"
+      ]
+    },
+    "compcert/EqualityMach.v": {
+      "sha256": "c781ad8ea8ca4c77de956f4a062ff3fce9ade980949db5c10198970a65404ad8",
+      "matching_records": [
+        "evidence/asm-import.json",
+        "evidence/mach-import.json",
+        "evidence/mach-return-addresses.json"
+      ]
+    },
+    "compcert/EqualityRTL.v": {
+      "sha256": "7aaa6afc530b59cbcc3f0df071e69a60e55ad8c15deb03bd55ec90c1078e3b97",
+      "matching_records": [
+        "evidence/asm-import.json",
+        "evidence/linear-import.json",
+        "evidence/ltl-import.json",
+        "evidence/mach-import.json",
+        "evidence/mach-return-addresses.json",
+        "evidence/rtl-import.json",
+        "evidence/rtl-preallocation-import.json"
+      ]
+    },
+    "compcert/ExampleIntegral.v": {
+      "sha256": "15cd13d3f7a93db293ba0485f9f724a52d2ad3c9d0b27f5062dfd1a88c0f5c40",
+      "matching_records": [
+        "evidence/assembly-certificate.json",
+        "evidence/clight-proof.json",
+        "evidence/independent-review-rocq.json"
+      ]
+    },
+    "compcert/ExceptionalValues.v": {
+      "sha256": "9cba6732ed5f82f4556682531a08a85e49ac08fbcf8ae4c60c7dd2d96741e10c",
+      "matching_records": [
+        "evidence/exceptional-values.json"
+      ]
+    },
+    "compcert/ExportAsm.v": {
+      "sha256": "a673842657078a82464a692b9f070eea94e94b039cab9b03a76eddbd2c3b1fbd",
+      "matching_records": [
+        "evidence/asm-import.json"
+      ]
+    },
+    "compcert/ExportCminor.v": {
+      "sha256": "049efe7199741fd11543f8deed3e53ca78f11f87b7c9c8055c140cb79d0fd047",
+      "matching_records": [
+        "evidence/asm-import.json",
+        "evidence/cminor-import.json",
+        "evidence/cminorsel-import.json",
+        "evidence/linear-import.json",
+        "evidence/ltl-import.json",
+        "evidence/mach-import.json",
+        "evidence/mach-return-addresses.json",
+        "evidence/rtl-import.json",
+        "evidence/rtl-preallocation-import.json"
+      ]
+    },
+    "compcert/ExportCminorSel.v": {
+      "sha256": "b137663c56bd7d4009bcd9b9c770c657560e1aac19ee9c3722f9b10f458dcedf",
+      "matching_records": [
+        "evidence/asm-import.json",
+        "evidence/cminorsel-import.json",
+        "evidence/linear-import.json",
+        "evidence/ltl-import.json",
+        "evidence/mach-import.json",
+        "evidence/mach-return-addresses.json",
+        "evidence/rtl-import.json",
+        "evidence/rtl-preallocation-import.json"
+      ]
+    },
+    "compcert/ExportLTL.v": {
+      "sha256": "48cb188b4e5e6d0fdfda22b683a87180be46c6f62c9475e054428ba85673d8b3",
+      "matching_records": [
+        "evidence/asm-import.json",
+        "evidence/linear-import.json",
+        "evidence/ltl-import.json",
+        "evidence/mach-import.json",
+        "evidence/mach-return-addresses.json"
+      ]
+    },
+    "compcert/ExportLinear.v": {
+      "sha256": "8ffe47a4706d6ef9a58508325adb307e0f78c2bb9838c6c6f031db5082d55174",
+      "matching_records": [
+        "evidence/asm-import.json",
+        "evidence/linear-import.json",
+        "evidence/mach-import.json",
+        "evidence/mach-return-addresses.json"
+      ]
+    },
+    "compcert/ExportMach.v": {
+      "sha256": "5358cba02140697820f194a9c42a825013f086a686ba1675bb6180e292517450",
+      "matching_records": [
+        "evidence/asm-import.json",
+        "evidence/mach-import.json",
+        "evidence/mach-return-addresses.json"
+      ]
+    },
+    "compcert/ExportMachReturnAddresses.v": {
+      "sha256": "ab53066ee2148e9ab07a67a7daf96c652456e66eb4384eff94f9ee485819c851",
+      "matching_records": [
+        "evidence/mach-return-addresses.json"
+      ]
+    },
+    "compcert/ExportRTL.v": {
+      "sha256": "fb025c06a892a4abfc491a9479302be0118f831e740262782778028cc9ce8070",
+      "matching_records": [
+        "evidence/asm-import.json",
+        "evidence/linear-import.json",
+        "evidence/ltl-import.json",
+        "evidence/mach-import.json",
+        "evidence/mach-return-addresses.json",
+        "evidence/rtl-import.json",
+        "evidence/rtl-preallocation-import.json"
+      ]
+    },
+    "compcert/FiniteArithmetic.v": {
+      "sha256": "7c3b74a773d2ed3dfaf3fcf7bb44d79d9ac93d993b14484ddf78a67e6577c62b",
+      "matching_records": [
+        "evidence/assembly-certificate.json",
+        "evidence/clight-integral.json",
+        "evidence/clight-roundoff.json",
+        "evidence/independent-review-rocq.json"
+      ]
+    },
+    "compcert/FiniteInteger.v": {
+      "sha256": "4213d370fdf8adfd434675009ea63e56ec2bec152a09f5f8e2f011fc4d1beaca",
+      "matching_records": [
+        "evidence/clight-integral.json",
+        "evidence/clight-roundoff.json"
+      ]
+    },
+    "compcert/FiniteRepresentation.v": {
+      "sha256": "f5eddfdac76018584524f8ff789a0ff20bbf3eec27f74b3ba08f0911ae5be983",
+      "matching_records": [
+        "evidence/clight-integral.json",
+        "evidence/clight-roundoff.json"
+      ]
+    },
+    "compcert/HermiteInterpolation.v": {
+      "sha256": "71811e187fa6e03e4677672721478c5d4f1400fab0b0f7429f345f034dccdb8d",
+      "matching_records": [
+        "evidence/clight-integral.json"
+      ]
+    },
+    "compcert/HermiteRemainder.v": {
+      "sha256": "c7893bc3900d7df0470ec472a4df6eafa10770b2edfcb6596f2b4a4171ea4748",
+      "matching_records": [
+        "evidence/clight-integral.json"
+      ]
+    },
+    "compcert/HermiteRolle.v": {
+      "sha256": "777a316a1a9629a46899450a31d568d7648435ee44fe7d8c1c73b359c4eb5b00",
+      "matching_records": [
+        "evidence/clight-integral.json"
+      ]
+    },
+    "compcert/IntegerRounding.v": {
+      "sha256": "2224f2b2ee67c331a59a7bc677638520bbeca8f0987ab0bcf963faeab440b848",
+      "matching_records": [
+        "evidence/clight-integral.json",
+        "evidence/clight-roundoff.json"
+      ]
+    },
+    "compcert/InternalCosine.v": {
+      "sha256": "ab5e9b554712a85847394af843dc1158ea1dede327cc82206306252cf5f06a80",
+      "matching_records": [
+        "evidence/assembly-certificate.json",
+        "evidence/clight-proof.json",
+        "evidence/independent-review-rocq.json"
+      ]
+    },
+    "compcert/LTLAfterAllocation.v": {
+      "sha256": "b0f063273c6a82cb32b87899ca28c1f71a53cccf1f895356613f2875ccffeaad",
+      "matching_records": [
+        "evidence/asm-import.json",
+        "evidence/linear-import.json",
+        "evidence/ltl-import.json",
+        "evidence/mach-import.json",
+        "evidence/mach-return-addresses.json"
+      ]
+    },
+    "compcert/LinearBeforeStacking.v": {
+      "sha256": "ef0ffbf4a055d3abaee8d01471e5489226d735d38dfaaaaa2bc77be37564bbfd",
+      "matching_records": [
+        "evidence/asm-import.json",
+        "evidence/linear-import.json",
+        "evidence/mach-import.json",
+        "evidence/mach-return-addresses.json"
+      ]
+    },
+    "compcert/MachAfterStacking.v": {
+      "sha256": "37075b5f4f277fac3a91cb663431e34bcf8567164804d128d026ae72da60fd30",
+      "matching_records": [
+        "evidence/asm-import.json",
+        "evidence/mach-import.json",
+        "evidence/mach-return-addresses.json"
+      ]
+    },
+    "compcert/MachReturnAddressTable.v": {
+      "sha256": "0fc19795d6f47180a1f7c08add73c69cb342a25edad71cd8a9021403c9626d7c",
+      "matching_records": [
+        "evidence/mach-return-addresses.json"
+      ]
+    },
+    "compcert/MachReturnAddresses.v": {
+      "sha256": "fc0c996d70a68ddf34c6b309b93e5f8ea6684d515341dabcf1b13e8e561be042",
+      "matching_records": [
+        "evidence/asm-import.json",
+        "evidence/mach-import.json",
+        "evidence/mach-return-addresses.json"
+      ]
+    },
+    "compcert/PolynomialAccuracy.v": {
+      "sha256": "0c7662591ba3299f2ce232a6cf88789e664a86f36c8d798a88d21e6bb7aa34fd",
+      "matching_records": [
+        "evidence/clight-integral.json"
+      ]
+    },
+    "compcert/PolynomialApplication.v": {
+      "sha256": "a8b8aad595818842bb83a20239e491ff378bbb98f0944ac64bf4ae6d7eb4fd66",
+      "matching_records": [
+        "evidence/assembly-certificate.json",
+        "evidence/clight-proof.json",
+        "evidence/independent-review-rocq.json"
+      ]
+    },
+    "compcert/PolynomialCompilation.v": {
+      "sha256": "53147848695f0d1e7928eb6f80d31fd00ee6920ac036f1c6b2c1a740300c9c7f",
+      "matching_records": [
+        "evidence/assembly-certificate.json",
+        "evidence/clight-proof.json",
+        "evidence/independent-review-rocq.json"
+      ]
+    },
+    "compcert/PolynomialRules.v": {
+      "sha256": "42e0885b69730f4aa2e8d2586335a0d11f3e8e19708fca442eab714918bd7069",
+      "matching_records": [
+        "evidence/assembly-certificate.json",
+        "evidence/independent-review-rocq.json"
+      ]
+    },
+    "compcert/PolynomialRulesAccuracy.v": {
+      "sha256": "571fe49bafaa48d1a5ecd44969e5a065ee169a677539b6b70301e9d660274cd2",
+      "matching_records": [
+        "evidence/assembly-certificate.json",
+        "evidence/independent-review-rocq.json"
+      ]
+    },
+    "compcert/PolynomialRulesCompilation.v": {
+      "sha256": "289a43f64855487a5162917647af5635feb2f91cf9963c9b9b374949bfdf9292",
+      "matching_records": [
+        "evidence/assembly-certificate.json",
+        "evidence/independent-review-rocq.json"
+      ]
+    },
+    "compcert/RTLPreallocation.v": {
+      "sha256": "c6e3d90494269a823d35a2e729b661955a1e4ff8a64599fc566f6994d14bbe16",
+      "matching_records": [
+        "evidence/asm-import.json",
+        "evidence/linear-import.json",
+        "evidence/ltl-import.json",
+        "evidence/mach-import.json",
+        "evidence/mach-return-addresses.json",
+        "evidence/rtl-preallocation-import.json"
+      ]
+    },
+    "compcert/RealPolynomials.v": {
+      "sha256": "880bbb44a7e658122e25c27f9bb8db1d30c104c45db7b34c37d6d5a4e8aef775",
+      "matching_records": [
+        "evidence/clight-integral.json"
+      ]
+    },
+    "compcert/RuleLibrary.v": {
+      "sha256": "55cbe2fcf1937839c1f159e108e9699c26260451d762971a6fea1c9faab0a5ec",
+      "matching_records": [
+        "evidence/assembly-certificate.json",
+        "evidence/independent-review-rocq.json"
+      ]
+    },
+    "compcert/SharpAccuracy.v": {
+      "sha256": "2127f2182e931ed573fc7ba0fa40c599f70bd1c95f3d6d29a36156b57dac9ed0",
+      "matching_records": [
+        "evidence/clight-integral.json"
+      ]
+    },
+    "compcert/SilentTermination.v": {
+      "sha256": "33d6d7f8a7f9de859196f3d970fc5b02eb0bbd7225c2d8046e1fdddc6fbf17b9",
+      "matching_records": [
+        "evidence/clight-integral.json"
+      ]
+    },
+    "compcert/StoredPolynomialAccuracy.v": {
+      "sha256": "ebab634b033e82dea393dd50196da7dcb4c2f21471c01bacb992703b279b6e14",
+      "matching_records": [
+        "evidence/assembly-certificate.json",
+        "evidence/independent-review-rocq.json"
+      ]
+    },
+    "compcert/StoredPolynomialCompilation.v": {
+      "sha256": "18c7974809ef87e791aba6126ba4c8b19c79aeb75b2ee34ef5a35143d08bc61a",
+      "matching_records": [
+        "evidence/assembly-certificate.json",
+        "evidence/independent-review-rocq.json"
+      ]
+    },
+    "compcert/StoredPolynomialRules.v": {
+      "sha256": "4e1c90e1d238da09200e8967bd4f2aa4ef2764597e110ccb6473c9d59f1b889f",
+      "matching_records": [
+        "evidence/assembly-certificate.json",
+        "evidence/independent-review-rocq.json"
+      ]
+    },
+    "compcert/StoredRules.v": {
+      "sha256": "354440c3c8b46a3d68947ab2f4ac8264c3fb86ef31776e4b3f226dfddde19a5e",
+      "matching_records": [
+        "evidence/assembly-certificate.json",
+        "evidence/independent-review-rocq.json"
+      ]
+    },
+    "compcert/TableAccuracy.v": {
+      "sha256": "be3f46f20bdabe63b3d89f5872fec86569bd71790c24a073f3041119343fe6f0",
+      "matching_records": [
+        "evidence/clight-integral.json",
+        "evidence/clight-roundoff.json"
+      ]
+    },
+    "compcert/TaylorAccuracy.v": {
+      "sha256": "81ed6f2d29a1453de023889f3e40699cd75690c0f1f0e988e985db17b9142aa1",
+      "matching_records": [
+        "evidence/clight-integral.json"
+      ]
+    },
+    "compcert/ValueAccuracy.v": {
+      "sha256": "164446ab69f3d9b6c778c11918251152c04d830c6b574db6ca0cbca8eee8ac74",
+      "matching_records": [
+        "evidence/assembly-certificate.json",
+        "evidence/clight-proof.json",
+        "evidence/independent-review-rocq.json"
+      ]
+    },
+    "compcert/certification/CertifiedExternal.v": {
+      "sha256": "28f1b48a06fc325053a6289b74d2e0d47dc0147154559f4a930b9c6b46bd83ef",
+      "matching_records": [
+        "evidence/assembly-certificate.json",
+        "evidence/independent-review-rocq.json"
+      ]
+    },
+    "compcert/certification/CertifiedPolynomial.v": {
+      "sha256": "8336dac6df4e913f30c530c82ab7709c123db60152c8b8113a75633688eefdab",
+      "matching_records": [
+        "evidence/assembly-certificate.json",
+        "evidence/independent-review-rocq.json"
+      ]
+    },
+    "compcert/certification/CertifiedPolynomialRules.v": {
+      "sha256": "51cd63133365813a9d0a6a996b383501c4e07ed6d391bfebcbe700cd3bb23562",
+      "matching_records": [
+        "evidence/assembly-certificate.json",
+        "evidence/independent-review-rocq.json"
+      ]
+    },
+    "compcert/certification/CertifiedStoredPolynomial.v": {
+      "sha256": "0440706698fdddb846b306e2fe3eae18443668913931deee6b211c1086900631",
+      "matching_records": [
+        "evidence/assembly-certificate.json",
+        "evidence/independent-review-rocq.json"
+      ]
+    }
+  },
+  "checked_at": "2026-09-21T14:50:58.853919+00:00"
+}

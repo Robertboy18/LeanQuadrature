@@ -1,0 +1,33 @@
+name = "LeanQuadrature"
+version = "0.1.0"
+defaultTargets = ["Quadrature", "CCLib", "Clightdefs"]
+
+[[require]]
+name = "LeanPDE"
+git = "https://github.com/lean-dojo/LeanPDE.git"
+rev = "03f523aff09fe3ff3069d54088770a264fc281f1"
+
+[[require]]
+name = "floatlib"
+git = "https://github.com/lean-dojo/FloatLib.git"
+rev = "393bea610296bf9a9ee5a479508c351edb65cc6d"
+
+[[lean_lib]]
+name = "Quadrature"
+# include_str does not register file dependencies; changing the C must recheck its proofs.
+needs = ["cosineSource"]
+moreLeanArgs = ["-DautoImplicit=false", "-DrelaxedAutoImplicit=false", "-DwarningAsError=true"]
+
+[[input_file]]
+name = "cosineSource"
+path = "Quadrature/CSource/Cosine/cosine.c"
+
+[[lean_lib]]
+name = "CCLib"
+srcDir = "vendor/clean"
+moreLeanArgs = ["-DwarningAsError=true"]
+
+[[lean_lib]]
+name = "Clightdefs"
+srcDir = "vendor/clean"
+moreLeanArgs = ["-DwarningAsError=true"]

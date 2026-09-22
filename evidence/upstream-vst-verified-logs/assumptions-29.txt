@@ -1,0 +1,2 @@
+Axioms:
+quadrature2.trigo_sin_e : trigo.sin.body = Rtrigo_def.sin

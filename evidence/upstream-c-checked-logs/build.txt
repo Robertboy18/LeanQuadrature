@@ -1,0 +1,10 @@
+/tmp/quadrature-c-domain-cw7v2h5s/quadrules.c:206:42: warning: unused parameter 'npts' [-Wunused-parameter]
+void hughes_point(double* xi, int i, int npts)
+                                         ^
+/tmp/quadrature-c-domain-cw7v2h5s/quadrules.c:227:26: warning: unused parameter 'i' [-Wunused-parameter]
+double hughes_weight(int i, int npts)
+                         ^
+/tmp/quadrature-c-domain-cw7v2h5s/quadrules.c:227:33: warning: unused parameter 'npts' [-Wunused-parameter]
+double hughes_weight(int i, int npts)
+                                ^
+3 warnings generated.

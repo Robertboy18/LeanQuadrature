@@ -1,0 +1,163 @@
+ROCQ DEP VFILES
+Warning: in file /review/vst-final-build/source/proof/C/verif_matrix.v, library
+         matrix is required
+         from root CFEM.C and has not been found in the loadpath!
+         [module-not-found,filesystem,default]
+Warning: in file /review/vst-final-build/source/proof/C/spec_matrix.v, library
+         matrix is required
+         from root CFEM.C and has not been found in the loadpath!
+         [module-not-found,filesystem,default]
+Warning: in file /review/vst-final-build/source/LAProof/C/verif_build_csr.v, library
+         build_csr is required
+         from root LAProof.C and has not been found in the loadpath!
+         [module-not-found,filesystem,default]
+Warning: in file /review/vst-final-build/source/LAProof/C/VSU_densemat.v, library
+         densemat is required
+         from root LAProof.C and has not been found in the loadpath!
+         [module-not-found,filesystem,default]
+Warning: in file /review/vst-final-build/source/LAProof/C/verif_densemat_cholesky.v, library
+         densemat is required
+         from root LAProof.C and has not been found in the loadpath!
+         [module-not-found,filesystem,default]
+Warning: in file /review/vst-final-build/source/LAProof/C/verif_densemat_mult.v, library
+         densemat is required
+         from root LAProof.C and has not been found in the loadpath!
+         [module-not-found,filesystem,default]
+Warning: in file /review/vst-final-build/source/LAProof/C/verif_densemat.v, library
+         densemat is required
+         from root LAProof.C and has not been found in the loadpath!
+         [module-not-found,filesystem,default]
+Warning: in file /review/vst-final-build/source/LAProof/C/densemat_lemmas.v, library
+         densemat is required
+         from root LAProof.C and has not been found in the loadpath!
+         [module-not-found,filesystem,default]
+Warning: in file /review/vst-final-build/source/LAProof/C/spec_densemat.v, library
+         densemat is required
+         from root LAProof.C and has not been found in the loadpath!
+         [module-not-found,filesystem,default]
+Warning: in file /review/vst-final-build/source/LAProof/C/verif_alloc.v, library
+         alloc is required
+         from root LAProof.C and has not been found in the loadpath!
+         [module-not-found,filesystem,default]
+Warning: in file /review/vst-final-build/source/LAProof/C/spec_alloc.v, library
+         alloc is required
+         from root LAProof.C and has not been found in the loadpath!
+         [module-not-found,filesystem,default]
+Warning: in file /review/vst-final-build/source/LAProof/C/verif_cholesky.v, library
+         cholesky is required
+         from root LAProof.C and has not been found in the loadpath!
+         [module-not-found,filesystem,default]
+Warning: in file /review/vst-final-build/source/LAProof/C/VSU_sparse.v, library
+         sparse is required
+         from root LAProof.C and has not been found in the loadpath!
+         [module-not-found,filesystem,default]
+Warning: in file /review/vst-final-build/source/LAProof/C/verif_sparse_byrows.v, library
+         sparse is required
+         from root LAProof.C and has not been found in the loadpath!
+         [module-not-found,filesystem,default]
+Warning: in file /review/vst-final-build/source/LAProof/C/verif_sparse.v, library
+         sparse is required
+         from root LAProof.C and has not been found in the loadpath!
+         [module-not-found,filesystem,default]
+Warning: in file /review/vst-final-build/source/LAProof/C/spec_sparse.v, library
+         sparse is required
+         from root LAProof.C and has not been found in the loadpath!
+         [module-not-found,filesystem,default]
+Warning: in file /review/vst-final-build/source/LAProof/accuracy_proofs/libvalidsdp.v, library
+         cholesky is required
+         from root libValidSDP and has not been found in the loadpath!
+         [module-not-found,filesystem,default]
+Warning: in file /review/vst-final-build/source/LAProof/accuracy_proofs/libvalidsdp.v, library
+         flocq_float is required
+         from root libValidSDP and has not been found in the loadpath!
+         [module-not-found,filesystem,default]
+Warning: in file /review/vst-final-build/source/LAProof/accuracy_proofs/libvalidsdp.v, library
+         float_spec is required
+         from root libValidSDP and has not been found in the loadpath!
+         [module-not-found,filesystem,default]
+Warning: in file /review/vst-final-build/source/LAProof/accuracy_proofs/libvalidsdp.v, library
+         float_infnan_spec is required
+         from root libValidSDP and has not been found in the loadpath!
+         [module-not-found,filesystem,default]
+Warning: in file /review/vst-final-build/source/LAProof/accuracy_proofs/libvalidsdp.v, library
+         binary_infnan is required
+         from root libValidSDP and has not been found in the loadpath!
+         [module-not-found,filesystem,default]
+ROCQ compile /review/vst-final-build/source/LAProof/C/floatlib.v
+ROCQ compile /review/vst-final-build/source/LAProof/accuracy_proofs/preamble.v
+ROCQ compile /review/vst-final-build/source/LAProof/accuracy_proofs/real_lemmas.v
+ROCQ compile /review/vst-final-build/source/proof/C/quadrules.v
+ROCQ compile /review/vst-final-build/source/proof/C/nonexpansive.v
+ROCQ compile /review/vst-final-build/source/proof/quadrature.v
+ROCQ compile /review/vst-final-build/source/LAProof/accuracy_proofs/common.v
+Constant mathcomp.algebra.poly.monic_pred
+monic_pred =
+fun (R : nzSemiRingType) (p : {poly R}) => lead_coef p == 1
+     : forall [R : nzSemiRingType], {poly R} -> bool
+
+Arguments monic_pred [R] p%ring_scope /
+ROCQ compile /review/vst-final-build/source/LAProof/accuracy_proofs/float_acc_lems.v
+File "/review/vst-final-build/source/proof/quadrature.v", line 1937, characters 0-37:
+Warning: Use of “Require” inside a section is fragile. It is not recommended
+to use this functionality in finished proof scripts.
+[require-in-section,fragile,default]
+ROCQ compile /review/vst-final-build/source/LAProof/accuracy_proofs/dotprod_model.v
+ROCQ compile /review/vst-final-build/source/LAProof/accuracy_proofs/sum_model.v
+ROCQ compile /review/vst-final-build/source/LAProof/accuracy_proofs/dot_acc_lemmas.v
+ROCQ compile /review/vst-final-build/source/LAProof/accuracy_proofs/dot_acc.v
+ROCQ compile /review/vst-final-build/source/LAProof/accuracy_proofs/fma_dot_acc.v
+ROCQ compile /review/vst-final-build/source/LAProof/accuracy_proofs/mv_mathcomp.v
+ROCQ compile /review/vst-final-build/source/LAProof/accuracy_proofs/solve_model.v
+ROCQ compile /review/vst-final-build/source/LAProof/accuracy_proofs/gemv_acc.v
+ROCQ compile /review/vst-final-build/source/LAProof/accuracy_proofs/sum_acc.v
+ROCQ compile /review/vst-final-build/source/LAProof/accuracy_proofs/sum_is_finite.v
+File "/review/vst-final-build/source/proof/quadrature.v", line 2721, characters 29-47:
+Warning: Notation Num.ExtraDef.sqrtr is deprecated since mathcomp 2.5.0.
+Use Num.Def.sqrtr instead.
+[deprecated-syntactic-definition-since-mathcomp-2.5.0,deprecated-since-mathcomp-2.5.0,deprecated-syntactic-definition,deprecated,default]
+File "/review/vst-final-build/source/proof/quadrature.v", line 2721, characters 29-47:
+Warning: Notation Num.ExtraDef.sqrtr is deprecated since mathcomp 2.5.0.
+Use Num.Def.sqrtr instead.
+[deprecated-syntactic-definition-since-mathcomp-2.5.0,deprecated-since-mathcomp-2.5.0,deprecated-syntactic-definition,deprecated,default]
+File "/review/vst-final-build/source/proof/quadrature.v", line 2723, characters 25-43:
+Warning: Notation Num.ExtraDef.sqrtr is deprecated since mathcomp 2.5.0.
+Use Num.Def.sqrtr instead.
+[deprecated-syntactic-definition-since-mathcomp-2.5.0,deprecated-since-mathcomp-2.5.0,deprecated-syntactic-definition,deprecated,default]
+File "/review/vst-final-build/source/proof/quadrature.v", line 2723, characters 25-43:
+Warning: Notation Num.ExtraDef.sqrtr is deprecated since mathcomp 2.5.0.
+Use Num.Def.sqrtr instead.
+[deprecated-syntactic-definition-since-mathcomp-2.5.0,deprecated-since-mathcomp-2.5.0,deprecated-syntactic-definition,deprecated,default]
+File "/review/vst-final-build/source/proof/quadrature.v", line 2725, characters 27-45:
+Warning: Notation Num.ExtraDef.sqrtr is deprecated since mathcomp 2.5.0.
+Use Num.Def.sqrtr instead.
+[deprecated-syntactic-definition-since-mathcomp-2.5.0,deprecated-since-mathcomp-2.5.0,deprecated-syntactic-definition,deprecated,default]
+File "/review/vst-final-build/source/proof/quadrature.v", line 2725, characters 27-45:
+Warning: Notation Num.ExtraDef.sqrtr is deprecated since mathcomp 2.5.0.
+Use Num.Def.sqrtr instead.
+[deprecated-syntactic-definition-since-mathcomp-2.5.0,deprecated-since-mathcomp-2.5.0,deprecated-syntactic-definition,deprecated,default]
+File "/review/vst-final-build/source/proof/quadrature.v", line 2727, characters 23-41:
+Warning: Notation Num.ExtraDef.sqrtr is deprecated since mathcomp 2.5.0.
+Use Num.Def.sqrtr instead.
+[deprecated-syntactic-definition-since-mathcomp-2.5.0,deprecated-since-mathcomp-2.5.0,deprecated-syntactic-definition,deprecated,default]
+File "/review/vst-final-build/source/proof/quadrature.v", line 2727, characters 23-41:
+Warning: Notation Num.ExtraDef.sqrtr is deprecated since mathcomp 2.5.0.
+Use Num.Def.sqrtr instead.
+[deprecated-syntactic-definition-since-mathcomp-2.5.0,deprecated-since-mathcomp-2.5.0,deprecated-syntactic-definition,deprecated,default]
+Notation "`| x |" := (abse x : dual_extended _) : ereal_dual_scope
+Notation "`| x |" := (abse x) : ereal_scope
+Notation "`| m |" := (absz m) : nat_scope
+Notation "`| x |" := (Num.norm x) : ring_scope (default interpretation)
+ROCQ compile /review/vst-final-build/source/proof/quadrature2.v
+Tactic call error_1_0_1 ran for 6.209 secs (6.158u,0.049s) (success)
+Tactic call error_1_0_1 ran for 6.11 secs (6.069u,0.039s) (success)
+Tactic call error_1_0_2 ran for 57.833 secs (57.542u,0.289s) (success)
+Rintegral_cst
+     : forall (d : measure_display) (T : measurableType d) 
+         (R : realType) (mu : measure T R) (D : set T),
+       d.-measurable%classic D ->
+       forall r : R, \int[mu]_(x in D) functions.cst r x = r * fine (mu D)
+ROCQ compile /review/vst-final-build/source/proof/quadmodel.v
+ROCQ compile /review/vst-final-build/source/proof/C/spec_quadrules.v
+ROCQ compile /review/vst-final-build/source/proof/quadmodel_accuracy.v
+ROCQ compile /review/vst-final-build/source/proof/C/spec_quadrules_highlevel.v
+ROCQ compile /review/vst-final-build/source/proof/C/verif_quadrules.v

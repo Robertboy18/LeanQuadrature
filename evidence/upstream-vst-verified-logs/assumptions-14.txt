@@ -1,0 +1,32 @@
+Axioms:
+quadmodel_accuracy.gauss_pt_wt_limit_aux :
+  forall t : type,
+  FPCore.Nans ->
+  forall (n : fintype.ordinal 5)
+    (gauss_pt_f
+     gauss_wt_f : fintype.ordinal (fintype.nat_of_ord n) -> ftype t),
+  (forall i : fintype.ordinal (fintype.nat_of_ord n),
+   Rdefinitions.Rle (Rbasic_fun.Rabs (FT2R (gauss_pt_f i)))
+     (Rdefinitions.IZR 1)) ->
+  quadmodel_accuracy.gauss_pts_accuracy t n gauss_pt_f ->
+  quadmodel_accuracy.gauss_wts_accuracy t n gauss_wt_f ->
+  forall (fb : Rdefinitions.RbaseSymbolsImpl.R)
+    (g : Rdefinitions.RbaseSymbolsImpl.R -> Rdefinitions.RbaseSymbolsImpl.R),
+  quadrature2.fbound g fb ->
+  forall b : Rdefinitions.RbaseSymbolsImpl.R,
+  quadrature.Legendre.quadrature_error_bound g n b ->
+  forall d : Rdefinitions.RbaseSymbolsImpl.R,
+  quadrature2.deriv_bound g d ->
+  forall (f : ftype t -> ftype t) (f_acc : Rdefinitions.RbaseSymbolsImpl.R),
+  quadmodel_accuracy.function_accuracy g f f_acc ->
+  quadmodel_accuracy.parameter_limits t n fb f_acc ->
+  quadmodel_accuracy.gauss_wt_f_range t n gauss_wt_f ->
+  Rdefinitions.RbaseSymbolsImpl.Rlt
+    (Rdefinitions.RbaseSymbolsImpl.Rplus
+       (Rdefinitions.RbaseSymbolsImpl.Rmult
+          (Rdefinitions.RbaseSymbolsImpl.Rmult (Rdefinitions.IZR 2)
+             (Rdefinitions.RbaseSymbolsImpl.Rplus fb f_acc))
+          (Rdefinitions.RbaseSymbolsImpl.Rplus (Rdefinitions.IZR 1)
+             common.default_rel))
+       common.default_abs)
+    common.fmax

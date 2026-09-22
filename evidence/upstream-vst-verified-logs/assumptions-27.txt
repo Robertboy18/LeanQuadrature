@@ -1,0 +1,23 @@
+Axioms:
+quadrature2.g_max_deriv :
+  forall
+    (fb
+     d : reals.Real.sort Rstruct.RbaseSymbolsImpl_R__canonical__reals_Real)
+    (g : reals.Real.sort Rstruct.RbaseSymbolsImpl_R__canonical__reals_Real ->
+         reals.Real.sort Rstruct.RbaseSymbolsImpl_R__canonical__reals_Real),
+  quadrature2.fbound g fb ->
+  quadrature2.deriv_bound g d ->
+  forall
+    x y : reals.Real.sort Rstruct.RbaseSymbolsImpl_R__canonical__reals_Real,
+  Datatypes.is_true
+    (preorder.Order.le quadrature.Legendre.lo x &&
+     preorder.Order.le x quadrature.Legendre.hi) ->
+  Datatypes.is_true
+    (preorder.Order.le quadrature.Legendre.lo (nmodule.Algebra.add x y) &&
+     preorder.Order.le (nmodule.Algebra.add x y) quadrature.Legendre.hi) ->
+  Datatypes.is_true
+    (preorder.Order.le
+       (numdomain.Num.norm
+          (nmodule.Algebra.add (g (nmodule.Algebra.add x y))
+             (nmodule.Algebra.opp (g x))))
+       (ssralg.GRing.mul (numdomain.Num.norm y) d))

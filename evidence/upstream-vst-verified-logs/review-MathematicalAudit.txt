@@ -1,0 +1,227 @@
+File "/review/vst-final-build/review/MathematicalAudit.v", line 4, characters 0-77:
+Warning: Notation "_ + _" was already used in scope nat_scope.
+[notation-overridden,parsing,default]
+File "/review/vst-final-build/review/MathematicalAudit.v", line 4, characters 0-77:
+Warning: Notation "_ - _" was already used in scope nat_scope.
+[notation-overridden,parsing,default]
+File "/review/vst-final-build/review/MathematicalAudit.v", line 4, characters 0-77:
+Warning: Notation "_ <= _" was already used in scope nat_scope.
+[notation-overridden,parsing,default]
+File "/review/vst-final-build/review/MathematicalAudit.v", line 4, characters 0-77:
+Warning: Notation "_ < _" was already used in scope nat_scope.
+[notation-overridden,parsing,default]
+File "/review/vst-final-build/review/MathematicalAudit.v", line 4, characters 0-77:
+Warning: Notation "_ >= _" was already used in scope nat_scope.
+[notation-overridden,parsing,default]
+File "/review/vst-final-build/review/MathematicalAudit.v", line 4, characters 0-77:
+Warning: Notation "_ > _" was already used in scope nat_scope.
+[notation-overridden,parsing,default]
+File "/review/vst-final-build/review/MathematicalAudit.v", line 4, characters 0-77:
+Warning: Notation "_ <= _ <= _" was already used in scope nat_scope.
+[notation-overridden,parsing,default]
+File "/review/vst-final-build/review/MathematicalAudit.v", line 4, characters 0-77:
+Warning: Notation "_ < _ <= _" was already used in scope nat_scope.
+[notation-overridden,parsing,default]
+File "/review/vst-final-build/review/MathematicalAudit.v", line 4, characters 0-77:
+Warning: Notation "_ <= _ < _" was already used in scope nat_scope.
+[notation-overridden,parsing,default]
+File "/review/vst-final-build/review/MathematicalAudit.v", line 4, characters 0-77:
+Warning: Notation "_ < _ < _" was already used in scope nat_scope.
+[notation-overridden,parsing,default]
+File "/review/vst-final-build/review/MathematicalAudit.v", line 4, characters 0-77:
+Warning: Notation "_ * _" was already used in scope nat_scope.
+[notation-overridden,parsing,default]
+File "/review/vst-final-build/review/MathematicalAudit.v", line 4, characters 0-77:
+Warning:
+New coercion path [GRing.subring_closedM; GRing.smulr_closedN] : GRing.subring_closed >-> GRing.oppr_closed is ambiguous with existing 
+[GRing.subring_closedB; GRing.zmod_closedN] : GRing.subring_closed >-> GRing.oppr_closed.
+[ambiguous-paths,coercions,default]
+File "/review/vst-final-build/review/MathematicalAudit.v", line 4, characters 0-77:
+Warning:
+New coercion path [GRing.subring_closed_semi; GRing.semiring_closedM] : GRing.subring_closed >-> GRing.mulr_closed is ambiguous with existing 
+[GRing.subring_closedM; GRing.smulr_closedM] : GRing.subring_closed >-> GRing.mulr_closed.
+New coercion path [GRing.subring_closed_semi; GRing.semiring_closedD] : GRing.subring_closed >-> Algebra.addumagma_closed is ambiguous with existing 
+[GRing.subring_closedB; GRing.zmod_closedD] : GRing.subring_closed >-> Algebra.addumagma_closed.
+[ambiguous-paths,coercions,default]
+File "/review/vst-final-build/review/MathematicalAudit.v", line 4, characters 0-77:
+Warning:
+New coercion path [GRing.submod_closed_semi; GRing.subsemimod_closedD] : GRing.submod_closed >-> Algebra.addumagma_closed is ambiguous with existing 
+[GRing.submod_closedB; GRing.zmod_closedD] : GRing.submod_closed >-> Algebra.addumagma_closed.
+[ambiguous-paths,coercions,default]
+File "/review/vst-final-build/review/MathematicalAudit.v", line 4, characters 0-77:
+Warning:
+New coercion path [GRing.subsemialg_closedM; GRing.semiring_closedD] : GRing.subsemialg_closed >-> Algebra.addumagma_closed is ambiguous with existing 
+[GRing.subsemialg_closedZ; GRing.subsemimod_closedD] : GRing.subsemialg_closed >-> Algebra.addumagma_closed.
+[ambiguous-paths,coercions,default]
+File "/review/vst-final-build/review/MathematicalAudit.v", line 4, characters 0-77:
+Warning:
+New coercion path [GRing.subalg_closedBM; GRing.subring_closedB] : GRing.subalg_closed >-> GRing.zmod_closed is ambiguous with existing 
+[GRing.subalg_closedZ; GRing.submod_closedB] : GRing.subalg_closed >-> GRing.zmod_closed.
+[ambiguous-paths,coercions,default]
+File "/review/vst-final-build/review/MathematicalAudit.v", line 4, characters 0-77:
+Warning:
+New coercion path [GRing.subalg_closed_semi; GRing.subsemialg_closedZ] : GRing.subalg_closed >-> GRing.subsemimod_closed is ambiguous with existing 
+[GRing.subalg_closedZ; GRing.submod_closed_semi] : GRing.subalg_closed >-> GRing.subsemimod_closed.
+New coercion path [GRing.subalg_closed_semi; GRing.subsemialg_closedM] : GRing.subalg_closed >-> GRing.semiring_closed is ambiguous with existing 
+[GRing.subalg_closedBM; GRing.subring_closed_semi] : GRing.subalg_closed >-> GRing.semiring_closed.
+[ambiguous-paths,coercions,default]
+File "/review/vst-final-build/review/MathematicalAudit.v", line 4, characters 0-77:
+Warning:
+New coercion path [GRing.sdivr_closedM; GRing.smulr_closedM] : GRing.sdivr_closed >-> GRing.mulr_closed is ambiguous with existing 
+[GRing.sdivr_closed_div; GRing.divr_closedM] : GRing.sdivr_closed >-> GRing.mulr_closed.
+[ambiguous-paths,coercions,default]
+File "/review/vst-final-build/review/MathematicalAudit.v", line 4, characters 0-77:
+Warning:
+New coercion path [GRing.divring_closed_div; GRing.sdivr_closedM] : GRing.divring_closed >-> GRing.smulr_closed is ambiguous with existing 
+[GRing.divring_closedBM; GRing.subring_closedM] : GRing.divring_closed >-> GRing.smulr_closed.
+[ambiguous-paths,coercions,default]
+File "/review/vst-final-build/review/MathematicalAudit.v", line 4, characters 0-77:
+Warning:
+New coercion path [GRing.divalg_closedZ; GRing.subalg_closedBM] : GRing.divalg_closed >-> GRing.subring_closed is ambiguous with existing 
+[GRing.divalg_closedBdiv; GRing.divring_closedBM] : GRing.divalg_closed >-> GRing.subring_closed.
+[ambiguous-paths,coercions,default]
+File "/review/vst-final-build/review/MathematicalAudit.v", line 4, characters 0-77:
+Warning: Notation "1" was already used in scope ring_scope.
+[notation-overridden,parsing,default]
+File "/review/vst-final-build/review/MathematicalAudit.v", line 4, characters 0-77:
+Warning: Notation "- 1" was already used in scope ring_scope.
+[notation-overridden,parsing,default]
+File "/review/vst-final-build/review/MathematicalAudit.v", line 4, characters 0-77:
+Warning: Notation "_ %:R" was already used in scope ring_scope.
+[notation-overridden,parsing,default]
+File "/review/vst-final-build/review/MathematicalAudit.v", line 4, characters 0-77:
+Warning: Notation "\min^d_ ( _ < _ ) _" was already used in scope
+order_scope. [notation-overridden,parsing,default]
+File "/review/vst-final-build/review/MathematicalAudit.v", line 4, characters 0-77:
+Warning: Notation "\max^d_ ( _ < _ ) _" was already used in scope
+order_scope. [notation-overridden,parsing,default]
+File "/review/vst-final-build/review/MathematicalAudit.v", line 5, characters 0-74:
+Warning: Notations "'o_ _" defined at level 200 with arguments constr
+at level 0 and "'o_ _ _" defined at level 0 with arguments constr at level 0
+have incompatible prefixes. One of them will likely not work.
+[notation-incompatible-prefix,parsing,default]
+File "/review/vst-final-build/review/MathematicalAudit.v", line 5, characters 0-74:
+Warning: Notations "'o" defined at level 200 and "'o '_' _"
+defined at level 0 have incompatible prefixes.
+One of them will likely not work.
+[notation-incompatible-prefix,parsing,default]
+File "/review/vst-final-build/review/MathematicalAudit.v", line 5, characters 0-74:
+Warning: Notations "'o" defined at level 200 and "'o _( _ \near _ ) _"
+defined at level 0 have incompatible prefixes.
+One of them will likely not work.
+[notation-incompatible-prefix,parsing,default]
+File "/review/vst-final-build/review/MathematicalAudit.v", line 5, characters 0-74:
+Warning: Notations "'O_ _" defined at level 200 with arguments constr
+at level 0 and "'O_ _ _" defined at level 0 with arguments constr at level 0
+have incompatible prefixes. One of them will likely not work.
+[notation-incompatible-prefix,parsing,default]
+File "/review/vst-final-build/review/MathematicalAudit.v", line 5, characters 0-74:
+Warning: Notations "'O" defined at level 200 and "'O '_' _"
+defined at level 0 have incompatible prefixes.
+One of them will likely not work.
+[notation-incompatible-prefix,parsing,default]
+File "/review/vst-final-build/review/MathematicalAudit.v", line 5, characters 0-74:
+Warning: Notations "'O" defined at level 200 and "'O _( _ \near _ ) _"
+defined at level 0 have incompatible prefixes.
+One of them will likely not work.
+[notation-incompatible-prefix,parsing,default]
+File "/review/vst-final-build/review/MathematicalAudit.v", line 5, characters 0-74:
+Warning: Notations "'M_ _" defined at level 0 with arguments constr
+at level 2 and "'M_ _ _" defined at level 5 with arguments constr at level 4
+have incompatible prefixes. One of them will likely not work.
+[notation-incompatible-prefix,parsing,default]
+File "/review/vst-final-build/review/MathematicalAudit.v", line 5, characters 0-74:
+Warning: Notations "{ ' _ | _ }" defined at level 0
+and "{ additive_charge set _ -> \bar _ }" defined at level 36
+have incompatible prefixes. One of them will likely not work.
+[notation-incompatible-prefix,parsing,default]
+File "/review/vst-final-build/review/MathematicalAudit.v", line 5, characters 0-74:
+Warning: Notations "{ ' _ | _ }" defined at level 0
+and "{ charge set _ -> \bar _ }" defined at level 36
+have incompatible prefixes. One of them will likely not work.
+[notation-incompatible-prefix,parsing,default]
+File "/review/vst-final-build/review/MathematicalAudit.v", line 5, characters 0-74:
+Warning: Notations "'d _ _" defined at level 0 with arguments constr
+at level 0 and "'d _ '/d _" defined at level 10 with arguments constr
+at next level have incompatible prefixes. One of them will likely not work.
+[notation-incompatible-prefix,parsing,default]
+File "/review/vst-final-build/review/MathematicalAudit.v", line 5, characters 0-74:
+Warning: Notation "1" was already used in scope ring_scope.
+[notation-overridden,parsing,default]
+File "/review/vst-final-build/review/MathematicalAudit.v", line 5, characters 0-74:
+Warning: Notation "- 1" was already used in scope ring_scope.
+[notation-overridden,parsing,default]
+File "/review/vst-final-build/review/MathematicalAudit.v", line 5, characters 0-74:
+Warning: Notation "_ %:R" was already used in scope ring_scope.
+[notation-overridden,parsing,default]
+File "/review/vst-final-build/review/MathematicalAudit.v", line 5, characters 0-74:
+Warning: Notation "1" was already used in scope ring_scope.
+[notation-overridden,parsing,default]
+File "/review/vst-final-build/review/MathematicalAudit.v", line 5, characters 0-74:
+Warning: Notation "- 1" was already used in scope ring_scope.
+[notation-overridden,parsing,default]
+File "/review/vst-final-build/review/MathematicalAudit.v", line 5, characters 0-74:
+Warning: Notation "_ %:R" was already used in scope ring_scope.
+[notation-overridden,parsing,default]
+File "/review/vst-final-build/review/MathematicalAudit.v", line 5, characters 0-74:
+Warning: Notation "_ - _" was already used in scope distn_scope.
+[notation-overridden,parsing,default]
+File "/review/vst-final-build/review/MathematicalAudit.v", line 5, characters 0-74:
+Warning: Notation "_ ~_ _ _" was already used.
+[notation-overridden,parsing,default]
+File "/review/vst-final-build/review/MathematicalAudit.v", line 5, characters 0-74:
+Warning: Notation "_ <= _" was already used in scope ereal_dual_scope.
+[notation-overridden,parsing,default]
+File "/review/vst-final-build/review/MathematicalAudit.v", line 5, characters 0-74:
+Warning: Notation "_ <= _" was already used in scope ereal_scope.
+[notation-overridden,parsing,default]
+File "/review/vst-final-build/review/MathematicalAudit.v", line 5, characters 0-74:
+Warning: Notation "_ < _" was already used in scope ereal_dual_scope.
+[notation-overridden,parsing,default]
+File "/review/vst-final-build/review/MathematicalAudit.v", line 5, characters 0-74:
+Warning: Notation "_ < _" was already used in scope ereal_scope.
+[notation-overridden,parsing,default]
+File "/review/vst-final-build/review/MathematicalAudit.v", line 5, characters 0-74:
+Warning: Notation "_ <= _ <= _" was already used in scope ereal_dual_scope.
+[notation-overridden,parsing,default]
+File "/review/vst-final-build/review/MathematicalAudit.v", line 5, characters 0-74:
+Warning: Notation "_ <= _ <= _" was already used in scope ereal_scope.
+[notation-overridden,parsing,default]
+File "/review/vst-final-build/review/MathematicalAudit.v", line 5, characters 0-74:
+Warning: Notation "_ < _ <= _" was already used in scope ereal_dual_scope.
+[notation-overridden,parsing,default]
+File "/review/vst-final-build/review/MathematicalAudit.v", line 5, characters 0-74:
+Warning: Notation "_ < _ <= _" was already used in scope ereal_scope.
+[notation-overridden,parsing,default]
+File "/review/vst-final-build/review/MathematicalAudit.v", line 5, characters 0-74:
+Warning: Notation "_ <= _ < _" was already used in scope ereal_dual_scope.
+[notation-overridden,parsing,default]
+File "/review/vst-final-build/review/MathematicalAudit.v", line 5, characters 0-74:
+Warning: Notation "_ <= _ < _" was already used in scope ereal_scope.
+[notation-overridden,parsing,default]
+File "/review/vst-final-build/review/MathematicalAudit.v", line 5, characters 0-74:
+Warning: Notation "_ < _ < _" was already used in scope ereal_dual_scope.
+[notation-overridden,parsing,default]
+File "/review/vst-final-build/review/MathematicalAudit.v", line 5, characters 0-74:
+Warning: Notation "_ < _ < _" was already used in scope ereal_scope.
+[notation-overridden,parsing,default]
+Axioms:
+boolp.propositional_extensionality : forall P Q : Prop, P <-> Q -> P = Q
+boolp.functional_extensionality_dep :
+  forall (A : Type) (B : A -> Type) (f g : forall x : A, B x),
+  (forall x : A, f x = g x) -> f = g
+boolp.constructive_indefinite_description :
+  forall (A : Type) (P : A -> Prop), (exists x : A, P x) -> {x : A | P x}
+Axioms:
+boolp.propositional_extensionality : forall P Q : Prop, P <-> Q -> P = Q
+boolp.functional_extensionality_dep :
+  forall (A : Type) (B : A -> Type) (f g : forall x : A, B x),
+  (forall x : A, f x = g x) -> f = g
+boolp.constructive_indefinite_description :
+  forall (A : Type) (P : A -> Prop), (exists x : A, P x) -> {x : A | P x}
+Rintegral_gt_0 :
+  forall (R : realType) (a b : R) (h : R -> R),
+  {in `[a, b]%classic, continuous h} ->
+  {in `[a, b]%classic, forall x : R, 0 <= h x} ->
+  ~ {in `[a, b]%classic, forall x : R, h x == 0} ->
+  0 < \int[lebesgue_measure]_(x in `[a, b]) h x

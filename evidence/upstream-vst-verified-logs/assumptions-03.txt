@@ -1,0 +1,167 @@
+Axioms:
+Uint63Axioms.tail0_spec :
+  forall x : PrimInt63.int,
+  0 < Uint63Axioms.to_Z x ->
+  exists y : Z,
+    0 <= y /\
+    Uint63Axioms.to_Z x =
+    ((2 * y + 1) * 2 ^ Uint63Axioms.to_Z (PrimInt63.tail0 x))%Z
+PrimInt63.tail0 : PrimInt63.int -> PrimInt63.int
+Uint63Axioms.subcarryc_def_spec :
+  forall x y : PrimInt63.int,
+  PrimInt63.subcarryc x y = Uint63Axioms.subcarryc_def x y
+PrimInt63.subcarryc :
+  PrimInt63.int -> PrimInt63.int -> CarryType.carry PrimInt63.int
+Uint63Axioms.subc_def_spec :
+  forall x y : PrimInt63.int, PrimInt63.subc x y = Uint63Axioms.subc_def x y
+PrimInt63.subc :
+  PrimInt63.int -> PrimInt63.int -> CarryType.carry PrimInt63.int
+Uint63Axioms.sub_spec :
+  forall x y : PrimInt63.int,
+  Uint63Axioms.to_Z (PrimInt63.sub x y) =
+  (Uint63Axioms.to_Z x - Uint63Axioms.to_Z y) mod Uint63Axioms.wB
+PrimInt63.sub : PrimInt63.int -> PrimInt63.int -> PrimInt63.int
+ClassicalDedekindReals.sig_not_dec : forall P : Prop, {~ ~ P} + {~ P}
+ClassicalDedekindReals.sig_forall_dec :
+  forall P : nat -> Prop,
+  (forall n : nat, {P n} + {~ P n}) ->
+  {n : nat | ~ P n} + {forall n : nat, P n}
+boolp.propositional_extensionality : forall P Q : Prop, P <-> Q -> P = Q
+Axioms.prop_ext : ClassicalFacts.prop_extensionality
+Uint63Axioms.of_to_Z :
+  forall x : PrimInt63.int, Uint63Axioms.of_Z (Uint63Axioms.to_Z x) = x
+Uint63Axioms.mulc_spec :
+  forall x y : PrimInt63.int,
+  (Uint63Axioms.to_Z x * Uint63Axioms.to_Z y)%Z =
+  Uint63Axioms.to_Z (fst (PrimInt63.mulc x y)) * Uint63Axioms.wB +
+  Uint63Axioms.to_Z (snd (PrimInt63.mulc x y))
+PrimInt63.mulc :
+  PrimInt63.int -> PrimInt63.int -> PrimInt63.int * PrimInt63.int
+Uint63Axioms.mul_spec :
+  forall x y : PrimInt63.int,
+  Uint63Axioms.to_Z (PrimInt63.mul x y) =
+  (Uint63Axioms.to_Z x * Uint63Axioms.to_Z y) mod Uint63Axioms.wB
+PrimInt63.mul : PrimInt63.int -> PrimInt63.int -> PrimInt63.int
+Uint63Axioms.mod_spec :
+  forall x y : PrimInt63.int,
+  Uint63Axioms.to_Z (PrimInt63.mod x y) =
+  Uint63Axioms.to_Z x mod Uint63Axioms.to_Z y
+PrimInt63.mod : PrimInt63.int -> PrimInt63.int -> PrimInt63.int
+Uint63Axioms.lxor_spec :
+  forall x y i : PrimInt63.int,
+  Uint63Axioms.bit (PrimInt63.lxor x y) i =
+  xorb (Uint63Axioms.bit x i) (Uint63Axioms.bit y i)
+PrimInt63.lxor : PrimInt63.int -> PrimInt63.int -> PrimInt63.int
+Uint63Axioms.ltb_spec :
+  forall x y : PrimInt63.int,
+  PrimInt63.ltb x y = true <-> Uint63Axioms.to_Z x < Uint63Axioms.to_Z y
+PrimInt63.ltb : PrimInt63.int -> PrimInt63.int -> bool
+Uint63Axioms.lsr_spec :
+  forall x p : PrimInt63.int,
+  Uint63Axioms.to_Z (PrimInt63.lsr x p) =
+  Uint63Axioms.to_Z x / 2 ^ Uint63Axioms.to_Z p
+PrimInt63.lsr : PrimInt63.int -> PrimInt63.int -> PrimInt63.int
+Uint63Axioms.lsl_spec :
+  forall x p : PrimInt63.int,
+  Uint63Axioms.to_Z (PrimInt63.lsl x p) =
+  (Uint63Axioms.to_Z x * 2 ^ Uint63Axioms.to_Z p) mod Uint63Axioms.wB
+PrimInt63.lsl : PrimInt63.int -> PrimInt63.int -> PrimInt63.int
+Uint63Axioms.lor_spec :
+  forall x y i : PrimInt63.int,
+  Uint63Axioms.bit (PrimInt63.lor x y) i =
+  (Uint63Axioms.bit x i || Uint63Axioms.bit y i)%bool
+PrimInt63.lor : PrimInt63.int -> PrimInt63.int -> PrimInt63.int
+Uint63Axioms.leb_spec :
+  forall x y : PrimInt63.int,
+  PrimInt63.leb x y = true <-> Uint63Axioms.to_Z x <= Uint63Axioms.to_Z y
+PrimInt63.leb : PrimInt63.int -> PrimInt63.int -> bool
+Uint63Axioms.land_spec :
+  forall x y i : PrimInt63.int,
+  Uint63Axioms.bit (PrimInt63.land x y) i =
+  (Uint63Axioms.bit x i && Uint63Axioms.bit y i)%bool
+PrimInt63.land : PrimInt63.int -> PrimInt63.int -> PrimInt63.int
+PrimInt63.int : Set
+Uint63Axioms.head0_spec :
+  forall x : PrimInt63.int,
+  0 < Uint63Axioms.to_Z x ->
+  Uint63Axioms.wB / 2 <=
+  2 ^ Uint63Axioms.to_Z (PrimInt63.head0 x) * Uint63Axioms.to_Z x <
+  Uint63Axioms.wB
+PrimInt63.head0 : PrimInt63.int -> PrimInt63.int
+boolp.functional_extensionality_dep :
+  forall (A : Type) (B : A -> Type) (f g : forall x : A, B x),
+  (forall x : A, f x = g x) -> f = g
+functional_extensionality_dep :
+  forall (A : Type) (B : A -> Type) (f g : forall x : A, B x),
+  (forall x : A, f x = g x) -> f = g
+Uint63Axioms.eqb_refl : forall x : PrimInt63.int, PrimInt63.eqb x x = true
+Uint63Axioms.eqb_correct :
+  forall i j : PrimInt63.int, PrimInt63.eqb i j = true -> i = j
+PrimInt63.eqb : PrimInt63.int -> PrimInt63.int -> bool
+Eqdep.Eq_rect_eq.eq_rect_eq :
+  forall (U : Type) (p : U) (Q : U -> Type) (x : Q p) (h : p = p),
+  x = eq_rect p Q x p h
+Epsilon.epsilon_statement :
+  forall (A : Type) (P : A -> Prop),
+  inhabited A -> {x : A | (exists x0 : A, P x0) -> P x}
+Uint63Axioms.diveucl_def_spec :
+  forall x y : PrimInt63.int,
+  PrimInt63.diveucl x y = Uint63Axioms.diveucl_def x y
+Uint63Axioms.diveucl_21_spec :
+  forall a1 a2 b : PrimInt63.int,
+  let (q, r) := PrimInt63.diveucl_21 a1 a2 b in
+  let (q', r') :=
+    IntDef.Z.div_eucl
+      (Uint63Axioms.to_Z a1 * Uint63Axioms.wB + Uint63Axioms.to_Z a2)
+      (Uint63Axioms.to_Z b) in
+  Uint63Axioms.to_Z a1 < Uint63Axioms.to_Z b ->
+  Uint63Axioms.to_Z q = q' /\ Uint63Axioms.to_Z r = r'
+PrimInt63.diveucl_21 :
+  PrimInt63.int ->
+  PrimInt63.int -> PrimInt63.int -> PrimInt63.int * PrimInt63.int
+PrimInt63.diveucl :
+  PrimInt63.int -> PrimInt63.int -> PrimInt63.int * PrimInt63.int
+Uint63Axioms.div_spec :
+  forall x y : PrimInt63.int,
+  Uint63Axioms.to_Z (PrimInt63.div x y) =
+  Uint63Axioms.to_Z x / Uint63Axioms.to_Z y
+PrimInt63.div : PrimInt63.int -> PrimInt63.int -> PrimInt63.int
+boolp.constructive_indefinite_description :
+  forall (A : Type) (P : A -> Prop), (exists x : A, P x) -> {x : A | P x}
+Uint63Axioms.compare_def_spec :
+  forall x y : PrimInt63.int,
+  PrimInt63.compare x y = Uint63Axioms.compare_def x y
+PrimInt63.compare : PrimInt63.int -> PrimInt63.int -> Datatypes.comparison
+Classical_Prop.classic : forall P : Prop, P \/ ~ P
+spec_math.c_function :
+  forall (i : ident) (args : list FPCore.type) (res : FPCore.type)
+    (bnds : klist FPCore.bounds args)
+    (f : function_type (map FPCore.RR args) Rdefinitions.RbaseSymbolsImpl.R),
+  {ff : function_type (map FPCore.ftype' args) (FPCore.ftype res)
+  | FPCore.acc_prop args res (1 + 2 * spec_math.GNU_error i) 1 bnds f ff}
+spec_math.axiom_floatfunc_congr :
+  forall (args : list FPCore.type) (result : FPCore.type)
+    (ff_func : function_type (map FPCore.ftype' args) (FPCore.ftype' result)),
+  FPCore.floatfunc_congr ff_func
+Uint63Axioms.addmuldiv_def_spec :
+  forall p x y : PrimInt63.int,
+  PrimInt63.addmuldiv p x y = Uint63Axioms.addmuldiv_def p x y
+PrimInt63.addmuldiv :
+  PrimInt63.int -> PrimInt63.int -> PrimInt63.int -> PrimInt63.int
+Uint63Axioms.addcarryc_def_spec :
+  forall x y : PrimInt63.int,
+  PrimInt63.addcarryc x y = Uint63Axioms.addcarryc_def x y
+PrimInt63.addcarryc :
+  PrimInt63.int -> PrimInt63.int -> CarryType.carry PrimInt63.int
+Uint63Axioms.addc_def_spec :
+  forall x y : PrimInt63.int, PrimInt63.addc x y = Uint63Axioms.addc_def x y
+PrimInt63.addc :
+  PrimInt63.int -> PrimInt63.int -> CarryType.carry PrimInt63.int
+Uint63Axioms.add_spec :
+  forall x y : PrimInt63.int,
+  Uint63Axioms.to_Z (PrimInt63.add x y) =
+  (Uint63Axioms.to_Z x + Uint63Axioms.to_Z y) mod Uint63Axioms.wB
+PrimInt63.add : PrimInt63.int -> PrimInt63.int -> PrimInt63.int
+Ensembles.Extensionality_Ensembles :
+  forall (U : Type) (A B : Ensembles.Ensemble U),
+  Ensembles.Same_set A B -> A = B

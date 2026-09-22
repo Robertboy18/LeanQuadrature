@@ -1,0 +1,12 @@
+Audited 2784 Clight theorems; only propext, Classical.choice, and Quot.sound allowed.
+'CC.doStep_sound' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CC.step_determ' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CC.starE0_endpoint_unique' depends on axioms: [propext, Classical.choice, Quot.sound]
+@CC.doStep_sound : ∀ [externalCalls : CC.ExternalCalls] (ge : CC.CGenv) (s : CC.State) (t : CC.Trace) (s' : CC.State),
+  CC.doStep ge s = some (t, s') → CC.Step ge (CC.FunctionEntry2 ge) s t s'
+@CC.step_determ : ∀ [externalCalls : CC.ExternalCalls] [CC.ExternalCallsDeterministic externalCalls] {ge : CC.CGenv}
+  {fe : CC.Function → List CC.Val → CC.Mem → CC.Env → CC.TempEnv → CC.Mem → Prop},
+  CC.EntryDeterm fe →
+    ge.genv_genv.toSenv.SymbolsInjective →
+      ∀ {s : CC.State} {t1 : CC.Trace} {s1 : CC.State} {t2 : CC.Trace} {s2 : CC.State},
+        CC.Step ge fe s t1 s1 → CC.Step ge fe s t2 s2 → CC.MatchTraces ge.genv_genv.toSenv t1 t2 ∧ (t1 = t2 → s1 = s2)

@@ -1,0 +1,3 @@
+Axioms:
+testfun_fbound :
+  quadrature2.fbound spec_quadrules_highlevel.testfun_r testfun_fb

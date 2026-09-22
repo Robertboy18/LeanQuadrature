@@ -1,0 +1,20 @@
+--- original/proof/C/spec_quadrules_highlevel.v
++++ adjusted/proof/C/spec_quadrules_highlevel.v
+@@ -125,7 +125,7 @@
+ (** *** 2-dimensional gauss points and weights *)
+  Definition gauss2d_point_spec : ident * funspec :=
+   DECLARE _gauss2d_point
+-  WITH sh: share, p: val, X: {n: 'I_5 & 'I_n * 'I_n}, gv: globals
++  WITH sh: share, p: val, X: {n: 'I_5 & ('I_n * 'I_n)%type}, gv: globals
+   PRE [ tptr tdouble, tint, tint ]  let '(existT _ n (x,y)) := X in
+     PROP(writable_share sh)
+     PARAMS(p; Vint (Int.repr (Z.of_nat (y*n+x)%nat)); Vint (Int.repr (Z.of_nat (n*n)%nat)))
+@@ -140,7 +140,7 @@
+ 
+  Definition gauss2d_weight_spec : ident * funspec :=
+   DECLARE _gauss2d_weight
+-  WITH sh:share, X: {n: 'I_5 & 'I_n * 'I_n}, gv: globals
++  WITH sh:share, X: {n: 'I_5 & ('I_n * 'I_n)%type}, gv: globals
+   PRE [ tint, tint ]  let '(existT _ n (i,j)) := X in
+     PROP(writable_share sh)
+     PARAMS(Vint (Int.repr (Z.of_nat (j*n+i)%nat)); Vint (Int.repr (Z.of_nat (n*n)%nat)))
