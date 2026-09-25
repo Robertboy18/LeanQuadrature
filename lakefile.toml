@@ -5,7 +5,7 @@ defaultTargets = ["Quadrature", "CCLib", "Clightdefs"]
 [[require]]
 name = "LeanPDE"
 git = "https://github.com/lean-dojo/LeanPDE.git"
-rev = "30b10fbd708296de823745287f4efbbfcc4deb2d"
+rev = "40ad295c230f2f8d97249d93aedbdd77671327de"
 
 [[require]]
 name = "floatlib"

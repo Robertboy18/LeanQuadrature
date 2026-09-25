@@ -1,3 +1,1 @@
-✔ [3680/3682] Built Quadrature.Clight.RuleAccuracy (3.6s)
-✔ [3681/3682] Built Quadrature (4.1s)
 Build completed successfully (3682 jobs).

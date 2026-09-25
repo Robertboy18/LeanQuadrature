@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-09-25T14:27:42.914930+00:00",
+  "checked_at": "2026-09-25T15:30:35.115145+00:00",
   "kind": "Manuscript PDF, source attribution, code listings, and result-table checks",
   "paper": {
     "title": "Gaussian Quadrature in Lean and Rocq",
@@ -20,8 +20,9 @@
     ],
     "passes": 4,
     "script_sha256": "ba4b6de88156c66d381bbeafc09a493906b702cf402754363bdf264ffedf526a",
-    "source_and_output_revalidated_at": "2026-09-25T14:27:42.914930+00:00",
-    "scope": "Fresh four-pass build produced the PDF from the recorded LaTeX inputs.",
+    "source_and_output_revalidated_at": "2026-09-25T15:30:35.115145+00:00",
+    "original_build_checks_recorded_at": "2026-09-25T14:27:42.914930+00:00",
+    "scope": "Revalidated the existing four-pass build against unchanged LaTeX inputs and PDF; the dependency revision update required no new PDF build.",
     "unresolved_references": [],
     "overfull_boxes": [],
     "missing_characters": [],
@@ -80,8 +81,8 @@
     "visual_inspection_status": "All 22 pages were rendered and visually inspected at contact-sheet scale; the review below records its scope."
   },
   "mathematical_source_comparison": {
-    "checked_at": "2026-09-25T14:27:42.914930+00:00",
-    "inputs_revalidated_at": "2026-09-25T14:27:42.914930+00:00",
+    "checked_at": "2026-09-25T15:30:35.115145+00:00",
+    "inputs_revalidated_at": "2026-09-25T15:30:35.115145+00:00",
     "original_paragraph_review_recorded_at": "2026-09-23T18:21:24.733807+00:00",
     "file": "docs/stewart-comparison.md",
     "sha256": "a929bf9de0bc9b64504d9aa45c40d343834f04835124bb01b93762da12616375",
@@ -284,7 +285,7 @@
     },
     "dependencies": {
       "LeanPDE": {
-        "revision": "30b10fbd708296de823745287f4efbbfcc4deb2d",
+        "revision": "40ad295c230f2f8d97249d93aedbdd77671327de",
         "tracked_worktree_clean": true,
         "source_sha256": {
           "PDE/Symbolic/Continuum/Quadrature/Rule.lean": "c42fed4c47d0a13ba8e66e1aa590bcafa0f7873755167725a0c8a8a334ae4ed9",
@@ -323,7 +324,7 @@
     },
     "full_build_record": {
       "file": "evidence/lean-quality.json",
-      "sha256": "1ca2cbea3c2487a3800230a33fccb117ab7325d824f0586565ce740c01440390",
+      "sha256": "7a7a555faa53573752c8042d36aff7aea5b356dc375750ac809970916c4ea157",
       "all_source_and_configuration_hashes_match": true,
       "matching_input_count": 271,
       "also_matched_in_build_mirror": true
@@ -338,7 +339,7 @@
     "scope": "Parsed Markdown links and image targets, including reference links and table cells. External destinations were not fetched."
   },
   "scope": "PDF and source-attribution checks for the hashes recorded here. Existing full proof-build checks remain in lean-quality.json and the Rocq verification records. Matching a declaration to a mathematical statement also requires the source review described above; the declaration queries alone are not a coverage proof.",
-  "completed_at": "2026-09-25T14:28:09.114710+00:00",
+  "completed_at": "2026-09-25T15:30:49.832121+00:00",
   "manual_visual_review": {
     "checked_at": "2026-09-25T14:19:26.535392+00:00",
     "pdf_sha256": "208a2b6a72e1b705d194f80fd2fed9043dc027f7ac57d87b8b21d393322ccf1f",
