@@ -1,5 +1,5 @@
 import Quadrature.Clight.TableData
-import Quadrature.Legendre.WeightCertificates
+import PDE.Symbolic.Continuum.Quadrature.Legendre.WeightCertificates
 import Quadrature.Rules.Basic
 
 /-!
@@ -15,7 +15,7 @@ arithmetic takes part in validating a tolerance.
 namespace Quadrature.Binary64.StoredRule
 
 open FloatLib.Floats.Formats.BinaryInterchange
-open PDE.Symbolic.Continuum (RationalInterval)
+open PDE.Symbolic.Continuum
 open PDE.Symbolic.Polynomial.RealRoot
 open Legendre.RootCertificates
 

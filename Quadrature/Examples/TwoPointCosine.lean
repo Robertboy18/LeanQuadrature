@@ -1,7 +1,7 @@
 import Mathlib.Analysis.Calculus.IteratedDeriv.Lemmas
 import PDE.Symbolic.CEGA
 import PDE.Symbolic.IntegrationTactic
-import Quadrature.Analysis.Taylor
+import PDE.Symbolic.Continuum.TrigonometricTaylorBounds
 
 /-!
 # The cosine example: refuted and replaced error bounds
@@ -93,7 +93,7 @@ theorem paper_two_point_analytic_bound_false :
 
 /-- `sin 1 ≤ 0.8414711`, from the degree-9 Taylor polynomial `sin_le_taylor_nine`. -/
 theorem sin_one_upper : Real.sin 1 ≤ (8414711 / 10000000 : ℝ) := by
-  have h := sin_le_taylor_nine (x := 1) (by norm_num)
+  have h := PDE.Symbolic.Continuum.sin_le_taylor_nine (x := 1) (by norm_num)
   norm_num at h ⊢
   linarith
 

@@ -1,4 +1,4 @@
-import Quadrature.Legendre.RootData
+import Quadrature.Rules.RootData
 import Quadrature.Rules.Tables
 
 /-!
@@ -25,7 +25,8 @@ the `*_certificate` theorem assembles the three into a certificate with
 
 namespace Quadrature.Binary64.StoredRule
 
-open Legendre.RootCertificates Legendre.RootData
+open PDE.Symbolic.Continuum
+open Legendre.RootCertificates LegendreRootData
 
 -- Kernel evaluation of the rational node enclosure check for the five-point rule.
 set_option maxRecDepth 20000 in

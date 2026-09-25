@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-09-25T11:08:04.282984+00:00",
+  "checked_at": "2026-09-25T14:24:45.061356+00:00",
   "kind": "Full Lean build and transitive project/private/CLean assumption audit",
   "lean_version": "Lean (version 4.34.0, x86_64-unknown-linux-gnu, commit 293d5d0c0c3f3dded4688b3ccd6a33939ac5102b, Release)",
   "build_directory": "/mnt/build/robert/leanquadrature/LeanQuadrature",
@@ -11,8 +11,8 @@
         "build"
       ],
       "exit_code": 0,
-      "log": "/tmp/leanquadrature-quality-p8d2aomb/build.log",
-      "log_sha256": "200eb1d97a6ce38e895d4ca8a141d2986828ded7f2a8adc771f3f5ed61f8bd5b",
+      "log": "/tmp/leanquadrature-quality-m3v09bfc/build.log",
+      "log_sha256": "bdd8142b90325dfd1bfdf6206613b32a76333d19b83ef4b5653fb1b4300c420d",
       "retained_log": "evidence/lean-quality-logs/build.txt"
     },
     "project-audit": {
@@ -25,8 +25,8 @@
         "scripts/Audit.lean"
       ],
       "exit_code": 0,
-      "log": "/tmp/leanquadrature-quality-p8d2aomb/project-audit.log",
-      "log_sha256": "1c50dc3db415c33564afbe7c293436f4f3e8fe9f4bd3e24bb348af5645e8b768",
+      "log": "/tmp/leanquadrature-quality-m3v09bfc/project-audit.log",
+      "log_sha256": "7e4788fcda61bcba895b51f45252265fe5d7b2dfaff503e53d810520b6c93a23",
       "retained_log": "evidence/lean-quality-logs/project-audit.txt"
     },
     "clight-audit": {
@@ -39,7 +39,7 @@
         "scripts/AuditClight.lean"
       ],
       "exit_code": 0,
-      "log": "/tmp/leanquadrature-quality-p8d2aomb/clight-audit.log",
+      "log": "/tmp/leanquadrature-quality-m3v09bfc/clight-audit.log",
       "log_sha256": "d8400405566528729d3d70779f03a98438f348f5386e874a2dc9b1f18c0531a1",
       "retained_log": "evidence/lean-quality-logs/clight-audit.txt"
     },
@@ -53,17 +53,16 @@
         "scripts/AuditCSourceWrapper.lean"
       ],
       "exit_code": 0,
-      "log": "/tmp/leanquadrature-quality-p8d2aomb/source-wrapper-audit.log",
+      "log": "/tmp/leanquadrature-quality-m3v09bfc/source-wrapper-audit.log",
       "log_sha256": "ff95877f694667aed7be121c6d3c96465c3ea5c19f415db4a55b3cdade65b2e2",
       "retained_log": "evidence/lean-quality-logs/source-wrapper-audit.txt"
     }
   },
-  "audited_project_theorem_count": 7954,
-  "audited_private_project_theorem_count": 867,
+  "audited_project_theorem_count": 7830,
+  "audited_private_project_theorem_count": 857,
   "audited_clight_theorem_count": 2784,
   "audited_project_modules": [
     "Quadrature",
-    "Quadrature.Analysis.Taylor",
     "Quadrature.Binary64.BoundedRoundoff",
     "Quadrature.Binary64.Constants",
     "Quadrature.Binary64.ExceptionalValues",
@@ -284,15 +283,11 @@
     "Quadrature.Examples.Overflow",
     "Quadrature.Examples.PolynomialRules",
     "Quadrature.Examples.TwoPointCosine",
-    "Quadrature.Legendre.Basic",
-    "Quadrature.Legendre.Identification",
-    "Quadrature.Legendre.RootCertificates",
-    "Quadrature.Legendre.RootData",
-    "Quadrature.Legendre.WeightCertificates",
     "Quadrature.Rules.Accuracy",
     "Quadrature.Rules.Basic",
     "Quadrature.Rules.Certificates",
     "Quadrature.Rules.Constants",
+    "Quadrature.Rules.RootData",
     "Quadrature.Rules.Tables"
   ],
   "allowed_axioms": [
@@ -306,8 +301,7 @@
     "Clightdefs"
   ],
   "source_and_configuration_sha256": {
-    "Quadrature.lean": "5738b44520c2373bc5e369a35f1889a96cf5e6e45ea8c8b79bf8d9960b1c542a",
-    "Quadrature/Analysis/Taylor.lean": "52fc05ff69f4de941546f856c6afe2e1c3b306b559331f4715d503a9eb18607b",
+    "Quadrature.lean": "a2f72e0d31c7413af5c6385ab28be86c768131df60a4508c71de1e8354ecc174",
     "Quadrature/Binary64/BoundedRoundoff.lean": "15911046243be58011601e7ce6adf37f6cca88bc298bdede2efc58e806704014",
     "Quadrature/Binary64/Constants.lean": "9b980e6d6b4d974add706feab847e2fa66fbecfd891f14d7e6e6640e360d59c2",
     "Quadrature/Binary64/ExceptionalValues.lean": "976634e4ff40d9009845b2db4d6b80d74a6ea2edae2018157b4ab2244e64a468",
@@ -414,7 +408,7 @@
     "Quadrature/Clight/Main.lean": "f5e21490665eda1fbc938ed5cc9909efa92fa34c76001d81dbdcd4ab6a3be375",
     "Quadrature/Clight/Observation.lean": "6d33951fc27184ad5bc568210cd8cd1313fbab9195f6ccbe0e51e412abb165a0",
     "Quadrature/Clight/Program.lean": "a2b22f2ae8acf939e090efbfd4d84c1ad701dbefd0bb5915fa3e48b5e9984f03",
-    "Quadrature/Clight/RuleAccuracy.lean": "06e6beefb82895bd12f530ee8ef62c6076af0c5c18d47dd90624eaf1a1cee34e",
+    "Quadrature/Clight/RuleAccuracy.lean": "92956dbea62f8d8086c0288ddb2613f18425f48e4ea4ae1788e97471456f032e",
     "Quadrature/Clight/Source.lean": "a8e4bbb4a03bbd19249c3e1476822d2881bdc5d6087aa4a595af30abae03c413",
     "Quadrature/Clight/StoredAccuracy.lean": "bb038d88eb3435e29e3e415757edf4155b8936006d9ef75f76adfa40eba5c31c",
     "Quadrature/Clight/StoredRules.lean": "6978da38608083e36000e9e08ab246f46591a8b548e35ba7aeb95f87773ef2a5",
@@ -528,19 +522,15 @@
     "Quadrature/Examples/LoopApplications.lean": "c0fe83725e0ebf41e026cca46863a3abe7014733db90afa82bc33cf966a004d1",
     "Quadrature/Examples/Overflow.lean": "0c98b636557aeceb79737338341846b5e3a4df3afb825dd51d367dd1b7db974b",
     "Quadrature/Examples/PolynomialRules.lean": "6864e14a19bac402c59522bac0636446d18168799d59de02bad791012fc18310",
-    "Quadrature/Examples/TwoPointCosine.lean": "fd6fc9ce6df95151fcb3e38f44351695e5ade6926687a183206e687dede87e4b",
-    "Quadrature/Legendre/Basic.lean": "7c574c89a880d76ccef34cf641734850b2ad1f30b80aa56184765a22386f7c48",
-    "Quadrature/Legendre/Identification.lean": "b9895aaf98b1c60b7f027c2737c2ef752f29ca7272756b62d1ca44036b8601ec",
-    "Quadrature/Legendre/RootCertificates.lean": "29e30c442ab5a4c39c04a9bd3d76e800b6078594db03d494d6b84a00651b6753",
-    "Quadrature/Legendre/RootData.lean": "c7568b439afaa6ad779c8cd517faeea242eb8590d2d25b860a0a2be6af5d6e77",
-    "Quadrature/Legendre/WeightCertificates.lean": "ac00a79fa2277d8145a573a65a9252ee65ada031abcd213387a6bb8b3e4f051a",
+    "Quadrature/Examples/TwoPointCosine.lean": "240ff2451113eba3a13609c1b744fa446efc430a5ff9818347941f85dce47986",
     "Quadrature/Rules/Accuracy.lean": "fd68180c432af0927585691cbee080687e17ff15a172630a02518233f6b423a6",
-    "Quadrature/Rules/Basic.lean": "46e9920294b995186677a03b182d5e6db37e1bac80e6b6feec3582211f47abdf",
-    "Quadrature/Rules/Certificates.lean": "22df5f954a2df396eebce0de03704a95ff52ec3daa2619d6f6b7fc67b602b864",
-    "Quadrature/Rules/Constants.lean": "f348cb938e63256d23f577fdeb00d19e3a2ad0f49e46f9d39b56c7187b6a1436",
-    "Quadrature/Rules/Tables.lean": "9a5e1817bcfe52aefbc9c8d82b7578656a98a581b75b2148c95f32f08b97b372",
-    "lake-manifest.json": "ad6c3d41796696357e6d5409708075d68db196ce343637ec82b063e9b4985f64",
-    "lakefile.toml": "9c8e66e50cf68a46ad040beee8890e3065cd12e04aea42575061fe7e42a5902a",
+    "Quadrature/Rules/Basic.lean": "2f97245dd9c4f5180188fbfc37206d7d771d74ef3e759e7950f822b542c5d222",
+    "Quadrature/Rules/Certificates.lean": "0fd4401b6392f7b4fd922caf9edfff86499d5334507c50b12876d254066790e7",
+    "Quadrature/Rules/Constants.lean": "096e7dfb525429adbb5131d94692173fb5151cda793c673055b6145a47df182a",
+    "Quadrature/Rules/RootData.lean": "554ecbafd22572f19f8d05f6c7e1ddff3b60cdb6f154fb759e57ff2c0ee0ec8c",
+    "Quadrature/Rules/Tables.lean": "c8158e7578cf31b0e9d4a6f5a8d44721c98c325410bf7a254acf0aba8c3d53af",
+    "lake-manifest.json": "c9166d4b966b5a323f025e9e2e15170e0e8a317c256088a9e524dab4df8ee508",
+    "lakefile.toml": "c3c449fe4e72abf1e289db296478b7690039c24898a7874de87800a0fac04559",
     "lean-toolchain": "8733782dc070a99b312039cda424f601b80f3be6f6f512627da5ba25adc27632",
     "scripts/Audit.lean": "1dabb8ca05d47b841ae5050f058f86d8a15c92c5050f39af6c2d3da62560c3a6",
     "scripts/AuditCSourceWrapper.lean": "6a40b68e9401be5179fd12f8ea5ea782376b888682d05ef0f45734b073cd652a",
@@ -589,7 +579,7 @@
       "clean": true
     },
     "LeanPDE": {
-      "revision": "d867983eed69b18234586a88290eba79c83e3df0",
+      "revision": "30b10fbd708296de823745287f4efbbfcc4deb2d",
       "clean": true
     },
     "mathlib": {

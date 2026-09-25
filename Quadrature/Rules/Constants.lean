@@ -1,5 +1,5 @@
 import Quadrature.Binary64.Constants
-import Quadrature.Legendre.Basic
+import PDE.Symbolic.Continuum.Quadrature.Legendre.Basic
 
 /-!
 # Binary64 constants for the one-, three-, and four-point rules
@@ -14,6 +14,7 @@ have different encodings, with no floating-point computation inside the proof.
 namespace Quadrature.Binary64
 
 open FloatLib.Floats.Formats.BinaryInterchange
+open PDE.Symbolic.Continuum
 
 /-- The binary64 value `2.0`, the weight of the one-point rule. -/
 def two : Value := Model.ofNatBits 0x4000000000000000

@@ -1,5 +1,5 @@
 import Quadrature.Binary64.Program
-import Quadrature.Legendre.Identification
+import PDE.Symbolic.Continuum.Quadrature.Legendre.Identification
 import Quadrature.Rules.Constants
 
 /-!
@@ -18,6 +18,7 @@ of the Appel–Bindel manuscript would be false for that entry.
 namespace Quadrature.Binary64
 
 open FloatLib.Floats.Formats.BinaryInterchange
+open PDE.Symbolic.Continuum
 
 /-- A table of `n` binary64 weights and `n` nodes, indexed in accumulation order. -/
 structure StoredRule (n : ℕ) where

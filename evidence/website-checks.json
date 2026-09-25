@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-09-23T20:14:28.976Z",
+  "checked_at": "2026-09-25T13:55:09.953Z",
   "kind": "Local browser, equation, and navigation checks",
   "explorer_cases": [
     {
@@ -117,14 +117,14 @@
   "static_equations_extracted": 307,
   "counterexample_and_theme_checked": true,
   "duplicate_ids": [],
-  "local_links_checked": 116,
+  "local_links_checked": 113,
   "normalization_section_checked": true,
   "normalization_equation_fits_phone_width": true,
   "c_assembly_equation_fits_phone_width": true,
   "c_assembly_section_checked": true,
   "source_sha256": {
-    "docs/interactive/index.html": "a32ecd779c818da939c26a398d9b26c57d607ec1a86d02db1a4ccf25d14a5358",
-    "docs/interactive/app.js": "a74e6c9c1b3dd194b0d895aeba7412272f1d56e91968268cd5456fa84b775f9e",
+    "docs/interactive/index.html": "347b19057847329603215b1eae066dbe966da727b34baad49deca71b6800dacf",
+    "docs/interactive/app.js": "5e814d49265046934a6226fa407c2159e5b1a290a7e6a999ef0eab021c69684c",
     "docs/interactive/styles.css": "b2c90d9abc1e1cebdfdff20bc3044dde6a5d268a1028762126385b65d5811691",
     "docs/interactive/favicon.svg": "2c94f0f40407c24934c858176639b95da6f1fbd2d69913a2b9b473945d5156c2",
     "docs/interactive/vendor/katex/katex.min.js": "10a91b479cd927446ceb60409fb0d72b5d0d05eaf446c9e52fafd64058c84540",
@@ -156,21 +156,24 @@
     "Real clicks and keyboard input exercised all twelve explorer cases, every convention/proof/route/loop choice, the theme switch, and the counterexample button.",
     "Links collected across the controls were checked for local targets; this page's anchors were checked for uniqueness.",
     "The bundled KaTeX rendered all static equations with throwOnError: true, strict: error, and trust: false.",
-    "Desktop, tablet, and phone layouts were checked for page overflow with every reading panel expanded.",
-    "Inspected desktop and phone screenshots of the introduction, library attribution, C-to-Clight preservation equation, and C-return/assembly-annotation correspondence for readable text and correct equation display."
+    "Desktop, tablet, and phone layouts were checked for page overflow with every reading panel expanded."
   ],
   "scope": "Checks of the local website and bundled assets. External destinations were not fetched. These rendering and interaction checks do not verify the mathematical proofs.",
-  "completed_at": "2026-09-23T20:19:31.790609+00:00",
-  "visual_sections_checked": {
-    "desktop": [
-      "introduction",
-      "library attribution",
-      "C-return/assembly-annotation agreement"
+  "completed_at": "2026-09-25T13:55:19.525Z",
+  "manual_visual_review": {
+    "checked_at": "2026-09-25T14:08:48.830111+00:00",
+    "sections": [
+      "What each Lean library contributed"
     ],
-    "phone": [
-      "library attribution",
-      "C-to-Clight preservation",
-      "C-return/assembly-annotation agreement"
-    ]
+    "viewport_widths": [
+      390,
+      1440
+    ],
+    "checks": [
+      "The new shared-library description is readable at both widths.",
+      "The retained application data and program-proof description is visible.",
+      "No text is clipped horizontally."
+    ],
+    "scope": "Review of the updated library section; interactive controls and equations are covered by the browser checks above."
   }
 }

@@ -65,8 +65,6 @@ import Quadrature.Examples.LoopApplications
 import Quadrature.Examples.Overflow
 import Quadrature.Examples.PolynomialRules
 import Quadrature.Examples.TwoPointCosine
-import Quadrature.Legendre.Basic
-import Quadrature.Legendre.Identification
 import Quadrature.Rules.Accuracy
 import Quadrature.Rules.Basic
 import Quadrature.Rules.Constants
@@ -93,9 +91,10 @@ the Christoffel numbers are positive. `GaussianRule.remainder` gives the error f
 `∫ f w - Q f = f^(2n)(ξ) / (2n)! * ∫ p_n ^ 2 w` for `f ∈ C^{2n}[a, b]`, and
 `gaussian_rules_converge` shows the rules converge for every continuous integrand.
 
-Explicit Legendre rules and the ten stored tables. Orders one to four are written in
-radicals, and orders five to ten are certified from rational root brackets checked by kernel
-evaluation. `Binary64.StoredRule.table_certificate` (in `Rules/Certificates`) shows that
+Legendre rules and the ten stored tables. LeanPDE supplies the explicit rules for orders
+one to four and the general root and weight certificate theorems. This project supplies
+the rational root brackets for orders five to ten, checked by kernel evaluation.
+`Binary64.StoredRule.table_certificate` (in `Rules/Certificates`) shows that
 each of the ten node and weight tables of the C program lies within `6e-16` and `5e-16` of
 the ideal rule. `Example.corrected_two_point_bound` proves the error bound `0.00356` for the
 manuscript's cosine example, whose stated bound `0.00223` is refuted alongside it.
@@ -130,16 +129,17 @@ the imported application syntax.
 
 The files are grouped by subject under `Quadrature/`:
 
-* `Analysis/`: Taylor estimates for the trigonometric examples. The general Gaussian theory
-  lives in LeanPDE under `PDE/Symbolic/Continuum/Quadrature/Gaussian/`.
-* `Legendre/`: explicit rules and rational root and weight certificates.
 * `Binary64/`: FloatLib operations, rounding, finite representations, and loop models.
-* `Rules/`: stored tables, their certificates, and general accuracy bounds.
+* `Rules/`: stored tables, rational root brackets, table certificates, and accuracy bounds.
 * `Examples/`: the cosine applications and counterexamples to claims in the original work.
 * `CSource/`: the frontend, C semantics, original functions, and internal cosine library.
 * `Clight/`: library calls and initialized polynomial applications.
 * `Compiler/`: the seven intermediate languages, shared execution lemmas, and proofs
   relating the particular programs at adjacent stages.
+
+The shared mathematics lives in LeanPDE under `PDE/Symbolic/Continuum/Quadrature/`:
+`Gaussian/` contains the general theory and `Legendre/` the explicit rules and certificate
+theorems. The trigonometric estimates come from LeanPDE's `TrigonometricTaylorBounds`.
 
 `Quadrature/README.md` gives entry points for each subject. Every source module is imported
 here, directly or through a dependency, so the assumption audit checks the entire library.

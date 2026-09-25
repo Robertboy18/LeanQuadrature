@@ -247,7 +247,7 @@ Level & Appel--Bindel in Rocq & LeanQuadrature in Lean\\
 \partialproof{}: recurrence and quadrature proofs, with root certificates
 through four points. The general remainder is admitted; convergence is
 unproved. &
-\textbf{mathlib, LeanPDE}, with our general quadrature proofs.
+\textbf{mathlib, LeanPDE}: the shared Gaussian theory.
 \proved{}: construction at every positive order on compact intervals;
 exactness, positive weights, recurrence, the corrected remainder,
 and convergence.\\
@@ -297,19 +297,17 @@ general compiler.}
 \label{tab:comparison}
 \end{table}
 
-LeanPDE is a substantive dependency of these proofs. We reuse its
-quadrature interfaces, its two-point Gauss--Legendre rule and cubic
-exactness theorem, and its stability bounds under uniform approximation.
-Its certified root brackets, rational interval arithmetic, Taylor
-inequalities, and integration tactics establish the concrete enclosures.
-The sharp fourth-derivative error bound for the two-point rule, proved with
-a Peano kernel, was already present in the original LeanPDE baseline.
-Our general remainder proof does not use it. We developed the general
-weighted construction, integrated remainder, and convergence proof in
-LeanQuadrature, building on mathlib. These proofs now live in LeanPDE's
-\code{PDE.Symbolic.Continuum} namespace and are imported here.
-FloatLib supplies the binary64 operations and rounding theorems used to
-connect those real bounds to computation.
+LeanPDE supplies the weighted Gaussian theory, explicit Legendre rules
+through four nodes, and general root and weight certificate proofs.
+We moved the general theory and the additional rules and certificates
+developed here into LeanPDE for reuse. They build on mathlib and LeanPDE's
+existing quadrature interfaces, midpoint rule, and two-point rule.
+Rational interval arithmetic, Taylor bounds, and integration tactics provide concrete
+enclosures. Its sharp two-point error bound, proved with a Peano kernel,
+predates our general Hermite remainder and is not used by that proof.
+LeanQuadrature contains the stored tables, their particular root brackets,
+numerical accuracy certificates, and program proofs. FloatLib supplies
+the binary64 operations and rounding theorems.
 
 \section{Corrections to the example and its proofs}
 \label{sec:discrepancies}
@@ -1344,7 +1342,7 @@ project theorems, their private helpers, and the adapted CLean library, and
 the only permitted axioms are \code{propext}, \code{Classical.choice}, and
 \code{Quot.sound}. The Rocq compilation proofs have their own record of
 assumptions, including the logical and external-semantics dependencies of
-CompCert and Flocq. The project contains roughly 53,000 lines of Lean, a
+CompCert and Flocq. The project contains roughly 50,000 lines of Lean, a
 large share of it imported program syntax, and about 10,000 lines of Rocq.
 LeanPDE is a private dependency. The public source distribution does not
 include it; readers who wish to reproduce the build should request access
@@ -1358,12 +1356,11 @@ libraries. mathlib provides the analysis needed for the general Gaussian
 construction; LeanPDE contributes quadrature interfaces, concrete rules,
 and certified symbolic calculation; FloatLib makes the binary64
 computation executable inside the logic. In LeanQuadrature we developed the
-weighted construction, remainder, and convergence proofs, now shared through
-LeanPDE, and the accuracy certificates for the ten stored rules.
-LeanPDE is essential to this
-implementation because the proofs reuse those definitions and theorems.
-Its preexisting sharp two-point error bound must be distinguished from our
-general remainder theorem.
+weighted construction, remainder, convergence, and Legendre certificate
+proofs, now shared through LeanPDE. The accuracy certificates for the ten
+stored rules and the program proofs remain in LeanQuadrature.
+LeanPDE is essential to this implementation because we import those
+definitions and theorems.
 TorchLean is a transitive dependency of LeanPDE; we do not use its tensor
 or neural-network interfaces.
 
@@ -1415,8 +1412,8 @@ of Stewart~\cite{stewart}. The PDF abbreviates several paragraphs and skips
 14; the accompanying \code{quadrature.v} comments include its root
 argument. The table preserves the original comparison with an
 \href{https://github.com/lean-dojo/LeanPDE/tree/03f523aff09fe3ff3069d54088770a264fc281f1}{earlier LeanPDE revision}.
-We developed the general Gaussian theory in LeanQuadrature and subsequently
-moved it into LeanPDE; this project now imports those shared proofs.
+The general Gaussian and Legendre proofs developed in LeanQuadrature now
+live in LeanPDE; this project imports them.
 The columns record provenance, not gaps in the current dependency.
 The general results below assume a compact
 interval, a positive continuous weight, and a positive node count.

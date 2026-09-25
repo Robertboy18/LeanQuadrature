@@ -32,165 +32,188 @@ PDE.Symbolic.Continuum.norm_integral_sub_gaussLegendreTwoRule_valueOn_le {f : �
 PDE.Symbolic.Continuum.gaussLegendreTwoRule.sharpCert {f : ℝ → ℝ} {a b C : ℝ} (hab : a < b)
   (hf : ContDiffOn ℝ 4 f (Set.Icc a b)) (hfourth : ∀ x ∈ Set.Icc a b, ‖iteratedDerivWithin 4 f (Set.Icc a b) x‖ ≤ C) :
   PDE.Symbolic.Continuum.QuadratureCert f a b
-Quadrature.polynomialIntegral (a b : ℝ) (w : ℝ → ℝ) (hw : ContinuousOn w (Set.uIcc a b)) : Polynomial ℝ →ₗ[ℝ] ℝ
-Quadrature.momentInnerCore (L : Polynomial ℝ →ₗ[ℝ] ℝ) (hpositive : ∀ (p : Polynomial ℝ), p ≠ 0 → 0 < L (p ^ 2)) :
-  InnerProductSpace.Core ℝ (Polynomial ℝ)
-Quadrature.exists_monic_orthogonal (L : Polynomial ℝ →ₗ[ℝ] ℝ) (hpositive : ∀ (p : Polynomial ℝ), p ≠ 0 → 0 < L (p ^ 2))
-  (n : ℕ) : ∃ p, p.Monic ∧ p.degree = ↑n ∧ ∀ (q : Polynomial ℝ), q.degree < ↑n → L (p * q) = 0
-Quadrature.orthogonalPolynomial (L : Polynomial ℝ →ₗ[ℝ] ℝ) (hpositive : ∀ (p : Polynomial ℝ), p ≠ 0 → 0 < L (p ^ 2))
-  (n : ℕ) : Polynomial ℝ
-Quadrature.orthogonalPolynomial_monic (L : Polynomial ℝ →ₗ[ℝ] ℝ)
+PDE.Symbolic.Continuum.polynomialIntegral (a b : ℝ) (w : ℝ → ℝ) (hw : ContinuousOn w (Set.uIcc a b)) :
+  Polynomial ℝ →ₗ[ℝ] ℝ
+PDE.Symbolic.Continuum.momentInnerCore (L : Polynomial ℝ →ₗ[ℝ] ℝ)
+  (hpositive : ∀ (p : Polynomial ℝ), p ≠ 0 → 0 < L (p ^ 2)) : InnerProductSpace.Core ℝ (Polynomial ℝ)
+PDE.Symbolic.Continuum.exists_monic_orthogonal (L : Polynomial ℝ →ₗ[ℝ] ℝ)
   (hpositive : ∀ (p : Polynomial ℝ), p ≠ 0 → 0 < L (p ^ 2)) (n : ℕ) :
-  (Quadrature.orthogonalPolynomial L hpositive n).Monic
-Quadrature.orthogonalPolynomial_degree (L : Polynomial ℝ →ₗ[ℝ] ℝ)
+  ∃ p, p.Monic ∧ p.degree = ↑n ∧ ∀ (q : Polynomial ℝ), q.degree < ↑n → L (p * q) = 0
+PDE.Symbolic.Continuum.orthogonalPolynomial (L : Polynomial ℝ →ₗ[ℝ] ℝ)
+  (hpositive : ∀ (p : Polynomial ℝ), p ≠ 0 → 0 < L (p ^ 2)) (n : ℕ) : Polynomial ℝ
+PDE.Symbolic.Continuum.orthogonalPolynomial_monic (L : Polynomial ℝ →ₗ[ℝ] ℝ)
   (hpositive : ∀ (p : Polynomial ℝ), p ≠ 0 → 0 < L (p ^ 2)) (n : ℕ) :
-  (Quadrature.orthogonalPolynomial L hpositive n).degree = ↑n
-Quadrature.orthogonalPolynomial_orthogonal (L : Polynomial ℝ →ₗ[ℝ] ℝ)
+  (PDE.Symbolic.Continuum.orthogonalPolynomial L hpositive n).Monic
+PDE.Symbolic.Continuum.orthogonalPolynomial_degree (L : Polynomial ℝ →ₗ[ℝ] ℝ)
+  (hpositive : ∀ (p : Polynomial ℝ), p ≠ 0 → 0 < L (p ^ 2)) (n : ℕ) :
+  (PDE.Symbolic.Continuum.orthogonalPolynomial L hpositive n).degree = ↑n
+PDE.Symbolic.Continuum.orthogonalPolynomial_orthogonal (L : Polynomial ℝ →ₗ[ℝ] ℝ)
   (hpositive : ∀ (p : Polynomial ℝ), p ≠ 0 → 0 < L (p ^ 2)) (n : ℕ) (q : Polynomial ℝ) (hq : q.degree < ↑n) :
-  L (Quadrature.orthogonalPolynomial L hpositive n * q) = 0
-Quadrature.orthogonalPolynomial_unique (L : Polynomial ℝ →ₗ[ℝ] ℝ)
+  L (PDE.Symbolic.Continuum.orthogonalPolynomial L hpositive n * q) = 0
+PDE.Symbolic.Continuum.orthogonalPolynomial_unique (L : Polynomial ℝ →ₗ[ℝ] ℝ)
   (hpositive : ∀ (p : Polynomial ℝ), p ≠ 0 → 0 < L (p ^ 2)) (n : ℕ) (p : Polynomial ℝ) (hp : p.Monic)
   (hdegree : p.degree = ↑n) (horth : ∀ (q : Polynomial ℝ), q.degree < ↑n → L (p * q) = 0) :
-  p = Quadrature.orthogonalPolynomial L hpositive n
-Quadrature.degree_sub_coeff_mul_lt (p q : Polynomial ℝ) (n : ℕ) (hp : p.Monic) (hd : p.natDegree = n)
+  p = PDE.Symbolic.Continuum.orthogonalPolynomial L hpositive n
+PDE.Symbolic.Continuum.degree_sub_coeff_mul_lt (p q : Polynomial ℝ) (n : ℕ) (hp : p.Monic) (hd : p.natDegree = n)
   (hq : q.degree ≤ ↑n) : (q - Polynomial.C (q.coeff n) * p).degree < ↑n
-Quadrature.orthogonalPolynomial_zero (L : Polynomial ℝ →ₗ[ℝ] ℝ)
-  (hpositive : ∀ (q : Polynomial ℝ), q ≠ 0 → 0 < L (q ^ 2)) : Quadrature.orthogonalPolynomial L hpositive 0 = 1
-Quadrature.orthogonalPolynomial_one (L : Polynomial ℝ →ₗ[ℝ] ℝ)
+PDE.Symbolic.Continuum.orthogonalPolynomial_zero (L : Polynomial ℝ →ₗ[ℝ] ℝ)
   (hpositive : ∀ (q : Polynomial ℝ), q ≠ 0 → 0 < L (q ^ 2)) :
-  Quadrature.orthogonalPolynomial L hpositive 1 = Polynomial.X - Polynomial.C (Quadrature.recurrenceAlpha L hpositive 0)
-Quadrature.recurrenceAlpha (L : Polynomial ℝ →ₗ[ℝ] ℝ) (hpositive : ∀ (q : Polynomial ℝ), q ≠ 0 → 0 < L (q ^ 2))
-  (n : ℕ) : ℝ
-Quadrature.recurrenceBeta (L : Polynomial ℝ →ₗ[ℝ] ℝ) (hpositive : ∀ (q : Polynomial ℝ), q ≠ 0 → 0 < L (q ^ 2)) (n : ℕ) :
-  ℝ
-Quadrature.recurrenceBeta_eq_norm_ratio (L : Polynomial ℝ →ₗ[ℝ] ℝ)
+  PDE.Symbolic.Continuum.orthogonalPolynomial L hpositive 0 = 1
+PDE.Symbolic.Continuum.orthogonalPolynomial_one (L : Polynomial ℝ →ₗ[ℝ] ℝ)
+  (hpositive : ∀ (q : Polynomial ℝ), q ≠ 0 → 0 < L (q ^ 2)) :
+  PDE.Symbolic.Continuum.orthogonalPolynomial L hpositive 1 =
+    Polynomial.X - Polynomial.C (PDE.Symbolic.Continuum.recurrenceAlpha L hpositive 0)
+PDE.Symbolic.Continuum.recurrenceAlpha (L : Polynomial ℝ →ₗ[ℝ] ℝ)
+  (hpositive : ∀ (q : Polynomial ℝ), q ≠ 0 → 0 < L (q ^ 2)) (n : ℕ) : ℝ
+PDE.Symbolic.Continuum.recurrenceBeta (L : Polynomial ℝ →ₗ[ℝ] ℝ)
+  (hpositive : ∀ (q : Polynomial ℝ), q ≠ 0 → 0 < L (q ^ 2)) (n : ℕ) : ℝ
+PDE.Symbolic.Continuum.recurrenceBeta_eq_norm_ratio (L : Polynomial ℝ →ₗ[ℝ] ℝ)
   (hpositive : ∀ (q : Polynomial ℝ), q ≠ 0 → 0 < L (q ^ 2)) (n : ℕ) :
-  Quadrature.recurrenceBeta L hpositive n =
-    L (Quadrature.orthogonalPolynomial L hpositive (n + 1) ^ 2) / L (Quadrature.orthogonalPolynomial L hpositive n ^ 2)
-Quadrature.recurrenceBeta_pos (L : Polynomial ℝ →ₗ[ℝ] ℝ) (hpositive : ∀ (q : Polynomial ℝ), q ≠ 0 → 0 < L (q ^ 2))
-  (n : ℕ) : 0 < Quadrature.recurrenceBeta L hpositive n
-Quadrature.orthogonalPolynomial_recurrence (L : Polynomial ℝ →ₗ[ℝ] ℝ)
+  PDE.Symbolic.Continuum.recurrenceBeta L hpositive n =
+    L (PDE.Symbolic.Continuum.orthogonalPolynomial L hpositive (n + 1) ^ 2) /
+      L (PDE.Symbolic.Continuum.orthogonalPolynomial L hpositive n ^ 2)
+PDE.Symbolic.Continuum.recurrenceBeta_pos (L : Polynomial ℝ →ₗ[ℝ] ℝ)
   (hpositive : ∀ (q : Polynomial ℝ), q ≠ 0 → 0 < L (q ^ 2)) (n : ℕ) :
-  Quadrature.orthogonalPolynomial L hpositive (n + 2) =
-    Polynomial.X * Quadrature.orthogonalPolynomial L hpositive (n + 1) -
-        Polynomial.C (Quadrature.recurrenceAlpha L hpositive (n + 1)) *
-          Quadrature.orthogonalPolynomial L hpositive (n + 1) -
-      Polynomial.C (Quadrature.recurrenceBeta L hpositive n) * Quadrature.orthogonalPolynomial L hpositive n
-Quadrature.orthogonal_factor_has_root {a b : ℝ} (hab : a < b) (w : ℝ → ℝ) (hw : ContinuousOn w (Set.uIcc a b))
-  (hwpos : ∀ x ∈ Set.Icc a b, 0 < w x) (p : Polynomial ℝ) (hp : p ≠ 0)
-  (horth : ∀ (r : Polynomial ℝ), r.degree < p.degree → (Quadrature.polynomialIntegral a b w hw) (p * r) = 0)
+  0 < PDE.Symbolic.Continuum.recurrenceBeta L hpositive n
+PDE.Symbolic.Continuum.orthogonalPolynomial_recurrence (L : Polynomial ℝ →ₗ[ℝ] ℝ)
+  (hpositive : ∀ (q : Polynomial ℝ), q ≠ 0 → 0 < L (q ^ 2)) (n : ℕ) :
+  PDE.Symbolic.Continuum.orthogonalPolynomial L hpositive (n + 2) =
+    Polynomial.X * PDE.Symbolic.Continuum.orthogonalPolynomial L hpositive (n + 1) -
+        Polynomial.C (PDE.Symbolic.Continuum.recurrenceAlpha L hpositive (n + 1)) *
+          PDE.Symbolic.Continuum.orthogonalPolynomial L hpositive (n + 1) -
+      Polynomial.C (PDE.Symbolic.Continuum.recurrenceBeta L hpositive n) *
+        PDE.Symbolic.Continuum.orthogonalPolynomial L hpositive n
+PDE.Symbolic.Continuum.orthogonal_factor_has_root {a b : ℝ} (hab : a < b) (w : ℝ → ℝ)
+  (hw : ContinuousOn w (Set.uIcc a b)) (hwpos : ∀ x ∈ Set.Icc a b, 0 < w x) (p : Polynomial ℝ) (hp : p ≠ 0)
+  (horth : ∀ (r : Polynomial ℝ), r.degree < p.degree → (PDE.Symbolic.Continuum.polynomialIntegral a b w hw) (p * r) = 0)
   (q : Polynomial ℝ) (hq : 0 < q.natDegree) (hqp : q ∣ p) : ∃ x ∈ Set.Icc a b, Polynomial.eval x q = 0
-Quadrature.orthogonal_squarefree (L : Polynomial ℝ →ₗ[ℝ] ℝ) (hpositive : ∀ (q : Polynomial ℝ), q ≠ 0 → 0 < L (q ^ 2))
-  (p : Polynomial ℝ) (hp : p ≠ 0) (horth : ∀ (r : Polynomial ℝ), r.degree < p.degree → L (p * r) = 0) : Squarefree p
-Quadrature.orthogonal_splits {a b : ℝ} (hab : a < b) (w : ℝ → ℝ) (hw : ContinuousOn w (Set.uIcc a b))
+PDE.Symbolic.Continuum.orthogonal_squarefree (L : Polynomial ℝ →ₗ[ℝ] ℝ)
+  (hpositive : ∀ (q : Polynomial ℝ), q ≠ 0 → 0 < L (q ^ 2)) (p : Polynomial ℝ) (hp : p ≠ 0)
+  (horth : ∀ (r : Polynomial ℝ), r.degree < p.degree → L (p * r) = 0) : Squarefree p
+PDE.Symbolic.Continuum.orthogonal_splits {a b : ℝ} (hab : a < b) (w : ℝ → ℝ) (hw : ContinuousOn w (Set.uIcc a b))
   (hwpos : ∀ x ∈ Set.Icc a b, 0 < w x) (p : Polynomial ℝ) (hp : p ≠ 0)
-  (horth : ∀ (r : Polynomial ℝ), r.degree < p.degree → (Quadrature.polynomialIntegral a b w hw) (p * r) = 0) : p.Splits
-Quadrature.orthogonal_root_mem_Ioo {a b : ℝ} (hab : a < b) (w : ℝ → ℝ) (hw : ContinuousOn w (Set.uIcc a b))
+  (horth :
+    ∀ (r : Polynomial ℝ), r.degree < p.degree → (PDE.Symbolic.Continuum.polynomialIntegral a b w hw) (p * r) = 0) :
+  p.Splits
+PDE.Symbolic.Continuum.orthogonal_root_mem_Ioo {a b : ℝ} (hab : a < b) (w : ℝ → ℝ) (hw : ContinuousOn w (Set.uIcc a b))
   (hwpos : ∀ x ∈ Set.Icc a b, 0 < w x) (p : Polynomial ℝ) (hp : p ≠ 0)
-  (horth : ∀ (r : Polynomial ℝ), r.degree < p.degree → (Quadrature.polynomialIntegral a b w hw) (p * r) = 0) {x : ℝ}
-  (hx : p.IsRoot x) : x ∈ Set.Ioo a b
-Quadrature.interpolatoryWeight {n : ℕ} (L : Polynomial ℝ →ₗ[ℝ] ℝ) (nodes : Fin n → ℝ) (i : Fin n) : ℝ
-Quadrature.interpolatory_exact {n : ℕ} (L : Polynomial ℝ →ₗ[ℝ] ℝ) (nodes : Fin n → ℝ)
+  (horth : ∀ (r : Polynomial ℝ), r.degree < p.degree → (PDE.Symbolic.Continuum.polynomialIntegral a b w hw) (p * r) = 0)
+  {x : ℝ} (hx : p.IsRoot x) : x ∈ Set.Ioo a b
+PDE.Symbolic.Continuum.interpolatoryWeight {n : ℕ} (L : Polynomial ℝ →ₗ[ℝ] ℝ) (nodes : Fin n → ℝ) (i : Fin n) : ℝ
+PDE.Symbolic.Continuum.interpolatory_exact {n : ℕ} (L : Polynomial ℝ →ₗ[ℝ] ℝ) (nodes : Fin n → ℝ)
   (hnodes : Function.Injective nodes) (p : Polynomial ℝ) (hp : p.degree < ↑n) :
-  Quadrature.interpolatoryValue L nodes p = L p
-Quadrature.gaussian_exact {n : ℕ} (L : Polynomial ℝ →ₗ[ℝ] ℝ) (nodes : Fin n → ℝ) (hnodes : Function.Injective nodes)
+  PDE.Symbolic.Continuum.interpolatoryValue L nodes p = L p
+PDE.Symbolic.Continuum.gaussian_exact {n : ℕ} (L : Polynomial ℝ →ₗ[ℝ] ℝ) (nodes : Fin n → ℝ)
+  (hnodes : Function.Injective nodes)
   (horth : ∀ (q : Polynomial ℝ), q.natDegree < n → L (Lagrange.nodal Finset.univ nodes * q) = 0) (p : Polynomial ℝ)
-  (hp : p.natDegree < 2 * n) : Quadrature.interpolatoryValue L nodes p = L p
-Quadrature.gaussian_weight_pos {n : ℕ} (hn : 0 < n) (L : Polynomial ℝ →ₗ[ℝ] ℝ) (nodes : Fin n → ℝ)
+  (hp : p.natDegree < 2 * n) : PDE.Symbolic.Continuum.interpolatoryValue L nodes p = L p
+PDE.Symbolic.Continuum.gaussian_weight_pos {n : ℕ} (hn : 0 < n) (L : Polynomial ℝ →ₗ[ℝ] ℝ) (nodes : Fin n → ℝ)
   (hnodes : Function.Injective nodes)
   (horth : ∀ (q : Polynomial ℝ), q.natDegree < n → L (Lagrange.nodal Finset.univ nodes * q) = 0)
-  (hpositive : ∀ (p : Polynomial ℝ), p ≠ 0 → 0 < L (p ^ 2)) (i : Fin n) : 0 < Quadrature.interpolatoryWeight L nodes i
-Quadrature.exists_gaussian_quadrature {a b : ℝ} (hab : a < b) (w : ℝ → ℝ) (hw : ContinuousOn w (Set.uIcc a b))
-  (hwpos : ∀ x ∈ Set.Icc a b, 0 < w x) (n : ℕ) (hn : 0 < n) :
+  (hpositive : ∀ (p : Polynomial ℝ), p ≠ 0 → 0 < L (p ^ 2)) (i : Fin n) :
+  0 < PDE.Symbolic.Continuum.interpolatoryWeight L nodes i
+PDE.Symbolic.Continuum.exists_gaussian_quadrature {a b : ℝ} (hab : a < b) (w : ℝ → ℝ)
+  (hw : ContinuousOn w (Set.uIcc a b)) (hwpos : ∀ x ∈ Set.Icc a b, 0 < w x) (n : ℕ) (hn : 0 < n) :
   ∃ nodes,
     Function.Injective nodes ∧
       (∀ (i : Fin n), nodes i ∈ Set.Ioo a b) ∧
-        (∀ (i : Fin n), 0 < Quadrature.interpolatoryWeight (Quadrature.polynomialIntegral a b w hw) nodes i) ∧
+        (∀ (i : Fin n),
+            0 <
+              PDE.Symbolic.Continuum.interpolatoryWeight (PDE.Symbolic.Continuum.polynomialIntegral a b w hw) nodes i) ∧
           ∀ (p : Polynomial ℝ),
             p.natDegree < 2 * n →
-              Quadrature.interpolatoryValue (Quadrature.polynomialIntegral a b w hw) nodes p =
-                (Quadrature.polynomialIntegral a b w hw) p
-Quadrature.GaussianRule (a b : ℝ) (w : ℝ → ℝ) (hw : ContinuousOn w (Set.uIcc a b)) (n : ℕ) : Type
-Quadrature.GaussianRule.sum_weights {a b : ℝ} {w : ℝ → ℝ} {hw : ContinuousOn w (Set.uIcc a b)} {n : ℕ}
-  (rule : Quadrature.GaussianRule a b w hw n) (hn : 0 < n) :
-  ∑ i, rule.weights i = (Quadrature.polynomialIntegral a b w hw) 1
-Quadrature.GaussianRule.weight_le_mass {a b : ℝ} {w : ℝ → ℝ} {hw : ContinuousOn w (Set.uIcc a b)} {n : ℕ}
-  (rule : Quadrature.GaussianRule a b w hw n) (hn : 0 < n) (i : Fin n) :
-  rule.weights i ≤ (Quadrature.polynomialIntegral a b w hw) 1
-Quadrature.GaussianRule.remainder {a b : ℝ} (hab : a < b) {w : ℝ → ℝ} {hw : ContinuousOn w (Set.uIcc a b)}
-  (hwpos : ∀ x ∈ Set.Icc a b, 0 < w x) {n : ℕ} (hn : 0 < n) (rule : Quadrature.GaussianRule a b w hw n) {f : ℝ → ℝ}
-  (hf : ContDiffOn ℝ (2 * ↑n) f (Set.Icc a b)) :
+              PDE.Symbolic.Continuum.interpolatoryValue (PDE.Symbolic.Continuum.polynomialIntegral a b w hw) nodes p =
+                (PDE.Symbolic.Continuum.polynomialIntegral a b w hw) p
+PDE.Symbolic.Continuum.GaussianRule (a b : ℝ) (w : ℝ → ℝ) (hw : ContinuousOn w (Set.uIcc a b)) (n : ℕ) : Type
+PDE.Symbolic.Continuum.GaussianRule.sum_weights {a b : ℝ} {w : ℝ → ℝ} {hw : ContinuousOn w (Set.uIcc a b)} {n : ℕ}
+  (rule : PDE.Symbolic.Continuum.GaussianRule a b w hw n) (hn : 0 < n) :
+  ∑ i, rule.weights i = (PDE.Symbolic.Continuum.polynomialIntegral a b w hw) 1
+PDE.Symbolic.Continuum.GaussianRule.weight_le_mass {a b : ℝ} {w : ℝ → ℝ} {hw : ContinuousOn w (Set.uIcc a b)} {n : ℕ}
+  (rule : PDE.Symbolic.Continuum.GaussianRule a b w hw n) (hn : 0 < n) (i : Fin n) :
+  rule.weights i ≤ (PDE.Symbolic.Continuum.polynomialIntegral a b w hw) 1
+PDE.Symbolic.Continuum.GaussianRule.remainder {a b : ℝ} (hab : a < b) {w : ℝ → ℝ} {hw : ContinuousOn w (Set.uIcc a b)}
+  (hwpos : ∀ x ∈ Set.Icc a b, 0 < w x) {n : ℕ} (hn : 0 < n) (rule : PDE.Symbolic.Continuum.GaussianRule a b w hw n)
+  {f : ℝ → ℝ} (hf : ContDiffOn ℝ (2 * ↑n) f (Set.Icc a b)) :
   ∃ ξ ∈ Set.Icc a b,
     (∫ (x : ℝ) in a..b, f x * w x) - rule.value f =
       iteratedDerivWithin (2 * n) f (Set.Icc a b) ξ / ↑(2 * n).factorial *
-        (Quadrature.polynomialIntegral a b w hw) (Lagrange.nodal Finset.univ rule.nodes ^ 2)
-Quadrature.GaussianRule.remainder_of_derivative_chain {a b : ℝ} (hab : a < b) {w : ℝ → ℝ}
+        (PDE.Symbolic.Continuum.polynomialIntegral a b w hw) (Lagrange.nodal Finset.univ rule.nodes ^ 2)
+PDE.Symbolic.Continuum.GaussianRule.remainder_of_derivative_chain {a b : ℝ} (hab : a < b) {w : ℝ → ℝ}
   {hw : ContinuousOn w (Set.uIcc a b)} (hwpos : ∀ x ∈ Set.Icc a b, 0 < w x) {n : ℕ} (hn : 0 < n)
-  (rule : Quadrature.GaussianRule a b w hw n) (F : ℕ → ℝ → ℝ)
+  (rule : PDE.Symbolic.Continuum.GaussianRule a b w hw n) (F : ℕ → ℝ → ℝ)
   (hcontinuous : ∀ k ≤ 2 * n, ContinuousOn (F k) (Set.Icc a b))
   (hderiv : ∀ k < 2 * n, ∀ z ∈ Set.Ioo a b, HasDerivAt (F k) (F (k + 1) z) z) :
   ∃ ξ ∈ Set.Icc a b,
     (∫ (x : ℝ) in a..b, F 0 x * w x) - rule.value (F 0) =
       F (2 * n) ξ / ↑(2 * n).factorial *
-        (Quadrature.polynomialIntegral a b w hw) (Lagrange.nodal Finset.univ rule.nodes ^ 2)
-Quadrature.GaussianRule.abs_error_le {a b : ℝ} (hab : a < b) {w : ℝ → ℝ} {hw : ContinuousOn w (Set.uIcc a b)}
-  (hwpos : ∀ x ∈ Set.Icc a b, 0 < w x) {n : ℕ} (hn : 0 < n) (rule : Quadrature.GaussianRule a b w hw n) {f : ℝ → ℝ}
-  (hf : ContDiffOn ℝ (2 * ↑n) f (Set.Icc a b)) {M : ℝ}
-  (hM : ∀ x ∈ Set.Icc a b, |iteratedDerivWithin (2 * n) f (Set.Icc a b) x| ≤ M) :
+        (PDE.Symbolic.Continuum.polynomialIntegral a b w hw) (Lagrange.nodal Finset.univ rule.nodes ^ 2)
+PDE.Symbolic.Continuum.GaussianRule.abs_error_le {a b : ℝ} (hab : a < b) {w : ℝ → ℝ}
+  {hw : ContinuousOn w (Set.uIcc a b)} (hwpos : ∀ x ∈ Set.Icc a b, 0 < w x) {n : ℕ} (hn : 0 < n)
+  (rule : PDE.Symbolic.Continuum.GaussianRule a b w hw n) {f : ℝ → ℝ} (hf : ContDiffOn ℝ (2 * ↑n) f (Set.Icc a b))
+  {M : ℝ} (hM : ∀ x ∈ Set.Icc a b, |iteratedDerivWithin (2 * n) f (Set.Icc a b) x| ≤ M) :
   |(∫ (x : ℝ) in a..b, f x * w x) - rule.value f| ≤
-    M / ↑(2 * n).factorial * (Quadrature.polynomialIntegral a b w hw) (Lagrange.nodal Finset.univ rule.nodes ^ 2)
-Quadrature.gaussian_rules_converge {a b : ℝ} (hab : a < b) (w : ℝ → ℝ) (hw : ContinuousOn w (Set.uIcc a b))
+    M / ↑(2 * n).factorial *
+      (PDE.Symbolic.Continuum.polynomialIntegral a b w hw) (Lagrange.nodal Finset.univ rule.nodes ^ 2)
+PDE.Symbolic.Continuum.gaussian_rules_converge {a b : ℝ} (hab : a < b) (w : ℝ → ℝ) (hw : ContinuousOn w (Set.uIcc a b))
   (hwpos : ∀ x ∈ Set.Icc a b, 0 < w x) {f : ℝ → ℝ} (hf : ContinuousOn f (Set.Icc a b)) :
-  Filter.Tendsto (fun n => (Quadrature.gaussianRule hab w hw hwpos (n + 1) ⋯).value f) Filter.atTop
+  Filter.Tendsto (fun n => (PDE.Symbolic.Continuum.gaussianRule hab w hw hwpos (n + 1) ⋯).value f) Filter.atTop
     (nhds (∫ (x : ℝ) in a..b, f x * w x))
-Quadrature.positive_rules_converge (rules : ℕ → PDE.Symbolic.Continuum.QuadratureRule)
-  (hpositive : ∀ (n : ℕ), ∀ term ∈ (rules n).terms, 0 ≤ term.1) (hexact : ∀ (n : ℕ), (rules n).ExactUpTo n) {a b : ℝ}
-  (hab : a < b) {f : ℝ → ℝ} (hf : ContinuousOn f (Set.Icc a b)) :
+PDE.Symbolic.Continuum.QuadratureRule.tendsto_valueOn_of_nonneg_of_exactUpTo_self
+  (rules : ℕ → PDE.Symbolic.Continuum.QuadratureRule) (hpositive : ∀ (n : ℕ), ∀ term ∈ (rules n).terms, 0 ≤ term.1)
+  (hexact : ∀ (n : ℕ), (rules n).ExactUpTo n) {a b : ℝ} (hab : a ≤ b) {f : ℝ → ℝ} (hf : ContinuousOn f (Set.Icc a b)) :
   Filter.Tendsto (fun n => (rules n).valueOn f a b) Filter.atTop (nhds (∫ (x : ℝ) in a..b, f x))
-Quadrature.hermiteInterpolant {n : ℕ} (nodes values slopes : Fin n → ℝ) : Polynomial ℝ
-Quadrature.hermiteInterpolant_eval {n : ℕ} (nodes : Fin n → ℝ) (hnodes : Function.Injective nodes)
+PDE.Symbolic.Continuum.hermiteInterpolant {n : ℕ} (nodes values slopes : Fin n → ℝ) : Polynomial ℝ
+PDE.Symbolic.Continuum.hermiteInterpolant_eval {n : ℕ} (nodes : Fin n → ℝ) (hnodes : Function.Injective nodes)
   (values slopes : Fin n → ℝ) (i : Fin n) :
-  Polynomial.eval (nodes i) (Quadrature.hermiteInterpolant nodes values slopes) = values i
-Quadrature.hermiteInterpolant_derivative_eval {n : ℕ} (nodes : Fin n → ℝ) (hnodes : Function.Injective nodes)
-  (values slopes : Fin n → ℝ) (i : Fin n) :
-  Polynomial.eval (nodes i) (Polynomial.derivative (Quadrature.hermiteInterpolant nodes values slopes)) = slopes i
-Quadrature.hermiteInterpolant_natDegree_lt {n : ℕ} (hn : 0 < n) (nodes : Fin n → ℝ) (hnodes : Function.Injective nodes)
-  (values slopes : Fin n → ℝ) : (Quadrature.hermiteInterpolant nodes values slopes).natDegree < 2 * n
-Quadrature.exists_derivative_chain_zero_of_double_zeros {a b : ℝ} (n : ℕ) (F : ℕ → ℝ → ℝ)
+  Polynomial.eval (nodes i) (PDE.Symbolic.Continuum.hermiteInterpolant nodes values slopes) = values i
+PDE.Symbolic.Continuum.hermiteInterpolant_derivative_eval {n : ℕ} (nodes : Fin n → ℝ)
+  (hnodes : Function.Injective nodes) (values slopes : Fin n → ℝ) (i : Fin n) :
+  Polynomial.eval (nodes i) (Polynomial.derivative (PDE.Symbolic.Continuum.hermiteInterpolant nodes values slopes)) =
+    slopes i
+PDE.Symbolic.Continuum.hermiteInterpolant_natDegree_lt {n : ℕ} (hn : 0 < n) (nodes : Fin n → ℝ)
+  (hnodes : Function.Injective nodes) (values slopes : Fin n → ℝ) :
+  (PDE.Symbolic.Continuum.hermiteInterpolant nodes values slopes).natDegree < 2 * n
+PDE.Symbolic.Continuum.exists_derivative_chain_zero_of_double_zeros {a b : ℝ} (n : ℕ) (F : ℕ → ℝ → ℝ)
   (hcontinuous : ∀ k < 2 * n, ContinuousOn (F k) (Set.Icc a b))
   (hderiv : ∀ k < 2 * n, ∀ z ∈ Set.Ioo a b, HasDerivAt (F k) (F (k + 1) z) z) (nodes : Fin n → ℝ)
   (hnodes : Function.Injective nodes) (hmem : ∀ (i : Fin n), nodes i ∈ Set.Icc a b)
   (hzero : ∀ (i : Fin n), F 0 (nodes i) = 0 ∧ F 1 (nodes i) = 0) (x : ℝ) (hx : x ∈ Set.Icc a b)
   (hxne : ∀ (i : Fin n), x ≠ nodes i) (hxzero : F 0 x = 0) : ∃ z ∈ Set.Icc a b, F (2 * n) z = 0
-Quadrature.hermite_remainder {a b : ℝ} (hab : a < b) {n : ℕ} (hn : 0 < n) (F : ℕ → ℝ → ℝ)
+PDE.Symbolic.Continuum.hermite_remainder {a b : ℝ} (hab : a < b) {n : ℕ} (hn : 0 < n) (F : ℕ → ℝ → ℝ)
   (hcontinuous : ∀ k < 2 * n, ContinuousOn (F k) (Set.Icc a b))
   (hderiv : ∀ k < 2 * n, ∀ z ∈ Set.Ioo a b, HasDerivAt (F k) (F (k + 1) z) z) (nodes : Fin n → ℝ)
   (hnodes : Function.Injective nodes) (hmem : ∀ (i : Fin n), nodes i ∈ Set.Icc a b) (x : ℝ) (hx : x ∈ Set.Icc a b) :
   ∃ ξ ∈ Set.Icc a b,
-    F 0 x - Polynomial.eval x (Quadrature.hermiteInterpolant nodes (fun i => F 0 (nodes i)) fun i => F 1 (nodes i)) =
+    F 0 x -
+        Polynomial.eval x
+          (PDE.Symbolic.Continuum.hermiteInterpolant nodes (fun i => F 0 (nodes i)) fun i => F 1 (nodes i)) =
       F (2 * n) ξ / ↑(2 * n).factorial * Polynomial.eval x (Lagrange.nodal Finset.univ nodes) ^ 2
-Quadrature.derivative_chain_within {a b : ℝ} (hab : a < b) {m : ℕ} {f : ℝ → ℝ}
+PDE.Symbolic.Continuum.derivative_chain_within {a b : ℝ} (hab : a < b) {m : ℕ} {f : ℝ → ℝ}
   (hf : ContDiffOn ℝ (↑m) f (Set.Icc a b)) :
   (∀ k ≤ m, ContinuousOn (iteratedDerivWithin k f (Set.Icc a b)) (Set.Icc a b)) ∧
     ∀ k < m,
       ∀ z ∈ Set.Ioo a b,
         HasDerivAt (iteratedDerivWithin k f (Set.Icc a b)) (iteratedDerivWithin (k + 1) f (Set.Icc a b) z) z
-Quadrature.integral_eq_value_mul_of_pointwise_image {a b : ℝ} (hab : a < b) {r φ d : ℝ → ℝ}
+PDE.Symbolic.Continuum.integral_eq_value_mul_of_pointwise_image {a b : ℝ} (hab : a < b) {r φ d : ℝ → ℝ}
   (hr : IntervalIntegrable r MeasureTheory.volume a b) (hφ : IntervalIntegrable φ MeasureTheory.volume a b)
   (hd : ContinuousOn d (Set.Icc a b)) (hφnonneg : ∀ x ∈ Set.Icc a b, 0 ≤ φ x) (hφpos : 0 < ∫ (x : ℝ) in a..b, φ x)
   (himage : ∀ x ∈ Set.Icc a b, ∃ y ∈ Set.Icc a b, r x = d y * φ x) :
   ∃ ξ ∈ Set.Icc a b, ∫ (x : ℝ) in a..b, r x = d ξ * ∫ (x : ℝ) in a..b, φ x
-Quadrature.Legendre.two : PDE.Symbolic.Continuum.QuadratureRule
-Quadrature.Legendre.two_exact : Quadrature.Legendre.two.ExactUpTo 3
-Quadrature.Legendre.monicPolynomial (n : ℕ) : Polynomial ℝ
-Quadrature.Legendre.one_nodal_eq :
-  Lagrange.nodal Finset.univ Quadrature.Legendre.oneGaussian.nodes = Quadrature.Legendre.monicPolynomial 1
-Quadrature.Legendre.two_nodal_eq :
-  Lagrange.nodal Finset.univ Quadrature.Legendre.twoGaussian.nodes = Quadrature.Legendre.monicPolynomial 2
-Quadrature.Legendre.three_nodal_eq :
-  Lagrange.nodal Finset.univ Quadrature.Legendre.threeGaussian.nodes = Quadrature.Legendre.monicPolynomial 3
-Quadrature.Legendre.four_nodal_eq :
-  Lagrange.nodal Finset.univ Quadrature.Legendre.fourGaussian.nodes = Quadrature.Legendre.monicPolynomial 4
+PDE.Symbolic.Continuum.midpointRule : PDE.Symbolic.Continuum.QuadratureRule
+PDE.Symbolic.Continuum.midpointRule.exactUpTo_one : PDE.Symbolic.Continuum.midpointRule.ExactUpTo 1
+PDE.Symbolic.Continuum.Legendre.monicPolynomial (n : ℕ) : Polynomial ℝ
+PDE.Symbolic.Continuum.Legendre.one_nodal_eq :
+  Lagrange.nodal Finset.univ PDE.Symbolic.Continuum.Legendre.oneGaussian.nodes =
+    PDE.Symbolic.Continuum.Legendre.monicPolynomial 1
+PDE.Symbolic.Continuum.Legendre.two_nodal_eq :
+  Lagrange.nodal Finset.univ PDE.Symbolic.Continuum.Legendre.twoGaussian.nodes =
+    PDE.Symbolic.Continuum.Legendre.monicPolynomial 2
+PDE.Symbolic.Continuum.Legendre.three_nodal_eq :
+  Lagrange.nodal Finset.univ PDE.Symbolic.Continuum.Legendre.threeGaussian.nodes =
+    PDE.Symbolic.Continuum.Legendre.monicPolynomial 3
+PDE.Symbolic.Continuum.Legendre.four_nodal_eq :
+  Lagrange.nodal Finset.univ PDE.Symbolic.Continuum.Legendre.fourGaussian.nodes =
+    PDE.Symbolic.Continuum.Legendre.monicPolynomial 4
 taylor_mean_remainder_lagrange {f : ℝ → ℝ} {x x₀ : ℝ} {n : ℕ} (hx : x₀ ≠ x) (hf : ContDiffOn ℝ (↑n) f (Set.uIcc x₀ x))
   (hf' : DifferentiableOn ℝ (iteratedDerivWithin n f (Set.uIcc x₀ x)) (Set.uIoo x₀ x)) :
   ∃ x' ∈ Set.uIoo x₀ x,
@@ -201,12 +224,95 @@ taylor_mean_remainder_lagrange_iteratedDeriv {f : ℝ → ℝ} {x x₀ : ℝ} {n
   ∃ x' ∈ Set.uIoo x₀ x,
     f x - taylorWithinEval f n (Set.uIcc x₀ x) x₀ x =
       iteratedDeriv (n + 1) f x' * (x - x₀) ^ (n + 1) / ↑(n + 1).factorial
-'Quadrature.exists_gaussian_quadrature' depends on axioms: [propext, Classical.choice, Quot.sound]
-'Quadrature.orthogonalPolynomial_recurrence' depends on axioms: [propext, Classical.choice, Quot.sound]
-'Quadrature.GaussianRule.remainder' depends on axioms: [propext, Classical.choice, Quot.sound]
-'Quadrature.hermite_remainder' depends on axioms: [propext, Classical.choice, Quot.sound]
-'Quadrature.gaussian_rules_converge' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PDE.Symbolic.Continuum.exists_gaussian_quadrature' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PDE.Symbolic.Continuum.orthogonalPolynomial_recurrence' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PDE.Symbolic.Continuum.GaussianRule.remainder' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PDE.Symbolic.Continuum.hermite_remainder' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PDE.Symbolic.Continuum.gaussian_rules_converge' depends on axioms: [propext, Classical.choice, Quot.sound]
 'PDE.Symbolic.Continuum.norm_integral_sub_gaussLegendreTwoRule_valueOn_le' depends on axioms: [propext,
  Classical.choice,
  Quot.sound]
 'taylor_mean_remainder_lagrange' depends on axioms: [propext, Classical.choice, Quot.sound]
+PDE.Symbolic.Continuum.exists_nodalRule_gaussian {a b : ℝ} (hab : a < b) {w : ℝ → ℝ}
+  (hw : ContinuousOn w (Set.uIcc a b)) (hwpos : ∀ x ∈ Set.Icc a b, 0 < w x) {n : ℕ} (hn : 0 < n) :
+  ∃ Q, Q.size = n ∧ Q.Positive ∧ Q.NodesIn (Set.Ioo a b) ∧ Q.ExactToDegree a b w (2 * n - 1)
+PDE.Symbolic.Continuum.GaussianRule.toNodalRule_exactToDegree {a b : ℝ} {w : ℝ → ℝ} {hw : ContinuousOn w (Set.uIcc a b)}
+  {n : ℕ} (rule : PDE.Symbolic.Continuum.GaussianRule a b w hw n) (hn : 0 < n) :
+  rule.toNodalRule.ExactToDegree a b w (2 * n - 1)
+PDE.Symbolic.Continuum.GaussianRule.tendsto_value {a b : ℝ} {w : ℝ → ℝ} {hw : ContinuousOn w (Set.uIcc a b)}
+  (hab : a ≤ b) (rules : (n : ℕ) → PDE.Symbolic.Continuum.GaussianRule a b w hw (n + 1)) {f : ℝ → ℝ}
+  (hf : ContinuousOn f (Set.Icc a b)) :
+  Filter.Tendsto (fun n => (rules n).value f) Filter.atTop (nhds (∫ (x : ℝ) in a..b, f x * w x))
+PDE.Symbolic.Continuum.GaussianRule.remainder_orthogonal {a b : ℝ} {w : ℝ → ℝ} {hw : ContinuousOn w (Set.uIcc a b)}
+  (hab : a < b) (hwpos : ∀ x ∈ Set.Icc a b, 0 < w x) {n : ℕ} (hn : 0 < n)
+  (rule : PDE.Symbolic.Continuum.GaussianRule a b w hw n) {f : ℝ → ℝ} (hf : ContDiffOn ℝ (2 * ↑n) f (Set.Icc a b)) :
+  ∃ ξ ∈ Set.Icc a b,
+    (∫ (x : ℝ) in a..b, f x * w x) - rule.value f =
+      iteratedDerivWithin (2 * n) f (Set.Icc a b) ξ / ↑(2 * n).factorial *
+        (PDE.Symbolic.Continuum.polynomialIntegral a b w hw)
+          (PDE.Symbolic.Continuum.integralOrthogonalPolynomial a b hab w hw hwpos n ^ 2)
+PDE.Symbolic.Continuum.GaussianRule.toQuadratureRule_valueOn {a b : ℝ} {hw₁ : ContinuousOn (fun x => 1) (Set.uIcc a b)}
+  {n : ℕ} (rule : PDE.Symbolic.Continuum.GaussianRule a b (fun x => 1) hw₁ n) (hab : a < b) (f : ℝ → ℝ) :
+  (rule.toQuadratureRule hab).valueOn f a b = rule.value f
+PDE.Symbolic.Continuum.gaussianRule_two_value_eq_gaussLegendreTwoRule_valueOn {a b : ℝ} (hab : a < b)
+  (hw : ContinuousOn (fun x => 1) (Set.uIcc a b)) (f : ℝ → ℝ) :
+  (PDE.Symbolic.Continuum.gaussianRule hab (fun x => 1) hw ⋯ 2 ⋯).value f =
+    PDE.Symbolic.Continuum.gaussLegendreTwoRule.valueOn f a b
+'PDE.Symbolic.Continuum.exists_nodalRule_gaussian' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PDE.Symbolic.Continuum.GaussianRule.toNodalRule_exactToDegree' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PDE.Symbolic.Continuum.GaussianRule.tendsto_value' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PDE.Symbolic.Continuum.GaussianRule.remainder_orthogonal' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PDE.Symbolic.Continuum.GaussianRule.toQuadratureRule_valueOn' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PDE.Symbolic.Continuum.gaussianRule_two_value_eq_gaussLegendreTwoRule_valueOn' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PDE.Symbolic.Continuum.Legendre.three : PDE.Symbolic.Continuum.QuadratureRule
+PDE.Symbolic.Continuum.Legendre.four : PDE.Symbolic.Continuum.QuadratureRule
+PDE.Symbolic.Continuum.Legendre.three_exact : PDE.Symbolic.Continuum.Legendre.three.ExactUpTo 5
+PDE.Symbolic.Continuum.Legendre.four_exact : PDE.Symbolic.Continuum.Legendre.four.ExactUpTo 7
+PDE.Symbolic.Continuum.Legendre.RootCertificates.rule {n : ℕ} (hn : 0 < n)
+  (p : PDE.Symbolic.Polynomial.Sparse.Univariate) (brackets : Fin n → PDE.Symbolic.Polynomial.RealRoot.RootBracket)
+  (hvalid : ∀ (i : Fin n), PDE.Symbolic.Polynomial.RealRoot.RootBracket.valid p (brackets i) = true)
+  (hordered : ∀ (i j : Fin n), i < j → (brackets i).interval.hi < (brackets j).interval.lo)
+  (hinterior : ∀ (i : Fin n), -1 < (brackets i).interval.lo ∧ (brackets i).interval.hi < 1)
+  (hmonic : (PDE.Symbolic.Continuum.Legendre.RootCertificates.realPolynomial p).Monic)
+  (hdegree : (PDE.Symbolic.Continuum.Legendre.RootCertificates.realPolynomial p).natDegree = n)
+  (hmoments : ∀ k < n, PDE.Symbolic.Continuum.Legendre.RootCertificates.shiftedMoment p k = 0) :
+  PDE.Symbolic.Continuum.Legendre.Rule n
+PDE.Symbolic.Continuum.Legendre.RootCertificates.nodes_mem {n : ℕ} (p : PDE.Symbolic.Polynomial.Sparse.Univariate)
+  (brackets : Fin n → PDE.Symbolic.Polynomial.RealRoot.RootBracket)
+  (hvalid : ∀ (i : Fin n), PDE.Symbolic.Polynomial.RealRoot.RootBracket.valid p (brackets i) = true) (i : Fin n) :
+  (brackets i).interval.memReal (PDE.Symbolic.Continuum.Legendre.RootCertificates.nodes p brackets hvalid i)
+PDE.Symbolic.Continuum.Legendre.RootCertificates.weightInterval_sound (p : PDE.Symbolic.Polynomial.Sparse.Univariate)
+  (bracket : PDE.Symbolic.Polynomial.RealRoot.RootBracket)
+  (hvalid : PDE.Symbolic.Polynomial.RealRoot.RootBracket.valid p bracket = true) {r : ℝ}
+  (hr : bracket.interval.memReal r) :
+  (PDE.Symbolic.Continuum.Legendre.RootCertificates.weightInterval p bracket).memReal
+    (PDE.Symbolic.Polynomial.Sparse.evalReal (PDE.Symbolic.Continuum.Legendre.RootCertificates.integratedQuotient p) r /
+      PDE.Symbolic.Polynomial.Sparse.evalReal (PDE.Symbolic.Polynomial.Sparse.derivativeRaw p) r)
+PDE.Symbolic.Continuum.Legendre.RootCertificates.weight_mem {n : ℕ} (p : PDE.Symbolic.Polynomial.Sparse.Univariate)
+  (brackets : Fin n → PDE.Symbolic.Polynomial.RealRoot.RootBracket)
+  (hvalid : ∀ (i : Fin n), PDE.Symbolic.Polynomial.RealRoot.RootBracket.valid p (brackets i) = true)
+  (hordered : ∀ (i j : Fin n), i < j → (brackets i).interval.hi < (brackets j).interval.lo)
+  (hmonic : (PDE.Symbolic.Continuum.Legendre.RootCertificates.realPolynomial p).Monic)
+  (hdegree : (PDE.Symbolic.Continuum.Legendre.RootCertificates.realPolynomial p).natDegree = n) (i : Fin n) :
+  (PDE.Symbolic.Continuum.Legendre.RootCertificates.weightInterval p (brackets i)).memReal
+    (PDE.Symbolic.Continuum.interpolatoryWeight (PDE.Symbolic.Continuum.polynomialIntegral (-1) 1 (fun x => 1) ⋯)
+      (PDE.Symbolic.Continuum.Legendre.RootCertificates.nodes p brackets hvalid) i)
+PDE.Symbolic.Continuum.taylor_seven_le_sin {x : ℝ} (hx : 0 ≤ x) :
+  x - x ^ 3 / 6 + x ^ 5 / 120 - x ^ 7 / 5040 ≤ Real.sin x
+PDE.Symbolic.Continuum.cos_le_taylor_eight {x : ℝ} (hx : 0 ≤ x) :
+  Real.cos x ≤ 1 - x ^ 2 / 2 + x ^ 4 / 24 - x ^ 6 / 720 + x ^ 8 / 40320
+PDE.Symbolic.Continuum.sin_le_taylor_nine {x : ℝ} (hx : 0 ≤ x) :
+  Real.sin x ≤ x - x ^ 3 / 6 + x ^ 5 / 120 - x ^ 7 / 5040 + x ^ 9 / 362880
+'PDE.Symbolic.Continuum.Legendre.three_exact' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PDE.Symbolic.Continuum.Legendre.four_exact' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PDE.Symbolic.Continuum.Legendre.RootCertificates.rule' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PDE.Symbolic.Continuum.Legendre.RootCertificates.weight_mem' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PDE.Symbolic.Continuum.taylor_seven_le_sin' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PDE.Symbolic.Continuum.cos_le_taylor_eight' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PDE.Symbolic.Continuum.sin_le_taylor_nine' depends on axioms: [propext, Classical.choice, Quot.sound]

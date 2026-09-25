@@ -5,17 +5,20 @@ computation, C execution, and compiled programs. Import
 [`Quadrature`](../Quadrature.lean) to load the whole development, or import an
 individual module such as `Quadrature.Binary64.Program`.
 
-The general Gaussian theory was developed here and moved into LeanPDE. We import
-its [Gaussian rules](https://github.com/lean-dojo/LeanPDE/blob/main/PDE/Symbolic/Continuum/Quadrature/Gaussian/Weighted.lean) and
-[remainder theorem](https://github.com/lean-dojo/LeanPDE/blob/main/PDE/Symbolic/Continuum/Quadrature/Gaussian/Remainder.lean) directly; the local
-`Legendre`, `Rules`, and execution proofs apply that shared theory.
+The reusable mathematics lives in LeanPDE. We import its
+[Gaussian rules](https://github.com/lean-dojo/LeanPDE/blob/main/PDE/Symbolic/Continuum/Quadrature/Gaussian/Weighted.lean),
+[remainder theorem](https://github.com/lean-dojo/LeanPDE/blob/main/PDE/Symbolic/Continuum/Quadrature/Gaussian/Remainder.lean),
+[explicit Legendre rules](https://github.com/lean-dojo/LeanPDE/blob/main/PDE/Symbolic/Continuum/Quadrature/Legendre/Identification.lean),
+[root and weight certificate proofs](https://github.com/lean-dojo/LeanPDE/blob/main/PDE/Symbolic/Continuum/Quadrature/Legendre/WeightCertificates.lean),
+and [Taylor bounds](https://github.com/lean-dojo/LeanPDE/blob/main/PDE/Symbolic/Continuum/TrigonometricTaylorBounds.lean).
+The local `Rules`, `Examples`, and execution proofs apply that shared theory.
+The particular root brackets used to check the stored C tables are generated
+in [Rules/RootData.lean](Rules/RootData.lean).
 
 | Folder | What it contains | Start here |
 | --- | --- | --- |
-| [Analysis](Analysis/) | Taylor estimates for the trigonometric examples | [Taylor bounds](Analysis/Taylor.lean) |
-| [Legendre](Legendre/) | The explicit one- through four-point rules and certified root and weight enclosures for the larger orders | [Explicit rules](Legendre/Basic.lean), [root certificates](Legendre/RootCertificates.lean) |
 | [Binary64](Binary64/) | FloatLib constants and operations, reduction errors, finite representations, and the functional quadrature loop | [Program](Binary64/Program.lean), [functional accuracy](Binary64/FunctionalAccuracy.lean) |
-| [Rules](Rules/) | Stored rules, decoded tables, node and weight certificates, and accuracy for a general integrand | [Stored rules](Rules/Basic.lean), [table certificates](Rules/Certificates.lean), [accuracy](Rules/Accuracy.lean) |
+| [Rules](Rules/) | Stored rules, decoded tables, root brackets, node and weight certificates, and accuracy for a general integrand | [Stored rules](Rules/Basic.lean), [table certificates](Rules/Certificates.lean), [accuracy](Rules/Accuracy.lean) |
 | [Examples](Examples/) | The cosine example, its rounded evaluation, polynomial applications, and counterexamples | [Exact cosine bounds](Examples/TwoPointCosine.lean), [binary64 cosine evaluation](Examples/CosineEvaluation.lean) |
 | [CSource](CSource/) | The five original functions, the C polynomial replacing cosine, and their behavior before and after Clight normalization | [Source-to-Clight preservation](CSource/Library/Preservation.lean), [total correctness and accuracy](CSource/Library/Total.lean), [cosine execution](CSource/Cosine/Total.lean) |
 | [Clight](Clight/) | Execution of library functions and initialized polynomial applications | [Library calls](Clight/Library.lean), [initialized application](Clight/Main.lean), [general-integrand accuracy](Clight/RuleAccuracy.lean) |

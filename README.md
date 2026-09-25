@@ -15,8 +15,10 @@ or the [interactive explanation](docs/interactive/index.html).**
 The [documentation index](docs/README.md) covers the results and reproduction instructions.
 The [24-paragraph comparison](docs/stewart-comparison.md) identifies what
 the original LeanPDE baseline supplied and what this project developed.
-The general Gaussian theory was developed in LeanQuadrature and has since
-moved to LeanPDE's `PDE.Symbolic.Continuum` namespace; this project now imports it.
+The general Gaussian theory, explicit Legendre rules, and reusable root and
+weight certificate proofs now live in LeanPDE's `PDE.Symbolic.Continuum`
+namespace. This project imports them, together with LeanPDE's Taylor bounds,
+to verify the stored tables and programs.
 
 ## What is proved
 
@@ -131,10 +133,8 @@ gives a reading order and the main theorem in each part.
 
 ```text
 Quadrature/
-├── Analysis/     Taylor bounds
-├── Legendre/     Explicit rules and certified root and weight enclosures
 ├── Binary64/     Floating-point operations, roundoff, and functional loops
-├── Rules/        Stored tables and their accuracy certificates
+├── Rules/        Stored tables, root brackets, and accuracy certificates
 ├── Examples/     Cosine applications and counterexamples
 ├── CSource/      Frontend, semantics, and proofs grouped by C function
 ├── Clight/       Library execution and initialized applications

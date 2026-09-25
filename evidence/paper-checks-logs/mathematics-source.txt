@@ -1,6 +1,10 @@
-import Quadrature.Analysis.Remainder
-import Quadrature.Analysis.Recurrence
-import Quadrature.Legendre.Identification
+import PDE.Symbolic.Continuum.Quadrature.Gaussian.Nodal
+import PDE.Symbolic.Continuum.Quadrature.Gaussian.GaussLegendreTwo
+import PDE.Symbolic.Continuum.Quadrature.PositiveRule
+import PDE.Symbolic.Continuum.Quadrature.Gaussian.Remainder
+import PDE.Symbolic.Continuum.Quadrature.Gaussian.Recurrence
+import PDE.Symbolic.Continuum.Quadrature.Legendre.WeightCertificates
+import PDE.Symbolic.Continuum.TrigonometricTaylorBounds
 import PDE.Symbolic.Continuum.Quadrature.GaussLegendrePeano
 import Mathlib.Analysis.Calculus.Taylor
 
@@ -21,61 +25,95 @@ import Mathlib.Analysis.Calculus.Taylor
 #check PDE.Symbolic.Continuum.gaussLegendreTwoRule.weightVariation_eq_one
 #check PDE.Symbolic.Continuum.norm_integral_sub_gaussLegendreTwoRule_valueOn_le
 #check PDE.Symbolic.Continuum.gaussLegendreTwoRule.sharpCert
-#check Quadrature.polynomialIntegral
-#check Quadrature.momentInnerCore
-#check Quadrature.exists_monic_orthogonal
-#check Quadrature.orthogonalPolynomial
-#check Quadrature.orthogonalPolynomial_monic
-#check Quadrature.orthogonalPolynomial_degree
-#check Quadrature.orthogonalPolynomial_orthogonal
-#check Quadrature.orthogonalPolynomial_unique
-#check Quadrature.degree_sub_coeff_mul_lt
-#check Quadrature.orthogonalPolynomial_zero
-#check Quadrature.orthogonalPolynomial_one
-#check Quadrature.recurrenceAlpha
-#check Quadrature.recurrenceBeta
-#check Quadrature.recurrenceBeta_eq_norm_ratio
-#check Quadrature.recurrenceBeta_pos
-#check Quadrature.orthogonalPolynomial_recurrence
-#check Quadrature.orthogonal_factor_has_root
-#check Quadrature.orthogonal_squarefree
-#check Quadrature.orthogonal_splits
-#check Quadrature.orthogonal_root_mem_Ioo
-#check Quadrature.interpolatoryWeight
-#check Quadrature.interpolatory_exact
-#check Quadrature.gaussian_exact
-#check Quadrature.gaussian_weight_pos
-#check Quadrature.exists_gaussian_quadrature
-#check Quadrature.GaussianRule
-#check Quadrature.GaussianRule.sum_weights
-#check Quadrature.GaussianRule.weight_le_mass
-#check Quadrature.GaussianRule.remainder
-#check Quadrature.GaussianRule.remainder_of_derivative_chain
-#check Quadrature.GaussianRule.abs_error_le
-#check Quadrature.gaussian_rules_converge
-#check Quadrature.positive_rules_converge
-#check Quadrature.hermiteInterpolant
-#check Quadrature.hermiteInterpolant_eval
-#check Quadrature.hermiteInterpolant_derivative_eval
-#check Quadrature.hermiteInterpolant_natDegree_lt
-#check Quadrature.exists_derivative_chain_zero_of_double_zeros
-#check Quadrature.hermite_remainder
-#check Quadrature.derivative_chain_within
-#check Quadrature.integral_eq_value_mul_of_pointwise_image
-#check Quadrature.Legendre.two
-#check Quadrature.Legendre.two_exact
-#check Quadrature.Legendre.monicPolynomial
-#check Quadrature.Legendre.one_nodal_eq
-#check Quadrature.Legendre.two_nodal_eq
-#check Quadrature.Legendre.three_nodal_eq
-#check Quadrature.Legendre.four_nodal_eq
+#check PDE.Symbolic.Continuum.polynomialIntegral
+#check PDE.Symbolic.Continuum.momentInnerCore
+#check PDE.Symbolic.Continuum.exists_monic_orthogonal
+#check PDE.Symbolic.Continuum.orthogonalPolynomial
+#check PDE.Symbolic.Continuum.orthogonalPolynomial_monic
+#check PDE.Symbolic.Continuum.orthogonalPolynomial_degree
+#check PDE.Symbolic.Continuum.orthogonalPolynomial_orthogonal
+#check PDE.Symbolic.Continuum.orthogonalPolynomial_unique
+#check PDE.Symbolic.Continuum.degree_sub_coeff_mul_lt
+#check PDE.Symbolic.Continuum.orthogonalPolynomial_zero
+#check PDE.Symbolic.Continuum.orthogonalPolynomial_one
+#check PDE.Symbolic.Continuum.recurrenceAlpha
+#check PDE.Symbolic.Continuum.recurrenceBeta
+#check PDE.Symbolic.Continuum.recurrenceBeta_eq_norm_ratio
+#check PDE.Symbolic.Continuum.recurrenceBeta_pos
+#check PDE.Symbolic.Continuum.orthogonalPolynomial_recurrence
+#check PDE.Symbolic.Continuum.orthogonal_factor_has_root
+#check PDE.Symbolic.Continuum.orthogonal_squarefree
+#check PDE.Symbolic.Continuum.orthogonal_splits
+#check PDE.Symbolic.Continuum.orthogonal_root_mem_Ioo
+#check PDE.Symbolic.Continuum.interpolatoryWeight
+#check PDE.Symbolic.Continuum.interpolatory_exact
+#check PDE.Symbolic.Continuum.gaussian_exact
+#check PDE.Symbolic.Continuum.gaussian_weight_pos
+#check PDE.Symbolic.Continuum.exists_gaussian_quadrature
+#check PDE.Symbolic.Continuum.GaussianRule
+#check PDE.Symbolic.Continuum.GaussianRule.sum_weights
+#check PDE.Symbolic.Continuum.GaussianRule.weight_le_mass
+#check PDE.Symbolic.Continuum.GaussianRule.remainder
+#check PDE.Symbolic.Continuum.GaussianRule.remainder_of_derivative_chain
+#check PDE.Symbolic.Continuum.GaussianRule.abs_error_le
+#check PDE.Symbolic.Continuum.gaussian_rules_converge
+#check PDE.Symbolic.Continuum.QuadratureRule.tendsto_valueOn_of_nonneg_of_exactUpTo_self
+#check PDE.Symbolic.Continuum.hermiteInterpolant
+#check PDE.Symbolic.Continuum.hermiteInterpolant_eval
+#check PDE.Symbolic.Continuum.hermiteInterpolant_derivative_eval
+#check PDE.Symbolic.Continuum.hermiteInterpolant_natDegree_lt
+#check PDE.Symbolic.Continuum.exists_derivative_chain_zero_of_double_zeros
+#check PDE.Symbolic.Continuum.hermite_remainder
+#check PDE.Symbolic.Continuum.derivative_chain_within
+#check PDE.Symbolic.Continuum.integral_eq_value_mul_of_pointwise_image
+#check PDE.Symbolic.Continuum.midpointRule
+#check PDE.Symbolic.Continuum.midpointRule.exactUpTo_one
+#check PDE.Symbolic.Continuum.Legendre.monicPolynomial
+#check PDE.Symbolic.Continuum.Legendre.one_nodal_eq
+#check PDE.Symbolic.Continuum.Legendre.two_nodal_eq
+#check PDE.Symbolic.Continuum.Legendre.three_nodal_eq
+#check PDE.Symbolic.Continuum.Legendre.four_nodal_eq
 #check taylor_mean_remainder_lagrange
 #check taylor_mean_remainder_lagrange_iteratedDeriv
 
-#print axioms Quadrature.exists_gaussian_quadrature
-#print axioms Quadrature.orthogonalPolynomial_recurrence
-#print axioms Quadrature.GaussianRule.remainder
-#print axioms Quadrature.hermite_remainder
-#print axioms Quadrature.gaussian_rules_converge
+#print axioms PDE.Symbolic.Continuum.exists_gaussian_quadrature
+#print axioms PDE.Symbolic.Continuum.orthogonalPolynomial_recurrence
+#print axioms PDE.Symbolic.Continuum.GaussianRule.remainder
+#print axioms PDE.Symbolic.Continuum.hermite_remainder
+#print axioms PDE.Symbolic.Continuum.gaussian_rules_converge
 #print axioms PDE.Symbolic.Continuum.norm_integral_sub_gaussLegendreTwoRule_valueOn_le
 #print axioms taylor_mean_remainder_lagrange
+
+#check PDE.Symbolic.Continuum.exists_nodalRule_gaussian
+#check PDE.Symbolic.Continuum.GaussianRule.toNodalRule_exactToDegree
+#check PDE.Symbolic.Continuum.GaussianRule.tendsto_value
+#check PDE.Symbolic.Continuum.GaussianRule.remainder_orthogonal
+#check PDE.Symbolic.Continuum.GaussianRule.toQuadratureRule_valueOn
+#check PDE.Symbolic.Continuum.gaussianRule_two_value_eq_gaussLegendreTwoRule_valueOn
+
+#print axioms PDE.Symbolic.Continuum.exists_nodalRule_gaussian
+#print axioms PDE.Symbolic.Continuum.GaussianRule.toNodalRule_exactToDegree
+#print axioms PDE.Symbolic.Continuum.GaussianRule.tendsto_value
+#print axioms PDE.Symbolic.Continuum.GaussianRule.remainder_orthogonal
+#print axioms PDE.Symbolic.Continuum.GaussianRule.toQuadratureRule_valueOn
+#print axioms PDE.Symbolic.Continuum.gaussianRule_two_value_eq_gaussLegendreTwoRule_valueOn
+
+#check PDE.Symbolic.Continuum.Legendre.three
+#check PDE.Symbolic.Continuum.Legendre.four
+#check PDE.Symbolic.Continuum.Legendre.three_exact
+#check PDE.Symbolic.Continuum.Legendre.four_exact
+#check PDE.Symbolic.Continuum.Legendre.RootCertificates.rule
+#check PDE.Symbolic.Continuum.Legendre.RootCertificates.nodes_mem
+#check PDE.Symbolic.Continuum.Legendre.RootCertificates.weightInterval_sound
+#check PDE.Symbolic.Continuum.Legendre.RootCertificates.weight_mem
+#check PDE.Symbolic.Continuum.taylor_seven_le_sin
+#check PDE.Symbolic.Continuum.cos_le_taylor_eight
+#check PDE.Symbolic.Continuum.sin_le_taylor_nine
+
+#print axioms PDE.Symbolic.Continuum.Legendre.three_exact
+#print axioms PDE.Symbolic.Continuum.Legendre.four_exact
+#print axioms PDE.Symbolic.Continuum.Legendre.RootCertificates.rule
+#print axioms PDE.Symbolic.Continuum.Legendre.RootCertificates.weight_mem
+#print axioms PDE.Symbolic.Continuum.taylor_seven_le_sin
+#print axioms PDE.Symbolic.Continuum.cos_le_taylor_eight
+#print axioms PDE.Symbolic.Continuum.sin_le_taylor_nine

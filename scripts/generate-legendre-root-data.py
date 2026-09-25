@@ -2,7 +2,7 @@
 """Propose rational Legendre root brackets for orders 5 to 10, leaving every claim to Lean.
 
 Inputs: the stored binary64 node bits read from Quadrature/Clight/TableData.lean, near which the
-exact bisection starts. Output: Quadrature/Legendre/RootData.lean.
+exact bisection starts. Output: Quadrature/Rules/RootData.lean.
 Requires only the standard library. The generated file's bracket signs, strict derivative signs,
 disjointness, degree, monicity, and orthogonality moments are all checked by `lake build`.
 """
@@ -73,7 +73,7 @@ def generate() -> str:
     node_section = table.split("def nodeBits", 1)[1].split("def weightBits", 1)[0]
     bits = [int(value, 16) for value in re.findall(r"0x[0-9a-f]+", node_section)]
     lines = [
-        "import Quadrature.Legendre.RootCertificates",
+        "import PDE.Symbolic.Continuum.Quadrature.Legendre.RootCertificates",
         "",
         "/-!",
         "# Certified Legendre roots for orders five through ten",
@@ -92,11 +92,12 @@ def generate() -> str:
         "individual lemmas carry no docstrings.",
         "-/",
         "",
-        "namespace Quadrature.Legendre.RootData",
+        "namespace Quadrature.LegendreRootData",
         "",
         "open Polynomial",
         "open PDE.Symbolic.Polynomial",
         "open PDE.Symbolic.Polynomial.RealRoot",
+        "open PDE.Symbolic.Continuum.Legendre",
         "open RootCertificates",
         "",
     ]
@@ -173,11 +174,11 @@ def generate() -> str:
             "    (by intro x hx; norm_num)",
             "",
         ]
-    lines += ["end Quadrature.Legendre.RootData", ""]
+    lines += ["end Quadrature.LegendreRootData", ""]
     return "\n".join(lines)
 
 
 if __name__ == "__main__":
-    destination = ROOT / "Quadrature/Legendre/RootData.lean"
+    destination = ROOT / "Quadrature/Rules/RootData.lean"
     destination.write_text(generate())
     print(f"Wrote {destination}")

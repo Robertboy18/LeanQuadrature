@@ -4,7 +4,9 @@ We first developed the general Gaussian construction in LeanQuadrature, on top o
 LeanPDE’s normalized rule interface and two-point estimates. We have since moved
 that theory into LeanPDE and removed the local copies. LeanQuadrature now imports
 the shared proofs for orthogonal polynomials, roots, recurrence, remainder, and
-convergence, then uses them to verify stored rules and compiled programs.
+convergence. The explicit Legendre rules, general root and weight certificate
+proofs, and additional Taylor bounds have also moved into LeanPDE.
+LeanQuadrature uses these results to verify stored rules and compiled programs.
 
 The table keeps the original comparison with LeanPDE at revision
 `03f523aff09fe3ff3069d54088770a264fc281f1`. It records where the proofs came from;
@@ -32,8 +34,8 @@ a continuous weight strictly positive on `[a, b]`, and a positive node count.
 Definitions, equivalent results proved by another route, and omitted lemmas
 are distinguished below.
 
-General Gaussian names now have prefix `PDE.Symbolic.Continuum.`; the explicit
-Legendre rules retain `Quadrature.Legendre.`. The source links resolve shorter
+General Gaussian names have prefix `PDE.Symbolic.Continuum.`; the explicit
+Legendre rules use `PDE.Symbolic.Continuum.Legendre.`. The source links resolve shorter
 names, including those inside the `GaussianRule` namespace.
 
 | ¶ | Mathematical content | LeanPDE at `03f523af` | Developed in LeanQuadrature; now shared where linked |
@@ -58,7 +60,7 @@ names, including those inside the `GaussianRule` namespace.
 | 18 | Weights sum to the integral mass; each is bounded by it | `gaussLegendreTwoRule.weightVariation_eq_one` for the normalized two-point rule. [GaussLegendre][pde-gauss] | ✓ `GaussianRule.sum_weights` and `GaussianRule.weight_le_mass`. The bound is `∫ w`, not always one. The original Rocq theorem already states the correct mass bound; the discrepancy is in the quoted prose. [Weighted](https://github.com/lean-dojo/LeanPDE/blob/main/PDE/Symbolic/Continuum/Quadrature/Gaussian/Weighted.lean) |
 | 19 | Gaussian remainder | **The sharp two-point fourth-derivative bound was already present.** It is an absolute error estimate proved with a Peano kernel. [GaussLegendrePeano][pde-peano] | ✓ `hermite_remainder`, `GaussianRule.remainder_of_derivative_chain`, `GaussianRule.remainder`, and `GaussianRule.abs_error_le`. These give the general `n`-node identity and bound with explicit regularity. See the hypotheses below. [Remainder](https://github.com/lean-dojo/LeanPDE/blob/main/PDE/Symbolic/Continuum/Quadrature/Gaussian/Remainder.lean) |
 | 20 | Convergence for continuous integrands as order increases | Stability estimates under uniform approximation, and composite/adaptive two-point methods. These do not supply the general increasing-order Gaussian convergence theorem. [Approximation][pde-approx] | ✓ `gaussian_rules_converge` proves the weighted compact-interval limit. `QuadratureRule.tendsto_valueOn_of_nonneg_of_exactUpTo_self` separately treats normalized positive rules of increasing exactness, using LeanPDE's interface and stability estimate. [Weighted](https://github.com/lean-dojo/LeanPDE/blob/main/PDE/Symbolic/Continuum/Quadrature/Gaussian/Weighted.lean), [PositiveRule](https://github.com/lean-dojo/LeanPDE/blob/main/PDE/Symbolic/Continuum/Quadrature/PositiveRule.lean) |
-| 21 | Gauss–Legendre: unit weight on `[-1, 1]` | The normalized two-point rule, affine transport, cubic exactness, and sharp error bound. [GaussLegendre][pde-gauss], [GaussLegendrePeano][pde-peano] | ✓ `Legendre.two` directly reuses LeanPDE. Our explicit rules through four nodes are identified with `Legendre.monicPolynomial`; the general construction specializes to unit weight. Separate root, weight, and stored-table certificates cover ten orders. [Basic](../Quadrature/Legendre/Basic.lean), [Identification](../Quadrature/Legendre/Identification.lean), [Certificates](../Quadrature/Rules/Certificates.lean) |
+| 21 | Gauss–Legendre: unit weight on `[-1, 1]` | The normalized two-point rule, affine transport, cubic exactness, and sharp error bound. [GaussLegendre][pde-gauss], [GaussLegendrePeano][pde-peano] | ✓ The explicit rules through four nodes now live in LeanPDE. `Legendre.twoGaussian` uses its existing `gaussLegendreTwoRule`; all four rules are identified with `Legendre.monicPolynomial`. The general construction specializes to unit weight. Shared root and weight certificate proofs support the ten stored-table certificates. [Basic](https://github.com/lean-dojo/LeanPDE/blob/main/PDE/Symbolic/Continuum/Quadrature/Legendre/Basic.lean), [Identification](https://github.com/lean-dojo/LeanPDE/blob/main/PDE/Symbolic/Continuum/Quadrature/Legendre/Identification.lean), [Certificates](../Quadrature/Rules/Certificates.lean) |
 | 22 | Gauss–Laguerre on `[0, ∞)` | Outside the quadrature development inspected here. | ○ No unbounded-domain Gaussian construction, remainder, or convergence theorem in this project. The original paper explicitly leaves this family unimplemented. |
 | 23 | Gauss–Hermite on the real line | Outside the quadrature development inspected here. | ○ No such quadrature development here. Hermite **interpolation**, used in paragraph 19, is different from Gauss–Hermite **quadrature**. Existing Hermite polynomial definitions do not by themselves supply this quadrature theory. |
 | 24 | Other choices of interval and weight give other Gaussian rules | A concluding observation, not a theorem to check separately. | The general compact-interval theorem allows other positive continuous weights. It does not implement every named Gaussian family or allow infinite endpoints. |

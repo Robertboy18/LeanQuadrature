@@ -1,4 +1,4 @@
-import Quadrature.Legendre.RootCertificates
+import PDE.Symbolic.Continuum.Quadrature.Legendre.RootCertificates
 
 /-!
 # Certified Legendre roots for orders five through ten
@@ -17,11 +17,12 @@ polynomial with `monicPolynomial 5`. Orders six to ten follow the same pattern, 
 individual lemmas carry no docstrings.
 -/
 
-namespace Quadrature.Legendre.RootData
+namespace Quadrature.LegendreRootData
 
 open Polynomial
 open PDE.Symbolic.Polynomial
 open PDE.Symbolic.Polynomial.RealRoot
+open PDE.Symbolic.Continuum.Legendre
 open RootCertificates
 
 /-- Monic degree-5 polynomial, identified by its checked vanishing moments. -/
@@ -474,4 +475,4 @@ theorem ten_nodal_eq :
   tenGaussian.nodal_eq_integralOrthogonalPolynomial (by norm_num)
     (by intro x hx; norm_num)
 
-end Quadrature.Legendre.RootData
+end Quadrature.LegendreRootData

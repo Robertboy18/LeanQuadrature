@@ -464,12 +464,14 @@ The general root construction and convergence theorem extend the scope chosen in
 **FloatLib, LeanPDE, and TorchLean have different roles in this project.**
 Mathlib provides polynomial algebra, orthogonal projection, calculus, and
 integration; it already includes Taylor–Lagrange. LeanPDE supplies the
-normalized quadrature interface, the explicit two-point Gauss–Legendre
-rule and cubic exactness, stability estimates, symbolic integration, and
-enclosure tools. It also already contains a sharp fourth-derivative error
-bound for the two-point rule, proved with a Peano kernel. Our general
-Hermite remainder is a separate proof. FloatLib supplies binary64 semantics
-and the cosine machinery used by the numerical certificates.
+normalized quadrature interface, the general Gaussian theory, explicit
+Legendre rules through four nodes, stability estimates, symbolic integration,
+and root, weight, and Taylor enclosures. The general Gaussian and Legendre
+certificate proofs developed in this project now live in LeanPDE and are
+imported here. Its sharp fourth-derivative error bound for the two-point rule,
+proved with a Peano kernel, predates our general Hermite remainder, which is
+a separate proof. FloatLib supplies binary64 semantics and the cosine
+machinery used by the numerical certificates.
 
 The [24-paragraph comparison](stewart-comparison.md) maps each part of
 the authors' mathematical discussion to those library results and our

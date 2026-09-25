@@ -929,7 +929,7 @@ File: lstmisc.sty 2020/03/24 1.8d (Carsten Heinz)
 ) [11] [12]
 [13] [14] [15] [16] [17] [18]
 LaTeX Font Info:    Trying to load font information for TS1+lmr on input line 1
-451.
+457.
 
 (/usr/share/texlive/texmf-dist/tex/latex/lm/ts1lmr.fd
 File: ts1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
@@ -939,11 +939,11 @@ Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: AC9D1F90992B10CCB041F45FA76A044F;5912.
  ) 
 Here is how much of TeX's memory you used:
- 24794 strings out of 480293
- 437975 string characters out of 5891967
- 1026463 words of memory out of 6000000
+ 24796 strings out of 480293
+ 437997 string characters out of 5891967
+ 1026508 words of memory out of 6000000
  41351 multiletter control sequences out of 15000+600000
- 525026 words of font info for 248 fonts, out of 8000000 for 9000
+ 525109 words of font info for 249 fonts, out of 8000000 for 9000
  319 hyphenation exceptions out of 8191
  100i,18n,104p,658b,1329s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texlive/texmf-dist/fonts/enc/dvips/lm/lm-ts1.enc}{/usr/share/texl
@@ -968,10 +968,10 @@ s/type1/public/lm/lmtk10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/
 lm/lmtt10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/lm/lmtti10.pfb>
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb><
 /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on main.pdf (22 pages, 449462 bytes).
+Output written on main.pdf (22 pages, 449800 bytes).
 PDF statistics:
- 475 PDF objects out of 1000 (max. 8388607)
- 423 compressed objects within 5 object streams
+ 477 PDF objects out of 1000 (max. 8388607)
+ 425 compressed objects within 5 object streams
  109 named destinations out of 1000 (max. 500000)
  64749 words of extra memory for PDF output out of 74296 (max. 10000000)
 
