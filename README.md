@@ -13,8 +13,8 @@ numerical theorems connect to C and assembly semantics.
 its [source and claim map](paper/README.md),
 or the [interactive explanation](docs/interactive/index.html).**
 The [documentation index](docs/README.md) covers the results and reproduction instructions.
-The [24-paragraph comparison](docs/stewart-comparison.md) identifies what
-the original LeanPDE baseline supplied and what this project developed.
+The [24-paragraph source map](docs/stewart-comparison.md) identifies the
+definitions and theorems available in the current LeanPDE library.
 The general Gaussian theory, explicit Legendre rules, and reusable root and
 weight certificate proofs now live in LeanPDE's `PDE.Symbolic.Continuum`
 namespace. This project imports them, together with LeanPDE's Taylor bounds,

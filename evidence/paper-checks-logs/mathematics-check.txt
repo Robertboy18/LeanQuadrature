@@ -316,3 +316,19 @@ PDE.Symbolic.Continuum.sin_le_taylor_nine {x : ℝ} (hx : 0 ≤ x) :
 'PDE.Symbolic.Continuum.taylor_seven_le_sin' depends on axioms: [propext, Classical.choice, Quot.sound]
 'PDE.Symbolic.Continuum.cos_le_taylor_eight' depends on axioms: [propext, Classical.choice, Quot.sound]
 'PDE.Symbolic.Continuum.sin_le_taylor_nine' depends on axioms: [propext, Classical.choice, Quot.sound]
+PDE.Symbolic.Continuum.GaussianRule.value {a b : ℝ} {w : ℝ → ℝ} {hw : ContinuousOn w (Set.uIcc a b)} {n : ℕ}
+  (rule : PDE.Symbolic.Continuum.GaussianRule a b w hw n) (f : ℝ → ℝ) : ℝ
+PDE.Symbolic.Continuum.polynomialIntegral_square_pos {a b : ℝ} (hab : a < b) (w : ℝ → ℝ)
+  (hw : ContinuousOn w (Set.uIcc a b)) (hwpos : ∀ x ∈ Set.Icc a b, 0 < w x) (p : Polynomial ℝ) (hp : p ≠ 0) :
+  0 < (PDE.Symbolic.Continuum.polynomialIntegral a b w hw) (p ^ 2)
+PDE.Symbolic.Continuum.GaussianRule.weights_eq_interpolatoryWeight {a b : ℝ} {w : ℝ → ℝ}
+  {hw : ContinuousOn w (Set.uIcc a b)} {n : ℕ} (rule : PDE.Symbolic.Continuum.GaussianRule a b w hw n) (hn : 0 < n)
+  (i : Fin n) :
+  rule.weights i =
+    PDE.Symbolic.Continuum.interpolatoryWeight (PDE.Symbolic.Continuum.polynomialIntegral a b w hw) rule.nodes i
+PDE.Symbolic.Continuum.Legendre.twoGaussian : PDE.Symbolic.Continuum.Legendre.Rule 2
+'PDE.Symbolic.Continuum.polynomialIntegral_square_pos' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PDE.Symbolic.Continuum.GaussianRule.weights_eq_interpolatoryWeight' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PDE.Symbolic.Continuum.orthogonalPolynomial_unique' depends on axioms: [propext, Classical.choice, Quot.sound]

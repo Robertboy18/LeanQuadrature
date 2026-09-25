@@ -50,13 +50,12 @@ compilation in turn. Section 5 explains why the C proof covers every evaluation
 order, including calls that allocate temporary memory in different orders.
 Section 8 explains the library contributions and remaining proof obligations.
 Appendix A maps all 24 numbered paragraphs of their mathematical discussion
-to the [original LeanPDE baseline](https://github.com/lean-dojo/LeanPDE/tree/03f523aff09fe3ff3069d54088770a264fc281f1)
-and the proofs developed in LeanQuadrature. The
+to the definitions and theorems available in the current LeanPDE library. The
 [companion source map](../docs/stewart-comparison.md) gives declaration names
-and precise hypotheses. LeanPDE's sharp two-point fourth-derivative error
-bound predates the general Hermite and integrated Gaussian remainder
-developed in LeanQuadrature. The general Gaussian theory has since moved to
-LeanPDE's `PDE.Symbolic.Continuum` namespace and is now imported here.
+and precise hypotheses. LeanPDE supplies both the sharp two-point Peano-kernel
+bound and the general Hermite and integrated Gaussian remainder. Its
+`PDE.Symbolic.Continuum` namespace contains the Gaussian and Legendre theory
+that LeanQuadrature imports for the stored-table and program proofs.
 The discussion credits CLean's existing separation logic, contracts,
 function-pointer rules, and module-linking operations. Our quadrature proofs
 use its execution rules directly. It also discusses *Iris in Lean*, whose

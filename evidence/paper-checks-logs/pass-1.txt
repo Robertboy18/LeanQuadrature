@@ -415,7 +415,11 @@ LaTeX Warning: Citation `leanquadrature' on page 18 undefined on input line 133
 
 [18]
 
-LaTeX Warning: Citation `stewart' on page 19 undefined on input line 1411.
+LaTeX Warning: Reference `tab:stewart' on page 19 undefined on input line 1417.
+
+
+
+LaTeX Warning: Citation `stewart' on page 19 undefined on input line 1419.
 
 (/usr/share/texlive/texmf-dist/tex/latex/lm/ts1lmr.fd) [19] [20]
 No file main.bbl.
@@ -453,5 +457,5 @@ s/type1/public/lm/lmtk10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/
 lm/lmtt10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/lm/lmtti10.pfb>
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb><
 /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on main.pdf (21 pages, 436906 bytes).
+Output written on main.pdf (21 pages, 435899 bytes).
 Transcript written on main.log.

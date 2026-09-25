@@ -9,8 +9,8 @@ rendered mathematics.
 
 ## Current scope
 
-- [Stewart's 24 paragraphs](stewart-comparison.md): existing LeanPDE results,
-  new general proofs, and the exact interpolation and remainder hypotheses
+- [Gaussian quadrature in LeanPDE](stewart-comparison.md): current coverage of
+  Stewart's 24 paragraphs, with declarations and precise theorem hypotheses
 - [Initialized C polynomial library](../Quadrature/CSource/Library/Total.lean):
   verified C cosine, initialized tables, termination in every evaluation order,
   and error bounds for all ten stored orders

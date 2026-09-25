@@ -117,3 +117,12 @@ import Mathlib.Analysis.Calculus.Taylor
 #print axioms PDE.Symbolic.Continuum.taylor_seven_le_sin
 #print axioms PDE.Symbolic.Continuum.cos_le_taylor_eight
 #print axioms PDE.Symbolic.Continuum.sin_le_taylor_nine
+
+#check PDE.Symbolic.Continuum.GaussianRule.value
+#check PDE.Symbolic.Continuum.polynomialIntegral_square_pos
+#check PDE.Symbolic.Continuum.GaussianRule.weights_eq_interpolatoryWeight
+#check PDE.Symbolic.Continuum.Legendre.twoGaussian
+
+#print axioms PDE.Symbolic.Continuum.polynomialIntegral_square_pos
+#print axioms PDE.Symbolic.Continuum.GaussianRule.weights_eq_interpolatoryWeight
+#print axioms PDE.Symbolic.Continuum.orthogonalPolynomial_unique

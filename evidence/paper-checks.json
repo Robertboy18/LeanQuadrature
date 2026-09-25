@@ -1,13 +1,13 @@
 {
-  "checked_at": "2026-09-25T15:30:35.115145+00:00",
-  "kind": "Manuscript PDF, source attribution, code listings, and result-table checks",
+  "checked_at": "2026-09-25T20:08:32.926472+00:00",
+  "kind": "Manuscript PDF, current library coverage, code listings, and result-table checks",
   "paper": {
     "title": "Gaussian Quadrature in Lean and Rocq",
     "pdf": "paper/main.pdf",
     "page_count": 22,
-    "sha256": "208a2b6a72e1b705d194f80fd2fed9043dc027f7ac57d87b8b21d393322ccf1f",
+    "sha256": "958dee15921bdf17eddb1e758e2e762671ae43c3e200e33da632c46cdcfcb59d",
     "source_sha256": {
-      "paper/main.tex": "2559b585d08f06b9cafc8e9a27b33f88f714ef26d5b79c435d2567121d72a082",
+      "paper/main.tex": "bcdb360267dd8a5e3faef81309af8ebf1cdeb358bb13589cd48ee736a4ab7328",
       "paper/references.bib": "606d2fd608dffc33b339621fef79dde66037a4770ed447bcc116dfe0cf25c304"
     },
     "author": "Robert Joseph",
@@ -20,19 +20,18 @@
     ],
     "passes": 4,
     "script_sha256": "ba4b6de88156c66d381bbeafc09a493906b702cf402754363bdf264ffedf526a",
-    "source_and_output_revalidated_at": "2026-09-25T15:30:35.115145+00:00",
-    "original_build_checks_recorded_at": "2026-09-25T14:27:42.914930+00:00",
-    "scope": "Revalidated the existing four-pass build against unchanged LaTeX inputs and PDF; the dependency revision update required no new PDF build.",
+    "source_and_output_revalidated_at": "2026-09-25T20:08:32.926472+00:00",
+    "scope": "Fresh four-pass build produced the PDF from the recorded LaTeX inputs.",
     "unresolved_references": [],
     "overfull_boxes": [],
     "missing_characters": [],
     "retained_logs_sha256": {
-      "evidence/paper-checks-logs/main.txt": "aa82bbdb3782b16b40c4a0ce4940993e0acd75b3e645edb67e8abbdb4c1cff42",
+      "evidence/paper-checks-logs/main.txt": "84a0148e1fc75a3af36035a90f954be4dfe6e7cf5d7d404afa2af45019cf1a21",
       "evidence/paper-checks-logs/main-bibtex.txt": "692aae0b821f6b0a513762affb4815482d7e1294595134cf44311e88b2a84f03",
-      "evidence/paper-checks-logs/pass-1.txt": "8e0f5461fefcf4b249aa0033f80dd99aac7849a36349465a28f5f6c560e8a4ac",
+      "evidence/paper-checks-logs/pass-1.txt": "6b710f908871d73269ac8aa31ba51d6673a50442d8427bdd56b8bafbe58ef69f",
       "evidence/paper-checks-logs/pass-2.txt": "11b2a8cd4b63c588ffa4b77d567627732e1b292854ec8ccebcee319ee9cb9c2a",
-      "evidence/paper-checks-logs/pass-3.txt": "f1f6c5925243bfdaf5808b49aeeb584a067595a69e09a104caeceb7404059cfb",
-      "evidence/paper-checks-logs/pass-4.txt": "2237ad9398a26c838d98d6601784c3f91db19c3637977513b99ad10107f84011"
+      "evidence/paper-checks-logs/pass-3.txt": "bca525da7b0a5c9605d5384eec24f8a81c43a789c6a56098175fe14b76ed8769",
+      "evidence/paper-checks-logs/pass-4.txt": "3ed661b0788ee09d9895c851faeec24bc5be4cf2ccf056aeb0e92e537231ebc2"
     }
   },
   "content_checks": {
@@ -78,14 +77,15 @@
     "preliminary_source_and_public_correction_context_present": true,
     "missing_vsu_composition_context_present": true,
     "private_leanpde_build_prerequisite_disclosed": true,
-    "visual_inspection_status": "All 22 pages were rendered and visually inspected at contact-sheet scale; the review below records its scope."
+    "visual_inspection_status": "All 22 pages were rendered and visually inspected at contact-sheet scale; Table 4 was also inspected at full-page scale.",
+    "table_4_reports_current_leanpde_coverage": true,
+    "historical_leanpde_comparison_columns_absent": true
   },
   "mathematical_source_comparison": {
-    "checked_at": "2026-09-25T15:30:35.115145+00:00",
-    "inputs_revalidated_at": "2026-09-25T15:30:35.115145+00:00",
-    "original_paragraph_review_recorded_at": "2026-09-23T18:21:24.733807+00:00",
+    "checked_at": "2026-09-25T20:08:32.926472+00:00",
+    "inputs_revalidated_at": "2026-09-25T20:08:32.926472+00:00",
     "file": "docs/stewart-comparison.md",
-    "sha256": "a929bf9de0bc9b64504d9aa45c40d343834f04835124bb01b93762da12616375",
+    "sha256": "2e5caf1c9378fc4ad865a8c738a09aaa606b4fefa9e13ae65f144c417bb286b9",
     "paragraphs": [
       1,
       2,
@@ -139,8 +139,8 @@
       24
     ],
     "method": [
-      "Checked that the current PDF and Markdown map contain all 24 numbered entries.",
-      "Queried 84 declaration types and 20 transitive axiom lists at the recorded dependency revision.",
+      "Checked all 24 entries against the current LeanPDE source map, with no historical comparison columns.",
+      "Queried 88 declaration types and 23 transitive axiom lists at the recorded dependency revision.",
       "Included the shared Gaussian bridges, explicit Legendre rules, root and weight certificates, and Taylor bounds.",
       "Verified that the map still identifies the omitted basis expansion and infinite-interval families."
     ],
@@ -149,7 +149,7 @@
       "env",
       "lean",
       "-DwarningAsError=true",
-      "/tmp/current-lean-review-20260925/MathematicsSources.lean"
+      "/tmp/leanpde-table-current-20260925/MathematicsSources.lean"
     ],
     "prerequisites_command": [
       "lake",
@@ -249,7 +249,11 @@
       "PDE.Symbolic.Continuum.Legendre.RootCertificates.weight_mem",
       "PDE.Symbolic.Continuum.taylor_seven_le_sin",
       "PDE.Symbolic.Continuum.cos_le_taylor_eight",
-      "PDE.Symbolic.Continuum.sin_le_taylor_nine"
+      "PDE.Symbolic.Continuum.sin_le_taylor_nine",
+      "PDE.Symbolic.Continuum.GaussianRule.value",
+      "PDE.Symbolic.Continuum.polynomialIntegral_square_pos",
+      "PDE.Symbolic.Continuum.GaussianRule.weights_eq_interpolatoryWeight",
+      "PDE.Symbolic.Continuum.Legendre.twoGaussian"
     ],
     "axioms_checked": [
       "PDE.Symbolic.Continuum.exists_gaussian_quadrature",
@@ -271,7 +275,10 @@
       "PDE.Symbolic.Continuum.Legendre.RootCertificates.weight_mem",
       "PDE.Symbolic.Continuum.taylor_seven_le_sin",
       "PDE.Symbolic.Continuum.cos_le_taylor_eight",
-      "PDE.Symbolic.Continuum.sin_le_taylor_nine"
+      "PDE.Symbolic.Continuum.sin_le_taylor_nine",
+      "PDE.Symbolic.Continuum.polynomialIntegral_square_pos",
+      "PDE.Symbolic.Continuum.GaussianRule.weights_eq_interpolatoryWeight",
+      "PDE.Symbolic.Continuum.orthogonalPolynomial_unique"
     ],
     "allowed_axioms": [
       "Classical.choice",
@@ -279,8 +286,8 @@
       "propext"
     ],
     "retained_inputs_and_output_sha256": {
-      "evidence/paper-checks-logs/mathematics-source.txt": "1c65d5f588717ffb11e3dabf97ebc0b39fff0f62d3f4d0fec8a9799a09ec68fb",
-      "evidence/paper-checks-logs/mathematics-check.txt": "f40b9abf67bbe8e66b270af0b2c515c7be8568586d05efeb7ed953462bdb9258",
+      "evidence/paper-checks-logs/mathematics-source.txt": "4927da7d0d52b9aa55f6439de1ba9fc7d8d94676d127cebe50bf961477544ed7",
+      "evidence/paper-checks-logs/mathematics-check.txt": "031a36cf4ca3b28383f7b8c0e34586a42c921c1b1afcba3550ad43b19e6ba855",
       "evidence/paper-checks-logs/mathematics-prerequisites.txt": "c530ba73541304441a433488a1b995f4ef4ccc7749b0a276054842826c157f0b"
     },
     "dependencies": {
@@ -329,20 +336,27 @@
       "matching_input_count": 271,
       "also_matched_in_build_mirror": true
     },
-    "scope": "Checked the current declaration names, including the shared Gaussian and Legendre theory and Taylor bounds. All 271 recorded project inputs match in both the repository and build mirror. Type queries alone do not prove the historical attribution to individual mathematical paragraphs."
+    "scope": "Checked current declarations for the shared Gaussian and Legendre theory and Taylor bounds. All 271 recorded project inputs match in the repository and build mirror. The table preserves theorem hypotheses and distinguishes definitions, proved results, alternative construction steps, and infinite-interval families outside this development.",
+    "current_library_coverage_reviewed_at": "2026-09-25T20:08:32.926472+00:00",
+    "table_columns": [
+      "Paragraph",
+      "Mathematical topic",
+      "LeanPDE result"
+    ],
+    "current_leanpde_source_links_checked": 14
   },
   "local_document_links": {
     "markdown_files": 20,
-    "local_targets_checked": 364,
+    "local_targets_checked": 366,
     "anchors_checked": 9,
     "errors": [],
     "scope": "Parsed Markdown links and image targets, including reference links and table cells. External destinations were not fetched."
   },
-  "scope": "PDF and source-attribution checks for the hashes recorded here. Existing full proof-build checks remain in lean-quality.json and the Rocq verification records. Matching a declaration to a mathematical statement also requires the source review described above; the declaration queries alone are not a coverage proof.",
-  "completed_at": "2026-09-25T15:30:49.832121+00:00",
+  "scope": "PDF and current-library coverage checks for the hashes recorded here. Existing full proof-build checks remain in lean-quality.json and the Rocq verification records. Matching a declaration to a mathematical statement also requires the source review described above; the declaration queries alone are not a coverage proof.",
+  "completed_at": "2026-09-25T20:08:37.977231+00:00",
   "manual_visual_review": {
-    "checked_at": "2026-09-25T14:19:26.535392+00:00",
-    "pdf_sha256": "208a2b6a72e1b705d194f80fd2fed9043dc027f7ac57d87b8b21d393322ccf1f",
+    "checked_at": "2026-09-25T20:05:46.450330+00:00",
+    "pdf_sha256": "958dee15921bdf17eddb1e758e2e762671ae43c3e200e33da632c46cdcfcb59d",
     "pages_reviewed": [
       1,
       2,
@@ -367,12 +381,16 @@
       21,
       22
     ],
-    "method": "Rendered all 22 pages and visually inspected four contact sheets.",
+    "detailed_pages_reviewed": [
+      20,
+      21
+    ],
+    "method": "Rendered all 22 pages and visually inspected four contact sheets; inspected both pages of Table 4 at full-page scale.",
     "checks": [
       "No clipped text, equations, tables, or code listings observed.",
-      "The library-ownership paragraph and comparison table render correctly.",
-      "The appendix table fits on two pages and the bibliography has no stranded final page."
+      "Table 4 has the current LeanPDE result column, readable declaration names, and green checkmarks.",
+      "The appendix table fits on pages 20 and 21; the final reference page is readable."
     ],
-    "scope": "Layout and rendering review at contact-sheet scale; declaration, mathematical, and numerical checks are recorded separately."
+    "scope": "Layout and rendering review; declaration, mathematical, and numerical checks are recorded separately."
   }
 }

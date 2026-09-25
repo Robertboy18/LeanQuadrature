@@ -153,9 +153,9 @@ continuous integrands. The original development supplies concrete root
 certificates through four nodes and leaves the general remainder admitted.
 Our floating-point results cover all ten rules stored in its C source,
 with error bounds for the actual constants and rounded operations.
-Appendix~\ref{sec:stewart-map} compares all 24 numbered paragraphs of their
-mathematical presentation with the original LeanPDE baseline and the proofs
-developed here, including those now shared through LeanPDE.
+Appendix~\ref{sec:stewart-map} maps all 24 numbered paragraphs of their
+mathematical presentation to the results available in LeanPDE and identifies
+the declarations used by LeanQuadrature.
 
 At the C level, we replace the external cosine with a polynomial whose C
 body and numerical use are both verified. We prove that initialized calls
@@ -299,12 +299,12 @@ general compiler.}
 
 LeanPDE supplies the weighted Gaussian theory, explicit Legendre rules
 through four nodes, and general root and weight certificate proofs.
-We moved the general theory and the additional rules and certificates
-developed here into LeanPDE for reuse. They build on mathlib and LeanPDE's
-existing quadrature interfaces, midpoint rule, and two-point rule.
+These results build on mathlib and LeanPDE's quadrature interfaces,
+midpoint rule, and two-point rule.
 Rational interval arithmetic, Taylor bounds, and integration tactics provide concrete
 enclosures. Its sharp two-point error bound, proved with a Peano kernel,
-predates our general Hermite remainder and is not used by that proof.
+and its general Hermite remainder give two proofs of the fourth-derivative
+bound for that rule.
 LeanQuadrature contains the stored tables, their particular root brackets,
 numerical accuracy certificates, and program proofs. FloatLib supplies
 the binary64 operations and rounding theorems.
@@ -639,9 +639,9 @@ This yields a Gaussian rule for every positive order. The construction
 uses mathlib's polynomial algebra, orthogonal projection in
 finite-dimensional inner product spaces, and Lagrange interpolation. Its
 remainder and convergence proofs use Rolle's theorem and uniform
-polynomial approximation. The paragraph-by-paragraph comparison in
-Appendix~\ref{sec:stewart-map} separates this project's general theory from
-the two-point results already present in the original LeanPDE baseline.
+polynomial approximation. LeanPDE provides this general theory and the
+concrete Legendre rules. Appendix~\ref{sec:stewart-map} maps the mathematical
+paragraphs to its definitions and theorems.
 
 Fix $a<b$ and a continuous function $w:[a,b]\to\R$ with $w(x)>0$. The
 intended integral is
@@ -1355,10 +1355,10 @@ The mathematical and numerical proofs draw heavily on existing Lean
 libraries. mathlib provides the analysis needed for the general Gaussian
 construction; LeanPDE contributes quadrature interfaces, concrete rules,
 and certified symbolic calculation; FloatLib makes the binary64
-computation executable inside the logic. In LeanQuadrature we developed the
-weighted construction, remainder, convergence, and Legendre certificate
-proofs, now shared through LeanPDE. The accuracy certificates for the ten
-stored rules and the program proofs remain in LeanQuadrature.
+computation executable inside the logic. LeanPDE contains the weighted
+construction, remainder, convergence, and Legendre certificate proofs.
+LeanQuadrature applies these results to certify the ten stored rules and
+prove the programs that use them.
 LeanPDE is essential to this implementation because we import those
 definitions and theorems.
 TorchLean is a transitive dependency of LeanPDE; we do not use its tensor
@@ -1404,25 +1404,27 @@ printing, assembling, linking, and the output operation.
 
 \FloatBarrier
 \appendix
-\section{Stewart's 24 paragraphs}
+\section{Gaussian quadrature in LeanPDE}
 \label{sec:stewart-map}
 
-Appel and Bindel's Section 2 follows the numbered paragraphs of Chapter 23
-of Stewart~\cite{stewart}. The PDF abbreviates several paragraphs and skips
-14; the accompanying \code{quadrature.v} comments include its root
-argument. The table preserves the original comparison with an
-\href{https://github.com/lean-dojo/LeanPDE/tree/03f523aff09fe3ff3069d54088770a264fc281f1}{earlier LeanPDE revision}.
-The general Gaussian and Legendre proofs developed in LeanQuadrature now
-live in LeanPDE; this project imports them.
-The columns record provenance, not gaps in the current dependency.
-The general results below assume a compact
-interval, a positive continuous weight, and a positive node count.
-A proved result need not follow Stewart's proof.
+LeanPDE provides the mathematical theory used by LeanQuadrature:
+weighted Gaussian rules of every positive order, orthogonal polynomials,
+interior roots, exactness, positive weights, recurrence, remainder, and
+convergence. It also provides explicit Legendre rules through four nodes
+and general root and weight certificate proofs. LeanQuadrature imports
+these results to verify the stored tables and programs.
 
-That LeanPDE baseline supplied a normalized quadrature interface, the two-point
-Gauss--Legendre rule, polynomial exactness through degree three, affine
-transport to $[a,b]$, and stability under uniform perturbations. It also
-supplied the sharp estimate
+Table~\ref{tab:stewart} identifies the available definitions and theorems
+for the 24 mathematical paragraphs in Appel and Bindel's Section 2,
+which follows Chapter 23 of Stewart~\cite{stewart}. Their PDF abbreviates
+several paragraphs and skips 14; the \code{quadrature.v} comments include
+its root argument. The general LeanPDE results assume a compact interval,
+a positive continuous weight, and a positive node count. The construction
+uses orthogonal projection, so it does not require the arbitrary-family
+expansion argument in paragraphs 6--7. The infinite-interval families in
+paragraphs 22--23 lie outside this scope.
+
+LeanPDE also gives the sharp two-point estimate
 \[
  \left|\int_a^b f(x)\,dx-Q_2(f)\right|
  \le \frac{M(b-a)^5}{4320},
@@ -1432,134 +1434,124 @@ supplied the sharp estimate
 under $a<b$ and $f\in C^4([a,b])$. On $[-1,1]$ this is $M/135$.
 The theorem is
 \code{norm_integral_sub_gaussLegendreTwoRule_valueOn_le}
-in LeanPDE's \code{GaussLegendrePeano} module. Its Peano-kernel proof predates
-the general Hermite remainder developed in LeanQuadrature, now also shared
-through LeanPDE.
+in LeanPDE's \code{GaussLegendrePeano} module. The general Hermite
+remainder supplies the same coefficient and also gives a single point
+witnessing the integrated remainder identity.
 The companion
-\href{https://github.com/Robertboy18/LeanQuadrature/blob/main/docs/stewart-comparison.md}{source comparison}
-gives exact declarations, file links, and dependency revisions.
+\href{https://github.com/Robertboy18/LeanQuadrature/blob/main/docs/stewart-comparison.md}{LeanPDE source map}
+gives file links and precise hypotheses for the results below.
 
 \begingroup
 \small
 \setlength{\tabcolsep}{4pt}
 \renewcommand{\arraystretch}{1.13}
 \begin{longtable}{@{}>{\raggedright\arraybackslash}p{0.45cm}
-  >{\raggedright\arraybackslash}p{2.5cm}
-  >{\raggedright\arraybackslash}p{4.25cm}
-  >{\raggedright\arraybackslash}p{7.7cm}@{}}
-\caption{The 24 paragraphs at the original LeanPDE baseline and the
-subsequent LeanQuadrature development.
-Definitions and alternative arguments are identified explicitly;
-paragraphs 6--7 are not counted as separately formalized lemmas.}
+  >{\raggedright\arraybackslash}p{3.3cm}
+  >{\raggedright\arraybackslash}p{11.45cm}@{}}
+\caption{Current LeanPDE coverage of the 24 mathematical paragraphs.
+Checkmarks identify available definitions and proved results;
+the other entries describe the proof route or mathematical scope.}
 \label{tab:stewart}\\
 \toprule
 \rowcolor{tablehead}
-\P & Content & Original LeanPDE baseline & LeanQuadrature development\\
+\P & Mathematical topic & LeanPDE result\\
 \midrule
 \endfirsthead
 \toprule
 \rowcolor{tablehead}
-\P & Content & Original LeanPDE baseline & LeanQuadrature development (continued)\\
+\P & Mathematical topic & LeanPDE result (continued)\\
 \midrule
 \endhead
 \bottomrule
 \endfoot
 1 & Weighted quadrature sum &
-Finite normalized rules and their evaluation; no general weighted Gaussian construction. &
-\checked{Defined}: \code{GaussianRule} and its weighted sum on a compact interval.\\
+\checked{Defined}: \code{GaussianRule} and \code{GaussianRule.value}
+represent and evaluate a weighted Gaussian rule on a compact interval.\\
 \addlinespace
 2 & Weighted integral notation &
-Uses mathlib's interval integral; the normalized rule targets unit weight. &
 \checked{Defined}: \code{polynomialIntegral} integrates a polynomial against $w$.\\
 \addlinespace
 3 & Linearity &
-Linearity of rule evaluation and mathlib integration. &
-\checked{Inherited and specialized}: the weighted polynomial integral is a linear map.\\
+\checked{Defined and proved}: the weighted polynomial integral is a linear map,
+using mathlib's integral linearity. Rule evaluation is also linear.\\
 \addlinespace
 4 & Orthogonality &
-No general quadrature inner product. &
-\proved{}: \code{momentInnerCore} gives the polynomial inner product from a positive integral.\\
+\proved{}: \code{momentInnerCore} constructs the polynomial inner product;
+\code{polynomialIntegral_square_pos} supplies positivity for the weighted integral.\\
 \addlinespace
 5 & Orthogonal polynomial family &
-No general family in the quadrature development. &
-\proved{}: the unique monic polynomial of each degree, with lower-degree orthogonality.\\
+\proved{}: \code{exists_monic_orthogonal} constructs a monic polynomial
+of each degree, orthogonal to every lower degree;
+\code{orthogonalPolynomial_unique} proves uniqueness.\\
 \addlinespace
 6 & Expansion in a monic family &
-No corresponding quadrature lemma. &
-No separate basis-expansion theorem for an arbitrary monic family. Orthogonal projection supplies the construction directly.\\
+The construction uses orthogonal projection directly. The expansion
+theorem for an arbitrary monic family is not a separate library theorem.\\
 \addlinespace
 7 & Inductive expansion proof &
-No corresponding quadrature proof. &
-No separate proof of paragraph 6. \code{degree_sub_coeff_mul_lt} supplies degree reduction where the recurrence needs it.\\
+\code{degree_sub_coeff_mul_lt} proves the leading-coefficient elimination
+used in the recurrence. The family itself is constructed by projection.\\
 \addlinespace
 8 & Orthogonality to every lower degree &
-No general Gaussian-family theorem. &
 \proved{}: \code{orthogonalPolynomial_orthogonal} for the constructed family.\\
 \addlinespace
 9 & The first two monic polynomials &
-Explicit two-point nodes, without this general family construction. &
-\proved{}: \code{orthogonalPolynomial_zero} and \code{orthogonalPolynomial_one}.\\
+\proved{}: \code{orthogonalPolynomial_zero} and \code{orthogonalPolynomial_one},
+including the degree-one coefficient as a ratio of integrals.\\
 \addlinespace
 10 & Recurrence coefficients &
-No general recurrence coefficients. &
 \proved{}: \code{recurrenceAlpha}, \code{recurrenceBeta}, and the recurrence with those coefficients.\\
 \addlinespace
 11 & Vanishing lower terms &
-No general recurrence proof. &
 \proved{}: the three-term identity has no further lower terms. The proof uses lower-degree orthogonality.\\
 \addlinespace
 12 & Three-term recurrence &
-No general recurrence theorem. &
 \proved{}: \code{orthogonalPolynomial_recurrence}, with the positive norm-ratio identity.\\
 \addlinespace
 13 & Real, simple, interior roots &
-The two explicit nodes lie in the interval. &
-\proved{}: splitting over $\R$, squarefreeness, and strict interior membership at every positive order.\\
+\proved{}: \code{orthogonal_splits}, \code{orthogonal_squarefree}, and
+\code{orthogonal_root_mem_Ioo}, at every positive order.\\
 \addlinespace
 14 & Root argument &
-No general root argument. &
 \checked{Alternative proof}: factorization, constant sign, and positive integrals of squares give the root results.\\
 \addlinespace
 15 & Weights from Lagrange polynomials &
-General exactness from moments and an explicit two-point rule. &
 \proved{}: \code{interpolatoryWeight}, interpolation exactness, and identification of Gaussian weights.\\
 \addlinespace
 16 & Degree $2n-1$ exactness for $n$ nodes &
-Two-point exactness through degree three. &
 \proved{}: \code{gaussian_exact} uses polynomial division at every positive order.\\
 \addlinespace
 17 & Positive quadrature weights &
-The two weights are explicitly $1/2$ on $[0,1]$. &
 \proved{}: \code{gaussian_weight_pos} from the integral of a squared Lagrange polynomial.\\
 \addlinespace
 18 & Total weight and weight bound &
-Two-point total variation equals one on $[0,1]$. &
 \proved{}: \code{sum_weights} and \code{weight_le_mass}.
-The bound is $\int w$, already correct in the Rocq statement; the prose's bound of one requires normalization.\\
+The bound is the total integral mass $\int w$; it equals one for normalized weights.\\
 \addlinespace
 19 & Gaussian remainder &
-The sharp two-point fourth-derivative bound above. &
-\proved{}: first-derivative Hermite interpolation and the integrated $2n$-derivative remainder, with explicit regularity.\\
+\proved{}: \code{hermite_remainder}, \code{GaussianRule.remainder},
+and \code{GaussianRule.abs_error_le} give the $2n$-derivative identity and bound.\\
 \addlinespace
 20 & Convergence for continuous functions &
-Uniform-perturbation bounds and composite two-point methods; no general limit as Gaussian order grows. &
 \proved{}: \code{gaussian_rules_converge}. A separate theorem covers positive normalized rules of increasing exactness.\\
 \addlinespace
 21 & Gauss--Legendre specialization &
-The normalized two-point rule, affine transport, exactness, and its sharp error bound. &
-\proved{}: the general compact theory specialized to unit weight; explicit rules through four nodes are identified with the monic family. Stored-table certificates cover ten orders.\\
+\proved{}: the general compact theory specializes to unit weight.
+Explicit rules through four nodes are identified with the monic Legendre
+family. General root and weight certificates support the stored-table proofs.\\
 \addlinespace
 22 & Gauss--Laguerre on $[0,\infty)$ &
-Outside this quadrature development. &
-\openproof{}: no infinite-interval Gaussian construction or associated remainder and convergence proof.\\
+\openproof{}: this infinite-interval Gaussian construction, remainder,
+and convergence theorem are outside the compact-interval development.\\
 \addlinespace
 23 & Gauss--Hermite on $\R$ &
-Outside this quadrature development. &
-\openproof{}: no infinite-interval Gaussian construction. Hermite interpolation in paragraph 19 is a different subject.\\
+\openproof{}: this infinite-interval quadrature construction is outside
+the development. Hermite interpolation in paragraph 19 is a different subject.\\
 \addlinespace
 24 & Other choices of weight and interval &
-A concluding observation, not a theorem. &
-Our general result permits other positive continuous weights on compact intervals. It does not implement every named Gaussian family.\\
+\code{exists_gaussian_quadrature} applies to any positive continuous
+weight on a compact interval. Individual named families require their own
+specialization and certificates.\\
 \end{longtable}
 \endgroup
 
