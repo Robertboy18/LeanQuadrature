@@ -1,14 +1,14 @@
 {
-  "checked_at": "2026-09-25T20:08:32.926472+00:00",
+  "checked_at": "2026-09-25T20:21:11.443963+00:00",
   "kind": "Manuscript PDF, current library coverage, code listings, and result-table checks",
   "paper": {
     "title": "Gaussian Quadrature in Lean and Rocq",
     "pdf": "paper/main.pdf",
     "page_count": 22,
-    "sha256": "958dee15921bdf17eddb1e758e2e762671ae43c3e200e33da632c46cdcfcb59d",
+    "sha256": "9f5c3c4f3120d3f47b0862ca8eb386070b01413f7b628e8f315a3e15300245fa",
     "source_sha256": {
       "paper/main.tex": "bcdb360267dd8a5e3faef81309af8ebf1cdeb358bb13589cd48ee736a4ab7328",
-      "paper/references.bib": "606d2fd608dffc33b339621fef79dde66037a4770ed447bcc116dfe0cf25c304"
+      "paper/references.bib": "f46b4677a1a27bd6bba4f705ab93fade51c3ffade9f004e57fc87fffd34eb725"
     },
     "author": "Robert Joseph",
     "affiliation": "California Institute of Technology"
@@ -20,18 +20,18 @@
     ],
     "passes": 4,
     "script_sha256": "ba4b6de88156c66d381bbeafc09a493906b702cf402754363bdf264ffedf526a",
-    "source_and_output_revalidated_at": "2026-09-25T20:08:32.926472+00:00",
+    "source_and_output_revalidated_at": "2026-09-25T20:21:11.443963+00:00",
     "scope": "Fresh four-pass build produced the PDF from the recorded LaTeX inputs.",
     "unresolved_references": [],
     "overfull_boxes": [],
     "missing_characters": [],
     "retained_logs_sha256": {
-      "evidence/paper-checks-logs/main.txt": "84a0148e1fc75a3af36035a90f954be4dfe6e7cf5d7d404afa2af45019cf1a21",
+      "evidence/paper-checks-logs/main.txt": "e8a49fbe9827d4406a8a821557a56d7b0a758845de48a1ddcfc347129ec22914",
       "evidence/paper-checks-logs/main-bibtex.txt": "692aae0b821f6b0a513762affb4815482d7e1294595134cf44311e88b2a84f03",
       "evidence/paper-checks-logs/pass-1.txt": "6b710f908871d73269ac8aa31ba51d6673a50442d8427bdd56b8bafbe58ef69f",
       "evidence/paper-checks-logs/pass-2.txt": "11b2a8cd4b63c588ffa4b77d567627732e1b292854ec8ccebcee319ee9cb9c2a",
-      "evidence/paper-checks-logs/pass-3.txt": "bca525da7b0a5c9605d5384eec24f8a81c43a789c6a56098175fe14b76ed8769",
-      "evidence/paper-checks-logs/pass-4.txt": "3ed661b0788ee09d9895c851faeec24bc5be4cf2ccf056aeb0e92e537231ebc2"
+      "evidence/paper-checks-logs/pass-3.txt": "ba319dc51d656d5d888bd0e73c9f06e325ca4de8628b85f3cc2991133c94d770",
+      "evidence/paper-checks-logs/pass-4.txt": "7d759c08e0d257bafcad8a923d76948fb7d339d951d00a3d2a39cccaa3a83c6f"
     }
   },
   "content_checks": {
@@ -77,9 +77,10 @@
     "preliminary_source_and_public_correction_context_present": true,
     "missing_vsu_composition_context_present": true,
     "private_leanpde_build_prerequisite_disclosed": true,
-    "visual_inspection_status": "All 22 pages were rendered and visually inspected at contact-sheet scale; Table 4 was also inspected at full-page scale.",
+    "visual_inspection_status": "All 22 pages render identically at 108 dpi to the previously visually reviewed PDF. The changed LeanPDE bibliography hyperlink was checked separately.",
     "table_4_reports_current_leanpde_coverage": true,
-    "historical_leanpde_comparison_columns_absent": true
+    "historical_leanpde_comparison_columns_absent": true,
+    "leanpde_bibliography_matches_dependency_revision": "40ad295c230f2f8d97249d93aedbdd77671327de"
   },
   "mathematical_source_comparison": {
     "checked_at": "2026-09-25T20:08:32.926472+00:00",
@@ -350,13 +351,14 @@
     "local_targets_checked": 366,
     "anchors_checked": 9,
     "errors": [],
-    "scope": "Parsed Markdown links and image targets, including reference links and table cells. External destinations were not fetched."
+    "scope": "Parsed Markdown links and image targets, including reference links and table cells. External destinations were not fetched.",
+    "checked_at": "2026-09-25T20:22:19.553284+00:00"
   },
-  "scope": "PDF and current-library coverage checks for the hashes recorded here. Existing full proof-build checks remain in lean-quality.json and the Rocq verification records. Matching a declaration to a mathematical statement also requires the source review described above; the declaration queries alone are not a coverage proof.",
-  "completed_at": "2026-09-25T20:08:37.977231+00:00",
+  "scope": "The bibliography-only PDF change was rebuilt and checked against the preceding reviewed PDF; its text and rendered pages are identical. Existing declaration, mathematical, numerical, and full proof-build checks retain their recorded scopes and timestamps. Documentation links are checked separately below.",
+  "completed_at": "2026-09-25T20:21:11.443963+00:00",
   "manual_visual_review": {
-    "checked_at": "2026-09-25T20:05:46.450330+00:00",
-    "pdf_sha256": "958dee15921bdf17eddb1e758e2e762671ae43c3e200e33da632c46cdcfcb59d",
+    "checked_at": "2026-09-25T20:21:11.443963+00:00",
+    "pdf_sha256": "9f5c3c4f3120d3f47b0862ca8eb386070b01413f7b628e8f315a3e15300245fa",
     "pages_reviewed": [
       1,
       2,
@@ -385,12 +387,17 @@
       20,
       21
     ],
-    "method": "Rendered all 22 pages and visually inspected four contact sheets; inspected both pages of Table 4 at full-page scale.",
+    "method": "Compared extracted text and rendered pixels at 108 dpi on all 22 pages with the previous visual-review PDF; every page is identical. Checked the updated bibliography hyperlink in the PDF annotations.",
     "checks": [
       "No clipped text, equations, tables, or code listings observed.",
       "Table 4 has the current LeanPDE result column, readable declaration names, and green checkmarks.",
       "The appendix table fits on pages 20 and 21; the final reference page is readable."
     ],
-    "scope": "Layout and rendering review; declaration, mathematical, and numerical checks are recorded separately."
+    "scope": "Layout and rendering review; declaration, mathematical, and numerical checks are recorded separately.",
+    "previous_review": {
+      "checked_at": "2026-09-25T20:05:46.450330+00:00",
+      "pdf_sha256": "958dee15921bdf17eddb1e758e2e762671ae43c3e200e33da632c46cdcfcb59d",
+      "method": "Rendered all 22 pages and visually inspected four contact sheets; inspected both pages of Table 4 at full-page scale."
+    }
   }
 }

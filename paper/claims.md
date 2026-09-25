@@ -1,8 +1,9 @@
 # Manuscript claims and supporting sources
 
-The general Gaussian theory was developed in this project and has moved to
-LeanPDE. Source links below point to its shared owners; the explicit Legendre,
-floating-point, and execution proofs remain in LeanQuadrature.
+LeanPDE provides the general Gaussian theory, explicit Legendre rules, and
+root and weight certificate proofs used here. Source links below identify
+these shared results. LeanQuadrature supplies the stored-table,
+floating-point, and execution proofs.
 
 This map records the support for *Gaussian Quadrature in Lean and Rocq*.
 The original Appel–Bindel Rocq development and the separate Rocq proofs in

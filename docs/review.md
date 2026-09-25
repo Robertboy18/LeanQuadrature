@@ -28,7 +28,7 @@ argument.
 The [paper](../paper/main.pdf), [claim map](../paper/claims.md), and
 [interactive explanation](interactive/index.html#claims) explain the findings
 and their consequences. The [24-paragraph comparison](stewart-comparison.md)
-identifies the existing LeanPDE results and the mathematical proofs added here.
+identifies the definitions and theorems available in the current LeanPDE dependency.
 
 The public author PDF was downloaded again and compared with the previously
 examined copy. The four numerical and indexing findings below remain in it.
@@ -46,7 +46,7 @@ the paper and source revision identified in the review record.
 | Preliminary title and attribution | ✓ Corrected throughout the paper and documentation. The discussion credits the authors' existing work on the derivative hypotheses and distinguishes false statements from unfinished proofs. |
 | Numerical bounds and hypotheses | ✓ Counterexamples and corrected results are proved in our separate development. Integrating the corresponding corrections into the original Rocq proofs remains upstream work. |
 | Function calls and initialized tables | ✓ The selected C library with our polynomial cosine has composed, initialized-call proofs in Lean. This is not a completed VST VSU for the original library. |
-| Which mathematics came from LeanPDE | ✓ The [24-paragraph map](stewart-comparison.md) identifies reused results, new proofs, and omitted or bypassed textbook arguments. Our general quadrature theory concerns compact intervals. Infinite-interval families remain outside it. |
+| Mathematics available in LeanPDE | ✓ The [24-paragraph map](stewart-comparison.md) identifies the current definitions and theorems, together with omitted or bypassed textbook arguments. The general quadrature theory concerns compact intervals. Infinite-interval families remain outside it. |
 | Faithfulness of the C model | ◐ The particular C calls are proved correct in our adapted semantics. A general frontend theorem and a semantic correspondence with Rocq remain open; a successful Lean build does not establish them. |
 | Modular C and VST-style reasoning | ◐ CLean supplies reusable contracts and separation-logic rules, but our direct execution proofs do not establish a framework for large modular or concurrent C programs. An Iris instantiation for this semantics and suitable automation remain further work. |
 | Compilation | ◐ Particular assembly programs have Lean proofs, and separate Rocq certificates use CompCert. Transferring CompCert's general compiler theorem to Lean remains open. Merely compiling with CompCert does not supply that transfer. |
