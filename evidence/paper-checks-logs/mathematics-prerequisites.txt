@@ -1,4 +1,1 @@
-✔ [2822/2824] Built PDE.Symbolic.Continuum.Quadrature.Simpson (3.5s)
-✔ [2823/2824] Built PDE.Symbolic.Continuum.Quadrature.PeanoKernel (3.9s)
-✔ [2824/2824] Built PDE.Symbolic.Continuum.Quadrature.GaussLegendrePeano (7.5s)
-Build completed successfully (2824 jobs).
+Build completed successfully (3535 jobs).

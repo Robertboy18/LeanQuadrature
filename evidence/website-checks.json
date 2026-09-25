@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-09-23T18:12:20.933Z",
+  "checked_at": "2026-09-23T20:14:28.976Z",
   "kind": "Local browser, equation, and navigation checks",
   "explorer_cases": [
     {
@@ -106,23 +106,25 @@
   "console_errors": [],
   "external_requests": [],
   "browser_version": "153.0.8010.36",
-  "initial_rendered_equations": 316,
+  "initial_rendered_equations": 325,
   "strict_katex": {
-    "equations": 298,
+    "equations": 307,
     "errors": [],
     "throwOnError": true,
     "strict": "error",
     "trust": false
   },
-  "static_equations_extracted": 298,
+  "static_equations_extracted": 307,
   "counterexample_and_theme_checked": true,
   "duplicate_ids": [],
-  "local_links_checked": 113,
+  "local_links_checked": 116,
   "normalization_section_checked": true,
   "normalization_equation_fits_phone_width": true,
+  "c_assembly_equation_fits_phone_width": true,
+  "c_assembly_section_checked": true,
   "source_sha256": {
-    "docs/interactive/index.html": "b7863ffb0ae346631904ba12e291c90553e7190896bf286aff9904e2681d4752",
-    "docs/interactive/app.js": "a4226ee249a67d80465ff6d1ab6d8bef468b2fddf119d6daae8b5f89a59ed242",
+    "docs/interactive/index.html": "a32ecd779c818da939c26a398d9b26c57d607ec1a86d02db1a4ccf25d14a5358",
+    "docs/interactive/app.js": "a74e6c9c1b3dd194b0d895aeba7412272f1d56e91968268cd5456fa84b775f9e",
     "docs/interactive/styles.css": "b2c90d9abc1e1cebdfdff20bc3044dde6a5d268a1028762126385b65d5811691",
     "docs/interactive/favicon.svg": "2c94f0f40407c24934c858176639b95da6f1fbd2d69913a2b9b473945d5156c2",
     "docs/interactive/vendor/katex/katex.min.js": "10a91b479cd927446ceb60409fb0d72b5d0d05eaf446c9e52fafd64058c84540",
@@ -155,18 +157,20 @@
     "Links collected across the controls were checked for local targets; this page's anchors were checked for uniqueness.",
     "The bundled KaTeX rendered all static equations with throwOnError: true, strict: error, and trust: false.",
     "Desktop, tablet, and phone layouts were checked for page overflow with every reading panel expanded.",
-    "Inspected desktop and phone screenshots of the introduction, library attribution, and C-to-Clight preservation equation for readable text and correct equation display."
+    "Inspected desktop and phone screenshots of the introduction, library attribution, C-to-Clight preservation equation, and C-return/assembly-annotation correspondence for readable text and correct equation display."
   ],
   "scope": "Checks of the local website and bundled assets. External destinations were not fetched. These rendering and interaction checks do not verify the mathematical proofs.",
-  "completed_at": "2026-09-23T18:21:27.340916+00:00",
+  "completed_at": "2026-09-23T20:19:31.790609+00:00",
   "visual_sections_checked": {
     "desktop": [
       "introduction",
-      "library attribution"
+      "library attribution",
+      "C-return/assembly-annotation agreement"
     ],
     "phone": [
       "library attribution",
-      "C-to-Clight preservation"
+      "C-to-Clight preservation",
+      "C-return/assembly-annotation agreement"
     ]
   }
 }

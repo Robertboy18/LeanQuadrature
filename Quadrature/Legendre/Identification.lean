@@ -1,5 +1,5 @@
-import Quadrature.Analysis.Characterization
-import Quadrature.Analysis.Convergence
+import PDE.Symbolic.Continuum.Quadrature.Gaussian.Characterization
+import PDE.Symbolic.Continuum.Quadrature.Approximation
 import Quadrature.Legendre.Basic
 
 /-!
@@ -55,7 +55,7 @@ def oneGaussian : Rule 1 where
   positive := by intro i; fin_cases i; norm_num
   exact := by
     intro p hp
-    have h := valueOn_eq_integral_polynomial one_exact p (by omega) (-1) 1
+    have h := QuadratureRule.valueOn_eq_integral_of_natDegree_le one_exact p (by omega) (-1) 1
     norm_num [one, QuadratureRule.valueOn, QuadratureRule.termsOn, weightedSum,
       polynomialIntegral, Fin.sum_univ_succ] at h ⊢
     exact h
@@ -74,7 +74,7 @@ def twoGaussian : Rule 2 where
   positive := by intro i; fin_cases i <;> norm_num
   exact := by
     intro p hp
-    have h := valueOn_eq_integral_polynomial two_exact p (by omega) (-1) 1
+    have h := QuadratureRule.valueOn_eq_integral_of_natDegree_le two_exact p (by omega) (-1) 1
     convert h using 1 <;>
       simp [two, gaussLegendreTwoRule, gaussLegendreTwoLeftNode, gaussLegendreTwoRightNode,
         QuadratureRule.valueOn, QuadratureRule.termsOn, weightedSum, polynomialIntegral,
@@ -96,7 +96,7 @@ def threeGaussian : Rule 3 where
   positive := by intro i; fin_cases i <;> norm_num
   exact := by
     intro p hp
-    have h := valueOn_eq_integral_polynomial three_exact p (by omega) (-1) 1
+    have h := QuadratureRule.valueOn_eq_integral_of_natDegree_le three_exact p (by omega) (-1) 1
     convert h using 1 <;>
       simp [three, QuadratureRule.valueOn, QuadratureRule.termsOn, weightedSum,
         polynomialIntegral, Fin.sum_univ_succ]
@@ -122,7 +122,7 @@ def fourGaussian : Rule 4 where
     fin_cases i <;> simp <;> linarith [fourRadical_bounds.1, fourRadical_bounds.2]
   exact := by
     intro p hp
-    have h := valueOn_eq_integral_polynomial four_exact p (by omega) (-1) 1
+    have h := QuadratureRule.valueOn_eq_integral_of_natDegree_le four_exact p (by omega) (-1) 1
     convert h using 1 <;>
       simp [four, QuadratureRule.valueOn, QuadratureRule.termsOn, weightedSum,
         polynomialIntegral, Fin.sum_univ_succ]

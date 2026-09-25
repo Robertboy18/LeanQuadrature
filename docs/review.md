@@ -35,6 +35,22 @@ examined copy. The four numerical and indexing findings below remain in it.
 The [review record](../evidence/upstream-review.json) identifies this PDF by hash
 and records the source revision used for the code findings.
 
+## What is resolved and what remains
+
+The corrections here belong to LeanQuadrature. They do not complete the admitted
+proofs or assemble the VSU in the authors' Rocq development. The comparison uses
+the paper and source revision identified in the review record.
+
+| Topic | Status in this repository |
+| --- | --- |
+| Preliminary title and attribution | ✓ Corrected throughout the paper and documentation. The discussion credits the authors' existing work on the derivative hypotheses and distinguishes false statements from unfinished proofs. |
+| Numerical bounds and hypotheses | ✓ Counterexamples and corrected results are proved in our separate development. Integrating the corresponding corrections into the original Rocq proofs remains upstream work. |
+| Function calls and initialized tables | ✓ The selected C library with our polynomial cosine has composed, initialized-call proofs in Lean. This is not a completed VST VSU for the original library. |
+| Which mathematics came from LeanPDE | ✓ The [24-paragraph map](stewart-comparison.md) identifies reused results, new proofs, and omitted or bypassed textbook arguments. Our general quadrature theory concerns compact intervals. Infinite-interval families remain outside it. |
+| Faithfulness of the C model | ◐ The particular C calls are proved correct in our adapted semantics. A general frontend theorem and a semantic correspondence with Rocq remain open; a successful Lean build does not establish them. |
+| Modular C and VST-style reasoning | ◐ CLean supplies reusable contracts and separation-logic rules, but our direct execution proofs do not establish a framework for large modular or concurrent C programs. An Iris instantiation for this semantics and suitable automation remain further work. |
+| Compilation | ◐ Particular assembly programs have Lean proofs, and separate Rocq certificates use CompCert. Transferring CompCert's general compiler theorem to Lean remains open. Merely compiling with CompCert does not supply that transfer. |
+
 ## The findings in the paper and source
 
 | Finding | Evidence | What our development establishes |
@@ -45,7 +61,7 @@ and records the source revision used for the code findings.
 | Three-point outer weight | The C and model encodings differ. The C weight's error exceeds `2⁻⁵³`. | Lean certifies the actual C constants with a valid weight tolerance of `5·10⁻¹⁶`. |
 | Overflow helpers in the source | `parameter_limits` holds at witnesses where two admitted helper conclusions fail. | Three new Lean theorems check the counterexamples and distinguish the two failures. Our finiteness proof uses a different sufficient budget. |
 | Hughes function identifier | `hughes_weight_spec` declares `_gauss2d_weight`; the interface repeats that identifier and omits `_hughes_weight`. | The source error concerns function registration. Correcting the identifier still requires checking the assembled interface. |
-| Original callback body | Ten internal Clight functions, nine body lemmas; no `body_testfun`. | The wrapper assumes the callback contract. A proof that the C callback implements it is still needed. |
+| Original callback body | Ten internal Clight functions, nine body lemmas; no `body_testfun`. | The original wrapper assumes the callback contract, and its callback body still needs a proof. Our separate polynomial-cosine variant supplies its own callback body proof. |
 | Integral positivity | `Rintegral_gt_0` allows `a = b`. The constant function one on `[0, 0]` meets its premises and has integral zero. | Lean and MathComp-Analysis prove the counterexample. Our polynomial-positivity theorem already requires `a < b`. |
 
 The overflow, positivity, function-identifier, and callback findings concern the accompanying
@@ -96,7 +112,7 @@ the sole weight is two.
 
 The original Rocq statement `gauss_weight_leq_1` already uses the correct
 integral bound. This discrepancy is in the prose, not that theorem's statement.
-Our [weight bound](../Quadrature/Analysis/Weighted.lean) proves the same
+Our [weight bound](https://github.com/lean-dojo/LeanPDE/blob/main/PDE/Symbolic/Continuum/Quadrature/Gaussian/Weighted.lean) proves the same
 total-mass bound. It is separate from the four numerical and indexing findings
 discussed in our paper.
 
@@ -222,7 +238,7 @@ The source uses this admitted lemma in `sqr_poly_positive`, inside a section
 that already assumes `a < b`. Adding that premise to the helper is a natural
 repair for this use. The counterexample does not refute polynomial positivity
 on the nondegenerate interval. Our
-[`polynomialIntegral_square_pos`](../Quadrature/Analysis/Integral.lean) already carries
+[`polynomialIntegral_square_pos`](https://github.com/lean-dojo/LeanPDE/blob/main/PDE/Symbolic/Continuum/Quadrature/Gaussian/Integral.lean) already carries
 the interval hypothesis and proves the result using mathlib.
 
 ## Why the wrong function name can escape a body proof
@@ -339,7 +355,12 @@ correspondence with Rocq's semantics remain unproved.
 For the **ten polynomial applications**, initialized Clight and formal assembly
 have direct proofs, and independent Rocq certificates compose with a configured
 CompCert. These applications have an internal polynomial and authored entry
-points. Their proofs have not been composed with the normalized C library.
+points.
+[CSourcePrograms.lean](../Quadrature/Compiler/Correspondence/CSourcePrograms.lean)
+proves that their result annotations carry exactly the value returned by the
+initialized C library, for all ten orders and the original two-node wrapper.
+The theorem compares these particular programs' results; it does not prove that
+compiling the original C text produces the imported assembly syntax.
 The general Lean–Rocq interpretation, assembly printing and encoding, linking,
 and operating-system output also remain outside the completed chain.
 Compiling the original C with CompCert alone does not discharge these obligations.

@@ -69,6 +69,21 @@ theorem maximal_execution (n : Nat) (hlo : 1 ≤ n) (hhi : n ≤ 10)
   execute_program_unique annotated_external_executor_sound annotated_external_executor_agrees
     (execution_checked_result n hlo hhi) hinit hrun hstop
 
+/-- The possible final observations are exactly the certified annotation and a zero exit.
+The reverse implication supplies a complete execution, so the characterization is nonvacuous. -/
+theorem final_observations_iff (n : Nat) (hlo : 1 ≤ n) (hhi : n ≤ 10)
+    (trace : Trace) (status : Integers.Int) :
+    (∃ start finish, InitialState (Imported.program n) start ∧
+      Steps (Imported.program n).globalenv start trace finish ∧ FinalState finish status) ↔
+    trace = resultTrace (Clight.StoredPolynomial.result n) ∧ status = Integers.Int.zero := by
+  constructor
+  · rintro ⟨start, finish, hinit, hrun, hfinal⟩
+    obtain ⟨htrace, hstatus⟩ :=
+      maximal_execution n hlo hhi hinit hrun (fun _ _ => final_state_stuck hfinal)
+    exact ⟨htrace, final_state_unique hfinal hstatus⟩
+  · rintro ⟨rfl, rfl⟩
+    exact execution n hlo hhi
+
 /-- The certified finite run excludes every infinite sequence of semantic transitions. -/
 theorem not_infinite (n : Nat) (hlo : 1 ≤ n) (hhi : n ≤ 10) {start : State}
     (hinit : InitialState (Imported.program n) start)

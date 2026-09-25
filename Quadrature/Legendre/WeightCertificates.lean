@@ -17,7 +17,7 @@ namespace Quadrature.Legendre.RootCertificates
 open Polynomial Set
 open PDE.Symbolic.Polynomial
 open PDE.Symbolic.Polynomial.RealRoot
-open PDE.Symbolic.Continuum (RationalInterval)
+open PDE.Symbolic.Continuum
 
 /-- The divided difference `(X^k - r^k) / (X - r) = ∑_{i < k} X^i r^(k-1-i)`, written
 without division. -/
@@ -157,12 +157,12 @@ theorem weightInterval_sound (p : Sparse.Univariate) (bracket : RootBracket)
   cases hdir : bracket.direction with
   | increasing =>
       simp only [RootBracket.Valid, hdir] at hconditions
-      simpa only [weightInterval, hdir, dite_eq_left hconditions.2.2.2] using
-        RationalInterval.divPositive_sound hconditions.2.2.2 hn hd
+      simpa only [weightInterval, hdir, dite_eq_left hconditions.2.2] using
+        RationalInterval.divPositive_sound hconditions.2.2 hn hd
   | decreasing =>
       simp only [RootBracket.Valid, hdir] at hconditions
       have hpos : 0 < (evalInterval (Sparse.derivativeRaw p) bracket.interval).neg.lo := by
-        exact neg_pos.mpr hconditions.2.2.2
+        exact neg_pos.mpr hconditions.2.2
       simpa only [weightInterval, hdir, dite_eq_left hpos, neg_div_neg_eq] using
         RationalInterval.divPositive_sound hpos
           (RationalInterval.neg_sound hn) (RationalInterval.neg_sound hd)

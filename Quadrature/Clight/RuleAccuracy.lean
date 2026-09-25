@@ -15,6 +15,7 @@ initialized Clight library.
 namespace Quadrature.Binary64.StoredRule
 
 open FloatLib.Floats.Formats.BinaryInterchange
+open PDE.Symbolic.Continuum (polynomialIntegral)
 
 -- Kernel evaluation comparing each certified table with the Clight stored terms, ten orders.
 set_option maxRecDepth 20000 in

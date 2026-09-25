@@ -93,8 +93,7 @@ Quadrature.interpolatoryWeight {n : ℕ} (L : Polynomial ℝ →ₗ[ℝ] ℝ) (n
 Quadrature.interpolatory_exact {n : ℕ} (L : Polynomial ℝ →ₗ[ℝ] ℝ) (nodes : Fin n → ℝ)
   (hnodes : Function.Injective nodes) (p : Polynomial ℝ) (hp : p.degree < ↑n) :
   Quadrature.interpolatoryValue L nodes p = L p
-Quadrature.gaussian_exact {n : ℕ} (hn : 0 < n) (L : Polynomial ℝ →ₗ[ℝ] ℝ) (nodes : Fin n → ℝ)
-  (hnodes : Function.Injective nodes)
+Quadrature.gaussian_exact {n : ℕ} (L : Polynomial ℝ →ₗ[ℝ] ℝ) (nodes : Fin n → ℝ) (hnodes : Function.Injective nodes)
   (horth : ∀ (q : Polynomial ℝ), q.natDegree < n → L (Lagrange.nodal Finset.univ nodes * q) = 0) (p : Polynomial ℝ)
   (hp : p.natDegree < 2 * n) : Quadrature.interpolatoryValue L nodes p = L p
 Quadrature.gaussian_weight_pos {n : ℕ} (hn : 0 < n) (L : Polynomial ℝ →ₗ[ℝ] ℝ) (nodes : Fin n → ℝ)

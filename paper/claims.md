@@ -1,5 +1,9 @@
 # Manuscript claims and supporting sources
 
+The general Gaussian theory was developed in this project and has moved to
+LeanPDE. Source links below point to its shared owners; the explicit Legendre,
+floating-point, and execution proofs remain in LeanQuadrature.
+
 This map records the support for *Gaussian Quadrature in Lean and Rocq*.
 The original Appel–Bindel Rocq development and the separate Rocq proofs in
 LeanQuadrature are separate developments. The formal
@@ -27,6 +31,19 @@ this map, the [review record](../evidence/upstream-review.json), the bibliograph
 targets, and the evidence records.
 
 ## Reusable program logic in Lean
+
+CLean already includes a Clight separation logic, function contracts, a
+frame rule, function-pointer call rules, and module-linking operations.
+The retained [upstream description](../vendor/clean/LEAN.md), Sections 6.1–6.6,
+documents these components. Their implementations are
+[Funspec.lean](../vendor/clean/CCLib/Funspec.lean),
+[FunPtr.lean](../vendor/clean/CCLib/FunPtr.lean),
+[SepHoare.lean](../vendor/clean/CCLib/SepHoare.lean), and
+[Linking.lean](../vendor/clean/CCLib/Linking.lean).
+`CC.Sep.closure` combines verified bodies using a decreasing measure on calls.
+The linking module implements merging; it does not port CompCert's general
+linking theory. Our quadrature proofs use execution rules directly.
+These inherited capabilities should not be counted as new project results.
 
 Section 5 cites [*Iris in Lean*, arXiv:2609.24252v1](https://arxiv.org/abs/2609.24252v1).
 Sections 2 and 2.2 of that paper describe its Iris base logic, language-parametric
@@ -63,14 +80,14 @@ The table does not claim a separate proof of every textbook paragraph.
 
 | Manuscript result | Source and declarations | Scope |
 | --- | --- | --- |
-| Monic orthogonal family | [Orthogonal.lean](../Quadrature/Analysis/Orthogonal.lean): `exists_monic_orthogonal`, `orthogonalPolynomial_unique` | Positive definite polynomial inner product; integral specialization on compact intervals |
-| Roots and Gaussian construction | [Roots.lean](../Quadrature/Analysis/Roots.lean), [Gaussian.lean](../Quadrature/Analysis/Gaussian.lean): `exists_gaussian_quadrature` | Every positive order; positive continuous weight |
-| Exactness and positive weights | [Algebra.lean](../Quadrature/Analysis/Algebra.lean), [Weighted.lean](../Quadrature/Analysis/Weighted.lean) | Degree at most `2*n-1`; nodes and weights satisfying the stated rule |
-| Three-term recurrence | [Recurrence.lean](../Quadrature/Analysis/Recurrence.lean) | Constructed orthogonal family and positive norm ratio |
-| Integrated Gaussian remainder | [Remainder.lean](../Quadrature/Analysis/Remainder.lean): `GaussianRule.remainder` | `ContDiffOn` through order `2*n` on the closed interval |
-| Multi-node Hermite remainder | [Hermite.lean](../Quadrature/Analysis/Hermite.lean), [Remainder.lean](../Quadrature/Analysis/Remainder.lean): `hermite_remainder` | Value and first derivative at distinct nodes; positive order and an explicit derivative chain. Highest-derivative continuity is needed for our integrated identity, not for this pointwise result |
-| Pointwise-to-integrated witness | [IntegralMeanValue.lean](../Quadrature/Analysis/IntegralMeanValue.lean): `integral_eq_value_mul_of_pointwise_image` | Continuous derivative image, nonnegative factor with positive integral; no measurable selector premise |
-| Convergence | [Weighted.lean](../Quadrature/Analysis/Weighted.lean): `gaussian_rules_converge` | Continuous integrand, compact interval, positive continuous weight |
+| Monic orthogonal family | [Orthogonal.lean](https://github.com/lean-dojo/LeanPDE/blob/main/PDE/Symbolic/Continuum/Quadrature/Gaussian/Orthogonal.lean): `exists_monic_orthogonal`, `orthogonalPolynomial_unique` | Positive definite polynomial inner product; integral specialization on compact intervals |
+| Roots and Gaussian construction | [Roots.lean](https://github.com/lean-dojo/LeanPDE/blob/main/PDE/Symbolic/Continuum/Quadrature/Gaussian/Roots.lean), [Gaussian.lean](https://github.com/lean-dojo/LeanPDE/blob/main/PDE/Symbolic/Continuum/Quadrature/Gaussian/Gaussian.lean): `exists_gaussian_quadrature` | Every positive order; positive continuous weight |
+| Exactness and positive weights | [Algebra.lean](https://github.com/lean-dojo/LeanPDE/blob/main/PDE/Symbolic/Continuum/Quadrature/Gaussian/Algebra.lean), [Weighted.lean](https://github.com/lean-dojo/LeanPDE/blob/main/PDE/Symbolic/Continuum/Quadrature/Gaussian/Weighted.lean) | Degree at most `2*n-1`; nodes and weights satisfying the stated rule |
+| Three-term recurrence | [Recurrence.lean](https://github.com/lean-dojo/LeanPDE/blob/main/PDE/Symbolic/Continuum/Quadrature/Gaussian/Recurrence.lean) | Constructed orthogonal family and positive norm ratio |
+| Integrated Gaussian remainder | [Remainder.lean](https://github.com/lean-dojo/LeanPDE/blob/main/PDE/Symbolic/Continuum/Quadrature/Gaussian/Remainder.lean): `GaussianRule.remainder` | `ContDiffOn` through order `2*n` on the closed interval |
+| Multi-node Hermite remainder | [Hermite.lean](https://github.com/lean-dojo/LeanPDE/blob/main/PDE/Symbolic/Continuum/Quadrature/Gaussian/Hermite.lean), [Remainder.lean](https://github.com/lean-dojo/LeanPDE/blob/main/PDE/Symbolic/Continuum/Quadrature/Gaussian/Remainder.lean): `hermite_remainder` | Value and first derivative at distinct nodes; positive order and an explicit derivative chain. Highest-derivative continuity is needed for our integrated identity, not for this pointwise result |
+| Pointwise-to-integrated witness | [IntegralMeanValue.lean](https://github.com/lean-dojo/LeanPDE/blob/main/PDE/Symbolic/Continuum/Quadrature/Gaussian/IntegralMeanValue.lean): `integral_eq_value_mul_of_pointwise_image` | Continuous derivative image, nonnegative factor with positive integral; no measurable selector premise |
+| Convergence | [Weighted.lean](https://github.com/lean-dojo/LeanPDE/blob/main/PDE/Symbolic/Continuum/Quadrature/Gaussian/Weighted.lean): `gaussian_rules_converge` | Continuous integrand, compact interval, positive continuous weight |
 | Low-order family identification | [Legendre/Identification.lean](../Quadrature/Legendre/Identification.lean) | Explicit rules identified with the constructed monic family |
 
 ## Library contributions
@@ -83,14 +100,14 @@ This is not a claim that Gaussian quadrature can only be formalized with LeanPDE
 | Library contribution | Project source using it | What is reused |
 | --- | --- | --- |
 | LeanPDE quadrature framework | [Legendre/Basic.lean](../Quadrature/Legendre/Basic.lean): `two`, `two_exact` | `QuadratureRule`, `gaussLegendreTwoRule`, and `gaussLegendreTwoRule.exactUpTo_three`; the two-point rule and cubic exactness are inherited |
-| LeanPDE approximation bounds | [Convergence.lean](../Quadrature/Analysis/Convergence.lean): `valueOn_eq_integral_polynomial`, `error_le_of_polynomial_approx` | `QuadratureRule.exactFor_polynomial`, affine interval transport, and `QuadratureRule.abs_valueOn_sub_le` |
+| LeanPDE approximation bounds | [Convergence.lean](https://github.com/lean-dojo/LeanPDE/blob/main/PDE/Symbolic/Continuum/Quadrature/PositiveRule.lean): `valueOn_eq_integral_polynomial`, `error_le_of_polynomial_approx` | `QuadratureRule.exactFor_polynomial`, affine interval transport, and `QuadratureRule.abs_valueOn_sub_le` |
 | LeanPDE root certificates | [Legendre/RootCertificates.lean](../Quadrature/Legendre/RootCertificates.lean): `nodes`, `nodes_mem`, `nodes_root` | Sparse rational polynomials and `RootBracket.existsUniqueRoot` |
 | LeanPDE interval arithmetic | [Legendre/WeightCertificates.lean](../Quadrature/Legendre/WeightCertificates.lean): `weightInterval_sound`; [Rules/Tables.lean](../Quadrature/Rules/Tables.lean) | `evalInterval_sound` and `RationalInterval` arithmetic; this project derives the weight formula and table certificates |
 | LeanPDE symbolic integration and enclosures | [Examples/TwoPointCosine.lean](../Quadrature/Examples/TwoPointCosine.lean): `integral_eq`, `sin_one_lower`, `quartic_two_point_error` | `cas [integrate]` and `cega [enclose ...]` produce checked proofs of the concrete calculations |
-| LeanPDE Taylor inequalities | [Taylor.lean](../Quadrature/Analysis/Taylor.lean), [Examples/TwoPointCosine.lean](../Quadrature/Examples/TwoPointCosine.lean) | `Real.cos_le_taylor_four` and `Real.taylor_six_le_cos`; this project derives the higher-order bounds it needs |
-| mathlib foundations and new general proofs | [Orthogonal.lean](../Quadrature/Analysis/Orthogonal.lean), [Weighted.lean](../Quadrature/Analysis/Weighted.lean), [Remainder.lean](../Quadrature/Analysis/Remainder.lean) | Real analysis, polynomials, orthogonal projection, Rolle's theorem, and uniform approximation support this project's weighted construction, remainder, and convergence |
+| LeanPDE Taylor inequalities | [Taylor.lean](../Quadrature/Analysis/Taylor.lean), [Examples/TwoPointCosine.lean](../Quadrature/Examples/TwoPointCosine.lean) | `PDE.Symbolic.Continuum.cos_le_taylor_four` and `PDE.Symbolic.Continuum.taylor_six_le_cos`; this project derives the higher-order bounds it needs |
+| mathlib foundations and new general proofs | [Orthogonal.lean](https://github.com/lean-dojo/LeanPDE/blob/main/PDE/Symbolic/Continuum/Quadrature/Gaussian/Orthogonal.lean), [Weighted.lean](https://github.com/lean-dojo/LeanPDE/blob/main/PDE/Symbolic/Continuum/Quadrature/Gaussian/Weighted.lean), [Remainder.lean](https://github.com/lean-dojo/LeanPDE/blob/main/PDE/Symbolic/Continuum/Quadrature/Gaussian/Remainder.lean) | Real analysis, polynomials, orthogonal projection, Rolle's theorem, and uniform approximation support this project's weighted construction, remainder, and convergence |
 | FloatLib arithmetic | [Binary64/Constants.lean](../Quadrature/Binary64/Constants.lean), [Roundoff.lean](../Quadrature/Binary64/Roundoff.lean), [Examples/CosineEvaluation.lean](../Quadrature/Examples/CosineEvaluation.lean) | Binary64 semantics, rounding bounds, and concrete cosine operations |
-| Adapted CLean | [Vendored README](../vendor/clean/README.md), [Clight/Execution.lean](../Quadrature/Clight/Execution.lean), [StoredTotalCorrectness.lean](../Quadrature/Compiler/Asm/StoredTotalCorrectness.lean) | Syntax, values, memory, and execution semantics; particular-program proofs are developed here |
+| Adapted CLean | [Vendored README](../vendor/clean/README.md), [upstream components](../vendor/clean/LEAN.md), [Clight/Execution.lean](../Quadrature/Clight/Execution.lean) | Syntax, values, memory, execution semantics, interpreter soundness, separation logic, contracts, function-pointer rules, and module-linking operations. Our application proofs use the execution semantics directly |
 | TorchLean dependency | [Lake configuration](../lakefile.toml), [resolved dependencies](../lake-manifest.json) | LeanPDE requires TorchLean; no project module imports TorchLean directly |
 
 The reused LeanPDE modules are inspected at the revision pinned in the Lake
@@ -282,7 +299,7 @@ The use at line 1433 is in `sqr_poly_positive`, within the section whose
 `Hab : a < b` is declared at line 775. Adding the missing premise is a
 plausible repair for that application; the finding does not refute it on a
 nondegenerate interval. Our `polynomialIntegral_square_pos` in
-[Integral.lean](../Quadrature/Analysis/Integral.lean) already requires `a < b`.
+[Integral.lean](https://github.com/lean-dojo/LeanPDE/blob/main/PDE/Symbolic/Continuum/Quadrature/Gaussian/Integral.lean) already requires `a < b`.
 
 ## Program and compilation results
 
@@ -329,8 +346,9 @@ authors' Apple toolchain or regenerate the original C-to-Clight translation.
 | Termination and progress for C calls | [CSource/Semantics/TotalCorrectness.lean](../Quadrature/CSource/Semantics/TotalCorrectness.lean): `Total.reaches`, `CallCorrect.accessible`, `CallCorrect.progress` | The inductive total-correctness judgment gives a terminating execution, excludes infinite executions, and rules out reachable stuck states. The transition rules are manually adapted from CompCert's C semantics; their agreement with Rocq is not mechanically proved |
 | Initialized polynomial C library (Theorem `c-total`) | [CSource/Library/Initialization.lean](../Quadrature/CSource/Library/Initialization.lean): `from_sources`, `initialized`; [CSource/Library/Total.lean](../Quadrature/CSource/Library/Total.lean): `integral_total_accuracy`, `parsed_wrapper_total_accuracy` | Original five selected functions and 110 table literals plus the replacement C polynomial; total correctness and numerical accuracy for orders 1–10, in every permitted evaluation order, with no table or cosine hypothesis. General frontend correctness and Lean/Rocq correspondence remain open |
 | Preservation by C-to-Clight normalization (Theorem `c-preservation`) | [CSource/Library/Preservation.lean](../Quadrature/CSource/Library/Preservation.lean): `parsed_refinement`, `initialized_outcomes_iff`, `wrapper_outcomes`; [CSource/Frontend/Refinement.lean](../Quadrature/CSource/Frontend/Refinement.lean); [Clight/Internal.lean](../Quadrature/Clight/Internal.lean) | Both frontend outputs, initialization, and function lookup are checked. The six selected functions have the same returned values and traces, terminate, and preserve caller memory on the supported inputs. Integrator counts are 0–10; accessors require valid stored cells; callback and cosine accept every binary64 input. No external-call determinism premise. A general parser/elaborator theorem and Lean/Rocq correspondence remain open |
-| Initialized Clight applications | [Clight/Main.lean](../Quadrature/Clight/Main.lean), [Clight/StoredAccuracy.lean](../Quadrature/Clight/StoredAccuracy.lean), [evidence](../evidence/lean-quality.json) | Internal polynomial and authored entry points, orders 1–10. These application proofs have not been composed with the normalized C library |
-| Lean assembly total correctness | [StoredTotalCorrectness.lean](../Quadrature/Compiler/Asm/StoredTotalCorrectness.lean): `StoredPrograms.progress`, `not_infinite`, `final_accuracy`; [evidence](../evidence/lean-quality.json) | Particular imported programs in Lean's adapted semantics; formal annotation and exit code |
+| Initialized Clight applications | [Clight/Main.lean](../Quadrature/Clight/Main.lean), [Clight/StoredAccuracy.lean](../Quadrature/Clight/StoredAccuracy.lean), [evidence](../evidence/lean-quality.json) | Internal polynomial and authored entry points, orders 1–10. The normalized library's returns are related to these applications' observations in `normalized_integrate_application_observations_iff`, retaining the application theorem's external-call determinism premise |
+| C returns and assembly observations (Theorem `c-assembly-observations`) | [CSourcePrograms.lean](../Quadrature/Compiler/Correspondence/CSourcePrograms.lean): `csource_integrate_asm_observations_iff`, `csource_wrapper_asm_observations_iff`, `parsed_wrapper_asm_accuracy`; [C total correctness](../Quadrature/CSource/Library/Total.lean); [assembly total correctness](../Quadrature/Compiler/Asm/StoredTotalCorrectness.lean) | Initialized C calls and imported assembly applications agree on the binary64 value under an explicit convention: C returns silently; assembly reports that value in an annotation and exits zero. All ten orders and the original two-node wrapper are covered, with no external-call determinism premise. Both sides terminate. The parsed wrapper theorem also includes source selection, exact bits, finiteness, and the `0.00356` bound. This does not prove that compiling the original C text produces these assembly trees |
+| Lean assembly total correctness | [StoredTotalCorrectness.lean](../Quadrature/Compiler/Asm/StoredTotalCorrectness.lean): `StoredPrograms.progress`, `not_infinite`, `final_observations_iff`, `final_accuracy`; [evidence](../evidence/lean-quality.json) | Particular imported programs in Lean's adapted semantics; formal annotation and exit code |
 | Return-address checks | [GeneratedReturnAddresses.lean](../Quadrature/Compiler/Asm/GeneratedReturnAddresses.lean), [evidence](../evidence/lean-quality.json) | All sixteen retained call sites; not a general compiler pass theorem |
 | Rocq compilation and accuracy | [CertifiedStoredPolynomial.v](../compcert/certification/CertifiedStoredPolynomial.v), [certificate README](../compcert/certification/README.md), [evidence](../evidence/assembly-certificate.json) | Separately checked configuration; no cosine or successful-compilation premise for polynomial applications; logical dependencies recorded separately |
 | Source-to-native chain | [Coverage ledger](../docs/coverage.md) | Incomplete. No general cross-kernel semantic connection, verified printing/linking/OS output, or platform cosine result is claimed |

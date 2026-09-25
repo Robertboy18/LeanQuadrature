@@ -1,13 +1,13 @@
 {
-  "checked_at": "2026-09-23T18:21:24.733807+00:00",
+  "checked_at": "2026-09-24T19:09:06.140366+00:00",
   "kind": "Manuscript PDF, source attribution, code listings, and result-table checks",
   "paper": {
     "title": "Gaussian Quadrature in Lean and Rocq",
     "pdf": "paper/main.pdf",
-    "page_count": 21,
-    "sha256": "c3633efffe9521f1059545949c6c18ce3f9a9876d99b8293b4a4533831f8c845",
+    "page_count": 22,
+    "sha256": "a8d257335d2286ee7cddcec03cffa5afc60ca80f793fbf93bb08ee6043bd182c",
     "source_sha256": {
-      "paper/main.tex": "ea45d7360c72c42e9704ce0bc5b430dcab28473c5f43689d8abcc17865eb1486",
+      "paper/main.tex": "7df70ade4b3430fb407fa3e9b31f27304029007148db5194c96669ebd38d3cf1",
       "paper/references.bib": "606d2fd608dffc33b339621fef79dde66037a4770ed447bcc116dfe0cf25c304"
     },
     "author": "Robert Joseph",
@@ -20,16 +20,18 @@
     ],
     "passes": 4,
     "script_sha256": "ba4b6de88156c66d381bbeafc09a493906b702cf402754363bdf264ffedf526a",
+    "source_and_output_revalidated_at": "2026-09-24T19:09:06.140366+00:00",
+    "scope": "Unchanged PDF and LaTeX inputs match the retained successful build; the PDF was not rebuilt during this code cleanup.",
     "unresolved_references": [],
     "overfull_boxes": [],
     "missing_characters": [],
     "retained_logs_sha256": {
-      "evidence/paper-checks-logs/main.txt": "778fb0ce7a2a06e771ffc473872d94d1dfb40bea2d5a444ea9ebf52e4c3cb4fa",
+      "evidence/paper-checks-logs/main.txt": "c09b1e5eaa319f1ecde3f99e58b4717509263a30ef7695f9637cf7b4d6719e65",
       "evidence/paper-checks-logs/main-bibtex.txt": "692aae0b821f6b0a513762affb4815482d7e1294595134cf44311e88b2a84f03",
-      "evidence/paper-checks-logs/pass-1.txt": "e373574f4bc807702ac870f2df6ef23fa97166f47a953a32973d679f12253691",
+      "evidence/paper-checks-logs/pass-1.txt": "e63a70223dd7a474bb25cdfd1323e4fe5e3eba075a76ef3f00bbc193bbb4920a",
       "evidence/paper-checks-logs/pass-2.txt": "11b2a8cd4b63c588ffa4b77d567627732e1b292854ec8ccebcee319ee9cb9c2a",
-      "evidence/paper-checks-logs/pass-3.txt": "22001a27583b3d19348013606e680cca56a72a1e85a75e780c3e0d36b9f9630a",
-      "evidence/paper-checks-logs/pass-4.txt": "33ea875aad4ca51d42adf69a048927dc85aadef985f702fa456ada8e2abd0a10"
+      "evidence/paper-checks-logs/pass-3.txt": "ee34a7596b513cba7871f5f1ac4eaaff70cc1387829efa1e0af1e0523cee000b",
+      "evidence/paper-checks-logs/pass-4.txt": "c4ccaeb7d1a8e51f6e1a7d25f001fbadf7ad3b3d0c5656e538312a0397783717"
     }
   },
   "content_checks": {
@@ -58,8 +60,8 @@
     "title_page_author": "Robert Joseph",
     "title_page_affiliation": "California Institute of Technology",
     "abstract_paragraphs": 1,
-    "displayed_equations": 26,
-    "existing_displayed_equations_preserved": 25,
+    "displayed_equations": 27,
+    "existing_displayed_equations_preserved": 26,
     "added_displayed_equations": 1,
     "existing_listings_preserved": 2,
     "lean_listing_not_split_across_pages": true,
@@ -67,8 +69,11 @@
     "c_preservation_theorem_not_split_across_pages": true,
     "c_normalization_theorem_present": true,
     "iris_lean_citation_and_integration_scope_present": true,
-    "normalized_library_application_composition_gap_present": true,
-    "diagram_separates_library_and_application_proofs": true,
+    "c_return_assembly_observation_theorem_present": true,
+    "c_return_assembly_observation_theorem_not_split_across_pages": true,
+    "diagram_shows_return_to_annotation_agreement": true,
+    "compiler_provenance_limit_explicit": true,
+    "clean_program_logic_attribution_present": true,
     "preliminary_source_and_public_correction_context_present": true,
     "missing_vsu_composition_context_present": true,
     "private_leanpde_build_prerequisite_disclosed": true,
@@ -93,22 +98,25 @@
       18,
       19,
       20,
-      21
+      21,
+      22
     ],
     "rendered_pages_checked": [
       1,
-      5,
-      7,
-      9,
+      4,
       12,
       14,
       16,
-      19,
-      20,
-      21
-    ]
+      18,
+      22
+    ],
+    "visual_inspection_retained_from": "2026-09-23T20:19:30.195015+00:00",
+    "visual_inspection_pdf_sha256": "a8d257335d2286ee7cddcec03cffa5afc60ca80f793fbf93bb08ee6043bd182c"
   },
   "mathematical_source_comparison": {
+    "checked_at": "2026-09-24T19:09:06.140366+00:00",
+    "inputs_revalidated_at": "2026-09-24T19:09:06.140366+00:00",
+    "paragraph_comparison_retained_from": "2026-09-23T18:21:24.733807+00:00",
     "file": "docs/stewart-comparison.md",
     "sha256": "7c419de5f13f4a38f34b5d537a554e143d0b6dc8eb8d37fdd7a45781af0d911a",
     "paragraphs": [
@@ -175,7 +183,16 @@
       "env",
       "lean",
       "-DwarningAsError=true",
-      "MathematicsSources.lean"
+      "/tmp/leanquadrature-appel-response-20260923/MathematicsSources.lean"
+    ],
+    "prerequisites_command": [
+      "lake",
+      "build",
+      "Quadrature.Analysis.Remainder",
+      "Quadrature.Analysis.Recurrence",
+      "Quadrature.Legendre.Identification",
+      "PDE.Symbolic.Continuum.Quadrature.GaussLegendrePeano",
+      "Mathlib.Analysis.Calculus.Taylor"
     ],
     "exit_code": 0,
     "declarations_checked": [
@@ -263,8 +280,8 @@
     ],
     "retained_inputs_and_output_sha256": {
       "evidence/paper-checks-logs/mathematics-source.txt": "7d302660620b67bbcb8ff5555dd643f7e624d024be254b15532e321138e19560",
-      "evidence/paper-checks-logs/mathematics-check.txt": "d7fbc187d2d1fe5198308b4e1a83bec8044235a002147443ad9870d84ac403a2",
-      "evidence/paper-checks-logs/mathematics-prerequisites.txt": "ee40dcf9b3a931cab31b48066b4b9c34235493575b679cb9a9d3700b4d341ec4"
+      "evidence/paper-checks-logs/mathematics-check.txt": "12dbd86a2cfb665072363b3f2ff96b393696fe81966fcd7ce5958db553773f0f",
+      "evidence/paper-checks-logs/mathematics-prerequisites.txt": "82d0dfcd6c26bef8c596ab4ee461358cf590ee372891881b626376af22d8ee7e"
     },
     "dependencies": {
       "LeanPDE": {
@@ -286,20 +303,20 @@
     },
     "full_build_record": {
       "file": "evidence/lean-quality.json",
-      "sha256": "a9c0f21652e34af0a556ad2211719ee2b4e1cac0b78ad3573ae5a3795841bb02",
+      "sha256": "d90a17f60802f73e4b3dee8976536595b767278e873499be68b053d4ad39c46b",
       "all_source_and_configuration_hashes_match": true,
-      "matching_input_count": 288,
+      "matching_input_count": 289,
       "also_matched_in_build_mirror": true
     },
-    "scope": "Declaration and attribution checks against the stated dependency revisions. The full project build was not repeated for this documentation revision; its 288 recorded source/configuration hashes still match."
+    "scope": "Reran 67 declaration checks and seven axiom reports after simplifying gaussian_exact's hypotheses. The unchanged 24-paragraph attribution map and dependency sources were revalidated. The current full project build and assumption audits cover every project module, and all 289 recorded source/configuration hashes match in both the repository and build mirror."
   },
   "local_document_links": {
     "markdown_files": 20,
-    "local_targets_checked": 401,
+    "local_targets_checked": 417,
     "anchors_checked": 9,
     "errors": [],
     "scope": "Parsed Markdown links and image targets, including reference links and table cells. External destinations were not fetched."
   },
   "scope": "PDF and source-attribution checks for the hashes recorded here. Existing full proof-build checks remain in lean-quality.json and the Rocq verification records. Matching a declaration to a mathematical statement also requires the source review described above; the declaration queries alone are not a coverage proof.",
-  "completed_at": "2026-09-23T18:21:27.232222+00:00"
+  "completed_at": "2026-09-24T19:09:20.283799+00:00"
 }

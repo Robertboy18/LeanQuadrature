@@ -6,6 +6,13 @@ file hashes. `LICENSE` is retained from upstream; its list of dual-licensed
 files includes the `export/` directory from which these sources originate.
 `LEAN.md` is the unchanged upstream description, not a report of local checks.
 
+The inherited library includes Clight and memory semantics, a sound execution
+checker, and a separation logic with function contracts, a frame rule, and
+function-pointer call rules. `CC.Sep.closure` combines verified bodies using
+a decreasing measure on calls. The linking code merges generated modules
+and resolves declarations against definitions; CompCert's general linking
+theory is not ported. Our quadrature proofs use the execution rules directly.
+
 Local changes replace native floating-point arithmetic with FloatLib and
 replace global external-call axioms with explicit environment parameters and
 determinism contracts. Dependent semantic and program-logic declarations carry

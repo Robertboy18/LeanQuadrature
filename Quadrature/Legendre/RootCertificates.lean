@@ -19,7 +19,7 @@ namespace Quadrature.Legendre.RootCertificates
 open Polynomial Set
 open PDE.Symbolic.Polynomial
 open PDE.Symbolic.Polynomial.RealRoot
-open PDE.Symbolic.Continuum (RationalInterval)
+open PDE.Symbolic.Continuum
 
 /-- The real polynomial denoted by a LeanPDE sparse rational polynomial, a list of
 `(coefficient, exponent)` terms. -/
@@ -175,6 +175,6 @@ noncomputable def rule {n : ℕ} (hn : 0 < n) (p : Sparse.Univariate)
           (nodes_mem p brackets hvalid i).2.trans_lt hhi⟩
       positive := integral_gaussian_weight_pos (by norm_num) _ _ (by intro x hx; norm_num)
         hn r hinj horth
-      exact := gaussian_exact hn _ r hinj horth }
+      exact := gaussian_exact _ r hinj horth }
 
 end Quadrature.Legendre.RootCertificates

@@ -5,9 +5,14 @@ computation, C execution, and compiled programs. Import
 [`Quadrature`](../Quadrature.lean) to load the whole development, or import an
 individual module such as `Quadrature.Binary64.Program`.
 
+The general Gaussian theory was developed here and moved into LeanPDE. We import
+its [Gaussian rules](https://github.com/lean-dojo/LeanPDE/blob/main/PDE/Symbolic/Continuum/Quadrature/Gaussian/Weighted.lean) and
+[remainder theorem](https://github.com/lean-dojo/LeanPDE/blob/main/PDE/Symbolic/Continuum/Quadrature/Gaussian/Remainder.lean) directly; the local
+`Legendre`, `Rules`, and execution proofs apply that shared theory.
+
 | Folder | What it contains | Start here |
 | --- | --- | --- |
-| [Analysis](Analysis/) | Weighted integration, orthogonal polynomials, Gaussian exactness, recurrence, remainder, and convergence | [Gaussian rules](Analysis/Gaussian.lean), [remainder formula](Analysis/Remainder.lean) |
+| [Analysis](Analysis/) | Taylor estimates for the trigonometric examples | [Taylor bounds](Analysis/Taylor.lean) |
 | [Legendre](Legendre/) | The explicit one- through four-point rules and certified root and weight enclosures for the larger orders | [Explicit rules](Legendre/Basic.lean), [root certificates](Legendre/RootCertificates.lean) |
 | [Binary64](Binary64/) | FloatLib constants and operations, reduction errors, finite representations, and the functional quadrature loop | [Program](Binary64/Program.lean), [functional accuracy](Binary64/FunctionalAccuracy.lean) |
 | [Rules](Rules/) | Stored rules, decoded tables, node and weight certificates, and accuracy for a general integrand | [Stored rules](Rules/Basic.lean), [table certificates](Rules/Certificates.lean), [accuracy](Rules/Accuracy.lean) |
@@ -53,9 +58,13 @@ integral-error bounds for their executions.
 
 `Compiler/Execution/` supplies common run and external-call lemmas.
 `Compiler/Correspondence/` relates the particular programs and their
-components across stages. These proofs start from authored Clight
-applications using the same tables and polynomial; they have not been
-composed with the normalized C library. The
+components across stages.
+[CSourcePrograms.lean](Compiler/Correspondence/CSourcePrograms.lean) connects the
+initialized C library to the authored Clight applications and imported assembly:
+the application reports the same binary64 value that C returns, then exits zero.
+It covers all ten stored orders and specializes to the original two-node wrapper.
+This is a result correspondence between the verified programs; it does not establish
+that compiling the original C source produces the imported assembly syntax. The
 [coverage ledger](../docs/coverage.md) states the assumptions and remaining connections.
 
 Generated data stays beside the proofs that use it. Its header names the

@@ -6,14 +6,14 @@ import PDE.Symbolic.Continuum.TrigonometricTaylorBounds
 For `x ≥ 0` the Taylor polynomials of `sin` and `cos` alternate around the function: the
 degree-7 polynomial lies below `sin x`, the degree-8 polynomial above `cos x`, and the
 degree-9 polynomial above `sin x`. Each bound follows from the previous one, since the
-difference is monotone on `[0, ∞)`, starting from LeanPDE's `Real.taylor_six_le_cos`.
+difference is monotone on `[0, ∞)`, starting from LeanPDE's `PDE.Symbolic.Continuum.taylor_six_le_cos`.
 `Example` uses `sin_le_taylor_nine` at `x = 1` to bound `sin 1` from above, alongside
 LeanPDE's cosine polynomials at `x = 1/√3`, to settle the cosine example there.
 -/
 
 namespace Quadrature
 
-open Real
+open Real PDE.Symbolic.Continuum
 
 /-- For `x ≥ 0`, `x - x³/6 + x⁵/120 - x⁷/5040 ≤ sin x`. The difference is monotone on
 `[0, ∞)` because its derivative is `cos x` minus the degree-6 polynomial, which is

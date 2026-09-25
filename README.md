@@ -14,7 +14,9 @@ its [source and claim map](paper/README.md),
 or the [interactive explanation](docs/interactive/index.html).**
 The [documentation index](docs/README.md) covers the results and reproduction instructions.
 The [24-paragraph comparison](docs/stewart-comparison.md) identifies what
-LeanPDE already supplied and what this project adds.
+the original LeanPDE baseline supplied and what this project developed.
+The general Gaussian theory was developed in LeanQuadrature and has since
+moved to LeanPDE's `PDE.Symbolic.Continuum` namespace; this project now imports it.
 
 ## What is proved
 
@@ -23,7 +25,7 @@ LeanPDE already supplied and what this project adds.
 | Mathematical specification and method | Weighted Gaussian rules on compact intervals: construction, roots, exactness, positive weights, recurrence, remainder, and convergence. | Positive continuous weights; the general existence theorem covers all positive orders. |
 | Floating-point model | FloatLib binary64 computation, range and error theorems, and certificates for all ten stored rules. | Callback accuracy and range hypotheses remain explicit in the general theorem. Concrete callbacks have separate certificates. |
 | C library with an internal cosine | The five original functions, a verified C polynomial replacing `cos`, and initialized calls with error bounds for all ten stored orders. Behavioral preservation to the actual Clight frontend output is proved for all six functions. | Every permitted evaluation order terminates with the certified result in the adapted C semantics. General parser/elaborator correctness and Lean/Rocq correspondence remain open. The original external-cosine variant retains its contract. |
-| Polynomial application | Initialized Lean Clight applications and direct proofs through imported assembly for orders 1–10. | Uses the same degree-14 polynomial and authored entry points. These proofs have not been composed with the normalized C library. |
+| Polynomial application | Initialized Lean Clight applications and direct proofs through imported assembly for orders 1–10. Their result annotations carry exactly the values returned by the C library. | Uses the same degree-14 polynomial and authored entry points. The proved return-to-annotation agreement does not establish that compiling the original C text produces these assembly trees. |
 | CompCert | Independent Rocq numerical and compilation certificates for all ten polynomial applications. | Uses a separately checked explicit compiler configuration. A general Lean–Rocq semantic connection is not proved. The endpoint is formal assembly, not a linked native executable. |
 
 The paper asks how far Appel and Bindel's quadrature development can be
@@ -129,7 +131,7 @@ gives a reading order and the main theorem in each part.
 
 ```text
 Quadrature/
-├── Analysis/     Integrals, orthogonal polynomials, exactness, and error formulas
+├── Analysis/     Taylor bounds
 ├── Legendre/     Explicit rules and certified root and weight enclosures
 ├── Binary64/     Floating-point operations, roundoff, and functional loops
 ├── Rules/        Stored tables and their accuracy certificates

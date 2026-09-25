@@ -225,69 +225,68 @@ LaTeX Warning: Citation `floatlib' on page 1 undefined on input line 132.
 LaTeX Warning: Citation `clean' on page 1 undefined on input line 133.
 
 [1{/usr/share/texlive/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] [2]
-[3]
 
-LaTeX Warning: Citation `appelbindel' on page 4 undefined on input line 321.
+LaTeX Warning: Citation `appelbindel' on page 3 undefined on input line 325.
 
 
-LaTeX Warning: Citation `appelbindelcode' on page 4 undefined on input line 321
+LaTeX Warning: Citation `appelbindelcode' on page 3 undefined on input line 325
 .
 
-(/usr/share/texlive/texmf-dist/tex/latex/lm/t1lmtt.fd) [4]
+(/usr/share/texlive/texmf-dist/tex/latex/lm/t1lmtt.fd) [3] [4]
 
-LaTeX Warning: Citation `stewart' on page 5 undefined on input line 422.
+LaTeX Warning: Citation `stewart' on page 5 undefined on input line 426.
 
 [5]
 
-LaTeX Warning: Citation `vstvsu' on page 6 undefined on input line 481.
+LaTeX Warning: Citation `vstvsu' on page 6 undefined on input line 485.
 
 [6]
 
-LaTeX Warning: Citation `appelbindelcode' on page 7 undefined on input line 534
+LaTeX Warning: Citation `appelbindelcode' on page 7 undefined on input line 538
 .
 
 
-LaTeX Warning: Citation `vstvsu' on page 7 undefined on input line 567.
+LaTeX Warning: Citation `vstvsu' on page 7 undefined on input line 571.
 
 [7]
 
-LaTeX Warning: Citation `stewart' on page 8 undefined on input line 628.
+LaTeX Warning: Citation `stewart' on page 8 undefined on input line 632.
 
 [8] [9]
 
-LaTeX Warning: Citation `floatlib' on page 10 undefined on input line 778.
+LaTeX Warning: Citation `floatlib' on page 10 undefined on input line 782.
 
 [10] (/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang1.sty)
 (/usr/share/texlive/texmf-dist/tex/latex/listings/lstmisc.sty)
 
-LaTeX Warning: Citation `vst' on page 11 undefined on input line 886.
+LaTeX Warning: Citation `vst' on page 11 undefined on input line 890.
 
 
-LaTeX Warning: Citation `vstfloyd' on page 11 undefined on input line 886.
+LaTeX Warning: Citation `vstfloyd' on page 11 undefined on input line 890.
 
 
-LaTeX Warning: Citation `clean' on page 11 undefined on input line 889.
+LaTeX Warning: Citation `clean' on page 11 undefined on input line 893.
 
 [11]
 
-LaTeX Warning: Citation `irislean' on page 12 undefined on input line 912.
+LaTeX Warning: Citation `irislean' on page 12 undefined on input line 923.
 
 [12] [13] [14]
 
-LaTeX Warning: Citation `compcertmanual' on page 15 undefined on input line 109
-7.
+LaTeX Warning: Citation `compcertmanual' on page 15 undefined on input line 111
+3.
 
-[15] [16]
+[15] [16] [17]
 
-LaTeX Warning: Citation `leanquadrature' on page 17 undefined on input line 127
+LaTeX Warning: Citation `leanquadrature' on page 18 undefined on input line 133
 8.
 
-[17]
+[18]
 
-LaTeX Warning: Citation `stewart' on page 18 undefined on input line 1349.
+LaTeX Warning: Citation `stewart' on page 19 undefined on input line 1411.
 
-[18] (/usr/share/texlive/texmf-dist/tex/latex/lm/ts1lmr.fd) [19] (./main.bbl
-[20]) [21] (./main.aux)
+(/usr/share/texlive/texmf-dist/tex/latex/lm/ts1lmr.fd) [19] [20] (./main.bbl
+[21]) [22] (./main.aux)
 
 LaTeX Warning: There were undefined references.
 
@@ -316,5 +315,5 @@ s/type1/public/lm/lmtk10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/
 lm/lmtt10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/lm/lmtti10.pfb>
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb><
 /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on main.pdf (21 pages, 440978 bytes).
+Output written on main.pdf (22 pages, 448828 bytes).
 Transcript written on main.log.

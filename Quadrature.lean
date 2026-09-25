@@ -1,13 +1,7 @@
-import Quadrature.Analysis.Algebra
-import Quadrature.Analysis.Characterization
-import Quadrature.Analysis.Convergence
-import Quadrature.Analysis.Gaussian
-import Quadrature.Analysis.Integral
-import Quadrature.Analysis.Orthogonal
-import Quadrature.Analysis.Recurrence
-import Quadrature.Analysis.Remainder
-import Quadrature.Analysis.Roots
-import Quadrature.Analysis.Weighted
+import PDE.Symbolic.Continuum.Quadrature.Gaussian.Characterization
+import PDE.Symbolic.Continuum.Quadrature.Gaussian.Recurrence
+import PDE.Symbolic.Continuum.Quadrature.Gaussian.Weighted
+import PDE.Symbolic.Continuum.Quadrature.PositiveRule
 import Quadrature.Binary64.BoundedRoundoff
 import Quadrature.Binary64.Constants
 import Quadrature.Binary64.ExceptionalValues
@@ -42,6 +36,7 @@ import Quadrature.Compiler.Asm.CallSites
 import Quadrature.Compiler.Cminor.StoredTotalCorrectness
 import Quadrature.Compiler.Cminor.Validation
 import Quadrature.Compiler.Correspondence.AsmPrograms
+import Quadrature.Compiler.Correspondence.CSourcePrograms
 import Quadrature.Compiler.Correspondence.CallbackFunction
 import Quadrature.Compiler.Correspondence.CallerFunctions
 import Quadrature.Compiler.Correspondence.GlobalFunctions
@@ -82,15 +77,17 @@ import Quadrature.Rules.Constants
 This project redoes in Lean 4 and mathlib the verification that Appel and Bindel carried out
 in Rocq for a small C library of Gaussian quadrature rules. The original C program is
 `quadrules.c` from their `simple_cfem` repository, their paper is the Appel–Bindel
-manuscript (Formalization of Gaussian Quadrature and Application Verification), and their
-proofs are the Rocq development. The Lean development covers exactness and error theory on
-compact intervals, the original C functions with an internal polynomial cosine, and ten
-polynomial applications through formal assembly. It also records where the manuscript's
+manuscript (Formalization of Gaussian Quadrature and Application Verification, Preliminary
+Draft), and their proofs are the Rocq development. The Lean development covers exactness and
+error theory on compact intervals, the original C functions with an internal polynomial cosine,
+and ten polynomial applications through formal assembly. It also records where the manuscript's
 numbers or lemmas needed repair.
 
 ## Main results
 
-Exact quadrature on compact intervals. For a continuous positive weight `w` on `[a, b]` the
+Shared exact quadrature on compact intervals. We developed the general Gaussian theory here
+and moved it into LeanPDE so other applications can reuse it. This project imports those
+proofs directly. For a continuous positive weight `w` on `[a, b]` the
 monic orthogonal polynomials exist by projection, their roots are simple and interior, and
 the Christoffel numbers are positive. `GaussianRule.remainder` gives the error formula
 `∫ f w - Q f = f^(2n)(ξ) / (2n)! * ∫ p_n ^ 2 w` for `f ∈ C^{2n}[a, b]`, and
@@ -108,7 +105,7 @@ integrator. `StoredRule.Certificate.accuracy` (in `Rules/Accuracy`) shows the fl
 result is finite and bounds its distance from the exact integral by roundoff terms, the node
 and weight tolerances, and the Gaussian remainder.
 
-C programs and their compiled forms. `CSource.Typed.integrate_testfun_external_accuracy`
+C programs and application results. `CSource.Typed.integrate_testfun_external_accuracy`
 proves the `0.00356` bound for the parsed C source of the wrapper calling an external
 cosine under its contract. `CSource.Library.parsed_wrapper_total_accuracy` discharges that contract
 by a verified C polynomial and includes parsing, global initialization and the complete
@@ -117,18 +114,24 @@ covers all ten stored orders, including termination, absence of stuck executions
 memory preservation. `CSource.Library.parsed_refinement` connects the actual C and Clight
 frontend outputs for all six functions. Their calls have the same returned bits and traces;
 both terminate, and their final memories agree on pre-call loads and permissions.
-Separate authored Clight applications use the same tables and degree-14 polynomial.
+Authored Clight applications use the same tables and degree-14 polynomial.
 `Clight.StoredPolynomial.integral_accuracy` proves their bounds for all ten orders, and
 `Asm.StoredPrograms.final_accuracy` proves that every execution of the corresponding
 CompCert assembly returns zero and emits a binary64 value with the same bound. Each
-intermediate stage has the same result. These application proofs have not been composed
-with the normalized C library.
+intermediate stage has the same result.
+`Compiler.csource_integrate_asm_observations_iff` connects the initialized C library to
+these assembly applications: C returns the value silently; the application reports that
+same value in an annotation and exits zero. `Compiler.parsed_wrapper_asm_accuracy` starts
+from the source text of the original two-node wrapper and includes its `0.00356` bound.
+These result correspondences do not assert that compiling the original source produces
+the imported application syntax.
 
 ## Directory layout
 
 The files are grouped by subject under `Quadrature/`:
 
-* `Analysis/`: integration, orthogonal polynomials, Gaussian exactness, and remainder bounds.
+* `Analysis/`: Taylor estimates for the trigonometric examples. The general Gaussian theory
+  lives in LeanPDE under `PDE/Symbolic/Continuum/Quadrature/Gaussian/`.
 * `Legendre/`: explicit rules and rational root and weight certificates.
 * `Binary64/`: FloatLib operations, rounding, finite representations, and loop models.
 * `Rules/`: stored tables, their certificates, and general accuracy bounds.

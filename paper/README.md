@@ -28,9 +28,12 @@ how far its verification can be carried out in Lean:
 - **Compilation: application proofs.** The ten applications are proved at
   selected compiler stages through formal assembly in Lean, and separately
   composed with CompCert in Rocq. They start from authored Clight programs.
-  Composing these proofs with the normalized C library, proving a general
-  compiler correct in Lean, and transferring CompCert's theorem into Lean
-  remain open.
+  Lean proves that their result annotations carry exactly the values returned
+  by the initialized C library, including the original two-point wrapper.
+  This compares the behavior of the particular programs. Proving that
+  compilation of the original C text produces these assembly trees, proving a
+  general compiler correct in Lean, and transferring CompCert's theorem into
+  Lean remain open.
 
 The paper also reviews the original work. It explains four
 discrepancies in the manuscript (two false example bounds, the remainder
@@ -47,14 +50,17 @@ compilation in turn. Section 5 explains why the C proof covers every evaluation
 order, including calls that allocate temporary memory in different orders.
 Section 8 explains the library contributions and remaining proof obligations.
 Appendix A maps all 24 numbered paragraphs of their mathematical discussion
-to the existing LeanPDE results and the additions in LeanQuadrature. The
+to the [original LeanPDE baseline](https://github.com/lean-dojo/LeanPDE/tree/03f523aff09fe3ff3069d54088770a264fc281f1)
+and the proofs developed in LeanQuadrature. The
 [companion source map](../docs/stewart-comparison.md) gives declaration names
-and precise hypotheses. In particular, LeanPDE already contains the sharp
-two-point fourth-derivative error bound; the general Hermite and integrated
-Gaussian remainder are proved here.
-The discussion includes *Iris in Lean*: Lean has a reusable separation-logic
-framework, while its integration with the C/Clight semantics used here is
-separate work. Our proofs use CLean and direct execution reasoning.
+and precise hypotheses. LeanPDE's sharp two-point fourth-derivative error
+bound predates the general Hermite and integrated Gaussian remainder
+developed in LeanQuadrature. The general Gaussian theory has since moved to
+LeanPDE's `PDE.Symbolic.Continuum` namespace and is now imported here.
+The discussion credits CLean's existing separation logic, contracts,
+function-pointer rules, and module-linking operations. Our quadrature proofs
+use its execution rules directly. It also discusses *Iris in Lean*, whose
+integration with the C/Clight semantics used here remains separate work.
 The PDF includes the
 Lean proof of the corrected two-point bound and the original C integrator as
 exact excerpts from the retained sources.

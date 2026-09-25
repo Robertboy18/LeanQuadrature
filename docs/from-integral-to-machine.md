@@ -168,7 +168,7 @@ $$
 
 But the sixth derivative of \(x^4\) is zero everywhere. A remainder proportional to that derivative would incorrectly make the error zero. Its fourth derivative is \(24\), and the corrected two-point formula gives \(24/135=8/45\), exactly the observed error.
 
-**Our correction:** the [Lean remainder development](../Quadrature/Analysis/Remainder.lean) proves a correctly indexed theorem under explicit interval, weight, and smoothness assumptions. Its derivative, factorial, and nodal polynomial all refer to the same \(N\)-node rule. [Examples/TwoPointCosine.lean](../Quadrature/Examples/TwoPointCosine.lean) proves the quartic counterexample.
+**Our correction:** the [Lean remainder development](https://github.com/lean-dojo/LeanPDE/blob/main/PDE/Symbolic/Continuum/Quadrature/Gaussian/Remainder.lean) proves a correctly indexed theorem under explicit interval, weight, and smoothness assumptions. Its derivative, factorial, and nodal polynomial all refer to the same \(N\)-node rule. [Examples/TwoPointCosine.lean](../Quadrature/Examples/TwoPointCosine.lean) proves the quartic counterexample.
 
 **The proof gap in the draft:** its `quadrature_error` lemma ends with `Admitted`, explicitly marking it as unproved. Rocq can check that a later proof follows from an admitted assumption. A later `Qed` does not establish that the assumption itself is true. This finding concerns the statement and missing proof in the development; it does not demonstrate a defect in Rocq's kernel or Flocq's arithmetic library.
 
@@ -283,7 +283,7 @@ recorded as an assumption.
 
 The original caller already assumes `a < b`, so adding that premise is a
 natural repair for its use. Our
-[polynomial-positivity theorem](../Quadrature/Analysis/Integral.lean) already requires it.
+[polynomial-positivity theorem](https://github.com/lean-dojo/LeanPDE/blob/main/PDE/Symbolic/Continuum/Quadrature/Gaussian/Integral.lean) already requires it.
 This counterexample does not refute positivity on the intended interval.
 
 **The missing connection in our Lean project is a separate matter.** Our unfinished task is to relate FloatLib's model to CompCert's Flocq-based model in a checked construction, so that the Lean numerical theorem can support that C proof. The original paper works in Rocq; this cross-system task is not an author mistake.
@@ -680,7 +680,9 @@ flowchart TD
     FL -->|"Initialization and total correctness in every C evaluation order"| LC["C library with the verified polynomial"]
     LC <-->|"Same total behavior for the six selected functions"| NC["Normalized Clight library from the same source"]
     FL -->|"Orders 1–10 under callback contract"| CL["Imported Clight bodies in Lean"]
+    NC -->|"Return equals reported value, with source determinism"| CL
     CL -->|"Ten fixed polynomial applications, with source determinism"| LA["Imported formal assembly in Lean"]
+    LC -->|"Returned value equals annotated value, orders 1–10"| LA
     R["Independent Rocq bounds for ten polynomial applications"] -->|"Proved numerical accuracy"| FR["CompCert floating-point computation in Rocq"]
     FL -.->|"General checked correspondence remains open"| FR
     FR -->|"Proved execution refinement, with callback contracts"| C["Initialized Clight loop"]
@@ -690,12 +692,33 @@ flowchart TD
 
 The diagram distinguishes the direct Lean application proofs through formal assembly from the general correspondence between the two systems. Rocq independently checks compilation and assembly behavior; the Lean route does not inherit those certificates. The imported Lean and Rocq programs still need a checked representation connection.
 
-There is also a missing connection within Lean: the normalized C library in the
-diagram has not yet been connected to the authored Clight applications used by
-the assembly proofs. Proving both programs separately does not compose that
-source-to-assembly path.
+The connection within Lean is proved in
+[CSourcePrograms.lean](../Quadrature/Compiler/Correspondence/CSourcePrograms.lean).
+A C library call returns a value silently. The application reports that value
+in a `quadrature-result` annotation and exits zero. Let \(R_n(v)\) mean that the
+initialized C integrator returns \(v\), let \(T(v)\) be that annotation, and let
+\(A_n(t,s)\) mean that the initialized assembly application finishes with trace
+\(t\) and status \(s\). For every order from one through ten, Lean proves
 
-Matching a few outputs provides useful evidence, but a reusable correspondence theorem has to cover the stated class of inputs and computations. It must relate encodings, rounding, signs, table entries, evaluation order, and corresponding callback results.
+$$
+A_n(t,s)\quad\Longleftrightarrow\quad
+\exists v,\;R_n(v)\land t=T(v)\land s=0.
+$$
+
+Both programs terminate, and each side's result is fixed by the same FloatLib
+computation. The theorem includes the original two-node wrapper: its returned
+value and the assembly annotation both have bits `0x3fead02c771c35ed`, with
+integral error at most `0.00356`. This direct C-to-assembly result has no
+external-call determinism premise. The companion connection through the
+normalized library and authored Clight application retains the Clight
+application theorem's determinism premise.
+
+This is a proof about the results of the particular programs. It does not prove
+that compiling the original C text produces the imported assembly trees.
+
+Across Lean and Rocq, a reusable correspondence theorem still has to cover the
+stated class of inputs and computations. It must relate encodings, rounding,
+signs, table entries, evaluation order, and corresponding callback results.
 
 There is a concrete reason to state its domain carefully. The pinned libraries disagree on some NaN results, including payload selection. An unrestricted claim that they return identical bits for every input is false. These are differences between the libraries being connected, not additional errors in the paper.
 
@@ -709,7 +732,9 @@ This is an unfinished integration task in this project. It is not a general limi
 
 A direct Lean route uses C execution rules in Lean, relates their arithmetic and initialized memory to FloatLib, and proves the loop and callback implement \(F_L\). That execution proof is now checked for all ten stored orders.
 
-The project includes an adaptation of Certora's CLean. Its Clight execution and memory rules use FloatLib arithmetic, and unknown external calls are explicit environment parameters. [Clight/Applications.lean](../Quadrature/Clight/Applications.lean) checks the imported table accessors, integrator, callback, full initialized tables, and the authored internal cosine polynomial together. The four calls terminate, preserve memory, return exactly the FloatLib values, and satisfy their integral bounds. Every reachable state can finish correctly, and infinite executions are ruled out. The original two-point wrapper is checked too. The [Lean build and audit](../evidence/lean-quality.json) covers these proofs.
+The project includes an adaptation of Certora's CLean. CLean already has a separation logic, function contracts, a frame rule, function-pointer call rules, and code for linking generated modules. Its closure theorem combines verified bodies using a decreasing measure on calls. Those are inherited tools; our quadrature proofs use the execution rules directly. The [CLean description](../vendor/clean/LEAN.md) explains the program logic's scope, including its ownership and termination requirements.
+
+Our adaptation makes the Clight arithmetic use FloatLib and makes unknown external calls explicit environment parameters. [Clight/Applications.lean](../Quadrature/Clight/Applications.lean) checks the imported table accessors, integrator, callback, full initialized tables, and the authored internal cosine polynomial together. The four calls terminate, preserve memory, return exactly the FloatLib values, and satisfy their integral bounds. Every reachable state can finish correctly, and infinite executions are ruled out. The original two-point wrapper is checked too. The [Lean build and audit](../evidence/lean-quality.json) covers these proofs.
 
 [Clight/Library.lean](../Quadrature/Clight/Library.lean) supplies the reusable loop theorem. The surrounding program may place the tables at different block numbers and have unrelated allocated memory. It must supply the imported accessor functions, valid loads of the specified table slice, and a correctly typed callback pointer. Each callback call must terminate silently, return the specified FloatLib value, and preserve the exact entry memory. Under these conditions, Lean proves that the imported integrator returns the FloatLib fold for orders 1–4. Deterministic external calls additionally rule out an incorrect return, a stuck reachable state, or an infinite execution of that library call.
 
@@ -862,7 +887,7 @@ The new [Clight/Main.lean](../Quadrature/Clight/Main.lean) closes a small but es
 
 For \(N=10\), the observation carries the binary64 encoding `3feaed548f090cd4`, whose decoded value has error at most \(3\times10^{-15}\) from the integral. Under the stated determinism assumptions, every reachable state can finish with the prescribed remaining observations; an infinite execution or a different final observation is impossible. [Clight/Observation.lean](../Quadrature/Clight/Observation.lean) supplies the general trace argument.
 
-This caller follows the existing Rocq application pattern. The original library has no `main` body, so both developments supply an entry in Clight. An annotation is an event in the formal semantics, carrying an exact binary64 value. Connecting that event to source C and to a printed decimal on a screen still needs a source/printing proof.
+This caller follows the existing Rocq application pattern. The original library has no `main` body, so both developments supply an entry in Clight. An annotation is an event in the formal semantics, carrying an exact binary64 value. The Lean correspondence above relates it to the C library's return. It does not identify a parsed C `main` as the compiler input or verify a printed decimal on a screen.
 
 The Rocq [assembly certificates](../compcert/certification/CertifiedStoredPolynomial.v) prove successful compilation under the explicit configuration, termination, a unique observed result, and the corresponding integral-error bound for each order from one through ten. They have no outstanding cosine-call or compilation-success premise.
 
@@ -874,10 +899,10 @@ In the independent Rocq development, the reusable total-correctness and integral
 
 **The answer to “is everything done apart from C?” therefore needs a scope.** The finite-interval Lean mathematics, the ten general-integrand stored-rule certificates, and all ten concrete polynomial examples are proved. The C loops also have proofs. All ten polynomial applications have an independent Rocq path through to assembly semantics.
 
-Lean proves all ten imported polynomial programs through formal assembly. It separately proves total correctness of the initialized C library in every evaluation order of the adapted small-step semantics, including calls to the internal cosine and original quadrature functions. For the six selected functions, it also proves preservation of returned values, traces, termination, and caller memory through Clight normalization. The remaining work includes general parser and elaborator correctness, correspondence between the Lean and Rocq semantics and imported representations, the FloatLib–CompCert correspondence needed to reuse the Rocq path, and the steps from formal assembly to a linked executable with verified output. The original system cosine still needs a contract if used instead of the polynomial. Infinite-interval Gauss–Laguerre and Gauss–Hermite quadrature are outside this development too; the original paper explicitly leaves those families unimplemented. The Hermite *interpolation* used in our remainder proof is a different construction from Gauss–Hermite quadrature.
+Lean proves all ten imported polynomial programs through formal assembly. It proves total correctness of the initialized C library in every evaluation order of the adapted small-step semantics, including calls to the internal cosine and original quadrature functions, and relates its returns to the assembly applications' observations. For the six selected functions, it also proves preservation of returned values, traces, termination, and caller memory through Clight normalization. The remaining work includes general parser and elaborator correctness, a proof relating compilation of the original C text to the imported programs, correspondence between the Lean and Rocq semantics and representations, and the steps from formal assembly to a linked executable with verified output. The original system cosine still needs a contract if used instead of the polynomial. Infinite-interval Gauss–Laguerre and Gauss–Hermite quadrature are outside this development too; the original paper explicitly leaves those families unimplemented. The Hermite *interpolation* used in our remainder proof is a different construction from Gauss–Hermite quadrature.
 
 We have a corrected finite-interval Lean formalization, total correctness of initialized C calls with no table or cosine assumption, preservation of those calls through Clight normalization, integral-error certificates for all ten polynomial applications, and separate implementation and compiler certificates in Rocq. The Lean general-integrand certificates cover all ten stored tables under explicit numerical hypotheses. General parser and elaborator correctness, correspondence between the proof systems, executable boundaries, and infinite-interval quadrature remain open.
 
 A final distinction matters when discussing this with the authors. We corrected statements and supplied proofs in a separate repository; we did not edit their manuscript or establish that every upstream proof is repaired. The numerical counterexamples establish specific errors in the inspected draft. The new certificates establish specific positive results about the programs and models they name.
 
-For a particular application, the theorem we ultimately want reads like this: **under its stated execution assumptions, the program terminates and its observed result differs from the intended real integral by at most this explicit bound.** For all ten internal-polynomial applications, the independent Rocq proof reaches formal assembly. The Lean proof reaches imported formal assembly, with accurate result annotations and successful exits, and relates those final observations to the authored Clight applications under the stated source condition. Making Lean results reusable in the Rocq compiler path still requires a checked connection between the models and proofs.
+For a particular application, the theorem reads like this: **under its stated execution assumptions, the program terminates and its observed result differs from the intended real integral by at most this explicit bound.** For all ten internal-polynomial applications, the independent Rocq proof reaches formal assembly. The Lean proof reaches imported formal assembly, with accurate result annotations and successful exits, and relates those values to the initialized C library's returns. Making Lean results reusable in the Rocq compiler path still requires a checked connection between the models and proofs.

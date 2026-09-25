@@ -20,12 +20,20 @@ establish the numerical error bound.
 | Route | Result | Remaining connection |
 | --- | --- | --- |
 | C library with the verified polynomial cosine, interpreted in Lean | Initialized total correctness in every C evaluation order, and behavioral preservation to the actual Clight frontend output for all six selected functions | General parser/elaborator correctness and correspondence with Rocq's semantics. The separate external-cosine variant retains its contract |
-| Polynomial applications, checked in Lean | Initialized Clight applications and direct execution/total-correctness proofs through imported assembly for all ten orders | These are particular program certificates. They do not verify the general compiler, its exporters, or the correspondence with Rocq semantics |
+| Polynomial applications, checked in Lean | Initialized Clight applications and direct execution/total-correctness proofs through imported assembly for all ten orders. Their annotations carry exactly the C library's returned values | These are particular program certificates. They do not prove that compiling the original C text produces the imported assembly, or verify the general compiler, its exporters, or the correspondence with Rocq semantics |
 | Polynomial applications, checked in Rocq | Independent numerical theorems composed with a separately checked CompCert configuration, including compilation success and termination | Formal assembly is the endpoint. No general transfer of Lean theorems is claimed |
 
 The last route is already useful: the numerical result is proved directly in
 the logic in which CompCert's theorem lives. It does not depend on importing
 a Lean proof into Rocq.
+
+The direct Lean connection is also explicit:
+[CSourcePrograms.lean](../Quadrature/Compiler/Correspondence/CSourcePrograms.lean)
+proves that an initialized C library call returns precisely the value reported
+by the corresponding assembly application, which exits zero. For the original
+two-node wrapper, the theorem includes parsing, total call correctness, exact
+result bits, and the `0.00356` bound. This establishes agreement between these
+programs' results inside Lean; it does not import CompCert's compiler theorem.
 
 ## Why the same names do not provide a proof
 
@@ -62,11 +70,19 @@ integer representations and definitions remains open.
    native to Lean. It is a larger project, and is not necessary to use the
    existing independent Rocq route.
 
-These are different engineering choices. There is reusable Lean C semantics:
-the project adapts CLean. It would be inaccurate to describe the problem as
-“Lean has no C library,” or to say that levels four and five are impossible.
-The unfinished work is the precise composition of the chosen models and their
-assumptions.
+These are different engineering choices. The project adapts CLean, which
+already includes Clight semantics, a separation logic, function contracts,
+function-pointer call rules, and code for linking generated modules. Its
+closure theorem combines body proofs using decreasing call measures.
+The [retained CLean documentation](../vendor/clean/LEAN.md) describes the
+scope of these facilities. Our quadrature proofs use execution rules directly.
+
+VST's VSU system checks that the contracts assumed by callers match those
+established for callees and that global initialization supplies the required
+memory. Reusable contracts and linking operations therefore already exist
+on the Lean side; reproducing VST's broader specification framework and
+automation is additional work. Neither CLean's existing logic nor a new
+application proof transfers CompCert's theorem between proof systems.
 
 ## What “assembly” means here
 

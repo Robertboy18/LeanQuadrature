@@ -65,7 +65,7 @@ theorem cos_node_upper : Real.cos (1 / Real.sqrt 3) ≤ (838 / 1000 : ℝ) := by
     calc
       _ = ((1 / Real.sqrt (3 : ℝ)) ^ 2) ^ 2 := by ring
       _ = 1 / 9 := by rw [gauss_node_sq]; norm_num
-  have h := Real.cos_le_taylor_four (1 / Real.sqrt 3)
+  have h := PDE.Symbolic.Continuum.cos_le_taylor_four (1 / Real.sqrt 3)
   rw [gauss_node_sq, hf] at h
   linarith
 
@@ -124,7 +124,7 @@ theorem cos_node_lower : (8379115 / 10000000 : ℝ) ≤ Real.cos (1 / Real.sqrt 
     calc
       _ = ((1 / Real.sqrt (3 : ℝ)) ^ 2) ^ 3 := by ring
       _ = 1 / 27 := by rw [gauss_node_sq]; norm_num
-  have h := Real.taylor_six_le_cos (1 / Real.sqrt 3)
+  have h := PDE.Symbolic.Continuum.taylor_six_le_cos (1 / Real.sqrt 3)
   rw [gauss_node_sq, hf, hsi] at h
   linarith
 

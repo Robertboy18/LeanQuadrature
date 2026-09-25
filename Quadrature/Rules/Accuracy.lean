@@ -1,4 +1,4 @@
-import Quadrature.Analysis.Remainder
+import PDE.Symbolic.Continuum.Quadrature.Gaussian.Remainder
 import Quadrature.Binary64.FiniteExecution
 import Quadrature.Rules.Basic
 
@@ -15,7 +15,7 @@ remainder to obtain a bound against the exact integral.
 
 namespace Quadrature.Binary64
 
-open FloatLib.Floats.Formats.BinaryInterchange
+open FloatLib.Floats.Formats.BinaryInterchange PDE.Symbolic.Continuum
 open scoped BigOperators
 
 /-- For every finite binary64 input in `[-1,1]`, the callback `f` returns a finite value within

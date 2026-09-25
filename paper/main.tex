@@ -87,13 +87,13 @@ actually stored in C, and give counterexamples
 to three admitted helper lemmas. For the C proof, we replace the external
 cosine with a verified polynomial. For each stored rule, every permitted
 evaluation order of an initialized call then terminates with the certified
-result in our Lean adaptation of CompCert's C semantics. We also prove
-that these calls preserve their results when translated to Clight. Separate
-application proofs reach formal assembly in Lean, while independent Rocq
-proofs use CompCert's compiler theorem. Connecting the C library to those
-assembly proofs, proving general correctness of the source translation,
-and establishing agreement between the Lean and Rocq definitions of
-execution remain open.
+result in our Lean adaptation of CompCert's C semantics. We prove that
+translation to Clight preserves these calls, and that the C return values
+agree with the result annotations of ten assembly applications verified
+directly in Lean. Independent Rocq proofs use CompCert's compiler theorem.
+The Lean result concerns these particular programs; general correctness of
+source translation and compilation, and agreement between the Lean and Rocq
+definitions of execution, remain open.
 \end{abstract}
 
 \section{Introduction}
@@ -154,26 +154,28 @@ certificates through four nodes and leaves the general remainder admitted.
 Our floating-point results cover all ten rules stored in its C source,
 with error bounds for the actual constants and rounded operations.
 Appendix~\ref{sec:stewart-map} compares all 24 numbered paragraphs of their
-mathematical presentation with the LeanPDE revision we use and the proofs
-added here.
+mathematical presentation with the original LeanPDE baseline and the proofs
+developed here, including those now shared through LeanPDE.
 
 At the C level, we replace the external cosine with a polynomial whose C
 body and numerical use are both verified. We prove that initialized calls
 to the integrator terminate with the certified result in every evaluation
 order permitted by our adapted semantics. We then prove that the six
 selected library functions preserve their call results when translated to
-Clight, CompCert's simpler intermediate language for C. Separate proofs
-establish the results of ten application programs through formal assembly
-in Lean. We also prove those application results independently in Rocq,
-where they compose with CompCert's compiler theorem.
+Clight, CompCert's simpler intermediate language for C. The application
+programs report the same binary64 values and exit zero; we prove this
+behavior through formal assembly in Lean. We also prove those application
+results independently in Rocq, where they compose with CompCert's compiler
+theorem.
 
-These results leave a specific composition problem. The C proof covers the
-initialized library; the assembly proofs start from separately written
-Clight applications. We have not connected those applications to the
-translated library. General correctness of the source translation and a
-proof that the adapted Lean execution rules agree with Rocq's also remain
-open. The comparison below separates the proved results from these
-remaining connections.
+The C library and assembly applications expose their results differently.
+A library call returns a value without producing an event. The application
+records that value in a semantic annotation, then exits. We prove that these
+observations agree for all ten orders, including the original two-point
+wrapper. This connects the results of the particular programs. It does not
+prove that compiling the original C text produces the imported assembly
+trees. General source-translation and compiler correctness, and agreement
+between the adapted Lean and Rocq execution rules, remain open.
 
 \subsection{The five levels of verification}
 \label{sec:levels}
@@ -281,15 +283,17 @@ The external-cosine variant retains its contract.\\
 Using it for this application requires source correctness in its C semantics. &
 \textbf{Adapted CLean}, with our assembly proofs.
 \checked{Particular programs}: direct proofs for ten polynomial applications
-at formal assembly.
+at formal assembly, reporting the values returned by the C library.
 \openproof{}: a verified compiler, or a transfer of CompCert's theorem into Lean.\\
 \bottomrule
 \end{tabularx}
 \caption{Libraries and proof coverage at each level. The Rocq column describes
 Appel and Bindel's preliminary development, including the admitted dependencies discussed in
 Section~\ref{sec:discrepancies}. Our C proofs use a verified polynomial in
-place of the external cosine. The C library and assembly application proofs
-are separate results; a theorem connecting them remains open.}
+place of the external cosine. Their return values agree with the assembly
+applications' result annotations by Theorem~\ref{thm:c-assembly-observations}.
+That theorem concerns these programs' behavior, not the correctness of a
+general compiler.}
 \label{tab:comparison}
 \end{table}
 
@@ -298,12 +302,14 @@ quadrature interfaces, its two-point Gauss--Legendre rule and cubic
 exactness theorem, and its stability bounds under uniform approximation.
 Its certified root brackets, rational interval arithmetic, Taylor
 inequalities, and integration tactics establish the concrete enclosures.
-The same LeanPDE revision also contains a sharp fourth-derivative error
-bound for the two-point rule, proved with a Peano kernel. That result was
-already available; our general remainder proof does not use it. We build
-the general weighted construction, integrated remainder, and convergence
-proof on mathlib. FloatLib supplies the binary64 operations and rounding
-theorems used to connect those real bounds to computation.
+The sharp fourth-derivative error bound for the two-point rule, proved with
+a Peano kernel, was already present in the original LeanPDE baseline.
+Our general remainder proof does not use it. We developed the general
+weighted construction, integrated remainder, and convergence proof in
+LeanQuadrature, building on mathlib. These proofs now live in LeanPDE's
+\code{PDE.Symbolic.Continuum} namespace and are imported here.
+FloatLib supplies the binary64 operations and rounding theorems used to
+connect those real bounds to computation.
 
 \section{Corrections to the example and its proofs}
 \label{sec:discrepancies}
@@ -636,8 +642,8 @@ uses mathlib's polynomial algebra, orthogonal projection in
 finite-dimensional inner product spaces, and Lagrange interpolation. Its
 remainder and convergence proofs use Rolle's theorem and uniform
 polynomial approximation. The paragraph-by-paragraph comparison in
-Appendix~\ref{sec:stewart-map} separates these additions from LeanPDE's
-existing two-point development.
+Appendix~\ref{sec:stewart-map} separates this project's general theory from
+the two-point results already present in the original LeanPDE baseline.
 
 Fix $a<b$ and a continuous function $w:[a,b]\to\R$ with $w(x)>0$. The
 intended integral is
@@ -887,9 +893,17 @@ semantics~\cite{vst,vstfloyd}. Our Lean proofs work directly with execution
 rules, using the loop invariant in proofs about the permitted transitions.
 
 CLean~\cite{clean} is an experimental fork of CompCert
-whose \code{clightgen} can emit Clight syntax as Lean, together with a
-port of the Clight semantics. We adapted it in two ways. The exported
-semantics used host floating-point operations. We replaced these with
+whose \code{clightgen} can emit Clight syntax as Lean. It supplies the
+Clight semantics, a sound interpreter, and a separation logic with function
+contracts, a frame rule, and rules for function-pointer calls. Its
+\code{closure} theorem combines verified function bodies using a decreasing
+natural-number measure for recursive calls. It also provides code for
+linking generated modules and resolving declarations against definitions.
+These are inherited capabilities. Our quadrature proofs use its execution
+rules and interpreter soundness directly.
+
+We adapted CLean in two ways. Its arithmetic used host floating-point
+operations. We replaced these with
 FloatLib's definitions so that arithmetic certificates can be checked by
 kernel evaluation. External calls were axioms, and
 we replaced them with explicit environment parameters and determinism
@@ -908,20 +922,23 @@ in this model alone does not establish that a manual adaptation has
 preserved every relevant C behavior. The semantic correspondence remains
 an obligation alongside the application proofs.
 
-Lean also has a reusable separation-logic framework.
-Iris-Lean~\cite{irislean} provides the Iris base logic, a
+Iris-Lean~\cite{irislean} provides another foundation: the Iris base logic, a
 language-parametric program logic, and an interactive proof mode. The
 paper demonstrates verification and adequacy for HeapLang. Using this
 framework for our C library would require an instance for the C/Clight
 semantics, verified rules for its memory operations and calls, and an
 application of the adequacy theorem to those executions. Our development
 does not use Iris-Lean; we have not supplied that integration.
-In particular, direct execution proofs for these functions do not provide
-VST's support for separately verified modules, higher-order function-pointer
-specifications, or concurrency. A C program can implement its own object
-system with function pointers and hidden mutable state. Scaling to such
-programs calls for compositional specifications and proof automation,
-beyond the operational semantics and application lemmas proved here.
+
+CLean's existing contracts and function-pointer rules already support
+some modular reasoning. Its ownership model uses a single permission per
+byte, and its closure argument uses termination measures. VST supplies a
+broader framework with step-indexed assertions, VSU composition, and
+extensive proof automation. A C program can implement its own object system
+with function pointers and hidden mutable state. Our direct quadrature
+proofs do not establish the specification and automation infrastructure
+needed for such programs or for concurrency. Extending an existing Lean
+program logic to those uses is a separate project.
 
 \subsection{Calls to the original C functions}
 
@@ -1031,9 +1048,10 @@ selection and initialization as part of its application.
 The shared total-correctness lemmas handle pure expressions, calls,
 assignments, and control flow; the function proofs supply the table facts
 and loop invariant. This gives us a reusable basis for direct proofs.
-VST supplies a much larger program logic and automation library. A
-C-specific interface built on a framework such as Iris-Lean could reduce
-the work of verifying further functions.
+CLean's separation logic offers an existing route to specifications and
+frame reasoning for further functions. An Iris-Lean instance for Clight
+would offer a different foundation. Either route would need application
+rules and automation suited to the programs being verified.
 
 \subsection{Preservation under C-to-Clight normalization}
 
@@ -1136,7 +1154,7 @@ numerical proofs and where a connection is still missing.
    {Rocq polynomial applications\\
     \checked{Clight source correctness}};
  \node[box,minimum height=1.8cm] (la) at (0,-6.3)
-   {Separate Clight applications\\
+   {Clight applications\\
     \checked{Direct Lean proofs}\\through formal assembly};
  \node[box,minimum height=1.8cm] (ra) at (7.5,-6.3)
    {\checked{Formal assembly}\\
@@ -1145,18 +1163,19 @@ numerical proofs and where a connection is still missing.
  \draw[arrow] (ln.west) -- ++(-0.7,0) |- (la.west);
  \draw[arrow] (rn) -- node[right,note]{application\\proofs} (rc);
  \draw[arrow] (rc) -- node[right,note]{checked\\compilation} (ra);
- \draw[arrow,dashed,opencolor] (lc) --
-   node[right,note]{\openproof{}\\library-to-application\\connection} (la);
+ \draw[arrow] (lc) --
+   node[right,note]{\checked{Same value}\\return to annotation} (la);
  \draw[dashed,<->,opencolor] (ln.north) -- (0,1.5) --
    node[above,note]{\openproof{}: agreement of Lean and Rocq semantics}
    (7.5,1.5) -- (rn.north);
 \end{tikzpicture}
 \caption{The two developments within LeanQuadrature. Solid arrows connect
 proved results; dashed arrows mark missing connections. Lean numerical
-proofs support both the initialized C library and the separate applications
-checked through assembly. The right column describes our independent Rocq
-proofs. Both columns end at formal assembly syntax, before native assembly
-and linking.}
+proofs support the initialized C library and applications checked through
+assembly. The left vertical arrow compares the value returned by C with the value
+reported by the application; it does not assert a general compilation
+theorem. The right column describes our independent Rocq proofs. Both
+columns end at formal assembly syntax, before native assembly and linking.}
 \label{fig:boundaries}
 \end{figure}
 
@@ -1187,6 +1206,49 @@ Lean, we would need to relate the exported syntax and adapted semantics to
 their Rocq definitions, then justify interpreting the Rocq theorem in Lean.
 Another approach would be a translation validator that checks each
 compilation and has a proved soundness theorem.
+
+\subsection{From a C return to an application result}
+
+The library returns a binary64 value, while the application reports one
+and exits. To relate them, let $R_n(v)$ mean that the initialized C
+integrator, called with the polynomial callback and order $n$, returns $v$
+with an empty trace. Let $A_n(t,s)$ mean that the corresponding initialized
+assembly application terminates with trace $t$ and exit status $s$, and
+write $T(v)$ for the single \code{quadrature-result} annotation carrying $v$.
+
+\begin{theorem}[Agreement of C returns and assembly observations]
+\label{thm:c-assembly-observations}
+For every $1\le n\le10$, trace $t$, and exit status $s$,
+\[
+  A_n(t,s)
+  \quad\Longleftrightarrow\quad
+  \exists v,\; R_n(v)\ \land\ t=T(v)\ \land\ s=0.
+\]
+Both the C call and the assembly application terminate without getting
+stuck. For the original two-point wrapper, the returned and reported value
+has bits \code{0x3fead02c771c35ed} and integral error at most $0.00356$.
+\end{theorem}
+
+The proof compares each side with the same FloatLib result $F_n$.
+The initialized C call can return only $F_n$, and the assembly application's
+only final observation is $T(F_n)$ with status zero. The existing execution
+proofs establish that both outcomes occur and that every execution
+terminates. These statements hold for any external-call relation: the
+library calls are internal, and the assembly execution uses only the
+specified annotation.
+
+A companion theorem relates returns from the actual normalized Clight
+library to the authored Clight application's observations. Their cosine
+bodies differ syntactically but evaluate the same rounded polynomial.
+That theorem retains the Clight application proof's external-call
+determinism premise. The direct C-to-assembly result above does not need
+that premise.
+
+This agreement supplies the result connection for these applications.
+Their entry points were written in Clight, and the imported assembly trees
+were checked directly. A proof that a compiler applied to the original C
+text produces these trees would be a separate result, as would a theorem
+relating the adapted Lean semantics to Rocq's.
 
 \subsection{Using CompCert in Rocq}
 
@@ -1275,7 +1337,7 @@ at each operation.}
 \label{tab:results}
 \end{table}
 
-LeanQuadrature~\cite{leanquadrature} contains the proofs, the build
+LeanQuadrature~\cite{leanquadrature} contains the application proofs, the build
 instructions, and a map from every result in this paper to its theorem
 declaration. The full Lean build and transitive assumption checks cover the
 project theorems, their private helpers, and the adapted CLean library, and
@@ -1295,24 +1357,26 @@ The mathematical and numerical proofs draw heavily on existing Lean
 libraries. mathlib provides the analysis needed for the general Gaussian
 construction; LeanPDE contributes quadrature interfaces, concrete rules,
 and certified symbolic calculation; FloatLib makes the binary64
-computation executable inside the logic. The new work builds on these
-libraries to prove the weighted construction, remainder, convergence, and
-the accuracy of the ten stored rules. LeanPDE is essential to this
+computation executable inside the logic. In LeanQuadrature we developed the
+weighted construction, remainder, and convergence proofs, now shared through
+LeanPDE, and the accuracy certificates for the ten stored rules.
+LeanPDE is essential to this
 implementation because the proofs reuse those definitions and theorems.
-Its existing sharp two-point error bound must be distinguished from our
+Its preexisting sharp two-point error bound must be distinguished from our
 general remainder theorem.
 TorchLean is a transitive dependency of LeanPDE; we do not use its tensor
 or neural-network interfaces.
 
 The larger difference between the two systems appears in program
 verification. Rocq supplies VST's C program logic and CompCert's compiler
-theorem in the same proof system. Our Lean development supplies direct
-execution proofs for this library and these compiled applications.
-Iris-Lean provides a reusable program-logic foundation, but applying it
-here would require a C/Clight language instance and verified rules for
-memory operations and calls, together with practical automation.
-The current application proofs do not establish that direct execution
-reasoning alone will scale to large modular C programs.
+theorem in the same proof system. Lean already has CLean's Clight contracts,
+separation logic, function-pointer rules, and module-linking operations.
+Our application proofs use its operational semantics directly.
+Iris-Lean offers a further program-logic foundation, whose use here would
+require a C/Clight language instance and verified rules for memory operations
+and calls. The existing Lean infrastructure is substantial; the present
+development does not establish VST's broader modular reasoning and automation,
+or a transfer of CompCert's compiler theorem.
 
 The source review gives concrete corrections to Appel and Bindel's
 preliminary application argument. The two error bounds and three admitted helpers have
@@ -1330,11 +1394,12 @@ inequalities were transcribed into Lean and checked against the source by
 inspection. The positivity counterexample was also checked against the
 original statement in Rocq.
 
-To join the current Lean results into a theorem from source to formal
-assembly, the next application proof must connect the translated C library
-to the Clight entry points used by the assembly certificates. A general
-source-translation theorem would also have to justify parsing and
-elaboration, including preprocessing and static-array handling. Reusing
+The C library's return values are now related to the application observations
+through formal assembly. This is a result about the particular verified
+programs, with an explicit change from a library return to a result annotation.
+A general source-translation theorem would still have to justify parsing and
+elaboration, including preprocessing and static-array handling, and a
+compilation theorem would have to relate compiler inputs to outputs. Reusing
 CompCert's compiler theorem in Lean adds a different obligation: proving a
 sound interpretation of the Rocq semantics and results. A theorem about a
 native executable's printed answer must also account for assembly
@@ -1348,12 +1413,16 @@ printing, assembling, linking, and the output operation.
 Appel and Bindel's Section 2 follows the numbered paragraphs of Chapter 23
 of Stewart~\cite{stewart}. The PDF abbreviates several paragraphs and skips
 14; the accompanying \code{quadrature.v} comments include its root
-argument. The table compares their mathematical content with the LeanPDE
-revision used by this project. The general results below assume a compact
+argument. The table preserves the original comparison with an
+\href{https://github.com/lean-dojo/LeanPDE/tree/03f523aff09fe3ff3069d54088770a264fc281f1}{earlier LeanPDE revision}.
+We developed the general Gaussian theory in LeanQuadrature and subsequently
+moved it into LeanPDE; this project now imports those shared proofs.
+The columns record provenance, not gaps in the current dependency.
+The general results below assume a compact
 interval, a positive continuous weight, and a positive node count.
 A proved result need not follow Stewart's proof.
 
-LeanPDE already supplied a normalized quadrature interface, the two-point
+That LeanPDE baseline supplied a normalized quadrature interface, the two-point
 Gauss--Legendre rule, polynomial exactness through degree three, affine
 transport to $[a,b]$, and stability under uniform perturbations. It also
 supplied the sharp estimate
@@ -1366,8 +1435,9 @@ supplied the sharp estimate
 under $a<b$ and $f\in C^4([a,b])$. On $[-1,1]$ this is $M/135$.
 The theorem is
 \code{norm_integral_sub_gaussLegendreTwoRule_valueOn_le}
-in LeanPDE's \code{GaussLegendrePeano} module. Its Peano-kernel proof is
-preexisting work, distinct from the general Hermite remainder proved here.
+in LeanPDE's \code{GaussLegendrePeano} module. Its Peano-kernel proof predates
+the general Hermite remainder developed in LeanQuadrature, now also shared
+through LeanPDE.
 The companion
 \href{https://github.com/Robertboy18/LeanQuadrature/blob/main/docs/stewart-comparison.md}{source comparison}
 gives exact declarations, file links, and dependency revisions.
@@ -1380,18 +1450,19 @@ gives exact declarations, file links, and dependency revisions.
   >{\raggedright\arraybackslash}p{2.5cm}
   >{\raggedright\arraybackslash}p{4.25cm}
   >{\raggedright\arraybackslash}p{7.7cm}@{}}
-\caption{The 24 paragraphs, inherited results, and additions.
+\caption{The 24 paragraphs at the original LeanPDE baseline and the
+subsequent LeanQuadrature development.
 Definitions and alternative arguments are identified explicitly;
 paragraphs 6--7 are not counted as separately formalized lemmas.}
 \label{tab:stewart}\\
 \toprule
 \rowcolor{tablehead}
-\P & Content & Already in LeanPDE & LeanQuadrature\\
+\P & Content & Original LeanPDE baseline & LeanQuadrature development\\
 \midrule
 \endfirsthead
 \toprule
 \rowcolor{tablehead}
-\P & Content & Already in LeanPDE & LeanQuadrature (continued)\\
+\P & Content & Original LeanPDE baseline & LeanQuadrature development (continued)\\
 \midrule
 \endhead
 \bottomrule
