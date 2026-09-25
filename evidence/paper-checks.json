@@ -1,13 +1,13 @@
 {
-  "checked_at": "2026-09-25T20:21:11.443963+00:00",
+  "checked_at": "2026-09-25T21:12:33.036138+00:00",
   "kind": "Manuscript PDF, current library coverage, code listings, and result-table checks",
   "paper": {
     "title": "Gaussian Quadrature in Lean and Rocq",
     "pdf": "paper/main.pdf",
-    "page_count": 22,
-    "sha256": "9f5c3c4f3120d3f47b0862ca8eb386070b01413f7b628e8f315a3e15300245fa",
+    "page_count": 23,
+    "sha256": "b6a898816691b212753e1ea76512a3411f92c665f2b799420f9a8a5b9a280e8f",
     "source_sha256": {
-      "paper/main.tex": "bcdb360267dd8a5e3faef81309af8ebf1cdeb358bb13589cd48ee736a4ab7328",
+      "paper/main.tex": "93e84d1a7724d14a5459f85df2d8581c7ac70e9e866bfbd05eaf993c62d1bf39",
       "paper/references.bib": "f46b4677a1a27bd6bba4f705ab93fade51c3ffade9f004e57fc87fffd34eb725"
     },
     "author": "Robert Joseph",
@@ -20,18 +20,18 @@
     ],
     "passes": 4,
     "script_sha256": "ba4b6de88156c66d381bbeafc09a493906b702cf402754363bdf264ffedf526a",
-    "source_and_output_revalidated_at": "2026-09-25T20:21:11.443963+00:00",
+    "source_and_output_revalidated_at": "2026-09-25T21:12:33.036138+00:00",
     "scope": "Fresh four-pass build produced the PDF from the recorded LaTeX inputs.",
     "unresolved_references": [],
     "overfull_boxes": [],
     "missing_characters": [],
     "retained_logs_sha256": {
-      "evidence/paper-checks-logs/main.txt": "e8a49fbe9827d4406a8a821557a56d7b0a758845de48a1ddcfc347129ec22914",
+      "evidence/paper-checks-logs/main.txt": "7d343278f8ea8d145c43670fca8175f8b0cb050e01aec2996861f3dff9d47ede",
       "evidence/paper-checks-logs/main-bibtex.txt": "692aae0b821f6b0a513762affb4815482d7e1294595134cf44311e88b2a84f03",
-      "evidence/paper-checks-logs/pass-1.txt": "6b710f908871d73269ac8aa31ba51d6673a50442d8427bdd56b8bafbe58ef69f",
+      "evidence/paper-checks-logs/pass-1.txt": "c011b150f9e9a35b8dcdc5d4cc346073a9627f24f69b3d023b13a985bfddf97b",
       "evidence/paper-checks-logs/pass-2.txt": "11b2a8cd4b63c588ffa4b77d567627732e1b292854ec8ccebcee319ee9cb9c2a",
-      "evidence/paper-checks-logs/pass-3.txt": "ba319dc51d656d5d888bd0e73c9f06e325ca4de8628b85f3cc2991133c94d770",
-      "evidence/paper-checks-logs/pass-4.txt": "7d759c08e0d257bafcad8a923d76948fb7d339d951d00a3d2a39cccaa3a83c6f"
+      "evidence/paper-checks-logs/pass-3.txt": "3fc80b5521aa29a0f6e23ef559d15bdcdec554d482f4347fe66bee364a1eab2d",
+      "evidence/paper-checks-logs/pass-4.txt": "42b48cc72df291e6141a1b3edbdd9a08901a3f1874412d188115c1b6999269b2"
     }
   },
   "content_checks": {
@@ -77,16 +77,18 @@
     "preliminary_source_and_public_correction_context_present": true,
     "missing_vsu_composition_context_present": true,
     "private_leanpde_build_prerequisite_disclosed": true,
-    "visual_inspection_status": "All 22 pages render identically at 108 dpi to the previously visually reviewed PDF. The changed LeanPDE bibliography hyperlink was checked separately.",
+    "visual_inspection_status": "All 23 pages were rendered and visually inspected at contact-sheet scale; the appendix introduction and all three pages of Table 4 were inspected at full-page scale.",
     "table_4_reports_current_leanpde_coverage": true,
     "historical_leanpde_comparison_columns_absent": true,
-    "leanpde_bibliography_matches_dependency_revision": "40ad295c230f2f8d97249d93aedbdd77671327de"
+    "leanpde_bibliography_matches_dependency_revision": "40ad295c230f2f8d97249d93aedbdd77671327de",
+    "table_4_explicit_textbook_statements_and_arguments": true,
+    "sharp_two_point_bound_and_hypotheses_on_same_page": true
   },
   "mathematical_source_comparison": {
     "checked_at": "2026-09-25T20:08:32.926472+00:00",
-    "inputs_revalidated_at": "2026-09-25T20:08:32.926472+00:00",
+    "inputs_revalidated_at": "2026-09-25T21:12:33.036138+00:00",
     "file": "docs/stewart-comparison.md",
-    "sha256": "2e5caf1c9378fc4ad865a8c738a09aaa606b4fefa9e13ae65f144c417bb286b9",
+    "sha256": "87990c71e8f1ebc12de1e2bd18dc844977a3071766b0f38678bce3b422d31930",
     "paragraphs": [
       1,
       2,
@@ -140,10 +142,10 @@
       24
     ],
     "method": [
-      "Checked all 24 entries against the current LeanPDE source map, with no historical comparison columns.",
-      "Queried 88 declaration types and 23 transitive axiom lists at the recorded dependency revision.",
+      "Paired all 24 mathematical steps with their LeanPDE results; checked the paraphrases against the numbered quadrature.v commentary and source map.",
+      "Revalidated the recorded outputs of 88 declaration queries and 23 transitive axiom queries against unchanged project and dependency sources; these queries were not rerun for the prose revision.",
       "Included the shared Gaussian bridges, explicit Legendre rules, root and weight certificates, and Taylor bounds.",
-      "Verified that the map still identifies the omitted basis expansion and infinite-interval families."
+      "Read the root factorization proofs and the original sign-change argument; distinguished the alternative construction, omitted basis expansion, mass bound, and infinite-interval families."
     ],
     "command": [
       "lake",
@@ -338,13 +340,28 @@
       "also_matched_in_build_mirror": true
     },
     "scope": "Checked current declarations for the shared Gaussian and Legendre theory and Taylor bounds. All 271 recorded project inputs match in the repository and build mirror. The table preserves theorem hypotheses and distinguishes definitions, proved results, alternative construction steps, and infinite-interval families outside this development.",
-    "current_library_coverage_reviewed_at": "2026-09-25T20:08:32.926472+00:00",
+    "current_library_coverage_reviewed_at": "2026-09-25T21:12:33.036138+00:00",
     "table_columns": [
       "Paragraph",
-      "Mathematical topic",
-      "LeanPDE result"
+      "Textbook statement or argument",
+      "LeanPDE result and proof"
     ],
-    "current_leanpde_source_links_checked": 14
+    "current_leanpde_source_links_checked": 14,
+    "textbook_statement_review": {
+      "checked_at": "2026-09-25T21:12:33.036138+00:00",
+      "upstream_repository": "VeriNum/simple_cfem",
+      "upstream_revision": "e79a28dba247db9f934289bcf4e4debd5eebc884",
+      "upstream_path": "proof/quadrature.v",
+      "upstream_sha256": "efa1633a2d95f4496e8ea8b801c80fa71bd921b499e76362491f98ad7efc92dd",
+      "scope": "Paragraphs 1\u201321 are paraphrased from the numbered commentary; the closing editorial note identifies the families in 22\u201324. The table uses n nodes consistently and explicitly distinguishes alternative proofs and omitted cases.",
+      "markdown_and_pdf_statements_agree": true,
+      "markdown_latex_commands_checked": true,
+      "table_pages": [
+        20,
+        21,
+        22
+      ]
+    }
   },
   "local_document_links": {
     "markdown_files": 20,
@@ -354,11 +371,11 @@
     "scope": "Parsed Markdown links and image targets, including reference links and table cells. External destinations were not fetched.",
     "checked_at": "2026-09-25T20:22:19.553284+00:00"
   },
-  "scope": "The bibliography-only PDF change was rebuilt and checked against the preceding reviewed PDF; its text and rendered pages are identical. Existing declaration, mathematical, numerical, and full proof-build checks retain their recorded scopes and timestamps. Documentation links are checked separately below.",
-  "completed_at": "2026-09-25T20:21:11.443963+00:00",
+  "scope": "PDF and current-library coverage checks for the hashes recorded here. Existing full proof-build checks remain in lean-quality.json and the Rocq verification records. Matching a declaration to a mathematical statement also requires the source review described above; the declaration queries alone are not a coverage proof.",
+  "completed_at": "2026-09-25T21:12:38.960380+00:00",
   "manual_visual_review": {
-    "checked_at": "2026-09-25T20:21:11.443963+00:00",
-    "pdf_sha256": "9f5c3c4f3120d3f47b0862ca8eb386070b01413f7b628e8f315a3e15300245fa",
+    "checked_at": "2026-09-25T21:12:32.706748+00:00",
+    "pdf_sha256": "b6a898816691b212753e1ea76512a3411f92c665f2b799420f9a8a5b9a280e8f",
     "pages_reviewed": [
       1,
       2,
@@ -381,23 +398,23 @@
       19,
       20,
       21,
-      22
+      22,
+      23
     ],
     "detailed_pages_reviewed": [
+      19,
       20,
-      21
+      21,
+      22
     ],
-    "method": "Compared extracted text and rendered pixels at 108 dpi on all 22 pages with the previous visual-review PDF; every page is identical. Checked the updated bibliography hyperlink in the PDF annotations.",
+    "method": "Rendered all 23 pages and visually inspected four contact sheets; inspected the appendix introduction and all three pages of Table 4 at full-page scale.",
     "checks": [
-      "No clipped text, equations, tables, or code listings observed.",
-      "Table 4 has the current LeanPDE result column, readable declaration names, and green checkmarks.",
-      "The appendix table fits on pages 20 and 21; the final reference page is readable."
+      "No clipped or overlapping text, equations, tables, or code listings observed.",
+      "Table 4 pairs explicit textbook statements and arguments with readable LeanPDE declarations and proof explanations.",
+      "The three table pages repeat their column headings; green checkmarks and the omitted or open cases are legible.",
+      "The sharp two-point estimate and its assumptions are together on page 19.",
+      "The appendix and references have clean page breaks; Table 4 appears on pages 20\u201322."
     ],
-    "scope": "Layout and rendering review; declaration, mathematical, and numerical checks are recorded separately.",
-    "previous_review": {
-      "checked_at": "2026-09-25T20:05:46.450330+00:00",
-      "pdf_sha256": "958dee15921bdf17eddb1e758e2e762671ae43c3e200e33da632c46cdcfcb59d",
-      "method": "Rendered all 22 pages and visually inspected four contact sheets; inspected both pages of Table 4 at full-page scale."
-    }
+    "scope": "Layout and rendering review; declaration, mathematical, and numerical checks are recorded separately."
   }
 }

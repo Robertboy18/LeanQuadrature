@@ -634,7 +634,8 @@ orthogonal polynomials by the three-term recurrence and take a
 \code{roots_of_ortho_p n} certificate containing $n$ ordered roots, which
 their concrete Legendre instances supply through four points. We construct
 the orthogonal polynomials by orthogonal projection, prove the existence
-of their roots by a counting argument, and derive the recurrence afterward.
+of their roots by factorization and integral positivity, and derive the
+recurrence afterward.
 This yields a Gaussian rule for every positive order. The construction
 uses mathlib's polynomial algebra, orthogonal projection in
 finite-dimensional inner product spaces, and Lagrange interpolation. Its
@@ -1407,22 +1408,23 @@ printing, assembling, linking, and the output operation.
 \section{Gaussian quadrature in LeanPDE}
 \label{sec:stewart-map}
 
-LeanPDE provides the mathematical theory used by LeanQuadrature:
-weighted Gaussian rules of every positive order, orthogonal polynomials,
-interior roots, exactness, positive weights, recurrence, remainder, and
-convergence. It also provides explicit Legendre rules through four nodes
-and general root and weight certificate proofs. LeanQuadrature imports
-these results to verify the stored tables and programs.
+LeanPDE supplies the Gaussian theory used here: weighted rules of every
+positive order, orthogonal polynomials, roots, exactness, positive weights,
+recurrence, remainder, and convergence. It also provides explicit Legendre
+rules through four nodes and general root and weight certificates.
 
-Table~\ref{tab:stewart} identifies the available definitions and theorems
-for the 24 mathematical paragraphs in Appel and Bindel's Section 2,
-which follows Chapter 23 of Stewart~\cite{stewart}. Their PDF abbreviates
-several paragraphs and skips 14; the \code{quadrature.v} comments include
-its root argument. The general LeanPDE results assume a compact interval,
-a positive continuous weight, and a positive node count. The construction
-uses orthogonal projection, so it does not require the arbitrary-family
-expansion argument in paragraphs 6--7. The infinite-interval families in
-paragraphs 22--23 lie outside this scope.
+Table~\ref{tab:stewart} follows the 24 numbered paragraphs of Stewart's
+\emph{Afternotes on Numerical Analysis}, Chapter 23, as used in Appel and
+Bindel's Section 2~\cite{stewart}. The left column states the mathematical
+step; the right names the LeanPDE result and explains its proof or scope.
+Their PDF skips paragraph 14, whose root argument appears in the
+\code{quadrature.v} comments.
+
+For the compact-interval results, assume finite $a<b$, a continuous weight
+$w>0$ on $[a,b]$, and $n>0$ nodes. Write $\I_w$ for the weighted integral,
+$p_n$ for the degree-$n$ monic orthogonal polynomial, and $\ell_i$ for a
+cardinal Lagrange polynomial. Stewart's indices $0,\ldots,m$ correspond to
+$n=m+1$, so his derivative order $2m+2$ becomes $2n$ here.
 
 LeanPDE also gives the sharp two-point estimate
 \[
@@ -1446,109 +1448,157 @@ gives file links and precise hypotheses for the results below.
 \setlength{\tabcolsep}{4pt}
 \renewcommand{\arraystretch}{1.13}
 \begin{longtable}{@{}>{\raggedright\arraybackslash}p{0.45cm}
-  >{\raggedright\arraybackslash}p{3.3cm}
-  >{\raggedright\arraybackslash}p{11.45cm}@{}}
-\caption{Current LeanPDE coverage of the 24 mathematical paragraphs.
-Checkmarks identify available definitions and proved results;
-the other entries describe the proof route or mathematical scope.}
+  >{\raggedright\arraybackslash}p{6.0cm}
+  >{\raggedright\arraybackslash}p{8.75cm}@{}}
+\caption{Stewart's Chapter 23, as followed in Appel and Bindel's
+Section 2: the 24 mathematical steps and their current LeanPDE coverage.
+The statements use $n$ nodes. Checkmarks mark available definitions
+and proved results; alternative arguments and open cases are identified.}
 \label{tab:stewart}\\
 \toprule
 \rowcolor{tablehead}
-\P & Mathematical topic & LeanPDE result\\
+\P & Textbook statement or argument & LeanPDE result and proof\\
 \midrule
 \endfirsthead
+\multicolumn{3}{@{}l}{\textit{Table~\ref{tab:stewart} continued:
+Stewart's Chapter 23 and Appel--Bindel Section 2.}}\\
+\addlinespace
 \toprule
 \rowcolor{tablehead}
-\P & Mathematical topic & LeanPDE result (continued)\\
+\P & Textbook statement or argument & LeanPDE result and proof\\
 \midrule
 \endhead
 \bottomrule
 \endfoot
-1 & Weighted quadrature sum &
+1 & Approximate the weighted integral $\I_w(f)$ by a sum of $n$ values,
+$\Q_n(f)=\sum_i\lambda_i f(x_i)$. &
 \checked{Defined}: \code{GaussianRule} and \code{GaussianRule.value}
-represent and evaluate a weighted Gaussian rule on a compact interval.\\
+represent and evaluate the rule. Its existence is proved using the
+orthogonal polynomials and their roots below.\\
 \addlinespace
-2 & Weighted integral notation &
-\checked{Defined}: \code{polynomialIntegral} integrates a polynomial against $w$.\\
+2 & Keep the interval and weight fixed, and abbreviate integration
+against $w$ by $\I_w$. &
+\checked{Defined}: \code{polynomialIntegral} is the weighted integral
+restricted to polynomials.\\
 \addlinespace
-3 & Linearity &
-\checked{Defined and proved}: the weighted polynomial integral is a linear map,
-using mathlib's integral linearity. Rule evaluation is also linear.\\
+3 & Integration commutes with addition and scalar multiplication
+for integrable functions. &
+\checked{Defined and proved}: \code{polynomialIntegral} is a linear map,
+using mathlib's integral linearity.\\
 \addlinespace
-4 & Orthogonality &
+4 & Define orthogonality by $\I_w(pq)=0$, using the integral of the
+product as an inner product. &
 \proved{}: \code{momentInnerCore} constructs the polynomial inner product;
-\code{polynomialIntegral_square_pos} supplies positivity for the weighted integral.\\
+\code{polynomialIntegral_square_pos} proves positivity on nonzero squares.\\
 \addlinespace
-5 & Orthogonal polynomial family &
-\proved{}: \code{exists_monic_orthogonal} constructs a monic polynomial
-of each degree, orthogonal to every lower degree;
-\code{orthogonalPolynomial_unique} proves uniqueness.\\
+5 & Choose a monic polynomial $p_k$ of each degree $k$, with
+$\I_w(p_i p_j)=0$ whenever $i\ne j$. &
+\proved{}: \code{exists_monic_orthogonal} constructs the family by
+orthogonal projection; \code{orthogonalPolynomial_unique} proves
+uniqueness at each degree.\\
 \addlinespace
-6 & Expansion in a monic family &
-The construction uses orthogonal projection directly. The expansion
-theorem for an arbitrary monic family is not a separate library theorem.\\
+6 & Every polynomial of degree at most $n$ has a unique expansion
+in any monic family $p_0,\ldots,p_n$ with $\deg p_k=k$. &
+The arbitrary-family expansion theorem is not separately formalized.
+Orthogonal projection gives the family directly, so the Gaussian
+construction does not need this intermediate result.\\
 \addlinespace
-7 & Inductive expansion proof &
-\code{degree_sub_coeff_mul_lt} proves the leading-coefficient elimination
-used in the recurrence. The family itself is constructed by projection.\\
+7 & Prove that expansion by subtracting the leading multiple of
+$p_n$, lowering the degree, and applying induction. &
+\code{degree_sub_coeff_mul_lt} proves the degree reduction used in
+the recurrence. It does not establish the full expansion and uniqueness
+argument of paragraph 6.\\
 \addlinespace
-8 & Orthogonality to every lower degree &
-\proved{}: \code{orthogonalPolynomial_orthogonal} for the constructed family.\\
+8 & An orthogonal polynomial $p_n$ is orthogonal to every polynomial
+of degree below $n$. &
+\proved{}: \code{orthogonalPolynomial_orthogonal}. This is a defining
+property of the projection construction.\\
 \addlinespace
-9 & The first two monic polynomials &
+9 & The family starts with $p_0=1$ and
+$p_1(x)=x-\I_w(x)/\I_w(1)$, as determined by orthogonality to constants. &
 \proved{}: \code{orthogonalPolynomial_zero} and \code{orthogonalPolynomial_one},
-including the degree-one coefficient as a ratio of integrals.\\
+including the weighted mean in the degree-one coefficient.\\
 \addlinespace
-10 & Recurrence coefficients &
-\proved{}: \code{recurrenceAlpha}, \code{recurrenceBeta}, and the recurrence with those coefficients.\\
+10 & Inner products determine the coefficients of $p_n$ and $p_{n-1}$
+when expressing $xp_n-p_{n+1}$ in the orthogonal family. &
+\proved{}: \code{recurrenceAlpha} and \code{recurrenceBeta} give those
+ratios of integrals; the recurrence theorem proves the identity.\\
 \addlinespace
-11 & Vanishing lower terms &
-\proved{}: the three-term identity has no further lower terms. The proof uses lower-degree orthogonality.\\
+11 & All earlier terms vanish: $xp_j$ has degree below $n$ when
+$j<n-1$, so it is orthogonal to $p_n$. &
+\proved{}: lower-degree orthogonality removes these terms in the proof
+of the three-term identity. No separate infinite coefficient list is needed.\\
 \addlinespace
-12 & Three-term recurrence &
-\proved{}: \code{orthogonalPolynomial_recurrence}, with the positive norm-ratio identity.\\
+12 & After the first two polynomials, each $p_{n+1}$ is obtained
+from $xp_n$, $p_n$, and $p_{n-1}$ by a three-term recurrence. &
+\proved{}: \code{orthogonalPolynomial_recurrence}, with
+\code{recurrenceBeta_eq_norm_ratio} and \code{recurrenceBeta_pos}.
+The recurrence is derived after the projection construction.\\
 \addlinespace
-13 & Real, simple, interior roots &
+13 & The degree-$n$ orthogonal polynomial has exactly $n$ real,
+distinct roots, all inside $(a,b)$. &
 \proved{}: \code{orthogonal_splits}, \code{orthogonal_squarefree}, and
-\code{orthogonal_root_mem_Ioo}, at every positive order.\\
+\code{orthogonal_root_mem_Ioo} give splitting, simplicity, and interiority.\\
 \addlinespace
-14 & Root argument &
-\checked{Alternative proof}: factorization, constant sign, and positive integrals of squares give the root results.\\
+14 & Multiply $p_n$ by the product of the linear factors at its
+sign-changing roots. Too few such roots would make orthogonality
+contradict a nonzero integral. &
+\checked{Alternative proof}: \code{orthogonal_factor_has_root} forces
+each nonconstant factor to have an interval root. Factorization gives
+splitting; separate positivity arguments give simplicity and exclude endpoints.\\
 \addlinespace
-15 & Weights from Lagrange polynomials &
-\proved{}: \code{interpolatoryWeight}, interpolation exactness, and identification of Gaussian weights.\\
+15 & Use the roots as nodes and set $\lambda_i=\I_w(\ell_i)$.
+Lagrange interpolation then gives exactness below degree $n$. &
+\proved{}: \code{interpolatoryWeight} and \code{interpolatory_exact};
+\code{GaussianRule.weights_eq_interpolatoryWeight} identifies the
+Gaussian weights with these integrals.\\
 \addlinespace
-16 & Degree $2n-1$ exactness for $n$ nodes &
-\proved{}: \code{gaussian_exact} uses polynomial division at every positive order.\\
+16 & For $\deg f\le 2n-1$, divide $f=p_nq+r$ with
+$\deg q,\deg r<n$. Orthogonality and interpolation give $\Q_n(f)=\I_w(f)$. &
+\proved{}: \code{gaussian_exact} follows this division argument.
+The $p_nq$ term vanishes at the nodes and has zero weighted integral;
+the rule integrates $r$ exactly.\\
 \addlinespace
-17 & Positive quadrature weights &
-\proved{}: \code{gaussian_weight_pos} from the integral of a squared Lagrange polynomial.\\
+17 & Apply exactness to $\ell_i^2$. Its quadrature value is
+$\lambda_i$, and its weighted integral is positive. &
+\proved{}: \code{gaussian_weight_pos} uses this squared-Lagrange
+argument to prove every weight positive.\\
 \addlinespace
-18 & Total weight and weight bound &
+18 & The weights sum to $\I_w(1)$. The quoted prose also concludes that
+each weight is at most one. &
 \proved{}: \code{sum_weights} and \code{weight_le_mass}.
-The bound is the total integral mass $\int w$; it equals one for normalized weights.\\
+The general bound is $\lambda_i\le\I_w(1)$.
+The Rocq theorem already states this mass bound; the bound one follows
+under unit-mass normalization.\\
 \addlinespace
-19 & Gaussian remainder &
+19 & For sufficiently smooth $f$, the quadrature error is
+$\I_w(p_n^2)$ times $f^{(2n)}(\xi)/(2n)!$ at some interval point $\xi$. &
 \proved{}: \code{hermite_remainder}, \code{GaussianRule.remainder},
-and \code{GaussianRule.abs_error_le} give the $2n$-derivative identity and bound.\\
+and \code{GaussianRule.abs_error_le}. Hermite interpolation gives the
+pointwise error; the integrated identity uses the continuity assumptions
+in Section~\ref{sec:mathematics}.\\
 \addlinespace
-20 & Convergence for continuous functions &
-\proved{}: \code{gaussian_rules_converge}. A separate theorem covers positive normalized rules of increasing exactness.\\
+20 & Approximate a continuous function uniformly by polynomials.
+Positivity and increasing exactness then give $\Q_n(f)\to\I_w(f)$. &
+\proved{}: \code{gaussian_rules_converge} follows this uniform-approximation
+argument on a compact interval with fixed positive continuous weight.\\
 \addlinespace
-21 & Gauss--Legendre specialization &
-\proved{}: the general compact theory specializes to unit weight.
+21 & Choose $w=1$ on $[-1,1]$. The resulting family consists of
+the monic Legendre polynomials and yields Gauss--Legendre quadrature. &
+\proved{}: the general construction specializes to unit weight.
 Explicit rules through four nodes are identified with the monic Legendre
-family. General root and weight certificates support the stored-table proofs.\\
+family. General root and weight certificates support the stored tables.\\
 \addlinespace
-22 & Gauss--Laguerre on $[0,\infty)$ &
-\openproof{}: this infinite-interval Gaussian construction, remainder,
-and convergence theorem are outside the compact-interval development.\\
+22 & Gauss--Laguerre quadrature treats an integral on $[0,\infty)$. &
+\openproof{}: the corresponding unbounded-interval construction,
+remainder, and convergence theory are outside this development.\\
 \addlinespace
-23 & Gauss--Hermite on $\R$ &
-\openproof{}: this infinite-interval quadrature construction is outside
-the development. Hermite interpolation in paragraph 19 is a different subject.\\
+23 & Gauss--Hermite quadrature treats an integral on the whole real line. &
+\openproof{}: this unbounded-interval quadrature theory is outside the
+development. Hermite interpolation in paragraph 19 is a different result.\\
 \addlinespace
-24 & Other choices of weight and interval &
+24 & Other choices of interval and weight produce Gaussian rules
+suited to other integrals. &
 \code{exists_gaussian_quadrature} applies to any positive continuous
 weight on a compact interval. Individual named families require their own
 specialization and certificates.\\

@@ -319,111 +319,120 @@ LaTeX Warning: Citation `stewart' on page 8 undefined on input line 632.
 
 
 LaTeX Warning: Reference `sec:stewart-map' on page 8 undefined on input line 64
-3.
+4.
 
 [8]
 
-LaTeX Warning: Reference `thm:remainder' on page 9 undefined on input line 711.
+LaTeX Warning: Reference `thm:remainder' on page 9 undefined on input line 712.
 
 
 
-LaTeX Warning: Reference `eq:remainder' on page 9 undefined on input line 741.
+LaTeX Warning: Reference `eq:remainder' on page 9 undefined on input line 742.
 
 [9]
 
-LaTeX Warning: Reference `thm:remainder' on page 10 undefined on input line 762
+LaTeX Warning: Reference `thm:remainder' on page 10 undefined on input line 763
 .
 
 
-LaTeX Warning: Citation `floatlib' on page 10 undefined on input line 782.
+LaTeX Warning: Citation `floatlib' on page 10 undefined on input line 783.
 
 
 LaTeX Warning: Reference `sec:discrepancies' on page 10 undefined on input line
- 804.
+ 805.
 
 [10]
 
-LaTeX Warning: Reference `eq:fold' on page 11 undefined on input line 821.
+LaTeX Warning: Reference `eq:fold' on page 11 undefined on input line 822.
 
 
-LaTeX Warning: Reference `eq:accuracy' on page 11 undefined on input line 832.
+LaTeX Warning: Reference `eq:accuracy' on page 11 undefined on input line 833.
 
 
-LaTeX Warning: Reference `thm:remainder' on page 11 undefined on input line 838
+LaTeX Warning: Reference `thm:remainder' on page 11 undefined on input line 839
 .
 
 
-LaTeX Warning: Reference `eq:budget' on page 11 undefined on input line 840.
+LaTeX Warning: Reference `eq:budget' on page 11 undefined on input line 841.
 
 
-LaTeX Warning: Reference `thm:accuracy' on page 11 undefined on input line 847.
+LaTeX Warning: Reference `thm:accuracy' on page 11 undefined on input line 848.
 
 
 
-LaTeX Warning: Reference `sec:programs' on page 11 undefined on input line 859.
+LaTeX Warning: Reference `sec:programs' on page 11 undefined on input line 860.
 
 
 
 LaTeX Warning: Reference `lst:c-integrator' on page 11 undefined on input line 
-866.
+867.
 
 
-LaTeX Warning: Reference `eq:fold' on page 11 undefined on input line 869.
+LaTeX Warning: Reference `eq:fold' on page 11 undefined on input line 870.
 
 (/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang1.sty)
 (/usr/share/texlive/texmf-dist/tex/latex/listings/lstmisc.sty)
 
-LaTeX Warning: Citation `vst' on page 11 undefined on input line 890.
+LaTeX Warning: Citation `vst' on page 11 undefined on input line 891.
 
 
-LaTeX Warning: Citation `vstfloyd' on page 11 undefined on input line 890.
+LaTeX Warning: Citation `vstfloyd' on page 11 undefined on input line 891.
 
 
-LaTeX Warning: Citation `clean' on page 11 undefined on input line 893.
+LaTeX Warning: Citation `clean' on page 11 undefined on input line 894.
 
 [11]
 
-LaTeX Warning: Citation `irislean' on page 12 undefined on input line 923.
+LaTeX Warning: Citation `irislean' on page 12 undefined on input line 924.
 
 [12]
 
-LaTeX Warning: Reference `eq:source' on page 13 undefined on input line 972.
+LaTeX Warning: Reference `eq:source' on page 13 undefined on input line 973.
 
 [13]
 
-LaTeX Warning: Reference `tab:results' on page 14 undefined on input line 1039.
+LaTeX Warning: Reference `tab:results' on page 14 undefined on input line 1040.
 
 
 [14]
 
 LaTeX Warning: Citation `compcertmanual' on page 15 undefined on input line 111
-3.
+4.
 
 
 LaTeX Warning: Reference `fig:boundaries' on page 15 undefined on input line 11
-32.
+33.
 
 [15] [16]
 
-LaTeX Warning: Reference `tab:results' on page 17 undefined on input line 1305.
+LaTeX Warning: Reference `tab:results' on page 17 undefined on input line 1306.
 
 
 [17]
 
 LaTeX Warning: Citation `leanquadrature' on page 18 undefined on input line 133
-8.
+9.
 
 [18]
 
-LaTeX Warning: Reference `tab:stewart' on page 19 undefined on input line 1417.
+LaTeX Warning: Reference `tab:stewart' on page 19 undefined on input line 1416.
 
 
 
-LaTeX Warning: Citation `stewart' on page 19 undefined on input line 1419.
+LaTeX Warning: Citation `stewart' on page 19 undefined on input line 1418.
 
-(/usr/share/texlive/texmf-dist/tex/latex/lm/ts1lmr.fd) [19] [20]
+(/usr/share/texlive/texmf-dist/tex/latex/lm/ts1lmr.fd)
+
+LaTeX Warning: Reference `tab:stewart' on page 19 undefined on input line 1464.
+
+
+
+LaTeX Warning: Reference `sec:mathematics' on page 19 undefined on input line 1
+579.
+
+[19] [20] [21]
 No file main.bbl.
-[21] (./main.aux)
+[22] (./main.aux)
 
 LaTeX Warning: There were undefined references.
 
@@ -457,5 +466,5 @@ s/type1/public/lm/lmtk10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/
 lm/lmtt10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/lm/lmtti10.pfb>
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb><
 /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on main.pdf (21 pages, 435899 bytes).
+Output written on main.pdf (22 pages, 443532 bytes).
 Transcript written on main.log.
