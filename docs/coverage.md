@@ -165,7 +165,7 @@ The separate Rocq general-integrand certificates still cover orders 1–4.
 
 The full development is not complete. The mathematical remainder, weighted
 convergence, explicit Legendre identification, general binary64 API, and concrete
-Lean example are proved. The Clight example has total correctness under two
+Lean example are proved. The Rocq Clight example has total correctness under two
 external cosine contracts. All four C loops also have callback-parametric total
 correctness theorems in CompCert's own floating-point model: no reachable stuck
 state, no infinite execution, and a unique return value and memory.
@@ -191,11 +191,10 @@ counts its double zeros, and `HermiteRemainder.v` proves the pointwise remainder
 constants for orders 1–4. `ClightIntegralAccuracy.v` composes this analytic bound
 with the C theorem. Its endpoint hypotheses use ordinary derivatives;
 Lean's weighted single-witness integral formula uses `ContDiffOn`.
-The finite FloatLib–CompCert correspondence remains open. A separate direct
-Lean route now proves the four concrete polynomial library calls in the adapted
-Clight semantics and attaches their existing FloatLib integral bounds.
-These certificates include actual initialized memory and the imported function
-bodies; they are not just the earlier intermediate-loop theorems.
+The finite FloatLib–CompCert correspondence remains open. In the adapted Lean
+Clight semantics, the polynomial library calls are proved to return values
+satisfying the FloatLib integral bounds for all ten stored orders.
+These certificates include initialized memory and the imported function bodies.
 `Clight/Callbacks.lean` also proves the imported loop's exact result for any
 callback satisfying its contract in that fixed initialized context. It proves
 that the polynomial callback meets the contract for every binary64 input.
